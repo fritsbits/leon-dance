@@ -1,7 +1,7 @@
 ---
 title: Strategy — Jobs-to-be-done
 tags: [strategy, jtbd, user-needs, garrett]
-sources: [12-client-kickoff-2026-05-19, 11-website-purpose, 27-comparator-debateville, 22-offerings-audiences]
+sources: [client kickoff 2026-05-19; desk research; comparator — Debateville]
 phase: strategy
 updated: 2026-05-19
 ---
@@ -16,16 +16,16 @@ updated: 2026-05-19
 
 Garrett **user needs**, in JTBD framing: *when [situation], I want to [motivation], so I
 can [outcome]*. One job per [persona](20-personas.md)/stage, tied to the
-[goals](10-organisation-goals.md). Confidence scheme: [Strategy Brief](00-strategy-brief.md).
+[goals](10-organisation-goals.md).
 
 ## Job profiles
 
 Each = *job statement* · **functional / emotional / social** layers · **hired over what**
 (the alternative they pick today — often non-consumption) · **done when** (the success
 signal) · **dominant force** (the one push/pull/anxiety that decides it; system-level
-forces in the next section). Person → [20](20-personas.md); promise → [40](40-value-proposition.md).
+forces in the next section).
 
-### P1 · curious — *serves [G2](10-organisation-goals.md)* · C: High
+### P1 · curious — *serves [G2](10-organisation-goals.md)*
 
 - **Job** — hit Leon offline, intrigued but unsure → grasp *what this is* and *whether it's
   for someone like me*, so I can decide to show up without feeling I don't belong.
@@ -38,23 +38,23 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
 - **Done when** — "this is for me" *and* the next concrete step is in hand (a date/place
   or sign-up).
 - **Dominant force** — **anxiety** (not belonging), amplified by the *subsidiedossiertaal*
-  push. · [90 §P1](90-research-evidence-2026-05-19.md)
+  push.
 
-### P1 · signs up — *G2/G4* · C: High
+### P1 · signs up — *G2/G4*
 
 - **Job** — decided to join a *creatie*/Mariage → register simply and know when/where.
   **Functional:** trustworthy owned sign-up. **Emotional:** reassurance it's really open
   to me. **Hired over what:** an unbranded external MS-Form, or giving up. **Done when:**
   registered + my contact lands somewhere Leon can follow up. **Dominant force:** pull
-  (committed) blocked by friction (off-platform form). · [90 §P1]
+  (committed) blocked by friction (off-platform form).
 
-### P1 · returning — *G2* · C: High
+### P1 · returning — *G2*
 
 - **Job** — already take part → get the next practical detail (time/place/who) fast.
   Thin, utility-mode. **Hired over what:** WhatsApp/asking the artist. **Done when:** the
-  detail is found in seconds. **Dominant force:** habit (low effort tolerated). · `client-meeting`
+  detail is found in seconds. **Dominant force:** habit (low effort tolerated).
 
-### P2 · jury/subsidiënt — *serves [G1](10-organisation-goals.md)* · C: High
+### P2 · jury/subsidiënt — *serves [G1](10-organisation-goals.md)*
 
 - **Job** — assessing Leon's Kunstendecreet 2028–32 ***participatie*-functie** dossier →
   fast evidence **in the decree's own terms** that this is real, methodical, durable.
@@ -66,9 +66,9 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
 - **Done when** — *method-meerwaarde* + *process/aftercare/continuity* + *quality-evolution*
   are **each** visibly evidenced (the rubric **is** the success test).
 - **Dominant force** — **anxiety**: the "legibility trap" (⚠️ *analogue, OKo*) — participatory
-  work judged unevenly / unfairly compared to production. · [90 §P2] · ⚠️ rubric = **2023–27**.
+  work judged unevenly / unfairly compared to production. ⚠️ rubric = **2023–27**.
 
-### P3 · programmator — *serves [G3](10-organisation-goals.md)* · C: High
+### P3 · programmator — *serves [G3](10-organisation-goals.md)*
 
 - **Job** — weighing booking *Mariage* (a replicable format), **the bike**, or a
   co-production → a professional dossier to decide + the right contact.
@@ -79,9 +79,9 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
   van die ene keer"*; the bike has no surface at all).
 - **Done when** — an actionable dossier exists + a clear contact path.
 - **Dominant force** — pull (distinctive work, Kosmos/Birds track record) blocked by the
-  **no-professional-surface** push. · [90 §P3]
+  **no-professional-surface** push.
 
-### P4 · groepsverantwoordelijke — *serves [G2](10-organisation-goals.md)/[G3](10-organisation-goals.md)* · C: High
+### P4 · groepsverantwoordelijke — *serves [G2](10-organisation-goals.md)/[G3](10-organisation-goals.md)*
 
 - **Job** — responsible for a welfare/education/disability group → understand what a Leon
   trajectory does *for my group* and how to start the conversation.
@@ -93,9 +93,9 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
   and relationship-led off-site (P4 does not "apply").
 - **Done when** — can picture the fit + has a low-threshold first contact.
 - **Dominant force** — **anxiety**: institutional (time · whole-team buy-in · whether it
-  counts), not artistic. ⚠️ teacher-as-participant = *analogue (MUS-E)*. · [90 §P4]
+  counts), not artistic. ⚠️ teacher-as-participant = *analogue (MUS-E)*.
 
-### P5 · pers & breed publiek — *serves [G3](10-organisation-goals.md)* · C: High (seg) / Med (depth)
+### P5 · pers & breed publiek — *serves [G3](10-organisation-goals.md)*
 
 - **Job** — heard there's a free Leon show → clear multilingual what/when/where (+ press
   basics/visuals/angle).
@@ -105,9 +105,9 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
 - **Hired over what** — skip it / cover something else (today the agenda is an image).
 - **Done when** — date · place · visuals · angle in hand.
 - **Dominant force** — push (nothing press-usable). ⚠️ *Mariage* has no critic reviews →
-  recognition leans on lineage proxy ([S-11](01-concerns.md)). · [90 §P5]
+  recognition leans on lineage proxy ([S-11](01-concerns.md)).
 
-### P6 · artiest/medewerker — *internal, light, G4/G5* · C: Med
+### P6 · artiest/medewerker — *internal, light, G4/G5*
 
 - **Job (light)** — delivering a freelance session → a shared *rode draad* + a reliable
   planning reference, so I work connected, not in scattered WhatsApp/mail. ⚠️ **Scope
@@ -118,18 +118,10 @@ forces in the next section). Person → [20](20-personas.md); promise → [40](4
 
 *No job — the site is not on their path, by design* ([20](20-personas.md)).
 
-**Basis (all profiles):** [Research Evidence (2026-05-19)](90-research-evidence-2026-05-19.md)
-(P2 rubric; bike; forces; partner-voice); [Client Kickoff](../discovery/12-client-kickoff-2026-05-19.md)
-§2/§5/§6/§9/§10; [Website Purpose](../discovery/11-website-purpose.md). **To validate:**
-per-job lived detail at the content-complete-draft review + Kristin's survey (P1/P4)
-([S-07](01-concerns.md)).
-
 ## System-level forces (push / pull / anxiety / habit)
 
 *Per-persona dominant force is in each profile above; this is the **system view** — the
-forces acting across all jobs at once.* ⚠️ From the desk-research run
-([Research Evidence §JTBD-forces](90-research-evidence-2026-05-19.md)) — *job-forces*, not
-persona-context (ownership contract):
+forces acting across all jobs at once.*
 
 - **Push** — the current site reads as *subsidiedossiertaal* and loses P1; the agenda is
   Excel→screenshot (mobile-broken). The pain is felt, not latent.
@@ -151,28 +143,25 @@ P1, P2 and P3 **all hire the site for "proof" — but a different register**:
 - **P3** wants *track record / repertoire* (professional credibility).
 
 **Decision D-iii ([brief](00-strategy-brief.md#locked-strategic-decisions)): one
-architecture, three routed entries.** Build the
-[Debateville-style](../discovery/27-comparator-debateville.md) qualitative ladder **once** —
-*method → qualitative evidence (quotes / photo-film archive) → honest output counts →
+architecture, three routed entries.** Build a Debateville-style qualitative ladder **once**
+— *method → qualitative evidence (quotes / photo-film archive) → honest output counts →
 report shell* — and **route** each persona to *enter* it differently:
 
 - newcomer meets it up front as **"mensen zoals jij"** social proof;
 - jury enters it **deep & structured**;
 - programmer reads it as **track record / dossier**.
 
-- **C: High** · **Basis:** [Comparator — Debateville](../discovery/27-comparator-debateville.md)
-  (the "one ladder + audience-first IA" pattern; qualitative-led steer confirmed);
-  thin editorial capacity confirmed real ([Kickoff §8](../discovery/12-client-kickoff-2026-05-19.md#8-build-approach-platform-cost-maintenance)).
-  The rungs are now **rubric-anchored**: the Kunstendecreet *participatie* functie weighs
-  exactly *method-meerwaarde · process/aftercare/continuity · quality-evolution*
-  ([Research Evidence §P2](90-research-evidence-2026-05-19.md)) — so the ladder's content
-  should serve those, not generic counts.
-- **To validate / open:** (i) which **honest output counts** are safe given per-funder
-  framing — sharpened by the rubric, do **not** lift dossier numbers verbatim
-  ([S-08](01-concerns.md)); (ii) ⚠️ ***Mariage* has no published critic reviews** — the
-  press/recognition rung leans on the **lineage as proxy** (INVITED/Tornar het
-  TheaterFestival selection). **Ask the team** for possibly-missed Mariage press before
-  this rung is fixed ([S-11](01-concerns.md)).
+The rungs are **rubric-anchored**: the Kunstendecreet *participatie* functie weighs
+exactly *method-meerwaarde · process/aftercare/continuity · quality-evolution*
+([Research Evidence §P2](90-research-evidence-2026-05-19.md)) — so the ladder's content
+should serve those, not generic counts.
+
+**Open items:** (i) which **honest output counts** are safe given per-funder framing —
+sharpened by the rubric, do **not** lift dossier numbers verbatim
+([S-08](01-concerns.md)); (ii) ⚠️ ***Mariage* has no published critic reviews** — the
+press/recognition rung leans on the **lineage as proxy** (INVITED/Tornar het
+TheaterFestival selection). **Ask the team** for possibly-missed Mariage press before this
+rung is fixed ([S-11](01-concerns.md)).
 
 ⚠️ This is the single highest-leverage JTBD call: it makes "proof" **one** maintained
 artifact (capacity-safe) instead of three, and it directly shapes the

@@ -1,7 +1,7 @@
 ---
 title: Strategy — User Journey
 tags: [strategy, user-journey, current-future, garrett]
-sources: [12-client-kickoff-2026-05-19, 11-website-purpose, 20-site-audit, 21-organisation, 26-agenda-analysis]
+sources: [client kickoff 2026-05-19; desk research; site audit]
 phase: strategy
 updated: 2026-05-19
 ---
@@ -19,9 +19,8 @@ decision **D-v**: map J1/J2/J3 only; note the rest — *no service-blueprint spr
 arc = a short ordered set of **moments** with *what happens & feels · current friction ·
 future move* (the move **links** to its [VP](40-value-proposition.md) RTB — not re-listed,
 per the ownership contract), plus the single **make-or-break moment** and **entry/exit**.
-Confidence scheme: [Strategy Brief](00-strategy-brief.md).
 
-## J1 · Newcomer moment-of-truth — P1 → [G2](10-organisation-goals.md) (everyday primary) · C: High
+## J1 · Newcomer moment-of-truth — P1 → [G2](10-organisation-goals.md) (everyday primary)
 
 | Moment | What happens & feels | Current friction | Future move |
 |---|---|---|---|
@@ -33,13 +32,9 @@ Confidence scheme: [Strategy Brief](00-strategy-brief.md).
 | **After** | Shows up; later just needs the next detail | Contact lost (no capture) | Follow-up; returning = thin utility mode |
 
 **★ Make-or-break:** the belonging verdict on first scan. **Entry:** offline trigger *only*
-(not search/social). **Exit (today):** the mission/vision wall. **Basis:**
-[Research Evidence §P1/journey](90-research-evidence-2026-05-19.md);
-[Kickoff §2/§5/§6](../discovery/12-client-kickoff-2026-05-19.md#2-who-the-site-is-for--client-validated-with-a-refinement).
-**To validate:** "the right people" per atelier; antenne concentrate-vs-spread
-([S-04](01-concerns.md)); unfiltered P1 voice (survey, [S-07](01-concerns.md)).
+(not search/social). **Exit (today):** the mission/vision wall.
 
-## J2 · Jury visitekaartje — P2 → [G1](10-organisation-goals.md) (dated keystone) · C: High
+## J2 · Jury visitekaartje — P2 → [G1](10-organisation-goals.md) (dated keystone)
 
 | Moment | What happens & feels | Current friction | Future move |
 |---|---|---|---|
@@ -51,14 +46,10 @@ Confidence scheme: [Strategy Brief](00-strategy-brief.md).
 | **After** | Leaves convinced it's real, methodical, durable | The site didn't help the dossier | The site *is* corroborating evidence |
 
 **★ Make-or-break:** the rubric-evidenced decisive moment. **Entry:** from the dossier
-(Jan–Jul 2027). **Exit (today):** "young / Brussels-only / charity, not rigorous".
-**Basis:** [Research Evidence §P2/proof](90-research-evidence-2026-05-19.md) (the rubric;
-own-channels-as-proof); [Kickoff §1](../discovery/12-client-kickoff-2026-05-19.md#1-the-strategic-driver-kunstendecreet-20282032);
-[Ecosystem](../discovery/23-ecosystem.md). **To validate:** safe per-funder figures
-([S-08](01-concerns.md)); invitation-forward residual risk ([S-02](01-concerns.md)). ⚠️
+(Jan–Jul 2027). **Exit (today):** "young / Brussels-only / charity, not rigorous". ⚠️
 Rubric = **2023–27** Handleiding (28–32 aandachtspunten not yet public).
 
-## J3 · Programmer booking — P3 → [G3](10-organisation-goals.md) · C: Med–High
+## J3 · Programmer booking — P3 → [G3](10-organisation-goals.md)
 
 | Moment | What happens & feels | Current friction | Future move |
 |---|---|---|---|
@@ -69,11 +60,7 @@ Rubric = **2023–27** Handleiding (28–32 aandachtspunten not yet public).
 | **Act → After** | Reaches the right person → books → tour/co-pro relationship | Ad hoc / stalls | Clear contact path → books |
 
 **★ Make-or-break:** the credibility-and-contact moment. **Entry:** sector / seeing the
-work (*not* the site cold). **Exit (today):** no professional surface. **Basis:**
-[Research Evidence §P3](90-research-evidence-2026-05-19.md); [Website Purpose](../discovery/11-website-purpose.md);
-[Organisation](../discovery/21-organisation.md#lineage-and-production-model). **To validate:**
-paid-offers / booking section + **the bike as a site-bookable offer** = Scope/Design
-([S-05](01-concerns.md)).
+work (*not* the site cold). **Exit (today):** no professional surface.
 
 ## Deliberately not mapped (noted shape only, by design)
 

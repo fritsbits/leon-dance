@@ -1,7 +1,7 @@
 ---
 title: Strategy — Value Proposition
 tags: [strategy, value-proposition, positioning, garrett]
-sources: [12-client-kickoff-2026-05-19, 11-website-purpose, 27-comparator-debateville, 21-organisation, 20-site-audit]
+sources: [client kickoff 2026-05-19; desk research; comparator — Debateville]
 phase: strategy
 updated: 2026-05-19
 ---
@@ -17,8 +17,7 @@ updated: 2026-05-19
 The bridge: what the redesigned site **uniquely delivers per audience**, satisfying the
 [job](30-jobs-to-be-done.md) *and* a [goal](10-organisation-goals.md). The
 [rebalance](10-organisation-goals.md#governing-principle-sits-above-all-goals--not-itself-a-goal)
-lives here — **one substance, two registers**. Confidence scheme:
-[Strategy Brief](00-strategy-brief.md).
+lives here — **one substance, two registers**.
 
 ## Overarching site value proposition
 
@@ -28,36 +27,33 @@ lives here — **one substance, two registers**. Confidence scheme:
 > jury's* visitekaartje *and the newcomer's moment of truth at once, because the same
 > proof, retold in two registers, serves both.*
 
-**C: High** · **Basis:** the strategic spine
-([brief](00-strategy-brief.md#the-strategic-spine-what-the-whole-phase-hangs-off));
-[Client Kickoff §2](../discovery/12-client-kickoff-2026-05-19.md#2-who-the-site-is-for--client-validated-with-a-refinement);
-[Website Purpose](../discovery/11-website-purpose.md). · **To validate:** the client's
-own NL voicing at the content-complete-draft review.
+The final wording is the client's to voice (NL, they proof content) at the
+content-complete-draft review.
 
 ## Promise profiles
 
 Each = *unique value* · **only-here** (what peers/alternatives don't offer) · **RTB →
 owned asset** (the concrete thing that backs the claim) · **register pair** (the same
 promise in institutional vs belonging words — the two-registers idea made concrete) ·
-**not promising** (honest anti-scope) · *vs current* · C. Job → [30](30-jobs-to-be-done.md);
+**not promising** (honest anti-scope) · *vs current*. Job → [30](30-jobs-to-be-done.md);
 person → [20](20-personas.md).
 
-### P1 · nieuwsgierige — *serves [G2](10-organisation-goals.md)* · C: High
+### P1 · nieuwsgierige — *serves [G2](10-organisation-goals.md)*
 
 - **Unique value** — plain language + images of people like them: "what this is, people
   like you doing it, exactly how to come."
 - **Only-here** — peers present participation as a *descriptive page* (even Ultima Vez's
   Atelier Quartier is "free, no registration, just come"); Leon makes the **moment-of-truth
-  itself the job** — reassurance-first, not mission-first. ⚠️ comparator: ecosystem/Debateville.
+  itself the job** — reassurance-first, not mission-first.
 - **RTB → asset** — the **Leon-curated participant quotes** (*"…I can be myself there and I
   meet people I would never have otherwise encountered"*; FR *"…être différent ensemble"*)
   · the 58-photo/film archive · clear practical info · owned sign-up.
 - **Register pair** — *belonging* ("hier hoor je erbij — kom gewoon"); **not** institutional.
 - **Not promising** — not the *discovery* channel (won't replace the offline trigger); not
   a polished social feed.
-- *vs current:* opens with missie/visie → they *"haken af"*. · [90 §P1](90-research-evidence-2026-05-19.md)
+- *vs current:* opens with missie/visie → they *"haken af"*.
 
-### P2 · jury/subsidiënt — *serves [G1](10-organisation-goals.md)* · C: High
+### P2 · jury/subsidiënt — *serves [G1](10-organisation-goals.md)*
 
 - **Unique value** — fast, credible proof **in the decree's own terms** that a 16-yr
   practice (5-yr vzw) is methodical, durable, consequential — without overstating scale.
@@ -73,11 +69,11 @@ person → [20](20-personas.md).
   functie, evidenced").
 - **Not promising** — not a **metrics dashboard** (qualitative-led, D-iii); not
   Brussels-only (the jurisdiction trap).
-- *vs current:* method buried on one EN page; no proof architecture. · [90 §P2] · ⚠️ rubric
-  = **2023–27** Handleiding (28–32 aandachtspunten not yet public — structure durable,
-  don't hard-wire).
+- *vs current:* method buried on one EN page; no proof architecture. ⚠️ rubric =
+  **2023–27** Handleiding (28–32 aandachtspunten not yet public — structure durable, don't
+  hard-wire).
 
-### P3 · programmator — *serves [G3](10-organisation-goals.md)* · C: High
+### P3 · programmator — *serves [G3](10-organisation-goals.md)*
 
 - **Unique value** — a professional dossier that makes Leon bookable — **three bookable
   things, not one**.
@@ -90,9 +86,9 @@ person → [20](20-personas.md).
 - **Register pair** — *institutional* ("credible, distinctive, low-risk to programme").
 - **Not promising** — the bike as a *site-bookable* offer is a **Scope/Design** call, not
   promised by Strategy.
-- *vs current:* no team/pro/dossier at all. · [90 §P3]
+- *vs current:* no team/pro/dossier at all.
 
-### P4 · groepsverantwoordelijke — *serves [G2](10-organisation-goals.md)/[G3](10-organisation-goals.md)* · C: High
+### P4 · groepsverantwoordelijke — *serves [G2](10-organisation-goals.md)/[G3](10-organisation-goals.md)*
 
 - **Unique value** — what a Leon trajectory does *for their group* + a warm, low-threshold
   way to start — **qualifying a deliberately limited model**, not a self-serve funnel.
@@ -106,10 +102,10 @@ person → [20](20-personas.md).
   mandate, and it counts").
 - **Not promising** — not an application funnel (Leon-initiated, relationship-led); not
   unlimited capacity (constrained — may *concentrate*, not multiply).
-- *vs current:* no group-facing framing. · [90 §P4] · ⚠️ most depth = one trajectory;
+- *vs current:* no group-facing framing. ⚠️ most depth = one trajectory;
   teacher-as-participant = *analogue (MUS-E)*.
 
-### P5 · pers & breed publiek — *serves [G3](10-organisation-goals.md)* · C: High (seg) / Med (depth)
+### P5 · pers & breed publiek — *serves [G3](10-organisation-goals.md)*
 
 - **Unique value** — clear multilingual what/when/where + press-usable basics/visuals + a
   third-party-validation framing.
@@ -121,21 +117,14 @@ person → [20](20-personas.md).
 - **Register pair** — *institutional-light* ("covered, selected, significant").
 - **Not promising** — ⚠️ **no Mariage critic reviews** — lineage proxy only; *ask the team*
   ([S-11](01-concerns.md)). Not a press-release machine.
-- *vs current:* image-only agenda, no press basics. · [90 §P5]
+- *vs current:* image-only agenda, no press basics.
 
-### P6 · artiest/medewerker — *internal, light* · C: Med
+### P6 · artiest/medewerker — *internal, light*
 
 Lightly carries the *rode draad* + a reliable planning reference. ⚠️ Later/light —
 flagged backstage, **not built deep this phase** ([S-06](01-concerns.md)).
 
 ### N · kerngroep — *no value proposition, by design* ([20](20-personas.md)).
-
-**Basis (all profiles):** [Research Evidence (2026-05-19)](90-research-evidence-2026-05-19.md)
-(P2 rubric; bike; partner-voice; differentiation; Mariage-press gap);
-[Website Purpose](../discovery/11-website-purpose.md);
-[Comparator — Debateville](../discovery/27-comparator-debateville.md);
-[Site Audit](../discovery/20-site-audit.md). **To validate:** client NL voicing + the
-gaps each profile names.
 
 ## The rebalance, made concrete
 
@@ -162,8 +151,6 @@ line (not in it).
   and the strongest read for P1 (the everyday front door, [G2](10-organisation-goals.md)).
   It is coherent with the rest of the strategy: invitation-forward ↔ G2-as-everyday-front-door
   ↔ proof-routed-by-audience.
-- **C: High** (posture) · the *posture* is the strategy team's call; the *final wording*
-  is the client's to voice (NL, they proof content).
 
 ⚠️ **Residual risk (tracked [S-02](01-concerns.md)).** Invitation-forward slightly
 sharpens the [G1](10-organisation-goals.md) jury-credibility risk — rigor sits *below* the

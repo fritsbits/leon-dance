@@ -1,7 +1,7 @@
 ---
 title: Strategy — Concerns Register
 tags: [strategy, concerns, status, phase-management]
-sources: [all strategy pages, 01-concerns (discovery), client-meeting-2026-05-19]
+sources: [all strategy pages]
 phase: strategy
 updated: 2026-05-20
 ---
@@ -17,12 +17,10 @@ per-page "To validate" notes are *local detail* — **this page owns the status*
 named) · ✅ Closed.
 
 **Scope of this register.** It holds only concerns that bear on the **Strategy-phase
-outcome** (the five artifacts). The Discovery
-[carry-forwards](../discovery/01-concerns.md#unresolved--what-still-needs-resolving-10)
-that are *Scope/Design/Build* concerns (Notion feasibility, GDPR, network memberships,
-*Birds* rights wording, footer-partners classification, …) are **not** dragged in here —
-they remain the seed for the **Scope** phase's register, not this one. Only the
-strategy-bearing ones are re-homed below (with their `D-` pointer).
+outcome** (the five artifacts). Scope/Design/Build concerns (Notion feasibility, GDPR,
+network memberships, *Birds* rights wording, footer-partners classification, …) remain
+the seed for the **Scope** phase's register, not this one. Only the strategy-bearing ones
+are re-homed below.
 
 ## At a glance
 
@@ -38,11 +36,10 @@ and downstream consumption. The [Unresolved table](#unresolved--what-still-needs
 **is the seed agenda for the Scope phase** (run in the Design thread). (+S-11/S-12 surfaced
 by the 2026-05-19 desk-research run; see [Research Evidence](90-research-evidence-2026-05-19.md).)
 
-> **2026-05-20 — Discovery reconciliation.** Cross-checked the Discovery carry-forwards
-> against the up-to-date [Discovery register](../discovery/01-concerns.md). Three Strategy
-> concerns close because their Discovery anchor closed at the 2026-05-19 Frederik review:
-> **S-05** (paid offers / booking — via D-05), **S-06** (backstage scope boundary — via
-> D-36), **S-10** (individual-donor / membership — via D-26). Detail in the audit trail.
+> **2026-05-20 — Discovery reconciliation.** Three Strategy concerns close because their
+> Discovery anchor closed at the 2026-05-19 review: **S-05** (paid offers / booking),
+> **S-06** (backstage scope boundary), **S-10** (individual-donor / membership). Detail
+> in the audit trail.
 
 ---
 
@@ -61,9 +58,9 @@ by the 2026-05-19 desk-research run; see [Research Evidence](90-research-evidenc
 
 | ID | | Concern | Needs (next step) |
 |----|---|---------|-------------------|
-| S-04 | 🔴 | **Antenne concentration vs. spread** (internal strategy) — shapes J1 + the location/reach IA (← [D-44](../discovery/01-concerns.md)) | Client internal decision |
-| S-08 | 🔴 | **Which impact figures are safe** to publish (per-funder framing) — blocks the proof ladder's "honest counts" rung (← [D-45](../discovery/01-concerns.md)). **Now rubric-anchored:** the *participatie* functie weighs *method-meerwaarde · process/aftercare/continuity · quality-evolution* — figure selection should serve those, not generic counts | Decide with client; **do not** lift dossier numbers verbatim; SharePoint dossiers |
-| S-09 | 🔴 | **Brand/tone assets** for the rebalance — the rebalance is *tone of voice + image*; needs the brand kit (← [D-40](../discovery/01-concerns.md) remainder) | Get the brand kit (SharePoint) |
+| S-04 | 🔴 | **Antenne concentration vs. spread** (internal strategy) — shapes J1 + the location/reach IA  | Client internal decision |
+| S-08 | 🔴 | **Which impact figures are safe** to publish (per-funder framing) — blocks the proof ladder's "honest counts" rung . **Now rubric-anchored:** the *participatie* functie weighs *method-meerwaarde · process/aftercare/continuity · quality-evolution* — figure selection should serve those, not generic counts | Decide with client; **do not** lift dossier numbers verbatim; SharePoint dossiers |
+| S-09 | 🔴 | **Brand/tone assets** for the rebalance — the rebalance is *tone of voice + image*; needs the brand kit (remainder of the brand-kit concern) | Get the brand kit (SharePoint) |
 
 ### Surfaced by the 2026-05-19 desk-research run
 
@@ -76,9 +73,8 @@ by the 2026-05-19 desk-research run; see [Research Evidence](90-research-evidenc
 
 ## Cross-thread note (Design dependency)
 
-**S-04** (antenne concentration vs. spread) is the **canonical** instance of one concern
-tracked in three registers: Discovery [D-44](../discovery/01-concerns.md) ·
-Design [Dn-08](../design/01-concerns.md) · here as **S-04**, **owned by Strategy**.
+**S-04** (antenne concentration vs. spread) is also tracked as
+Design [Dn-08](../design/01-concerns.md); **owned by Strategy**.
 Likewise the Design thread's **[Dn-01](../design/01-concerns.md)** ("Scope rests on an
 interim strategy basis; reconcile when the Strategy doc lands") now has its input — the
 [Strategy Brief](00-strategy-brief.md). Resolving S-01…S-10 does not auto-resolve Dn-01;
@@ -92,9 +88,9 @@ at the 2026-05-19 Frederik review.
 
 | ID | Concern | Resolution / pointer |
 |----|---------|----------------------|
-| S-05 | Paid offers / dedicated booking section appetite — shapes G3/J3 | **No booking automation** (stays email-led); instead a light **"how this collaborative-funding constellation works" explainer** + where it's been done, so partners can self-orient before mailing — no pricing/who-pays detail. G3/J3 shape accordingly. → resolved via [D-05](../discovery/01-concerns.md) (Frederik review 2026-05-19) |
-| S-06 | P6 / backstage scope boundary | **Boundary holds.** Lightweight backstage only — no full participant DB/CRM; site treatment kept *light & deferred* per the website-redesign mandate. Re-examine only in Scope/Design if a *site* treatment genuinely depends on it. → resolved via [D-36](../discovery/01-concerns.md) (Frederik review 2026-05-19) |
-| S-10 | Individual-donor / membership audience | **None.** Funding is grant/subsidy + project-based (incl. consortium-funded projects, e.g. Piano Fabriek); no donor/membership audience to model. Strategy stays grant + commission framed. → resolved via [D-26](../discovery/01-concerns.md) (Frederik review 2026-05-19) |
+| S-05 | Paid offers / dedicated booking section appetite — shapes G3/J3 | **No booking automation** (stays email-led); instead a light **"how this collaborative-funding constellation works" explainer** + where it's been done, so partners can self-orient before mailing — no pricing/who-pays detail. G3/J3 shape accordingly. → resolved at 2026-05-19 review |
+| S-06 | P6 / backstage scope boundary | **Boundary holds.** Lightweight backstage only — no full participant DB/CRM; site treatment kept *light & deferred* per the website-redesign mandate. Re-examine only in Scope/Design if a *site* treatment genuinely depends on it. → resolved at 2026-05-19 review |
+| S-10 | Individual-donor / membership audience | **None.** Funding is grant/subsidy + project-based (incl. consortium-funded projects, e.g. Piano Fabriek); no donor/membership audience to model. Strategy stays grant + commission framed. → resolved at 2026-05-19 review |
 
 ---
 
@@ -107,5 +103,5 @@ at the 2026-05-19 Frederik review.
 - **On lint:** reconcile per-page "To validate" notes against this register; no silent
   Open if concluding the phase.
 - **Concluding Strategy → Scope:** the still-unresolved rows here **plus** the
-  Scope/Design/Build [Discovery carry-forwards](../discovery/01-concerns.md) seed the
-  Scope phase's own register (created when that phase starts — not before).
+  Scope/Design/Build Discovery carry-forwards seed the Scope phase's own register
+  (created when that phase starts — not before).

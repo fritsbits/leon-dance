@@ -1,7 +1,7 @@
 ---
 title: Strategy Brief — Leon (front door)
 tags: [strategy, synthesis, front-door, brief]
-sources: [12-client-kickoff-2026-05-19, 11-website-purpose, 10-desk-research, 21-organisation, 22-offerings-audiences, 23-ecosystem, 27-comparator-debateville, 26-agenda-analysis, client-meeting-2026-05-19]
+sources: [client kickoff 2026-05-19; desk research; ecosystem; comparator — Debateville]
 phase: strategy
 updated: 2026-05-19
 ---
@@ -10,14 +10,8 @@ updated: 2026-05-19
 
 The **Strategy phase front door**: scan this, then drill into the five artifacts. Strategy
 is Garrett's **Strategy plane** (organisation objectives + user needs) — the decided layer
-between [Discovery](../discovery/10-desk-research.md) and the next (Scope) phase. It does
-**not** yet decide scope (IN/DECISION/CUT), structure or skeleton — deliberately (YAGNI).
-
-Built from the Discovery dossier — above all the
-[Client Kickoff (2026-05-19)](../discovery/12-client-kickoff-2026-05-19.md) (client ground
-truth) and [What Is the Website Actually For?](../discovery/11-website-purpose.md). First
-version produced 2026-05-19 in a step-by-step working session with Frederik; the key
-strategic calls were taken in that session (see [Locked decisions](#locked-strategic-decisions)).
+between Discovery and the next (Scope) phase. It does **not** yet decide scope
+(IN/DECISION/CUT), structure or skeleton — deliberately (YAGNI).
 
 > **Phase status — ✅ concluded 2026-05-19.** Complete first version; every open item is an
 > explicit carry-forward / validation-gated (none silently open — gate satisfied). See
@@ -28,24 +22,8 @@ strategic calls were taken in that session (see [Locked decisions](#locked-strat
 **Detail pages:** [Organisation goals](10-organisation-goals.md) ·
 [Personas](20-personas.md) · [Jobs-to-be-done](30-jobs-to-be-done.md) ·
 [Value proposition](40-value-proposition.md) · [User journey](50-user-journey.md) ·
-[Concerns register](01-concerns.md)
-
-**Research input** (`90` tier = research input, mirroring discovery's `90`):
-[Research Evidence — desk-research enrichment 2026-05-19](90-research-evidence-2026-05-19.md)
-(synthesised; immutable raw capture under `docs/raw/research/`). A dated `9x` page per
-research run; the artifacts cite it rather than re-deriving.
-
-## Confidence scheme (used on every strategy page)
-
-Strategy artifacts are interpretive syntheses, so each element carries:
-
-- **C: High / Med / Low** — how firm the call is.
-- **Basis** — the Discovery evidence it rests on (cited).
-- **To validate** — the client input that would firm it. **Validation gate:** there is
-  **no second clarification meeting** — the only gate is the client's reaction to the
-  forthcoming **content-complete NL draft** (kickoff §"Process & next steps";
-  [leon-engagement] memory). Plus the **SharePoint** material Leon is sending (subsidy
-  dossiers, per-project info, the bike deck, recurring-question email threads, more quotes).
+[Concerns register](01-concerns.md) ·
+[Research Evidence](90-research-evidence-2026-05-19.md).
 
 ## The strategic spine (what the whole phase hangs off)
 
@@ -62,10 +40,9 @@ rest:
 2. An **everyday** objective — convert offline-triggered **potential new participants** at
    their *moment of truth* ("is dit iets voor mij?").
 
-From the kickoff *dialogue* (not as an ultimatum), the client was clear the site should
-**not** be reduced to a single audience: the arts-sector/funder side and the mission side
-both matter — *"evenwaardig"*, Kristin's word — and the real work is **balance**,
-especially in tone and image, rather than picking one. Other audiences
+The client was clear the site should **not** be reduced to a single audience: the
+arts-sector/funder side and the mission side both matter — *"evenwaardig"* — and the real
+work is **balance**, especially in tone and image, rather than picking one. Other audiences
 (programmers/cultuurhuizen, press/public, the internal freelance team) are served too, at
 lower emphasis; the hardest-to-reach core is the one explicit *non*-audience ("Nope" —
 reached offline). The core move is a **rebalance**: the same substance retold *out of
@@ -77,13 +54,13 @@ to be the participant *discovery* funnel.
 
 ## Locked strategic decisions
 
-The non-obvious calls taken with Frederik on 2026-05-19. These are the load-bearing
-choices; the artifacts elaborate them. Each is provisional pending the validation gate
-above (tracked in the [Concerns register](01-concerns.md)).
+The non-obvious calls taken on 2026-05-19. These are the load-bearing choices; the
+artifacts elaborate them. Each is provisional pending the validation gate (tracked in the
+[Concerns register](01-concerns.md)).
 
 | # | Decision | Resolution |
 |---|----------|------------|
-| **D-i** | G1 (Kunstendecreet) vs G2 (newcomer) — client wants both held, not collapsed to one (kickoff dialogue) | **Resolved on the time axis, not by ranking.** G1 = the *dated deadline + credibility bar* (must be jury-credible by Jan–Jul 2027); G2 = the *everyday front door* (home page / default IA). *"Evenwaardig"* in tone+image stays the governing principle — no audience demoted. |
+| **D-i** | G1 (Kunstendecreet) vs G2 (newcomer) — client wants both held, not collapsed | **Resolved on the time axis, not by ranking.** G1 = the *dated deadline + credibility bar* (must be jury-credible by Jan–Jul 2027); G2 = the *everyday front door* (home page / default IA). *"Evenwaardig"* in tone+image stays the governing principle — no audience demoted. |
 | **D-ii** | Participant persona modelling (client had 3 separate cards) | **One person across journey stages.** P1 *de nieuwsgierige* is the single designed-for participant persona; "already knows / just needs practical info" and "co-creator who signs up" are *journey stages*, not separate personas. |
 | **D-iii** | The shared "proof" job (P1, P2, P3 all want proof, different register) | **One qualitative ladder, three routed entries.** Build the Debateville-style ladder once (method → qualitative evidence → honest counts → report shell); route each persona to *enter* it differently. One maintained asset (matches thin editorial capacity). |
 | **D-iv** | Positioning posture of the one-line site promise | **Invitation-forward.** Lead with the invitation; fold proof in as social proof; carry G1's rigor/durability signal *immediately below* the line + jury's *deep* proof-route as the safeguard. The boldest honest rebalance away from subsidiedossiertaal. |
@@ -111,23 +88,15 @@ Carried forward (do not pre-decide): the page/section set & IA, the IN/DECISION/
 cards, the AFZ placement, the dynamic-gallery/participant-media question, the
 participant-DB/CRM data model, the Notion-as-source feasibility, ticketing, GDPR/minors,
 accessibility, brand/tone assets. Status of all of these lives in the
-[Concerns register](01-concerns.md) and the Discovery
-[carry-forwards](../discovery/01-concerns.md).
+[Concerns register](01-concerns.md).
 
 ## Cross-links
 
-- Built on: [Client Kickoff](../discovery/12-client-kickoff-2026-05-19.md),
-  [Website Purpose](../discovery/11-website-purpose.md),
-  [Desk Research](../discovery/10-desk-research.md),
-  [Organisation](../discovery/21-organisation.md),
-  [Comparator — Debateville](../discovery/27-comparator-debateville.md)
 - **Consumed by:** the separate **Design thread** —
   [Design Plan](../design/00-design-plan.md) /
   [Design Concerns](../design/01-concerns.md). Its Scope draft was built on an *interim*
-  basis (discovery 11+12) with concerns **Dn-01** (reconcile Scope vs. Strategy) and
-  **Dn-08** (antenne strategy) explicitly waiting on this document. This brief is that
-  input — Design must now reconcile against it.
-- Status & open items: [Strategy Concerns register](01-concerns.md), seeded from the
-  [Discovery Concerns register](../discovery/01-concerns.md)
+  basis with concerns **Dn-01** (reconcile Scope vs. Strategy) and **Dn-08** (antenne
+  strategy) explicitly waiting on this document. Design now reconciles against it.
+- Status & open items: [Strategy Concerns register](01-concerns.md).
 - Method/convention: [`CLAUDE.md`](../../../CLAUDE.md) → "Phased approach", "Concerns
-  register (per phase)"
+  register (per phase)".

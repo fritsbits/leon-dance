@@ -804,7 +804,7 @@ divergent vocabulary taxes the two people doing all the work. The persona debate
 
 ## [2026-05-20] lint | Strategy register — Discovery reconciliation (3 close)
 
-Cross-checked the Strategy register against the up-to-date [Discovery register](discovery/01-concerns.md).
+Cross-checked the Strategy register against the up-to-date Discovery register.
 Three Strategy concerns close because their Discovery anchor was already closed at the
 2026-05-19 Frederik review:
 

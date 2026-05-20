@@ -6,6 +6,7 @@ node_modules/
 # Local-only — not in the public leon.dance repo
 docs/raw/
 docs/superpowers/
+docs/wiki/discovery/
 scripts/
 package.json
 package-lock.json

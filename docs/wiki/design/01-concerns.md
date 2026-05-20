@@ -1,7 +1,7 @@
 ---
 title: Design — Concerns Register
 tags: [design, concerns, status, phase-management]
-sources: [12-client-kickoff-2026-05-19, client-interview-2026-05-19, strategy/00-strategy-brief, strategy/90-research-evidence-2026-05-19, 90-image-map, glossary, discovery/01-concerns, 20-scope, 30-structure, structure-workshop-2026-05-20 (Frederik, in this thread)]
+sources: [client kickoff 2026-05-19; client interview 2026-05-19; strategy/00-strategy-brief; strategy/90-research-evidence-2026-05-19; 90-image-map; glossary; 20-scope; 30-structure; structure-workshop 2026-05-20]
 phase: design
 updated: 2026-05-20
 ---
@@ -52,7 +52,7 @@ performances*; Birds → Historiek; terse rewrite for downstream LLM use).
 
 | ID | Concern | Status | Detail | Resolution / pointer |
 |----|---------|--------|--------|----------------------|
-| Dn-01 | Scope rested on an *interim* strategy basis (discovery 11+12). | **Closed** | [00](00-design-plan.md), [20](20-scope.md) | **Strategy v1 landed**; Scope **v0.2 reconciled**, **v0.3** folds Strategy-v1.x (rubric, S-11/S-12). strategy 2026-05-19 → [20-scope §"What changed"](20-scope.md). |
+| Dn-01 | Scope rested on an *interim* strategy basis. | **Closed** | [00](00-design-plan.md), [20](20-scope.md) | **Strategy v1 landed**; Scope **v0.2 reconciled**, **v0.3** folds Strategy-v1.x (rubric, S-11/S-12). Strategy 2026-05-19. |
 | Dn-08 | Antenne **concentrate-vs-spread** — undecided org strategy; shapes the location/impact surface. | Open | [20](20-scope.md) | Owner: **Strategy thread** ([S-04](../strategy/01-concerns.md)). Design cannot finalise that surface until decided. |
 
 ## B. Scope decisions (resolved by the 2026-05-19 interviews)
@@ -91,11 +91,10 @@ performances*; Birds → Historiek; terse rewrite for downstream LLM use).
 
 Discovery's strategic carry-forwards stay with the Strategy thread; only design-changing
 concerns are lifted into `Dn-` IDs. Trace-back: Dn-02/03/04/08 → discovery/kickoff;
-Dn-11/12/13/14 → 2026-05-19 interview; Dn-15 → Phase-1 image-map; **Dn-16 ← [S-11]
-(decided Won't-Have v1 at Structure 2026-05-20); Dn-17 ← [S-10] (decided Won't-Have here,
-audience question stays Strategy); Dn-18 ← [S-05] (decided contact-request here); Dn-19 →
-new Strategy concern (vrijwilligers/stagiairs persona work) — to open in next Strategy sync**.
-Reconciled on lint.
+Dn-11/12/13/14 → 2026-05-19 interview; Dn-15 → Phase-1 image-map; **Dn-16 ← S-11
+(decided Won't-Have v1 at Structure 2026-05-20); Dn-17 ← S-10 (decided Won't-Have here,
+audience question stays Strategy); Dn-18 ← S-05 (decided contact-request here); Dn-19 →
+new Strategy concern (vrijwilligers/stagiairs persona work)**. Reconciled on lint.
 
 ## Scope reconciliations pending (Structure-surfaced, 2026-05-20)
 

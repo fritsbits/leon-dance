@@ -1,7 +1,7 @@
 ---
 title: Glossary — Leon terminology (one shared vocabulary)
 tags: [glossary, terminology, cross-cutting]
-sources: [current-site/pages/mariage, current-site/pages/mariage-doemee, current-site/pages/what-we-do, current-site/pages/missie-visie-nl, 12-client-kickoff-2026-05-19, strategy/20-personas, strategy/40-value-proposition, persona-debate-2026-05-19 (P1–P6, in-thread), design/20-scope]
+sources: [leon.dance current pages; client kickoff 2026-05-19; strategy/20-personas; strategy/40-value-proposition; design/20-scope]
 phase: cross-cutting
 updated: 2026-05-19
 ---
@@ -13,19 +13,10 @@ A **wiki-wide, cross-cutting** reference (sits beside [`index.md`](index.md) /
 admin/backstage, and the public site — so Frederik and the team never translate between two
 sets of words.
 
-> **How we got here.** v1 of this page over-sourced labels from the **current site + the
-> team's in-house words**; a 6-persona debate (P1–P6) showed that register *is* the
-> *subsidiedossiertaal* the redesign removes. v2 fixed the substance but split it into an
-> "internal model layer" vs a "public label layer" — which is **confusing in practice**,
-> because Frederik and the team work in *both* the public site and the admin/code. v3
-> (this page) collapses it to **one vocabulary, biased to the plainest word the public
-> newcomer understands**, used identically in code/admin/site. The debate's substance
-> survives as **copy notes** (below), not as a parallel naming system.
->
-> **The rule that stays:** don't take a word just because "Leon already says it" — the
-> current site's voice is the thing being rebalanced. Prefer the **plainest general word**
-> that works for the hardest public audience (P1 newcomer, P4 partner) *and* reads fine in
-> a CMS field and in code.
+> **The rule.** Don't take a word just because "Leon already says it" — the current site's
+> voice is the thing being rebalanced. Prefer the **plainest general word** that works for
+> the hardest public audience (P1 newcomer, P4 partner) *and* reads fine in a CMS field
+> and in code.
 
 ## The shared vocabulary (use these — code, admin, site)
 
@@ -100,5 +91,4 @@ Not new names — guidance for *how the shared words are framed* on a given page
   [`/what-we-do`](https://leon.dance/what-we-do) ·
   [`/missie-visie-nl`](https://leon.dance/missie-visie-nl)
 - [Strategy Personas](strategy/20-personas.md) · [Value proposition](strategy/40-value-proposition.md) ·
-  [Design Scope](design/20-scope.md) · [Design Concerns Dn-12/Dn-14](design/01-concerns.md) ·
-  [Client Kickoff](discovery/12-client-kickoff-2026-05-19.md)
+  [Design Scope](design/20-scope.md) · [Design Concerns Dn-12/Dn-14](design/01-concerns.md)

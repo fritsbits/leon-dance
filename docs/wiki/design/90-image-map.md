@@ -21,7 +21,7 @@ so each image was fetched from the Squarespace CDN at its largest render and ass
 
 ## Headline
 
-- **85** source images → **74 catalogued** · **9 excluded** · **2 dropped as exact duplicates**.
+- **85** source images → **74 catalogued** (9 excluded as agenda screenshots / third-party campaign banners, 2 dropped as exact duplicates).
 - Catalogued: **70 photography**, **2 logos**, **2 posters/flyers**. **No illustrations**
   (the only non-photo graphics were a third-party campaign banner — excluded).
 - **Every catalogued asset is currently in use** on `leon.dance` (it was scraped from the
@@ -144,37 +144,6 @@ The April-2026 flyer is a **text/layout graphic** (it carries the practical info
 an image — the same pattern as the agenda screenshots, and a content-model concern for
 [Scope](20-scope.md)/[Structure], not a reusable photograph).
 
-## Excluded (9) — with reason
-
-Playbook exclusion criteria applied; no subjective taste calls.
-
-| # | Source filename | Px | Why excluded | On site |
-|---|---|---|---|---|
-| 001 | `Schermafbeelding 2026-02-12 om 01.25.49.png` | 2500x706 | Screenshot of a calendar table (dates/times/venues) | /agenda |
-| 002 | `Schermafbeelding 2026-02-12 om 01.46.59.png` | 2500x533 | Screenshot of a calendar table | /agenda |
-| 003 | `Schermafbeelding 2026-02-12 om 01.24.20.png` | 2500x660 | Screenshot of a calendar table | /agenda |
-| 004 | `Schermafbeelding 2026-02-12 om 01.26.34.png` | 2500x550 | Screenshot of a calendar table | /agenda |
-| 006 | `Schermafbeelding 2026-02-12 om 01.26.50.png` | 2500x442 | Screenshot of a calendar table | /agenda |
-| 007 | `Schermafbeelding 2026-04-27 om 11.06.50.png` | 2500x777 | Screenshot of a calendar table | /agenda |
-| 008 | `2.png` | 2000x375 | Third-party campaign banner — "Naar Apartheid Vrije Zones" (NL) | /apartheid-free-zone |
-| 009 | `3.png` | 2000x375 | Third-party campaign banner — "Vers des zones libres d'apartheid" (FR) | /apartheid-free-zone |
-| 010 | `1.png` | 2000x375 | Third-party campaign banner — "Towards Apartheid Free Zones" (EN) | /apartheid-free-zone |
-
-The six `/agenda` screenshots corroborate [discovery 25](../discovery/25-agenda.md) /
-[26](../discovery/26-agenda-analysis.md) (the agenda *is* image-only). The three AFZ banners
-are a **cultural-sector solidarity campaign wordmark** ("Cultural sector solidarity with
-Palestine"), not a Leon-owned asset; AFZ placement is a Strategy-thread concern, not a media
-asset.
-
-## Duplicates dropped (2)
-
-Exact byte-identical downloads (same Squarespace asset served under two display filenames):
-
-| Dropped (source filename / page) | Identical to | Action |
-|---|---|---|
-| `1 export-96.jpg` (/gallery) | kept `mariage-procession-white-dancer-mvg3.webp` (#075) | dropped; kept asset's *On site* = `/mariage+/gallery` |
-| `Atelier Leon_2_Photo Ivan Put.jpeg` (/missie-visie-eng) | kept `car-free-street-intergen-play-ivanput.webp` (#074) | dropped; kept asset's *On site* = `/home+/missie-visie-eng` |
-
 ## Gaps — what this library does **not** have (ask the client)
 
 Research is a starting point, not a conclusion (principle 4). The catalogue is rich in one
@@ -215,4 +184,3 @@ invent slots Garrett's order forbids assuming.
 - Decision served: media-as-social-proof = [Dn-06](01-concerns.md); brand-kit gap =
   [Dn-10](01-concerns.md); new rights/credit concern = [Dn-15](01-concerns.md).
 - Phase context: [Design Plan](00-design-plan.md) · [Scope](20-scope.md).
-- Corroborates: [Agenda](../discovery/25-agenda.md) is image-only.

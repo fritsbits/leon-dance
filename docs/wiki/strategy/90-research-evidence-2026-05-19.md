@@ -1,7 +1,7 @@
 ---
 title: Strategy — Research Evidence (desk-research enrichment, 2026-05-19)
 tags: [strategy, research-input, evidence, personas, jtbd]
-sources: [desk-research-strategy-enrichment-2026-05-19, vlaanderen.be-cjm-handleiding-werkingssubsidie-2023-2027, overlegkunsten.org-positionpaper-participatie, demos.be, lasso.be, cultuurkuur.be, mus-e.be, theaterkrant.nl, bruzz.be, pzazz.theater, current-site/missie-visie-eng, leon-vzw-desk-research-browser-2026-05-18, client-meeting-2026-05-19]
+sources: [desk research 2026-05-19; Kunstendecreet Handleiding 2023-27; OKo positionpaper participatie; demos.be; lasso.be; cultuurkuur.be; mus-e.be; theaterkrant.nl; bruzz.be; pzazz.theater; client kickoff 2026-05-19]
 phase: strategy
 updated: 2026-05-19
 ---
@@ -41,7 +41,7 @@ Leon) vs ⚠️ **inference**. Confidence High/Med/Low. Time-sensitive items dat
 ## P1 · de nieuwsgierige — net-new
 
 - Failure is structural: site "begint direct zo met de missie" → P1 disengages; needs to
-  *feel* "daar zijn mensen zoals ik bij" **before** reading mission · transcript `:231` ·
+  *feel* "daar zijn mensen zoals ik bij" **before** reading mission · transcript ref `:231` ·
   High · Leon-specific (VQ).
 - The site is, in the client's own words, the **moment of truth** for the offline-triggered
   P1 · `:273` · High · Leon (VQ).
@@ -83,7 +83,7 @@ Leon) vs ⚠️ **inference**. Confidence High/Med/Low. Time-sensitive items dat
   language**, explicitly owning the participatie functie.
 - Per-org adviezen are **not public** → no citeable per-peer praise/criticism. · High.
 - Durability lever: **"16 not 5 years"** (practice via Ultima Vez: Tornar/INVITED/Birds);
-  client wants a *historiek* for young-org credibility · transcript `:603-615` · High ·
+  client wants a *historiek* for young-org credibility · transcript ref `:603-615` · High ·
   Leon. Jurisdiction trap: VGC wants "in Brussel", Vlaanderen must not read Brussels-only ·
   `:655-661` · High · Leon.
 
@@ -104,7 +104,7 @@ Leon) vs ⚠️ **inference**. Confidence High/Med/Low. Time-sensitive items dat
 ## P4 · de groepsverantwoordelijke — net-new
 
 - **"Antenne" = a cross-sector *cluster*** (culture+welfare+care+education) around a place,
-  not a venue — Molenbeek, Sint-Gillis, Anderlecht, Koekelberg · transcript `:665-667` ·
+  not a venue — Molenbeek, Sint-Gillis, Anderlecht, Koekelberg · transcript ref `:665-667` ·
   High · Leon (VQ). Demand posture **constrained** (may *concentrate*, not multiply) ·
   `:267` → P4 site job = *qualify/explain a deliberately constrained model*, not lead-gen.
 - Mechanic: ~6 months, **weekly (a fixed weekday), 2h**, relationship built through the
@@ -115,7 +115,7 @@ Leon) vs ⚠️ **inference**. Confidence High/Med/Low. Time-sensitive items dat
 - It is **Leon-initiated, not an application**: Leon maps orgs → invites → "come and taste"
   before commitment · demos.be · High · Leon.
 - Who pays (blended): projectsubsidies + school sometimes pays + GC top-up; goal = the
-  hardest-to-reach don't pay · transcript `:249-259` · High · Leon.
+  hardest-to-reach don't pay · transcript ref `:249-259` · High · Leon.
 - **Citeable partner-voice proof** (gatekeeper perspective, Leon-specific, High): Schoemaker
   (Cardijnschool) "anders communiceren: met je handen, voeten en hoofd"; Dewin (Zonnelied)
   "zien wij als begeleiders plots dat mensen dingen kunnen die we niet wisten"; Meynaerts
@@ -134,7 +134,7 @@ Leon) vs ⚠️ **inference**. Confidence High/Med/Low. Time-sensitive items dat
   reviews as *proxy* or court press for Mariage's public dates. New open item.
 - Press angle is reliably **social, not aesthetic** ("wordless common language", public
   space) · BRUZZ/Theaterkrant · High · ⚠️ analogue (lineage). Press tolerate depth P1 won't
-  · transcript `:507` · Med.
+  · transcript ref `:507` · Med.
 
 ## JTBD — forces (net-new)
 
@@ -184,4 +184,3 @@ newsletter mis-purposed + **no contact capture at ateliers → reachable people 
 → [Personas](20-personas.md) · [JTBD](30-jobs-to-be-done.md) ·
 [Value proposition](40-value-proposition.md) · [User journey](50-user-journey.md) ·
 [Organisation goals](10-organisation-goals.md) · status: [Concerns](01-concerns.md).
-Raw: `docs/raw/research/desk-research-strategy-enrichment-2026-05-19.md`.

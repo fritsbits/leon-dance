@@ -1,7 +1,7 @@
 ---
 title: Structure — leon.dance redesign (Garrett Plane 3)
 tags: [design, structure, ia, sitemap, garrett]
-sources: [20-scope, glossary, strategy/00-strategy-brief, strategy/20-personas, strategy/50-user-journey, 12-client-kickoff-2026-05-19, discovery/27-comparator-debateville, structure-workshop-2026-05-20 (Frederik, in this thread)]
+sources: [20-scope; glossary; strategy/00-strategy-brief; strategy/20-personas; strategy/50-user-journey; client kickoff 2026-05-19; comparator — Debateville; structure-workshop 2026-05-20]
 phase: design
 updated: 2026-05-20
 ---
@@ -10,7 +10,7 @@ updated: 2026-05-20
 
 > **Plane** 3 (Garrett) · **Site-level** · **DRAFT v0.2** (2026-05-20). Terse spec for
 > downstream LLM use (Laravel scaffolding · Skeleton wireframes · per-section UX planning).
-> Reasoning lives in [log.md](../log.md); this file is the result.
+> This file is the result; reasoning lives in [log.md](../log.md).
 
 ## Sitemap
 
@@ -158,4 +158,3 @@ Inherited from Scope: **content-complete NL draft + Kristin's P1/P4 survey**. No
 
 - [00-design-plan](00-design-plan.md) · [01-concerns](01-concerns.md) · [20-scope](20-scope.md) · [Glossary](../glossary.md) · [90-image-map](90-image-map.md)
 - Strategy: [Brief](../strategy/00-strategy-brief.md) · [Personas](../strategy/20-personas.md) · [Journeys](../strategy/50-user-journey.md) · [VP](../strategy/40-value-proposition.md)
-- Comparator: [Debateville](../discovery/27-comparator-debateville.md)
