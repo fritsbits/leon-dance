@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+node_modules/
+.obsidian/
+
+# Local-only — not in the public leon.dance repo
+docs/raw/
+docs/superpowers/
+scripts/
+package.json
+package-lock.json
