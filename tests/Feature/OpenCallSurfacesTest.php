@@ -104,4 +104,19 @@ class OpenCallSurfacesTest extends TestCase
             ->assertOk()
             ->assertDontSee('Ontdek deze editie');
     }
+
+    public function test_work_grid_chip_shows_on_home_and_overzicht_when_open(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => true]);
+
+        $this->get('/')->assertOk()->assertSee('open call');
+        $this->get('/dansateliers-performances')->assertOk()->assertSee('open call');
+    }
+
+    public function test_work_grid_chip_absent_when_no_open_call(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => false]);
+
+        $this->get('/dansateliers-performances')->assertOk()->assertDontSee('open call');
+    }
 }
