@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Admin\Resources\Edities\Schemas;
+namespace App\Filament\Admin\Resources\Editions\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
@@ -9,7 +9,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-class EditieForm
+class EditionForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -19,7 +19,7 @@ class EditieForm
                     ->schema([
                         TextInput::make('project_slug')->default('mariage')->required()->maxLength(255),
                         TextInput::make('slug')->required()->maxLength(255)
-                            ->helperText('URL-segment, bv. luik-2026'),
+                            ->helperText('URL-segment, bv. molenbeek-2026'),
                         TextInput::make('stad')->required()->maxLength(255),
                         TextInput::make('jaar')->numeric()->required(),
                         TextInput::make('stadgenoot')->placeholder('Brusselaars')->maxLength(255),

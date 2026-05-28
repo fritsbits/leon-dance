@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InschrijvingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +21,19 @@ Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.store');
 Route::view('/privacybeleid', 'privacybeleid')->name('privacybeleid');
 
+// Inschrijving-interesse (editie participant signup; emails the team, stores nothing).
+// Interest-only slice of Dn-03 — the participant DB + minors consent stay deferred.
+Route::post('/inschrijving', [InschrijvingController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('inschrijving.store');
+
 // Dansateliers & performances
 Route::prefix('dansateliers-performances')->name('dansateliers.')->group(function () {
     Route::view('/',                   'dansateliers.index')->name('index');
     Route::view('/atelier-leon',       'dansateliers.atelier-leon')->name('atelier-leon');
     Route::view('/leon-op-school',     'dansateliers.leon-op-school')->name('leon-op-school');
     Route::view('/mariage',            'dansateliers.mariage')->name('mariage');
-    Route::get('/mariage/{editie}', function (\App\Models\Editie $editie) {
+    Route::get('/mariage/{editie}', function (\App\Models\Edition $editie) {
         return view('dansateliers.mariage-editie', ['editie' => $editie]);
     })->name('mariage.editie');
     Route::view('/mobiele-dansstudio', 'dansateliers.mobiele-dansstudio')->name('mobiele-dansstudio');

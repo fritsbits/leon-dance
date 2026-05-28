@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Editie extends Model
+class Edition extends Model
 {
     /** A closing date this many days out (or sooner) counts as "binnenkort". */
     private const CLOSES_SOON_DAYS = 21;
 
-    protected $table = 'edities';
+    protected $table = 'editions';
 
     protected $fillable = [
         'project_slug',

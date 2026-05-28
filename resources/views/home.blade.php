@@ -21,7 +21,7 @@
         return route('agenda');
     };
 
-    $openCallEditie = \App\Models\Editie::openInschrijving()
+    $openCallEditie = \App\Models\Edition::openInschrijving()
         ->orderBy('starts_at')
         ->first();
 
@@ -29,8 +29,8 @@
 @endphp
 
 @extends('layouts.app', [
-    'title' => 'Leon — participatieve dans in Brussel',
-    'description' => 'Een open uitnodiging om mee te dansen, in een wekelijks open atelier of in grotere participatieve voorstellingen. In Brussel sinds 2010.',
+    'title' => 'Leon: participatieve dans in Brussel',
+    'description' => 'Dans mee in Brussel, in een wekelijks open atelier of in grotere participatieve voorstellingen. Geen ervaring nodig. In Brussel sinds 2010.',
 ])
 
 @section('content')
@@ -39,16 +39,17 @@
     <section class="section">
         <div class="container-wide">
             <p class="meta uppercase tracking-wide mb-3">Leon · Brussel</p>
-            <h1>Een open uitnodiging om mee te dansen — met de mensen die het al doen.</h1>
+            <h1>Dans een keer mee.</h1>
             <p class="mt-6 text-lg max-w-[var(--max-content)]">
-                Een wekelijks open atelier, en grotere voorstellingen waarin Brusselaars
-                samen op de scène staan. Geen ervaring nodig om mee te doen.
+                Bij Leon dans je wekelijks samen met andere Brusselaars: in een open
+                atelier of op de scène van een grote voorstelling. Geen ervaring nodig.
+                Je hoort er meteen bij.
             </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-                <a href="{{ route('dansateliers.atelier-leon') }}" class="btn-primary">Kom langs in Atelier Leon</a>
-                <a href="{{ route('agenda') }}" class="btn-ghost">Bekijk de agenda</a>
+            <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+                <a href="{{ route('dansateliers.atelier-leon') }}" class="btn-primary w-full sm:w-auto">Kom langs in Atelier Leon</a>
+                <a href="{{ route('agenda') }}" class="btn-ghost w-full sm:w-auto">Bekijk de agenda</a>
             </div>
-            <p class="meta mt-8">In Brussel sinds 2010. Wekelijks samen, gratis en zonder inschrijving.</p>
+            <p class="meta mt-8">In Brussel sinds 2010. Gratis, zonder inschrijving.</p>
         </div>
     </section>
 
@@ -72,26 +73,17 @@
         </div>
     </section>
 
-    {{-- §4 Eerstvolgende (SP-07 × 3) · top-3 upcoming public events --}}
+    {{-- §4 Eerstvolgende (SP-08 agenda-list) · top-3 upcoming public events --}}
     <section class="section border-t border-[var(--color-border)]">
         <div class="container-wide">
             <h2 class="mb-8">Eerstvolgende</h2>
-            @if ($upcomingEvents->isEmpty())
-                <p class="meta">Geen eerstvolgende activiteiten in de agenda.</p>
-            @else
-                <div class="border-t border-[var(--color-border-subtle)]">
-                    @foreach ($upcomingEvents as $event)
-                        @include('partials.date-row', [
-                            'date'     => strtoupper($event->starts_at->isoFormat('dd D.MM')),
-                            'time'     => $event->starts_at->format('H:i'),
-                            'type'     => $event->title,
-                            'location' => $event->venue ?? '—',
-                            'href'     => $hrefFor($event),
-                        ])
-                    @endforeach
-                </div>
-            @endif
-            <p class="mt-6"><a href="{{ route('agenda') }}" class="btn-text">→ Volledige agenda</a></p>
+            @include('partials.agenda-list', [
+                'events'    => $upcomingEvents,
+                'href'      => $hrefFor,
+                'emptyText' => 'Geen eerstvolgende activiteiten in de agenda.',
+                'linkLabel' => '→ Volledige agenda',
+                'linkHref'  => route('agenda'),
+            ])
         </div>
     </section>
 

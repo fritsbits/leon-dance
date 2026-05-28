@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Admin\Resources\Edities\Tables;
+namespace App\Filament\Admin\Resources\Editions\Tables;
 
-use App\Models\Editie;
+use App\Models\Edition;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -10,7 +10,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class EditiesTable
+class EditionsTable
 {
     public static function configure(Table $table): Table
     {
@@ -22,7 +22,7 @@ class EditiesTable
                 TextColumn::make('periode')->toggleable(),
                 TextColumn::make('status')
                     ->badge()
-                    ->getStateUsing(fn (Editie $record) => $record->status()),
+                    ->getStateUsing(fn (Edition $record) => $record->status()),
                 IconColumn::make('inschrijving_open')
                     ->label('Open call')
                     ->boolean(),

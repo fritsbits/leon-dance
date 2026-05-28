@@ -2,19 +2,19 @@
 
 namespace Tests\Feature;
 
-use App\Models\Editie;
+use App\Models\Edition;
 use App\Models\Event;
 use App\Enums\EventType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class EditieModelTest extends TestCase
+class EditionModelTest extends TestCase
 {
     use RefreshDatabase;
 
-    private function makeEditie(array $overrides = []): Editie
+    private function makeEditie(array $overrides = []): Edition
     {
-        return Editie::create(array_merge([
+        return Edition::create(array_merge([
             'project_slug' => 'mariage',
             'slug'         => 'teststad-2026',
             'stad'         => 'Teststad',
@@ -71,7 +71,7 @@ class EditieModelTest extends TestCase
         $this->makeEditie(['slug' => 'closed-toggle', 'inschrijving_open' => false]);
         $this->makeEditie(['slug' => 'closed-date', 'inschrijving_open' => true, 'inschrijving_closes_at' => now()->subDay()]);
 
-        $slugs = Editie::openInschrijving()->pluck('slug')->all();
+        $slugs = Edition::openInschrijving()->pluck('slug')->all();
 
         $this->assertEqualsCanonicalizing(['open-a', 'open-b'], $slugs);
     }
@@ -109,14 +109,14 @@ class EditieModelTest extends TestCase
 
     public function test_seeder_creates_six_mariage_edities_with_luik_open(): void
     {
-        $this->seed(\Database\Seeders\EditieSeeder::class);
+        $this->seed(\Database\Seeders\EditionSeeder::class);
 
-        $this->assertSame(6, Editie::where('project_slug', 'mariage')->count());
+        $this->assertSame(6, Edition::where('project_slug', 'mariage')->count());
 
-        $luik = Editie::where('slug', 'luik-2026')->firstOrFail();
+        $luik = Edition::where('slug', 'luik-2026')->firstOrFail();
         $this->assertTrue($luik->isInschrijvingOpen(), 'Luik 2026 is the live open-call demo editie.');
 
-        $brussel = Editie::where('slug', 'brussel-2024')->firstOrFail();
+        $brussel = Edition::where('slug', 'brussel-2024')->firstOrFail();
         $this->assertFalse($brussel->isInschrijvingOpen());
         $this->assertSame('afgelopen', $brussel->status());
     }
