@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         // EventSeeder is intentionally NOT called here — it is not idempotent (plain inserts),
         // so it is run manually: `php artisan db:seed --class=EventSeeder`.
         $this->call([
+            ProjectSeeder::class,
             EditieSeeder::class,
             VenueSeeder::class,
             AtelierSeeder::class,
