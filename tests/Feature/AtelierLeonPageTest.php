@@ -39,7 +39,7 @@ class AtelierLeonPageTest extends TestCase
         $atelier = Atelier::factory()->open()->create(['venue_id' => $venue->id, 'day_of_week' => 3]);
 
         Event::create([
-            'type' => EventType::OpenAtelier, 'title' => 'Atelier Leon', 'venue' => 'Pianofabriek',
+            'type' => EventType::OpenAtelier, 'title' => 'Atelier Leon', 'venue_name' => 'Pianofabriek',
             'atelier_id' => $atelier->id, 'venue_id' => $venue->id, 'is_public' => true,
             'starts_at' => now()->addDays(2)->setTime(16, 0), 'ends_at' => now()->addDays(2)->setTime(18, 0),
         ]);
