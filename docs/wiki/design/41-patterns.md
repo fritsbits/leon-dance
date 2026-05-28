@@ -3,7 +3,7 @@ title: Shared patterns library — detailed specs (Garrett Plane 4)
 tags: [design, skeleton, patterns, wireframe, components]
 sources: [40-skeleton; 30-structure; CLAUDE.md (Build phase rules); DESIGN.md; resources/css/app.css; existing partials/{nav,footer,page-header}.blade.php]
 phase: design
-updated: 2026-05-27
+updated: 2026-05-28
 ---
 
 # Shared patterns library — detailed specs
@@ -13,7 +13,7 @@ updated: 2026-05-27
 > live here.** A pattern enters this file the moment it leaves 🔴 stub. Page briefs (in
 > `42-briefs/`) reference patterns by SP-id; deviation requires inline justification.
 
-## Status snapshot (v0.5, 2026-05-28 — bumped by open-call / inschrijving flow build)
+## Status snapshot (v0.6, 2026-05-28 — SP-08 agenda-list revived)
 
 | SP-id | Pattern | Status | Spec |
 |---|---|---|---|
@@ -29,12 +29,15 @@ updated: 2026-05-27
 | SP-12 | Quote / testimony | 🟠 first draft | [↓](#sp-12--quote--testimony) — partial: [`resources/views/partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) |
 | SP-13 | Photo block | 🟠 first draft | [↓](#sp-13--photo-block) |
 | SP-16 | Open-call band | 🟠 first draft | [↓](#sp-16--open-call-band) — partial: [`partials/open-call-band.blade.php`](../../../resources/views/partials/open-call-band.blade.php) (NEW 2026-05-28). Conditional; self-removing when no open call. |
-| SP-08 | Agenda preview strip | 🔴 **DEPRECATED** | superseded by SP-07 ×N direct usage in P-01 §4 + P-15 "In cijfers" surface; slot kept for ID stability, no spec planned |
-| SP-10 | Inschrijving form | 🔴 stub | blocked by Dn-03 GDPR **minors slice**; on-page stubs render `mailto:` + visible "form in voorbereiding" annotation |
+| SP-08 | Agenda list | 🟠 first draft (partial) | [`partials/agenda-list.blade.php`](../../../resources/views/partials/agenda-list.blade.php) — [↓](#sp-08--agenda-list). List-only: empty-state + bordered SP-07 rows + optional trailing link. Props: events, href (closure), emptyText, linkLabel?, linkHref?. Live on P-01 §4, P-03 §4, P-18 §3, mariage-editie §6. **Revived 2026-05-28** (was deprecated; the SP-07 ×N skeleton duplication across 4 pages justified one partial). |
+| SP-10 | Inschrijving form | 🟠 first draft (partial) | [`partials/inschrijving-form.blade.php`](../../../resources/views/partials/inschrijving-form.blade.php) — server-handled (POST /inschrijving → InschrijvingController → InschrijvingRequestMail). **Interest-only** slice of [Dn-03](01-concerns.md): emails the team, stores nothing. Props: editieSlug, intro, note?, submitLabel?. Live on Mariage editie §5 (open state). Participant DB + minors consent + ESP stay deferred. |
 
-**12 / 14** patterns at 🟠 first draft (was 11 / 13). New since v0.4: **SP-16 Open-call
+**14 / 14** patterns at 🟠 first draft (was 13 / 14). New since v0.4: **SP-16 Open-call
 band** (conditional open-call CTA surface; variants `home` + `project`; chip sibling on
-SP-05 work-grid Mariage card). Only 🔴 remaining is **SP-10** (GDPR-blocked).
+SP-05 work-grid Mariage card). **SP-10 built 2026-05-28** (interest-only form, email-only,
+no store). **SP-08 Agenda list revived 2026-05-28** — un-deprecated and built as a
+list-only partial once the SP-07 ×N skeleton duplication hit four pages. No patterns
+remain 🔴.
 
 ### Candidate patterns (surfaced by the wave, not yet promoted)
 
@@ -44,8 +47,9 @@ Per **draft-on-first-use / promote-on-3rd-use** library discipline:
 |---|---|---|
 | **SP-14 text-link rows** | P-01 §5 · P-08 §2 · P-18 §3 (3 uses) | **Ready to promote** — flagged by P-08 + P-18 agents on this wave. Defer to next pattern-pass; create `partials/text-link-list.blade.php` + spec entry below SP-13. |
 | **Person card** (P-16 local SP-NEW-1) | P-16 only (kerngroep + geassocieerd grid) | 2nd use — likely P-09 (project owners) or P-18 (contact persons). |
-| **SP-15 map placeholder** | P-18 only (Lion City OSM deep-link) | When Leaflet bootstraps in `app.js`. Per [CLAUDE.md](../../../CLAUDE.md): OpenStreetMap + Leaflet.js only, never Google Maps/Mapbox. | 3 patterns still 🔴 (SP-08 redundancy-flagged · SP-10 GDPR-blocked
-· SP-11 awaits first contact-bearing page brief).
+| **SP-15 map placeholder** | P-18 only (Lion City OSM deep-link) | When Leaflet bootstraps in `app.js`. Per [CLAUDE.md](../../../CLAUDE.md): OpenStreetMap + Leaflet.js only, never Google Maps/Mapbox. |
+
+No patterns remain 🔴 — SP-08, SP-10 and SP-11 are all built partials.
 
 **Order rationale.** The four drafted here are the **structural shell**: nav + footer +
 subpage top + funder wall appear on every page; everything else is content/component that
@@ -608,6 +612,63 @@ strawman render (2026-05-27). The `$type` slot accepts any display label (event-
 label, event title, or composed string) — caller decides. Mobile reflow handled via
 `flex-col md:flex-row`. **Wired to live Event model on P-01 §4** (top-3 upcoming,
 public-only, internal types excluded — gap #7 implemented).
+
+---
+
+## SP-08 — Agenda list
+
+**Purpose.** Render a short list of upcoming Events as SP-07 rows with an empty-state and
+an optional "see all" link. Wraps the **repeated skeleton** (empty-check → bordered list →
+the Event→date-row mapping → trailing link) that four pages were copy-pasting. SP-07 is the
+row primitive; SP-08 is the list around it.
+
+> **History.** Originally drafted as "Agenda preview strip", then **deprecated** in favour
+> of using SP-07 ×N directly — the slot was kept for ID stability. **Revived 2026-05-28**:
+> the inline skeleton had duplicated across P-01 §4, P-03 §4, P-18 §3 and mariage-editie §6,
+> so the Event→date-row mapping (date format, `venue ?? '—'` fallback) lived in four files.
+> One partial now owns it. The strip never disappeared — it just had no home.
+
+**Used on.** P-01 §4 (home, next-3) · P-03 §4 (Atelier Leon, next-8 open ateliers) ·
+P-18 §3 (Contact, next-3 open ateliers) · mariage-editie §6 (this editie's voorstellingen).
+
+### Boundary (list-only)
+
+The partial owns **only the inner block**. Each caller keeps its own `@php` query (filters
+genuinely differ: all-public vs `ofType` scope vs editie relation) and its own **heading**
+(`<h2>` vs sub-`<h3>`, with page-specific margins). The section / container / grid chrome
+stays in the page.
+
+### Composition contract
+
+| Prop | Type | Required | Notes |
+|---|---|---|---|
+| `events` | `Collection<Event>` | Yes | already queried by the caller |
+| `href` | `callable` `fn($event): string` | Yes | per-row link; static target → `fn($e) => route(...)`; home passes its per-event deep-link closure |
+| `emptyText` | `string` | Yes | plain empty-state message, rendered as `<p class="meta">` |
+| `linkLabel` | `string` | No | if set, renders the trailing `.btn-text` link (`mt-6`) |
+| `linkHref` | `string` | Required iff `linkLabel` set | |
+
+### Behaviour notes
+
+- Trailing "see all" link renders in **both** states (was tucked inline in the empty
+  sentence on P-03 / P-18 before). The empty text is now plain; the standard trailing link
+  carries the affordance. P-18's trailing margin standardised `mt-4` → `mt-6`.
+- **State-dependent links** (mariage-editie §6: "→ Naar Mariage" when empty vs
+  "→ Volledige agenda" when filled) — omit `linkLabel` and let the page render its own
+  conditional link below the partial. The partial still removes that page's row-mapping
+  duplication.
+
+### Tokens used
+
+`--color-border-subtle` (list separator), `.meta` (empty-state), `.btn-text` (trailing
+link) — all inherited via SP-07 for the rows themselves.
+
+### Implementation
+
+[`resources/views/partials/agenda-list.blade.php`](../../../resources/views/partials/agenda-list.blade.php)
+— `@include` partial (consistent with date-row / contact-form / quote / open-call-band).
+Shipped 2026-05-28 refactoring the four call sites above; no page-row stage change (pure
+extraction, re-render verified).
 
 ---
 

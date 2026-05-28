@@ -3,7 +3,7 @@ title: Structure — leon.dance redesign (Garrett Plane 3)
 tags: [design, structure, ia, sitemap, garrett]
 sources: [20-scope; glossary; strategy/00-strategy-brief; strategy/20-personas; strategy/50-user-journey; client kickoff 2026-05-19; comparator — Debateville; structure-workshop 2026-05-20; _archive/discovery/25-agenda (raw transcription cross-check 2026-05-27)]
 phase: design
-updated: 2026-05-27
+updated: 2026-05-28
 ---
 
 # Structure — leon.dance redesign
@@ -83,7 +83,7 @@ I18n: every content-bearing entity has NL / FR / EN translations of editable fie
 | Open dansateliers: **Atelier Leon** | RecurringPractice | drop-in · weekly · free · "kom gewoon langs" · dates on Agenda | No |
 | Ateliers op school: **Leon op school** | RecurringPractice | begeleid traject · ~6 mnd · wekelijks · partner trajecten listed inline · dates on Agenda | No |
 | Participatieve performances | category (no own page-entity) | container for Project entities | — |
-| → **Mariage** | Project | format documentation (core+local cast · ~10 reps→voorstelling) · proces · nazorg · evolutie | Yes (6 currently) |
+| → **Mariage** | Project | format documentation (core+local cast · ~10 reps→voorstelling) · proces · nazorg · evolutie | Yes (6 real, from current-site mirror + 1 test future) |
 | → *(Kosmos 2027 when ready)* | Project | co-productie · KANAL-Centre Pompidou / KVS | TBD |
 | **Mobiele dansstudio** | Page | what it is · technische fiche · zomerformule · track record · "uitnodigen" CTA | No |
 

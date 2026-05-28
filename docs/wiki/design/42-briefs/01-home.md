@@ -208,7 +208,7 @@ updated: 2026-05-27
 - **Pattern:** [SP-16 Open-call band](../41-patterns.md#sp-16--open-call-band) variant `home`.
 - **Placement:** between §1 hero and §2 photo. **Does NOT count against the 6-section budget** — it is a conditional, self-removing band that is absent when no editie has `inschrijving_open = true`.
 - **State note:** when no open call is active, no element renders here; §1 and §2 sit adjacent as if SP-16 were never there.
-- **2026-05-28:** implemented via `@include('partials.open-call-band', ['variant' => 'home'])`.
+- **Implementation:** `@include('partials.open-call-band', ['variant' => 'home'])`.
 
 ### §2 — Photo (SP-13)
 
