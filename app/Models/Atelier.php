@@ -63,7 +63,7 @@ class Atelier extends Model
 
     public function timeRange(): string
     {
-        return $this->start_time.'–'.$this->end_time;
+        return substr($this->start_time, 0, 5).'–'.substr($this->end_time, 0, 5);
     }
 
     public function displayName(): string
