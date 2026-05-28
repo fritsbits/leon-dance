@@ -26,7 +26,7 @@ Route::prefix('dansateliers-performances')->name('dansateliers.')->group(functio
     Route::view('/atelier-leon',       'dansateliers.atelier-leon')->name('atelier-leon');
     Route::view('/leon-op-school',     'dansateliers.leon-op-school')->name('leon-op-school');
     Route::view('/mariage',            'dansateliers.mariage')->name('mariage');
-    Route::get('/mariage/{editie}',    function (string $editie) {
+    Route::get('/mariage/{editie}', function (\App\Models\Editie $editie) {
         return view('dansateliers.mariage-editie', ['editie' => $editie]);
     })->name('mariage.editie');
     Route::view('/mobiele-dansstudio', 'dansateliers.mobiele-dansstudio')->name('mobiele-dansstudio');
