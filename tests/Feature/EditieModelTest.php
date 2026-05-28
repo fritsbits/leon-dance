@@ -106,4 +106,18 @@ class EditieModelTest extends TestCase
         $this->assertCount(1, $editie->events);
         $this->assertSame('Mariage', $editie->events->first()->title);
     }
+
+    public function test_seeder_creates_six_mariage_edities_with_luik_open(): void
+    {
+        $this->seed(\Database\Seeders\EditieSeeder::class);
+
+        $this->assertSame(6, Editie::where('project_slug', 'mariage')->count());
+
+        $luik = Editie::where('slug', 'luik-2026')->firstOrFail();
+        $this->assertTrue($luik->isInschrijvingOpen(), 'Luik 2026 is the live open-call demo editie.');
+
+        $brussel = Editie::where('slug', 'brussel-2024')->firstOrFail();
+        $this->assertFalse($brussel->isInschrijvingOpen());
+        $this->assertSame('afgelopen', $brussel->status());
+    }
 }
