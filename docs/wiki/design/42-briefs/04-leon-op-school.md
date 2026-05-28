@@ -61,7 +61,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
    reader self-locate by sector in one scan.
 6. **One canonical home** for *Leon op school*: this page. Dates per editie/practice
    flow to `/agenda` filtered by `practice=leon-op-school`; sector-cross-references
-   live in *Samenwerken → opzetten* (per [Glossary](../glossary.md) copy notes for P4
+   live in *Samenwerken → opzetten* (per [Glossary](../../glossary.md) copy notes for P4
    register).
 
 ## Full-page wireframe (desktop)
@@ -236,7 +236,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
      zelfde groep. **Begeleiders dansen mee** (per [strategy/20-personas P4](../../strategy/20-personas.md#p4--de-groepsverantwoordelijke--secondary-serves-g2g3):
      *"the teacher/carer is a participant, not a spectator"*).
   3. **Sluitmoment** — Optioneel: publieke voorstelling, toonmoment voor familie, of
-     gewoon afsluiten. Geen voorwaarde, wel een ritueel. (Per [Glossary](../glossary.md)
+     gewoon afsluiten. Geen voorwaarde, wel een ritueel. (Per [Glossary](../../glossary.md)
      P4 copy notes: *voorstelling = optioneel sluitstuk, geen doel*.)
 - **Tone discipline:** prose blocks are 3–5 zinnen each (per [TOV §Stijl & ritme](../../identity/10-tone-of-voice.md#stijl--ritme):
   *"korte zinnen waar het kan; werkwoord vroeg; actief"*).
@@ -298,7 +298,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
   — `opzetten` is the canonical kennismaking intake for both P3 + P4 per
   [30-structure Samenwerken table](../30-structure.md)).
 - **No secondary CTA** — single hook keeps §6 read clean (matches P-05 §6 discipline).
-- **No inline partners (SP-09 variant C):** per [Glossary](../glossary.md) P4 copy notes
+- **No inline partners (SP-09 variant C):** per [Glossary](../../glossary.md) P4 copy notes
   the org-level funder-wall via footer SP-09 is enough; per-sector partner mentions
   already in §4 inline. Avoids duplication.
 
