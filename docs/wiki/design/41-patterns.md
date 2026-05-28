@@ -13,7 +13,7 @@ updated: 2026-05-27
 > live here.** A pattern enters this file the moment it leaves 🔴 stub. Page briefs (in
 > `42-briefs/`) reference patterns by SP-id; deviation requires inline justification.
 
-## Status snapshot (v0.4, 2026-05-28 — bumped by autonomous 15-page wave)
+## Status snapshot (v0.5, 2026-05-28 — bumped by open-call / inschrijving flow build)
 
 | SP-id | Pattern | Status | Spec |
 |---|---|---|---|
@@ -28,12 +28,13 @@ updated: 2026-05-27
 | SP-11 | Contact form | 🟠 first draft (partial) | [`partials/contact-form.blade.php`](../../../resources/views/partials/contact-form.blade.php) — server-handled (POST /contact → ContactController → ContactRequestMail). Props: heading, intro, onderwerp, berichtHelp?, submitLabel?. Live on uitnodigen + contact page. |
 | SP-12 | Quote / testimony | 🟠 first draft | [↓](#sp-12--quote--testimony) — partial: [`resources/views/partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) |
 | SP-13 | Photo block | 🟠 first draft | [↓](#sp-13--photo-block) |
+| SP-16 | Open-call band | 🟠 first draft | [↓](#sp-16--open-call-band) — partial: [`partials/open-call-band.blade.php`](../../../resources/views/partials/open-call-band.blade.php) (NEW 2026-05-28). Conditional; self-removing when no open call. |
 | SP-08 | Agenda preview strip | 🔴 **DEPRECATED** | superseded by SP-07 ×N direct usage in P-01 §4 + P-15 "In cijfers" surface; slot kept for ID stability, no spec planned |
 | SP-10 | Inschrijving form | 🔴 stub | blocked by Dn-03 GDPR **minors slice**; on-page stubs render `mailto:` + visible "form in voorbereiding" annotation |
 
-**11 / 13** patterns at 🟠 first draft (was 10 / 13). New since v0.3: **SP-11** Contact
-pattern (first uses on P-09 + P-10). **SP-12** now has a Blade partial. **SP-08
-DEPRECATED**. Only 🔴 remaining is **SP-10** (GDPR-blocked).
+**12 / 14** patterns at 🟠 first draft (was 11 / 13). New since v0.4: **SP-16 Open-call
+band** (conditional open-call CTA surface; variants `home` + `project`; chip sibling on
+SP-05 work-grid Mariage card). Only 🔴 remaining is **SP-10** (GDPR-blocked).
 
 ### Candidate patterns (surfaced by the wave, not yet promoted)
 
@@ -834,6 +835,105 @@ Leon → Impact (likely; structure pending) · P-15 Impact · P-17 Historiek (po
 `'standalone'`). Reused by P-09 Opzetten (§6 partner quote), P-14 Missie & visie (§5
 participant quote). P-05 Mariage + P-04 Leon op school + P-06 Mariage editie + P-17
 Historiek may switch to the partial on next pass (currently render quote markup inline).
+
+---
+
+## SP-16 — Open-call band
+
+**Purpose.** Surface an active inschrijving opportunity site-wide without adding a
+permanent section-budget slot. The band is **conditional and self-removing** — it renders
+only when at least one Editie has `inschrijving_open = true`; it is absent otherwise.
+Prevents the site from going stale when no call is active.
+
+**Used on.** P-01 Home (between §1 hero and §2 photo) · P-05 Mariage (promoted above §4
+edities-grid). A sibling **open-call chip** appears on SP-05 project cards in the
+work-grid (P-01 §3 · P-02 §2) when an editie has an open call — same data source, chip
+variant.
+
+### Anatomy
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│  NIEUWE EDITIE                          [Ontdek deze editie →]          │
+│  Luik 2026 — inschrijving loopt tot 31 augustus                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+- **Eyebrow:** `NIEUWE EDITIE` — `.meta uppercase tracking-wide`. Fixed label; names the
+  category (not the editie).
+- **Title line:** editie label (`{Stad} {Jaar}`, derived from `Editie.slug`) — body weight.
+- **Closing-date line:** rendered only when `inschrijving_closes_at` is set AND the
+  deadline is within a near-term window (e.g. ≤ 60 days). Format NL:
+  *"inschrijving loopt tot {DD} {maand}"*. Omitted when no date set or deadline far off.
+- **CTA:** `Ontdek deze editie →` (btn-primary on home variant, btn-ghost on project
+  variant) — links to `/dansateliers-performances/mariage/{editie-slug}`.
+- **Container:** `.container-wide` · **Border:** `--color-border` top + bottom hairline
+  (not a card; band sits in page flow).
+
+### Composition contract
+
+| Slot | Required | Notes |
+|---|---|---|
+| Eyebrow | Yes | `NIEUWE EDITIE` — fixed label |
+| Editie title | Yes | derived from `Editie.name` / slug |
+| Closing-date line | Conditional | only when `inschrijving_closes_at` is set + near |
+| CTA | Yes | link to the editie page |
+
+### Variants
+
+| Variant | Where | Difference |
+|---|---|---|
+| **`home`** | P-01 Home (between §1 + §2) | btn-primary CTA; full-width band; does NOT consume a numbered section slot in the §-budget |
+| **`project`** | P-05 Mariage (above §4 edities-grid) | btn-ghost CTA; inline with page flow; promoted above the editie cards |
+
+### States
+
+| State | Treatment |
+|---|---|
+| **Default (one open call)** | band renders with the first open editie |
+| **Multiple open calls** | render only the most-imminent one (soonest `inschrijving_closes_at`, or first in Editie ordering) |
+| **Empty — no open call** | **band is entirely absent**; no placeholder, no empty container; page layout closes cleanly |
+| **No closing date set** | closing-date line omitted; CTA still renders |
+| **Overflow (long editie name)** | title wraps to second line; CTA stays right-aligned on desktop; stacks on mobile |
+| **Mobile** | stacks vertically: eyebrow · title · closing-date · CTA full-width |
+
+### Chip sibling (SP-05 card variant)
+
+The work-grid Mariage card in SP-05 carries a small **open-call chip** (`INSCHRIJVING OPEN`
+in `.meta` style) when `Editie::openInschrijving()->exists()`. This is the same signal
+at a lower zoom level — not a new pattern, a chip variant of SP-05 status chip.
+Lives on: P-01 §3 home work-grid · P-02 §2 dansateliers-overzicht.
+
+### Tokens used
+
+`--color-border` (top + bottom band dividers) · `--color-surface` (band bg = default page
+surface, no fill) · `.meta` (eyebrow + closing-date line) · `font-medium` (editie title) ·
+`.btn-primary` / `.btn-ghost` (variant-dependent) · `.container-wide`.
+
+### Deviations
+
+- **P-01 Home:** band is CONDITIONAL and does **not** count against the 6-section budget
+  (it is not a permanent section; it renders between §1 + §2 only when an open call is
+  active).
+- **P-05 Mariage:** band is promoted *above* §4 edities grid so the open call is visible
+  before the full edities list. The §4 Luik 2026 card still shows the `aankomend` status
+  chip independently.
+
+### Open decisions
+
+- **"Most-imminent" selection rule** `[client]` — when multiple edities have open calls
+  simultaneously, confirm whether to show the one with soonest deadline or the one with
+  highest team priority.
+- **Near-term window for closing-date line** `[client]` — current default 60 days; confirm
+  threshold with team.
+
+### Implementation
+
+[`resources/views/partials/open-call-band.blade.php`](../../../resources/views/partials/open-call-band.blade.php)
+— accepts `$variant` (`'home'` default / `'project'`). Queries
+`Editie::openInschrijving()->first()` (scope on `App\Models\Editie`) to populate the
+band; returns nothing (no output) when no open editie. Created 2026-05-28 by the
+open-call flow build wave.
 
 ---
 

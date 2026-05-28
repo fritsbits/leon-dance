@@ -2,7 +2,32 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
-## [2026-05-28] build+design | Autonomous 15-page wave (briefs + content + code, parallel)
+## [2026-05-28] build | Open-call / inschrijving flow (Editie model + SP-16 band + EditieResource)
+
+8-task build wave on `feat/open-call-inschrijving`. First Build-phase data model.
+
+- **`App\Models\Editie`** Eloquent model + migration (`create_edities_table`). Inschrijving-control fields: `inschrijving_open` (bool toggle) + `inschrijving_closes_at` (nullable auto-close). Methods: `status()` · `isInschrijvingOpen()` · `inschrijvingClosesSoon()`. Scope: `openInschrijving()`. Relation: `events()`.
+- **`EditieSeeder`** — 6 Mariage edities seeded; Luik 2026 has `inschrijving_open = true` (the live open call).
+- **Route-model binding by slug** — unknown editie slug → 404 (closes P-06 brief gap #8).
+- **Editie page (P-06) §5 refactored** — inschrijving copy now driven by `isInschrijvingOpen()` (team toggle), NOT by date-status. Three reading-modes: open · gesloten-niet-afgelopen · afgelopen.
+- **SP-16 Open-call band** (`resources/views/partials/open-call-band.blade.php`) — conditional self-removing; variants `home` (P-01, no section-budget slot) + `project` (P-05 Mariage, above §4 editie-grid). Eyebrow `NIEUWE EDITIE`; CTA `Ontdek deze editie`; closing-date line when near.
+- **Open-call chip** on shared work-grid SP-05 Mariage card — appears on P-01 §3 + P-02 §2 when `Editie::openInschrijving()->exists()`.
+- **Mariage page (P-05) §4** — editie cards now rendered from `Editie` model with status chips (closes brief gap #8 on P-05).
+- **Filament `EditieResource`** (`app/Filament/Admin/Resources/Edities/`) — UI for the `inschrijving_open` toggle + `inschrijving_closes_at` date.
+- **GDPR boundary:** flow only. Inschrijving *form* (SP-10, minors consent) still blocked by Dn-03 — editie §5 CTA remains `mailto:` until Dn-03 clears.
+- **Wiki updates:** Dn-12 note advanced · Dn-22 bumped to v0.5 (12/14 patterns) · SP-16 spec added to 41-patterns · 40-skeleton patterns table + prose updated · BG-5 + BG-8 annotations in P-06 brief · gaps #1 + #8 resolved in P-06 brief · gap #8 resolved in P-05 brief · SP-16 conditional noted in P-01 + P-02 briefs · Editie + Inschrijving rows extended in 30-structure content model. Build-phase `B-` register not yet created — pointer added in Design register.
+
+## [2026-05-28] design | Tone of voice — ban the em-dash in public copy
+
+User flagged that the live copy is full of gespatieerde em-dashes (`X — Y`), the clearest
+tell of AI/dossier writing (spotted on Home hero and Contact intro). Added the rule to
+[identity/10-tone-of-voice.md](identity/10-tone-of-voice.md) in three places: a **Stijl &
+ritme** bullet (split the sentence, or use comma/colon/parentheses; only exception is
+attribution after a quote), the **Verboden in publieke copy** list, and a new **checklist
+item #9** (was 8). Fixed the guide's own Home example, which used the banned em-dash. Mirrored
+the rule into [CLAUDE.md](../../CLAUDE.md) Content rules and bumped its "8-point" →
+"9-point" reference. **Not yet swept:** ~150 em-dashes remain across the public Blade views
+(historiek 20, mariage-editie 14, leon-op-school 14, …) — copy rewrite offered as follow-up.
 
 Per user *"Can you dispatch agents to already draft the skeleton and content (and
 implement the code) for the other pages? Taking your best guess. No need to ask me
@@ -1593,3 +1618,11 @@ reader's intent, don't reference the site's own organisation ("daar hoort een ei
 bij", "in de sectie hieronder", "op onze website vind je") when you can just name the reader's
 action. Surfaced by a contact-page copy fix. CLAUDE.md "7-point" → "8-point" checklist in both
 citations.
+
+## [2026-05-28] build | Contact (P-18) — OSM map fixed + open-atelier list dynamic; pipeline updated
+Fixed the contact-page Leaflet map: corrected coords to Osseghemstraat 53 (50.8552, 4.3201,
+verified via Nominatim — old coords ~700 m off), zoom 16 → 15, and turned the location label into
+a permanent grayscale tooltip (was click-only popup). Made the "open atelier" block dynamic — it
+now reads upcoming public `open_atelier` Events (limit 3, SP-07 date-row, agenda fallback) instead
+of hardcoded weekly lines; no new model (reuses Event, same source as Agenda). 40-skeleton P-18
+row: Wire 🟠→🟢, Back 🟠→🟢, Assets 🔴→⚪ (no assets needed); OSM-coords gap closed. Roll-up updated.

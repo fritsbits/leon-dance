@@ -141,6 +141,12 @@ actie van de lezer kunt benoemen. De link ís de actie.
 - **Concrete getallen.** *"16 jaar bezig, 5 jaar vzw"* · *"6 edities sinds 2024"* ·
   *"1u30 per week, gedurende zes maanden"*. Geen *"al jarenlang"*, geen *"een
   groeiend aantal"*.
+- **Geen gedachtestreep (—) in lopende zinnen.** De gespatieerde em-dash is het
+  duidelijkste teken van AI- of dossier-copy. Splits in twee zinnen, of zet er
+  een komma, dubbele punt of haakjes. Liever *"Een open uitnodiging om mee te
+  dansen, met de mensen die het al doen."* dan *"… mee te dansen — met de mensen
+  die het al doen."* Enige uitzondering: de bronvermelding na een citaat
+  (*"…", deelnemer Mariage*).
 
 ---
 
@@ -218,6 +224,9 @@ zonder uitzondering op publieke pagina's.
   meebeslissen, eigen ruimte maken*.
 - **cohort · backstage · antenne · "Nope"** — interne planningwoorden, **nooit**
   publiek ([glossary](../glossary.md#never-user-facing-in-house-jargon--codeadmintalk-only)).
+- **Gedachtestreep / em-dash (—)** in lopende zinnen. Leest als AI of
+  subsidiedossier; splits de zin, of zet er een komma, dubbele punt of haakjes.
+  (Bronvermelding na een citaat mag wel.)
 - **Uitroeptekens-mode** (meer dan één per pagina), **decoratieve emoji's**, en
   **lange opsommingen van bijvoeglijke naamwoorden** ("een warm, divers,
   laagdrempelig, intergenerationeel, participatief…").
@@ -236,7 +245,7 @@ uitnodigt; één rustige regel die gewicht ophaalt zonder te claimen
 ([D-iv](../strategy/40-value-proposition.md#positioning-posture-decision-d-iv)).
 Geen mission-statement-blok bovenaan.
 
-- ✓ Eerste regel: *"Een open uitnodiging om mee te dansen — met de mensen die
+- ✓ Eerste regel: *"Een open uitnodiging om mee te dansen, met de mensen die
   het al doen."* · Tweede regel: *"In Brussel, sinds 2010."*
 - ✗ Eerste regel: *"Leon is een participatieve dansorganisatie die gelooft in…"*
 
@@ -295,8 +304,10 @@ Snel toepasbaar — voor de pagina live gaat (of na een AI-vertaling van NL → 
 6. **Eén CTA.** Eén heldere CTA, werkwoord aan het begin, lage drempel?
 7. **Twee-publiektest.** Zou een buurtbewoner (P1) deze pagina begrijpen, *en*
    zou een jurylid (P2) zich niet aangepraat voelen?
-8. **Vanuit de lezer.** Beschrijft de copy de actie of het doel van de lezer —
+8. **Vanuit de lezer.** Beschrijft de copy de actie of het doel van de lezer,
    niet onze eigen structuur (*"eigen pagina", "sectie hieronder"*)?
+9. **Geen gedachtestreep.** Geen em-dash (—) in lopende zinnen? Komma, punt of
+   dubbele punt in de plaats; anders leest het als AI-copy.
 
 Als één antwoord *nee* is: herschrijven. Als alle antwoorden *ja*: publish.
 

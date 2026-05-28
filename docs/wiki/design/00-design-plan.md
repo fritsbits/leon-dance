@@ -35,8 +35,8 @@ now closed.
 | 1 — Strategy | [strategy/](../strategy/) | **CONCLUDED** (separate thread, 2026-05-19) | Five artifacts + brief + research-evidence |
 | 2 — Scope | [20-scope.md](20-scope.md) | **DRAFT v0.3** | Strategy-v1.x reconciliation + interview-locked; validation gate = content-complete NL draft + Kristin's P1/P4 survey |
 | 3 — Structure | [30-structure.md](30-structure.md) | **DRAFT v0.2 (2026-05-20)** | 4-item primary nav (Dansateliers & performances · Samenwerken · Agenda · Over Leon); generic-first/brand-second naming; trajectory-not-product; Agenda dual-job; proof distributed |
-| 4 — Skeleton | `40-skeleton.md` | not started | Wireframe briefs + state inventory. Highest-priority skeleton = the home (5 tensions) and the *Voorstellingen & projecten* project page (using *Mariage*) |
-| 5 — Surface | — | not started | Hands off to Visual Design Guidelines; not in this thread unless asked |
+| 4 — Skeleton | [40-skeleton.md](40-skeleton.md) | **DRAFT v0.1 (2026-05-27)** | Plane plan + **page registry** (single source of pipeline status for 18 NL v1 pages); shared patterns library scaffolded (SP-01…SP-13, all 🔴 stub); per-page brief lifecycle = stub → first draft → reviewed → final → approved; per-page content-confidence 1–5 with tagged gap pointers. v1 = **NL only** (FR/EN routing → [Dn-24](01-concerns.md)). |
+| 5 — Surface | [50-visual-inspiration.md](50-visual-inspiration.md) | **research-collecting** (2026-05-26) | Plane not formally opened. **18-reference inspiration library** assembled ahead of Skeleton: 8 international dance peers (ethos-aligned, no BE/NL same-subsector) + 3 cultural institutions + 4 wildcards + 3 design-gallery picks; 8 north-stars elevated with cross-cutting Themes + Anti-patterns. Surface decisions defer to Skeleton landing |
 
 ## Design-phase filename numbering
 

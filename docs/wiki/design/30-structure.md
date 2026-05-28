@@ -1,9 +1,9 @@
 ---
 title: Structure — leon.dance redesign (Garrett Plane 3)
 tags: [design, structure, ia, sitemap, garrett]
-sources: [20-scope; glossary; strategy/00-strategy-brief; strategy/20-personas; strategy/50-user-journey; client kickoff 2026-05-19; comparator — Debateville; structure-workshop 2026-05-20]
+sources: [20-scope; glossary; strategy/00-strategy-brief; strategy/20-personas; strategy/50-user-journey; client kickoff 2026-05-19; comparator — Debateville; structure-workshop 2026-05-20; discovery/25-agenda (raw transcription cross-check 2026-05-27)]
 phase: design
-updated: 2026-05-20
+updated: 2026-05-27
 ---
 
 # Structure — leon.dance redesign
@@ -30,10 +30,11 @@ HOME
 │   ├── Mobiele dansstudio uitnodigen           → intake; canonical content under Dansateliers & performances
 │   └── Vrijwilligerswerk of stage doen         Dn-19 (Strategy persona work + team email corpus pending)
 │
-├── Agenda                                      — one unified surface · 2-axis filter
-│   └── filters:  (a) type — open atelier · repetitie · try-out · voorstelling ·
-│                          Leons White Page · Leon rond de tafel
-│                 (b) project/practice — Atelier Leon · Leon op school · Mariage · …
+├── Agenda                                      — one unified surface · grouped by month
+│   ├── filter: Onderdeel                       single chip-axis: Alles · Atelier Leon · Leon op school · Mariage
+│   │                                           (merges practice+project — mutually exclusive, prevents empty AND)
+│   ├── verleden/komend                         past↔upcoming toggle at foot of list
+│   └── type via deep-link only                 ?type=open_atelier|klas|repetitie|try-out|voorstelling|… (not a visible axis); internal types shown with 1-line explainer
 │
 └── Over Leon
     ├── Missie & visie                          + Apartheid Free Zones (Strategy S-03 placement)
@@ -66,12 +67,12 @@ Future:  Kosmos 2027 → add under Participatieve performances when ready
 | Entity | Relations | Notes |
 |---|---|---|
 | **Project** | hasMany **Editie** · belongs to `Participatieve performances` category | Trajectory documentation fields: *proces · nazorg · continuïteit · evolutie*. *Mariage* now; *Kosmos 2027* when ready. NL/FR/EN. |
-| **Editie** | belongsTo **Project** · hasMany **Event** | Own page · own *groep* · own typed dates. NL/FR/EN. |
+| **Editie** | belongsTo **Project** · hasMany **Event** | Own page · own *groep* · own typed dates. NL/FR/EN. **Inschrijving-control fields (2026-05-28):** `inschrijving_open` (bool toggle — team sets via Filament `EditieResource`) · `inschrijving_closes_at` (nullable date — auto-close). Methods: `status()` · `isInschrijvingOpen()` · `inschrijvingClosesSoon()`. Scope: `openInschrijving()`. Route uses model-binding by slug (unknown slug → 404). |
 | **RecurringPractice** | hasMany **Event** | Canonical page only · no edities. **Public** (landing page): *Atelier Leon · Leon op school*. **Internal-only** (no landing page · events only): *Leons White Page · Leon rond de tafel*. NL/FR/EN. |
-| **Event** (Agenda) | belongsTo **Editie** OR **RecurringPractice** | `type` enum: *open atelier · repetitie · try-out · voorstelling · Leons White Page · Leon rond de tafel*. Drives Agenda filtering. |
+| **Event** (Agenda) | belongsTo **Editie** OR **RecurringPractice** | `type` enum: *open atelier · **klas** · repetitie · try-out · voorstelling · Leons White Page · Leon rond de tafel*. Fields: *title · lead (named facilitator) · venue · partners (string of `x`-collaborators, e.g. `MUS-E, Ketmet`) · starts_at · ends_at · is_public · notes*. Drives Agenda filtering. ⚠️ Cross-checked vs. raw [25-agenda](../discovery/25-agenda.md) 2026-05-27 — added `klas` (21/65 entries ≈ 32%) + `lead`/`partners` (every real entry carries them; "Activity · Lead · Venue" are the Excel columns Kristin maintains). |
 | **Page** | — | Generic content page. Used for: Mobiele dansstudio, Samenwerken children, all Over Leon sub-pages, Dansateliers & performances landing, Samenwerken landing. NL/FR/EN. |
 | **Partner / Funder** | belongs to `tier` | Tiers: *Funders · Co-producers · Venues · In-kind*. Drives site-wide footer wall + home strip. |
-| **Inschrijving** | belongsTo **Editie** | Light per-editie list + export to ESP — **not** a relational CRM ([Scope F5](20-scope.md)). |
+| **Inschrijving** | belongsTo **Editie** | Light per-editie list + export to ESP — **not** a relational CRM ([Scope F5](20-scope.md)). **Note:** the *flow* (open/gesloten/afgelopen state, SP-16 band, mailto CTA) is built (2026-05-28); the *form* (SP-10, minors consent) remains blocked by [Dn-03](design/01-concerns.md). |
 
 I18n: every content-bearing entity has NL / FR / EN translations of editable fields. URL/routing model deferred to Skeleton.
 
