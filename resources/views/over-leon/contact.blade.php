@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Contact',
-    'description' => 'Mail ons op hello@leon.dance, bel +32 456 91 26 41, of kom langs op het bureau in Sint-Jans-Molenbeek. Drie ingangen voor specifieke vragen: een project opzetten, de mobiele dansstudio boeken, of meedoen.',
+    'description' => 'Mail ons op hello@leon.dance, bel +32 456 91 26 41, kom langs in Sint-Jans-Molenbeek, of laat meteen een bericht achter.',
 ])
 
 @section('content')
@@ -9,7 +9,7 @@
     @include('partials.page-header', [
         'eyebrow' => 'Over Leon',
         'title'   => 'Contact',
-        'lede'    => 'Mail, bel of kom langs. Heb je een specifieke vraag — een project opzetten, de mobiele dansstudio boeken, meedoen — kies dan hieronder de juiste ingang.',
+        'lede'    => 'Mail, bel of kom langs. Of laat hieronder meteen een bericht achter — we komen er snel op terug.',
     ])
 
     {{-- §2 Algemeen (general contact details) --}}
@@ -45,62 +45,20 @@
         </div>
     </section>
 
-    {{-- §3 Met een specifieke vraag (routing list) --}}
-    <section class="section border-t border-[var(--color-border)]">
-        <div class="container-wide">
-            <h2 class="mb-8">Met een specifieke vraag</h2>
-
-            <ul class="border-t border-[var(--color-border-subtle)] max-w-[var(--max-content)]">
-                @foreach ([
-                    [
-                        'href'  => route('samenwerken.opzetten'),
-                        'label' => 'Werk samen aan een project',
-                        'sub'   => 'Een participatief dansproject opzetten met je groep, school, organisatie of stad.',
-                        'tag'   => null,
-                    ],
-                    [
-                        'href'  => route('samenwerken.uitnodigen'),
-                        'label' => 'Boek de mobiele dansstudio',
-                        'sub'   => 'Een verplaatsbare dansruimte boeken voor een week, een festival of een zomerformule.',
-                        'tag'   => null,
-                    ],
-                    [
-                        'href'  => route('agenda'),
-                        'label' => 'Doe mee als deelnemer',
-                        'sub'   => 'Kom langs in Atelier Leon, schrijf je in voor een editie, of bekijk wat eraan komt in de agenda.',
-                        'tag'   => null,
-                    ],
-                    [
-                        'href'  => route('samenwerken.doen'),
-                        'label' => 'Word vrijwilliger of stagiair',
-                        'sub'   => 'Meewerken aan repetities, voorstellingen of dagelijkse werking.',
-                        'tag'   => 'in voorbereiding',
-                    ],
-                ] as $row)
-                    <li class="border-b border-[var(--color-border-subtle)]">
-                        <a href="{{ $row['href'] }}"
-                           class="block py-4 no-underline hover:bg-[var(--color-hover)]">
-                            <span class="block font-medium">→ {{ $row['label'] }}</span>
-                            <span class="meta block mt-1">
-                                {{ $row['sub'] }}
-                                @if ($row['tag'])
-                                    <span class="ml-1">[{{ $row['tag'] }}]</span>
-                                @endif
-                            </span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
-
-    {{-- §3.5 Of stuur ons meteen een bericht · SP-11 contact form (algemeen) --}}
+    {{-- §3 Stuur ons een bericht · SP-11 contact form (algemeen, primary action) --}}
     <section class="section border-t border-[var(--color-border)]">
         @include('partials.contact-form', [
-            'heading'   => 'Of stuur ons meteen een bericht',
-            'intro'     => 'Geen specifieke ingang nodig? Laat hier je vraag achter — we komen er snel op terug.',
+            'heading'   => 'Stuur ons een bericht',
+            'intro'     => 'Een vraag, een idee, of gewoon even kennismaken? Laat het hier weten — we komen er snel op terug.',
             'onderwerp' => 'algemeen',
         ])
+        <div class="container-text mt-8">
+            <p class="meta">
+                Werk je aan een project of wil je de mobiele dansstudio boeken? Daar hoort een eigen pagina bij:
+                <a href="{{ route('samenwerken.opzetten') }}">een project opzetten</a> ·
+                <a href="{{ route('samenwerken.uitnodigen') }}">de mobiele dansstudio</a>.
+            </p>
+        </div>
     </section>
 
     {{-- §4 Bezoekadres (visit address + map placeholder + open-atelier drop-ins) --}}
