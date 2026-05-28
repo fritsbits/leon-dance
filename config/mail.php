@@ -122,6 +122,6 @@ return [
     | Destination for website contact/booking enquiries (ContactRequestMail).
     */
 
-    'team_address' => env('MAIL_TEAM_ADDRESS', 'hallo@leon.dance'),
+    'team_address' => env('MAIL_TEAM_ADDRESS', 'hello@leon.dance'),
 
 ];
