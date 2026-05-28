@@ -3,7 +3,7 @@ title: Glossary — Leon terminology (one shared vocabulary)
 tags: [glossary, terminology, cross-cutting]
 sources: [leon.dance current pages; client kickoff 2026-05-19; strategy/20-personas; strategy/40-value-proposition; design/20-scope]
 phase: cross-cutting
-updated: 2026-05-19
+updated: 2026-05-28
 ---
 
 # Glossary — Leon terminology
@@ -31,9 +31,10 @@ sets of words.
 | **voorstelling** | The public moment a project/editie builds toward. | The single best cross-audience word — keep it everywhere. A public dated show is a *voorstelling* with date/place — never surfaced to the public as "an editie of a project". |
 | **inschrijven / inschrijving** | Signing up to take part. | The system field/verb. **Copy varies by page, not the word:** pair with *"of kom gewoon langs"* for newcomers; on partner paths use *kennismaken / vrijblijvend contact* instead (Leon-initiated, relationship-led); programmers get a *Boekingen/contact* path, not "inschrijven". |
 | date types: **open atelier · repetitie · try-out · voorstelling** | The kinds of dated session on a project/editie (working dates → the show). | The cleanest, most genuinely shared part — keep verbatim. On partner pages, frame the working dates as *wekelijkse sessies*. |
-| **atelier** / **Atelier Leon** | The free, drop-in, **no-registration** weekly practice. | Keep. The closed school-hours work (*Leon op school*) is a **distinct offer** — don't fold it into the drop-in atelier. |
+| **atelier** / **Atelier Leon** | The free, drop-in, **no-registration** weekly practice. | Keep. The closed school-hours work (*Leon op school*) is a **distinct offer** — don't fold it into the drop-in atelier. **Data model (2026-05-28):** the in-house entity is `Atelier` (`type: open\|school`) — *open* = Atelier Leon, *school* = Leon op school; one canonical page per type. Public copy still lists by name; no "atelier" umbrella over the school work. |
 | recurring practices — name them | **Atelier Leon · Leon op school · Leons White Page · Leon rond de tafel** | **Do not use "werking"** (subsidie-register, the canonical newcomer bounce). No umbrella noun — list the practices by name. **"Leon on tour" is *not* a peer practice** — verified at Structure 2026-05-20 vs. current `/what-we-do` mirror, it's the umbrella term the current site uses for participatieve performances ("…a large-scale performance like *Mariage*"); under [Structure](design/30-structure.md), **Participatieve performances** replaces it as the public category. The IA root that holds *projecten* + these is resolved at [Structure](design/30-structure.md): no overview root; 4 top-level items. **Apartheid Free Zones** lives under Over Leon → Missie & visie (Strategy [S-03](strategy/01-concerns.md)). |
 | **mobiele dansstudio** | The bookable bike-based mobile studio. | Public name = *mobiele dansstudio*; *"de fiets"* is informal in-house nickname (fine in speech, not a label). Needs a **bookable framing** (what a booking includes / technische fiche) — a content gap, see notes. |
+| **locatie** (model `Venue`) | A place where activities happen — `name · area · address`. | Data-model entity (built 2026-05-28). Each *Atelier* has a standing *locatie*; each *Event* carries one. EN class name `Venue`; Filament/site label *Locatie*. |
 
 ## Never user-facing (in-house jargon — code/admin/talk only)
 

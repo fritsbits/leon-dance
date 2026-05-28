@@ -1809,3 +1809,18 @@ not a city residency — residency fields (stadgenoot, groep_*, quote) left null
 molenbeek-2026 = aankomend + open call, others afgelopen, each with 1 voorstelling; project + open
 editie pages render (signup form live). No stage change (Conf held at 3 per Frederik; editions
 sourced but per-editie prose still team-supplied); Top gaps + roll-up refreshed for P-05/P-06.
+
+## [2026-05-28] build | Event data model — Phase 1: Venue + Atelier models (Atelier Leon page now dynamic)
+First slice of the full-normalization spec ([spec](../superpowers/specs/2026-05-28-event-model-normalization-design.md) ·
+[plan](../superpowers/plans/2026-05-28-event-model-phase1-venue-atelier.md)). New `Venue` model
+(naam/gebied/adres + nullable lat/lng) and `Atelier` model (`type: open|school`, standing venue +
+day/time; scopes open/school/active/ordered; dayLabel/timeRange/displayName) with an `AtelierType`
+enum. `events` gains nullable `atelier_id` + `venue_id` FKs (additive — the legacy `venue` string
+and the practice/project/editie slugs are untouched); `Event` gets an `atelier()` relation + a
+`forAtelierType` scope. Seeders: `VenueSeeder` + `AtelierSeeder` (idempotent, wired into
+DatabaseSeeder), `EventSeeder` populates the FKs. The Atelier Leon §4 "Waar en wanneer" block now
+renders from `Atelier::open()` (verified live — identical to the old hardcode) and "Eerstvolgende"
+from `Event::forAtelierType(open)`. 6 commits on `main`; full suite green bar one pre-existing
+unrelated failure. **40-skeleton P-03 Back ❓→🟢** (Wire held 🟠 per the self-promote gate). The
+`Event::venue()` relation was deliberately NOT added (collides with the `venue` string column) —
+deferred to Phase 2 along with the Project model + Editie→Edition rename + slug→FK cutover.
