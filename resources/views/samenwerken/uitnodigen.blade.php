@@ -102,13 +102,15 @@
 
     {{-- §6 Plan een boeking · SP-11 contact form (server-handled; replaces mailto stub) --}}
     <section class="section border-t border-[var(--color-border)]">
-        @include('partials.contact-form', [
-            'heading'     => 'Plan een boeking',
-            'intro'       => 'Laat ons weten wat je in gedachten hebt — we nemen binnen een week contact op met een eerste reactie.',
-            'onderwerp'   => 'mobiele-dansstudio',
-            'berichtHelp' => 'Vermeld gerust locatie, datum en doelpubliek.',
-            'submitLabel' => 'Verstuur aanvraag',
-        ])
+        <div class="container-text">
+            @include('partials.contact-form', [
+                'heading'     => 'Plan een boeking',
+                'intro'       => 'Laat ons weten wat je in gedachten hebt — we nemen binnen een week contact op met een eerste reactie.',
+                'onderwerp'   => 'mobiele-dansstudio',
+                'berichtHelp' => 'Vermeld gerust locatie, datum en doelpubliek.',
+                'submitLabel' => 'Verstuur aanvraag',
+            ])
+        </div>
     </section>
 
 @endsection

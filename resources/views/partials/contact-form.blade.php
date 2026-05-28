@@ -6,7 +6,7 @@
     $submitLabel ??= 'Verstuur aanvraag';
 @endphp
 
-<div id="contact-form" class="container-text">
+<div id="contact-form">
     <h2 class="mb-4">{{ $heading }}</h2>
 
     @if (session('contact_success'))

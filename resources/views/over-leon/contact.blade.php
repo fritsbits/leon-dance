@@ -12,64 +12,56 @@
         'lede'    => 'Mail, bel of kom langs. Of laat hieronder meteen een bericht achter — we komen er snel op terug.',
     ])
 
-    {{-- §2 Algemeen (general contact details) --}}
+    {{-- §2 Contact — direct details (left) + message form (right, primary action) --}}
     <section class="section border-t border-[var(--color-border)]">
         <div class="container-wide">
-            <h2 class="mb-8">Algemeen</h2>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-[var(--max-content)]">
+            <div class="grid md:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-start">
+                {{-- left: direct contact details + booking pointer --}}
                 <div>
-                    <h3>Stuur een mail</h3>
-                    <p class="mt-3">
-                        <a href="mailto:hello@leon.dance">hello@leon.dance</a>
+                    <h2 class="mb-6">Liever direct?</h2>
+                    <div class="space-y-4">
+                        <p>
+                            <span class="meta block">Mail</span>
+                            <a href="mailto:hello@leon.dance">hello@leon.dance</a>
+                        </p>
+                        <p>
+                            <span class="meta block">Bel</span>
+                            <a href="tel:+32456912641">+32 456 91 26 41</a>
+                        </p>
+                        <p>
+                            <span class="meta block">Post</span>
+                            <span class="text-[var(--color-text)]">Leon vzw · Weilandstraat 46 · 1082 Brussel</span>
+                            <span class="meta block mt-1">maatschappelijke zetel · BTW 0769.579.192</span>
+                        </p>
+                    </div>
+                    <p class="meta mt-8">
+                        Werk je aan een project of wil je de mobiele dansstudio boeken? Daar hoort een eigen pagina bij:
+                        <a href="{{ route('samenwerken.opzetten') }}">een project opzetten</a> ·
+                        <a href="{{ route('samenwerken.uitnodigen') }}">de mobiele dansstudio</a>.
                     </p>
                 </div>
 
+                {{-- right: message form (primary) --}}
                 <div>
-                    <h3>Of bel ons</h3>
-                    <p class="mt-3">
-                        <a href="tel:+32456912641">+32 456 91 26 41</a>
-                    </p>
-                </div>
-
-                <div>
-                    <h3>Of stuur een kaartje</h3>
-                    <address class="not-italic mt-3 text-[var(--color-text-muted)]">
-                        Leon vzw<br>
-                        Weilandstraat 46<br>
-                        1082 Bruxelles
-                    </address>
-                    <p class="meta mt-3">BTW 0769.579.192</p>
+                    @include('partials.contact-form', [
+                        'heading'   => 'Stuur ons een bericht',
+                        'intro'     => 'Een vraag, een idee, of even kennismaken? Laat het hier weten — we komen er snel op terug.',
+                        'onderwerp' => 'algemeen',
+                    ])
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- §3 Stuur ons een bericht · SP-11 contact form (algemeen, primary action) --}}
-    <section class="section border-t border-[var(--color-border)]">
-        @include('partials.contact-form', [
-            'heading'   => 'Stuur ons een bericht',
-            'intro'     => 'Een vraag, een idee, of gewoon even kennismaken? Laat het hier weten — we komen er snel op terug.',
-            'onderwerp' => 'algemeen',
-        ])
-        <div class="container-text mt-8">
-            <p class="meta">
-                Werk je aan een project of wil je de mobiele dansstudio boeken? Daar hoort een eigen pagina bij:
-                <a href="{{ route('samenwerken.opzetten') }}">een project opzetten</a> ·
-                <a href="{{ route('samenwerken.uitnodigen') }}">de mobiele dansstudio</a>.
-            </p>
-        </div>
-    </section>
-
-    {{-- §4 Bezoekadres (visit address + map placeholder + open-atelier drop-ins) --}}
+    {{-- §3 Kom langs — visit address + open-atelier drop-ins + live OSM map --}}
     <section class="section border-t border-[var(--color-border)]">
         <div class="container-wide">
             <h2 class="mb-8">Kom langs op het bureau</h2>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-[var(--max-content)]">
+            <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-[var(--max-content)]">
                 <div>
                     <address class="not-italic text-[var(--color-text-muted)]">
-                        <span class="font-medium text-[var(--color-text)]">Lion City</span><br>
+                        <span class="font-medium text-[var(--color-text)]">Lion City</span> <span class="meta">— bezoekadres</span><br>
                         Ossegemstraat 53<br>
                         1080 Sint-Jans-Molenbeek
                     </address>
@@ -81,19 +73,18 @@
                     </ul>
                 </div>
 
-                {{-- Map placeholder · per CLAUDE.md "Maps: OpenStreetMap + Leaflet.js only".
-                     Leaflet not yet bootstrapped in app.js — see brief BG-5 + gap #6.
-                     V1: bordered block + real OSM deep-link so visit-address is useful without JS. --}}
-                <div>
-                    <div class="aspect-[16/9] border border-[var(--color-border)] rounded-[var(--radius)] bg-[var(--color-surface-muted)] flex flex-col items-center justify-center text-center p-6">
-                        <p class="meta">Kaartje (OpenStreetMap, Leaflet) — landt in Surface</p>
-                        <p class="mt-3">
-                            <a href="https://www.openstreetmap.org/?mlat=50.8616&amp;mlon=4.3300&amp;zoom=17"
-                               rel="noopener"
-                               target="_blank"
-                               class="btn-text">Bekijk op OpenStreetMap →</a>
-                        </p>
-                    </div>
+                {{-- Live OpenStreetMap via Leaflet (resources/js/app.js). No-JS falls back to the
+                     deep-link below. Per CLAUDE.md: OpenStreetMap + Leaflet only; grayscale via .map. --}}
+                <div data-leaflet-map
+                     data-lat="50.8616" data-lng="4.3300" data-zoom="16"
+                     data-label="Leon vzw · Lion City, Ossegemstraat 53"
+                     class="map">
+                    <noscript>
+                        <div class="flex h-full items-center justify-center p-6 text-center">
+                            <a href="https://www.openstreetmap.org/?mlat=50.8616&amp;mlon=4.3300#map=16/50.8616/4.3300"
+                               rel="noopener" target="_blank" class="btn-text">Bekijk op OpenStreetMap →</a>
+                        </div>
+                    </noscript>
                 </div>
             </div>
         </div>
