@@ -53,10 +53,9 @@ class Edition extends Model
         return $this->belongsTo(Project::class);
     }
 
-    // Joined on the slug string (no Project model yet); renaming a slug orphans events — no DB cascade.
     public function events(): HasMany
     {
-        return $this->hasMany(Event::class, 'editie_slug', 'slug');
+        return $this->hasMany(Event::class);
     }
 
     /** Date-derived editie status (independent of inschrijving). */

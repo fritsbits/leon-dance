@@ -20,6 +20,7 @@ class Event extends Model
         'editie_slug',
         'practice_slug',
         'atelier_id',
+        'edition_id',
         'venue_id',
         'starts_at',
         'ends_at',
@@ -67,6 +68,11 @@ class Event extends Model
     public function atelier(): BelongsTo
     {
         return $this->belongsTo(Atelier::class);
+    }
+
+    public function edition(): BelongsTo
+    {
+        return $this->belongsTo(Edition::class);
     }
 
     public function scopeForAtelierType(Builder $query, AtelierType|string $type): Builder

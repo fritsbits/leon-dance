@@ -91,15 +91,16 @@ class EditionModelTest extends TestCase
         $this->assertFalse($justOver->inschrijvingClosesSoon());
     }
 
-    public function test_events_relation_matches_editie_slug(): void
+    public function test_events_relation_matches_edition_id(): void
     {
         $editie = $this->makeEditie(['slug' => 'rel-2026']);
         Event::create([
-            'type' => EventType::Voorstelling, 'title' => 'Mariage', 'editie_slug' => 'rel-2026',
+            'type' => EventType::Voorstelling, 'title' => 'Mariage', 'edition_id' => $editie->id,
+            'editie_slug' => 'rel-2026',
             'starts_at' => now()->addMonth(), 'is_public' => true,
         ]);
         Event::create([
-            'type' => EventType::Voorstelling, 'title' => 'Andere', 'editie_slug' => 'other',
+            'type' => EventType::Voorstelling, 'title' => 'Andere',
             'starts_at' => now()->addMonth(), 'is_public' => true,
         ]);
 

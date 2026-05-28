@@ -59,6 +59,7 @@ class EventSeeder extends Seeder
                 'venue' => 'GBS Kameleon',
                 'partners' => 'MUS-E',
                 'project_slug' => 'mariage',
+                'editie_slug' => 'molenbeek-2026',
                 'starts_at' => $base->copy()->addDays(1)->setTime(15, 30),
                 'ends_at' => $base->copy()->addDays(1)->setTime(17, 0),
             ],
@@ -69,6 +70,7 @@ class EventSeeder extends Seeder
                 'venue' => 'Cultureghem',
                 'partners' => 'Ketmet',
                 'project_slug' => 'mariage',
+                'editie_slug' => 'molenbeek-2026',
                 'starts_at' => $base->copy()->addDays(2)->setTime(14, 0),
                 'ends_at' => $base->copy()->addDays(2)->setTime(16, 0),
             ],
@@ -163,11 +165,16 @@ class EventSeeder extends Seeder
                 $atelierId = Atelier::open()->where('venue_id', $venue->id)->value('id');
             }
 
+            $editionId = isset($row['editie_slug'])
+                ? \App\Models\Edition::where('slug', $row['editie_slug'])->value('id')
+                : null;
+
             Event::create([
                 ...$row,
                 'is_public' => true,
                 'venue_id' => $venue?->id,
                 'atelier_id' => $atelierId,
+                'edition_id' => $editionId,
             ]);
         }
     }
