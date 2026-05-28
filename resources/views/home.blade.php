@@ -1,22 +1,24 @@
 @php
+    use App\Enums\AtelierType;
     use App\Enums\EventType;
 
     $upcomingEvents = \App\Models\Event::query()
         ->where('is_public', true)
         ->whereNotIn('type', [EventType::LeonsWhitePage->value, EventType::LeonRondDeTafel->value])
+        ->with(['atelier', 'edition.project'])
         ->upcoming()
         ->limit(3)
         ->get();
 
     $hrefFor = function (\App\Models\Event $event) {
-        if ($event->practice_slug === 'atelier-leon') {
+        if ($event->edition?->project?->slug === 'mariage') {
+            return route('dansateliers.mariage');
+        }
+        if ($event->atelier?->type === AtelierType::Open) {
             return route('dansateliers.atelier-leon');
         }
-        if ($event->practice_slug === 'leon-op-school') {
+        if ($event->atelier?->type === AtelierType::School) {
             return route('dansateliers.leon-op-school');
-        }
-        if ($event->project_slug === 'mariage') {
-            return route('dansateliers.mariage');
         }
         return route('agenda');
     };

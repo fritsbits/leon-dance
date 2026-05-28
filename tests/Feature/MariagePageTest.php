@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Enums\EventType;
 use App\Models\Edition;
 use App\Models\Event;
+use App\Models\Project;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,7 +15,13 @@ class MariagePageTest extends TestCase
 
     private function makeEditie(array $overrides = []): Edition
     {
+        $project = Project::firstOrCreate(
+            ['slug' => 'mariage'],
+            ['name' => 'Mariage'],
+        );
+
         return Edition::create(array_merge([
+            'project_id'   => $project->id,
             'project_slug' => 'mariage',
             'slug'         => 'teststad-2026',
             'stad'         => 'Teststad',
@@ -23,13 +30,14 @@ class MariagePageTest extends TestCase
         ], $overrides));
     }
 
-    private function makeVoorstelling(string $editieSlug, $startsAt, array $overrides = []): Event
+    private function makeVoorstelling(Edition $editie, $startsAt, array $overrides = []): Event
     {
         return Event::create(array_merge([
             'type'         => EventType::Voorstelling,
             'title'        => 'Mariage',
+            'edition_id'   => $editie->id,
             'project_slug' => 'mariage',
-            'editie_slug'  => $editieSlug,
+            'editie_slug'  => $editie->slug,
             'starts_at'    => $startsAt,
             'is_public'    => true,
         ], $overrides));
@@ -38,7 +46,7 @@ class MariagePageTest extends TestCase
     public function test_watch_band_shows_when_a_public_voorstelling_is_near(): void
     {
         $editie = $this->makeEditie();
-        $this->makeVoorstelling($editie->slug, now()->addWeeks(3));
+        $this->makeVoorstelling($editie, now()->addWeeks(3));
 
         $this->get('/dansateliers-performances/mariage')
             ->assertOk()
@@ -49,7 +57,7 @@ class MariagePageTest extends TestCase
     public function test_watch_band_hidden_when_voorstelling_is_far_off(): void
     {
         $editie = $this->makeEditie();
-        $this->makeVoorstelling($editie->slug, now()->addWeeks(20));
+        $this->makeVoorstelling($editie, now()->addWeeks(20));
 
         $this->get('/dansateliers-performances/mariage')
             ->assertOk()
@@ -59,7 +67,7 @@ class MariagePageTest extends TestCase
     public function test_watch_band_hidden_when_no_upcoming_voorstelling(): void
     {
         $editie = $this->makeEditie();
-        $this->makeVoorstelling($editie->slug, now()->subWeeks(4)); // past
+        $this->makeVoorstelling($editie, now()->subWeeks(4)); // past
 
         $this->get('/dansateliers-performances/mariage')
             ->assertOk()
@@ -69,7 +77,7 @@ class MariagePageTest extends TestCase
     public function test_non_public_voorstelling_does_not_trigger_watch_band(): void
     {
         $editie = $this->makeEditie();
-        $this->makeVoorstelling($editie->slug, now()->addWeeks(3), ['is_public' => false]);
+        $this->makeVoorstelling($editie, now()->addWeeks(3), ['is_public' => false]);
 
         $this->get('/dansateliers-performances/mariage')
             ->assertOk()

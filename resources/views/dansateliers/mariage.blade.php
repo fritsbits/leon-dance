@@ -18,6 +18,7 @@
         ->where('is_public', true)
         ->upcoming()
         ->where('starts_at', '<=', now()->addWeeks(8))
+        ->with(['edition.project'])
         ->first();
 @endphp
 

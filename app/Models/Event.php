@@ -52,17 +52,7 @@ class Event extends Model
 
     public function scopeForProject(Builder $query, string $slug): Builder
     {
-        return $query->where('project_slug', $slug);
-    }
-
-    public function scopeForEditie(Builder $query, string $slug): Builder
-    {
-        return $query->where('editie_slug', $slug);
-    }
-
-    public function scopeForPractice(Builder $query, string $slug): Builder
-    {
-        return $query->where('practice_slug', $slug);
+        return $query->whereHas('edition.project', fn (Builder $q) => $q->where('slug', $slug));
     }
 
     public function venue(): BelongsTo

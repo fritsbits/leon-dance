@@ -1,4 +1,5 @@
 @php
+    use App\Enums\AtelierType;
     use App\Enums\EventType;
     use App\Models\Event;
 
@@ -11,6 +12,7 @@
     // Build query, applying filters when valid.
     $query = Event::query()
         ->where('is_public', true)
+        ->with(['atelier', 'edition.project'])
         ->when($showPast,
             fn ($q) => $q->past(),
             fn ($q) => $q->upcoming(),
@@ -20,7 +22,14 @@
         $query->ofType($typeFilter);
     }
     if ($practiceFilter) {
-        $query->forPractice($practiceFilter);
+        $atelierType = match ($practiceFilter) {
+            'atelier-leon'   => AtelierType::Open,
+            'leon-op-school' => AtelierType::School,
+            default          => null,
+        };
+        if ($atelierType) {
+            $query->forAtelierType($atelierType);
+        }
     }
     if ($projectFilter) {
         $query->forProject($projectFilter);
@@ -51,17 +60,17 @@
         EventType::LeonRondDeTafel->value => 'Intern overleg. Geen publiek programma.',
     ];
 
-    // Per-row href: project page if project_slug set, practice page if practice_slug set,
-    // else self-link (internal events have no parent page). Gap #6 — editie-routing
-    // deferred until P-06 editie page lands a confirmed slug-resolution.
+    // Per-row href: project page if linked via edition relation, practice page if atelier
+    // type matches, else self-link (internal events have no parent page). Gap #6 — editie-
+    // routing deferred until P-06 editie page lands a confirmed slug-resolution.
     $hrefFor = function (Event $event) {
-        if ($event->project_slug === 'mariage') {
+        if ($event->edition?->project?->slug === 'mariage') {
             return route('dansateliers.mariage');
         }
-        if ($event->practice_slug === 'atelier-leon') {
+        if ($event->atelier?->type === AtelierType::Open) {
             return route('dansateliers.atelier-leon');
         }
-        if ($event->practice_slug === 'leon-op-school') {
+        if ($event->atelier?->type === AtelierType::School) {
             return route('dansateliers.leon-op-school');
         }
         return route('agenda');
