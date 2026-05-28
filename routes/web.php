@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home')->name('home');
 
 // Contact form (server-handled; emails the team, stores nothing — see Dn-03 contact slice)
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+// Throttled: each submit sends an email and the honeypot is bypassable, so cap per-IP bursts.
+Route::post('/contact', [ContactController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.store');
 Route::view('/privacybeleid', 'privacybeleid')->name('privacybeleid');
 
 // Dansateliers & performances
@@ -51,3 +54,9 @@ Route::prefix('over-leon')->name('over.')->group(function () {
     Route::view('/historiek',    'over-leon.historiek')->name('historiek');
     Route::view('/contact',      'over-leon.contact')->name('contact');
 });
+
+// Internal build-status dashboard — non-production only, unlinked.
+if (! app()->isProduction()) {
+    Route::get('/build', App\Http\Controllers\BuildDashboardController::class)
+        ->name('build.dashboard');
+}

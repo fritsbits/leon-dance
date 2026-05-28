@@ -70,6 +70,17 @@ class ContactFormTest extends TestCase
         Mail::assertNothingSent();
     }
 
+    public function test_endpoint_is_rate_limited(): void
+    {
+        Mail::fake();
+
+        foreach (range(1, 5) as $ignored) {
+            $this->post('/contact', $this->validPayload())->assertRedirect();
+        }
+
+        $this->post('/contact', $this->validPayload())->assertStatus(429);
+    }
+
     // Data-minimisation note: there is intentionally NO model/migration for
     // contact requests — submissions are emailed only, never persisted.
 }
