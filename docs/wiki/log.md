@@ -1575,3 +1575,14 @@ Promoted SP-11 to `partials/contact-form.blade.php`; added `/privacybeleid` stub
 added form-control styles + danger/success tokens. Live on uitnodigen + contact page.
 Dn-03 Open [BLOCKER] → Partly (inschrijving/minors + newsletter/ESP remain blocked).
 Spec: docs/superpowers/specs/2026-05-28-contact-form-design.md.
+
+## [2026-05-28] build | Privacybeleid page populated + internal privacy register
+Replaced the `/privacybeleid` placeholder with real NL AVG copy for the one data flow (the
+contact form): controller identity, purpose, lawful basis (6.1.f/6.1.b), recipients,
+retention, rights, and the GBA complaint route. Mail provider confirmed = Resend (US) →
+§ "Met wie we ze delen" discloses the US transfer under EU-VS DPF + SCC's. No cookie banner
+(one strictly-necessary functional cookie, disclosed). Added internal Art. 30 register
+(gitignored) with a confirm-with-Leon checklist. Feature test (`PrivacyPageTest`) pins the
+mandatory disclosures. Dn-03 stays Partly (inschrijving/minors + newsletter/ESP remain blocked).
+Spec: docs/superpowers/specs/2026-05-28-privacy-page-design.md ·
+Plan: docs/superpowers/plans/2026-05-28-privacy-page.md.

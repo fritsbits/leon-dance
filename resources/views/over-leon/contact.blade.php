@@ -35,9 +35,8 @@
                         </p>
                     </div>
                     <p class="meta mt-8">
-                        Werk je aan een project of wil je de mobiele dansstudio boeken? Daar hoort een eigen pagina bij:
-                        <a href="{{ route('samenwerken.opzetten') }}">een project opzetten</a> ·
-                        <a href="{{ route('samenwerken.uitnodigen') }}">de mobiele dansstudio</a>.
+                        Wil je <a href="{{ route('samenwerken.opzetten') }}">een project opzetten</a>
+                        of <a href="{{ route('samenwerken.uitnodigen') }}">de mobiele dansstudio boeken</a>?
                     </p>
                 </div>
 
