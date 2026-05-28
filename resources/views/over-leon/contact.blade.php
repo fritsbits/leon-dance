@@ -18,7 +18,7 @@
             <div class="grid md:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start max-w-[var(--max-content)]">
                 {{-- left: direct contact details + booking pointer --}}
                 <div>
-                    <h2 class="mb-6">Liever direct?</h2>
+                    <h2 class="mb-6">Mail of bel ons</h2>
                     <div class="space-y-4">
                         <p>
                             <span class="meta block">Mail</span>

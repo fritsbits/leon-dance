@@ -62,11 +62,6 @@
             </div>
 
             <button type="submit" class="btn-primary">{{ $submitLabel }}</button>
-
-            <p class="meta mt-4">
-                We gebruiken je gegevens enkel om je aanvraag te beantwoorden. Meer hierover lees je in ons
-                <a href="{{ route('privacybeleid') }}">privacybeleid</a>.
-            </p>
         </form>
     @endif
 </div>
