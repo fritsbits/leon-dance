@@ -14,7 +14,7 @@ class Event extends Model
         'type',
         'title',
         'lead',
-        'venue',
+        'venue_name',
         'partners',
         'project_slug',
         'editie_slug',
@@ -63,6 +63,16 @@ class Event extends Model
     public function scopeForPractice(Builder $query, string $slug): Builder
     {
         return $query->where('practice_slug', $slug);
+    }
+
+    public function venue(): BelongsTo
+    {
+        return $this->belongsTo(Venue::class);
+    }
+
+    public function venueLabel(): string
+    {
+        return $this->venue?->name ?? (string) $this->venue_name;
     }
 
     public function atelier(): BelongsTo

@@ -47,8 +47,8 @@
     // 1-line explainers for internal event types (per 30-structure IA principle 5).
     // Copy source: 42-briefs/12-agenda-content.md §3.
     $internalExplainers = [
-        EventType::LeonsWhitePage->value  => 'Intern denkmoment — geen publiek programma.',
-        EventType::LeonRondDeTafel->value => 'Intern overleg — geen publiek programma.',
+        EventType::LeonsWhitePage->value  => 'Intern denkmoment. Geen publiek programma.',
+        EventType::LeonRondDeTafel->value => 'Intern overleg. Geen publiek programma.',
     ];
 
     // Per-row href: project page if project_slug set, practice page if practice_slug set,
@@ -89,7 +89,7 @@
 @endphp
 
 @extends('layouts.app', [
-    'title'       => 'Agenda — Leon',
+    'title'       => 'Agenda · Leon',
     'description' => 'Alles wat Leon doet, op één plek: open ateliers, repetities, voorstellingen en interne momenten.',
 ])
 
@@ -198,8 +198,8 @@
                                     </div>
 
                                     {{-- Venue column --}}
-                                    @if ($event->venue)
-                                        <div class="meta md:text-right">{{ $event->venue }}</div>
+                                    @if ($event->venueLabel())
+                                        <div class="meta md:text-right">{{ $event->venueLabel() }}</div>
                                     @else
                                         <div></div>
                                     @endif
