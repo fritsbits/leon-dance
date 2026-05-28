@@ -84,4 +84,24 @@ class OpenCallSurfacesTest extends TestCase
             ->assertOk()
             ->assertSee('Inschrijven kan tot');
     }
+
+    public function test_home_shows_band_when_an_open_call_exists(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => true]);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Nieuwe editie')
+            ->assertSee('Ontdek deze editie')
+            ->assertSee('Luik 2026');
+    }
+
+    public function test_home_hides_band_when_no_open_call(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => false]);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertDontSee('Ontdek deze editie');
+    }
 }
