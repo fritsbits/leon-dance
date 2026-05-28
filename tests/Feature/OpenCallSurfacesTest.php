@@ -71,4 +71,17 @@ class OpenCallSurfacesTest extends TestCase
             ->assertOk()
             ->assertSee('is afgerond');
     }
+
+    public function test_editie_section5_shows_closing_date_when_soon(): void
+    {
+        $this->makeEditie([
+            'slug' => 'luik-2026', 'stad' => 'Luik',
+            'inschrijving_open' => true,
+            'inschrijving_closes_at' => now()->addDays(7),
+        ]);
+
+        $this->get('/dansateliers-performances/mariage/luik-2026')
+            ->assertOk()
+            ->assertSee('Inschrijven kan tot');
+    }
 }

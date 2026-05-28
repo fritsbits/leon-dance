@@ -86,7 +86,9 @@
                 @if ($editie->quote)
                     <figure class="mt-8 border-l border-[var(--color-border)] pl-6 py-2">
                         <blockquote><p class="text-lg">"{{ $editie->quote }}"</p></blockquote>
-                        <figcaption class="meta mt-3">— {{ $editie->quote_attr }}</figcaption>
+                        @if ($editie->quote_attr)
+                            <figcaption class="meta mt-3">— {{ $editie->quote_attr }}</figcaption>
+                        @endif
                     </figure>
                 @endif
             </div>
