@@ -58,11 +58,19 @@ class Atelier extends Model
 
     public function dayLabel(): string
     {
+        if ($this->day_of_week === null) {
+            return '';
+        }
+
         return ucfirst(Carbon::now()->locale('nl')->isoWeekday($this->day_of_week)->isoFormat('dddd'));
     }
 
     public function timeRange(): string
     {
+        if ($this->start_time === null || $this->end_time === null) {
+            return '';
+        }
+
         return substr($this->start_time, 0, 5).'–'.substr($this->end_time, 0, 5);
     }
 

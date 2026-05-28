@@ -163,6 +163,8 @@ class EventSeeder extends Seeder
             $atelierId = null;
             if ($row['type'] === EventType::OpenAtelier && $venue) {
                 $atelierId = Atelier::open()->where('venue_id', $venue->id)->value('id');
+            } elseif ($row['type'] === EventType::Klas) {
+                $atelierId = Atelier::school()->where('name', 'Leon op school')->value('id');
             }
 
             $editionId = isset($row['editie_slug'])

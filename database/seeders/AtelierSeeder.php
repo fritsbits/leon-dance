@@ -24,6 +24,10 @@ class AtelierSeeder extends Seeder
             ['start_time' => '10:00', 'end_time' => '12:00', 'name' => 'Atelier Leon', 'is_active' => true, 'sort' => 2],
         );
 
-        // School ateliers (Leon op school) are deferred to the leon-op-school page slice.
+        // Leon op school — a school traject (no fixed weekly slot).
+        Atelier::updateOrCreate(
+            ['type' => AtelierType::School->value, 'name' => 'Leon op school'],
+            ['venue_id' => null, 'day_of_week' => null, 'start_time' => null, 'end_time' => null, 'is_active' => true, 'sort' => 10],
+        );
     }
 }
