@@ -37,12 +37,6 @@ class EventsTable
                     ->label('Locatie')
                     ->searchable()
                     ->toggleable(),
-                TextColumn::make('practice_slug')
-                    ->label('Practice')
-                    ->toggleable(),
-                TextColumn::make('project_slug')
-                    ->label('Project')
-                    ->toggleable(),
                 IconColumn::make('is_public')
                     ->label('Publiek')
                     ->boolean()
@@ -53,17 +47,6 @@ class EventsTable
                     ->options(collect(EventType::cases())->mapWithKeys(
                         fn (EventType $type) => [$type->value => $type->label()]
                     )),
-                SelectFilter::make('practice_slug')
-                    ->label('Practice')
-                    ->options([
-                        'atelier-leon' => 'Atelier Leon',
-                        'leon-op-school' => 'Leon op school',
-                    ]),
-                SelectFilter::make('project_slug')
-                    ->label('Project')
-                    ->options([
-                        'mariage' => 'Mariage',
-                    ]),
                 TernaryFilter::make('is_public')->label('Publiek'),
             ])
             ->recordActions([

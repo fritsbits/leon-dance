@@ -14,14 +14,16 @@ class EditionModelTest extends TestCase
 
     private function makeEditie(array $overrides = []): Edition
     {
+        $project = \App\Models\Project::firstOrCreate(['slug' => 'mariage'], ['name' => 'Mariage']);
+
         return Edition::create(array_merge([
-            'project_slug' => 'mariage',
-            'slug'         => 'teststad-2026',
-            'stad'         => 'Teststad',
-            'jaar'         => 2026,
-            'periode'      => 'jan – mrt 2026',
-            'starts_at'    => '2026-01-15',
-            'ends_at'      => '2026-03-31',
+            'project_id' => $project->id,
+            'slug'      => 'teststad-2026',
+            'stad'      => 'Teststad',
+            'jaar'      => 2026,
+            'periode'   => 'jan – mrt 2026',
+            'starts_at' => '2026-01-15',
+            'ends_at'   => '2026-03-31',
         ], $overrides));
     }
 
@@ -96,7 +98,6 @@ class EditionModelTest extends TestCase
         $editie = $this->makeEditie(['slug' => 'rel-2026']);
         Event::create([
             'type' => EventType::Voorstelling, 'title' => 'Mariage', 'edition_id' => $editie->id,
-            'editie_slug' => 'rel-2026',
             'starts_at' => now()->addMonth(), 'is_public' => true,
         ]);
         Event::create([
@@ -110,9 +111,9 @@ class EditionModelTest extends TestCase
 
     public function test_seeder_creates_six_mariage_edities_with_luik_open(): void
     {
-        $this->seed(\Database\Seeders\EditionSeeder::class);
+        $this->seed([\Database\Seeders\ProjectSeeder::class, \Database\Seeders\EditionSeeder::class]);
 
-        $this->assertSame(6, Edition::where('project_slug', 'mariage')->count());
+        $this->assertSame(6, Edition::whereHas('project', fn ($q) => $q->where('slug', 'mariage'))->count());
 
         $luik = Edition::where('slug', 'luik-2026')->firstOrFail();
         $this->assertTrue($luik->isInschrijvingOpen(), 'Luik 2026 is the live open-call demo editie.');

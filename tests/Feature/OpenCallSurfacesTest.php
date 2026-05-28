@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Editie;
+use App\Models\Edition;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -10,10 +10,12 @@ class OpenCallSurfacesTest extends TestCase
 {
     use RefreshDatabase;
 
-    private function makeEditie(array $overrides = []): Editie
+    private function makeEditie(array $overrides = []): Edition
     {
+        $project = \App\Models\Project::firstOrCreate(['slug' => 'mariage'], ['name' => 'Mariage']);
+
         $defaults = [
-            'project_slug' => 'mariage',
+            'project_id'   => $project->id,
             'slug'         => 'teststad-2026',
             'stad'         => 'Teststad',
             'jaar'         => 2026,
@@ -22,7 +24,7 @@ class OpenCallSurfacesTest extends TestCase
             'ends_at'      => now()->addMonths(3),
         ];
 
-        return Editie::create(array_merge($defaults, $overrides));
+        return Edition::create(array_merge($defaults, $overrides));
     }
 
     public function test_unknown_editie_slug_404s(): void

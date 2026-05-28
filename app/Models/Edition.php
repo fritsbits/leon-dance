@@ -16,7 +16,6 @@ class Edition extends Model
 
     protected $fillable = [
         'project_id',
-        'project_slug',
         'slug',
         'stad',
         'jaar',

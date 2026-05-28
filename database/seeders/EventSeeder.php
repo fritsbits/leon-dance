@@ -20,7 +20,6 @@ class EventSeeder extends Seeder
                 'title' => 'Atelier Leon',
                 'lead' => 'Lena',
                 'venue_name' =>'Pianofabriek',
-                'practice_slug' => 'atelier-leon',
                 'starts_at' => $base->copy()->addDays(2)->setTime(16, 0),
                 'ends_at' => $base->copy()->addDays(2)->setTime(18, 0),
             ],
@@ -29,7 +28,6 @@ class EventSeeder extends Seeder
                 'title' => 'Atelier Leon x Mariage',
                 'lead' => 'Seppe',
                 'venue_name' =>'Maison des Cultures',
-                'practice_slug' => 'atelier-leon',
                 'starts_at' => $base->copy()->addDays(5)->setTime(10, 0),
                 'ends_at' => $base->copy()->addDays(5)->setTime(12, 0),
             ],
@@ -38,7 +36,6 @@ class EventSeeder extends Seeder
                 'title' => 'Leon in de klas',
                 'lead' => 'Stef',
                 'venue_name' =>'Maison des Cultures',
-                'practice_slug' => 'leon-op-school',
                 'starts_at' => $base->copy()->addDays(3)->setTime(9, 30),
                 'ends_at' => $base->copy()->addDays(3)->setTime(11, 30),
             ],
@@ -47,8 +44,6 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage in de klas',
                 'lead' => 'Kristin, Adnane',
                 'venue_name' =>'BRONKS',
-                'practice_slug' => 'leon-op-school',
-                'project_slug' => 'mariage',
                 'starts_at' => $base->copy()->addDays(1)->setTime(13, 30),
                 'ends_at' => $base->copy()->addDays(1)->setTime(15, 0),
             ],
@@ -58,8 +53,7 @@ class EventSeeder extends Seeder
                 'lead' => 'Adnane',
                 'venue_name' =>'GBS Kameleon',
                 'partners' => 'MUS-E',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'molenbeek-2026',
+                '_edition_slug' => 'molenbeek-2026',
                 'starts_at' => $base->copy()->addDays(1)->setTime(15, 30),
                 'ends_at' => $base->copy()->addDays(1)->setTime(17, 0),
             ],
@@ -69,8 +63,7 @@ class EventSeeder extends Seeder
                 'lead' => 'Seppe',
                 'venue_name' =>'Cultureghem',
                 'partners' => 'Ketmet',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'molenbeek-2026',
+                '_edition_slug' => 'molenbeek-2026',
                 'starts_at' => $base->copy()->addDays(2)->setTime(14, 0),
                 'ends_at' => $base->copy()->addDays(2)->setTime(16, 0),
             ],
@@ -81,8 +74,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'MolenFest, Molenbeek',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'molenbeek-2024',
+                '_edition_slug' => 'molenbeek-2024',
                 'starts_at' => \Carbon\Carbon::create(2024, 9, 21, 14, 0),
                 'ends_at' => \Carbon\Carbon::create(2024, 9, 21, 15, 0),
             ],
@@ -91,8 +83,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'Week van de Verbeelding, Gaasbeek',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'gaasbeek-2024',
+                '_edition_slug' => 'gaasbeek-2024',
                 'starts_at' => \Carbon\Carbon::create(2024, 11, 2, 14, 0),
                 'ends_at' => \Carbon\Carbon::create(2024, 11, 2, 15, 0),
             ],
@@ -101,8 +92,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'MolenFest, Molenbeek',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'molenbeek-2025',
+                '_edition_slug' => 'molenbeek-2025',
                 'starts_at' => \Carbon\Carbon::create(2025, 9, 6, 14, 0),
                 'ends_at' => \Carbon\Carbon::create(2025, 9, 6, 15, 0),
             ],
@@ -111,8 +101,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'Winterfeest GC De Platoo, Koekelberg',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'koekelberg-2025',
+                '_edition_slug' => 'koekelberg-2025',
                 'starts_at' => \Carbon\Carbon::create(2025, 12, 19, 15, 0),
                 'ends_at' => \Carbon\Carbon::create(2025, 12, 19, 16, 0),
             ],
@@ -121,8 +110,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'Cultureghem, Anderlecht',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'anderlecht-2026',
+                '_edition_slug' => 'anderlecht-2026',
                 'starts_at' => \Carbon\Carbon::create(2026, 4, 10, 19, 0),
                 'ends_at' => \Carbon\Carbon::create(2026, 4, 10, 20, 0),
             ],
@@ -132,8 +120,7 @@ class EventSeeder extends Seeder
                 'lead' => 'Team Leon',
                 'venue_name' =>'BRONKS, Brussel',
                 'partners' => 'Volt FESTIVAL',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'brussel-2026',
+                '_edition_slug' => 'brussel-2026',
                 'starts_at' => \Carbon\Carbon::create(2026, 4, 26, 15, 0),
                 'ends_at' => \Carbon\Carbon::create(2026, 4, 26, 16, 0),
             ],
@@ -142,8 +129,7 @@ class EventSeeder extends Seeder
                 'title' => 'Mariage',
                 'lead' => 'Team Leon',
                 'venue_name' =>'MolenFest, Molenbeek',
-                'project_slug' => 'mariage',
-                'editie_slug' => 'molenbeek-2026',
+                '_edition_slug' => 'molenbeek-2026',
                 'starts_at' => \Carbon\Carbon::create(2026, 9, 6, 14, 0),
                 'ends_at' => \Carbon\Carbon::create(2026, 9, 6, 15, 0),
             ],
@@ -167,8 +153,11 @@ class EventSeeder extends Seeder
                 $atelierId = Atelier::school()->where('name', 'Leon op school')->value('id');
             }
 
-            $editionId = isset($row['editie_slug'])
-                ? \App\Models\Edition::where('slug', $row['editie_slug'])->value('id')
+            $editionSlug = $row['_edition_slug'] ?? null;
+            unset($row['_edition_slug']);
+
+            $editionId = $editionSlug
+                ? \App\Models\Edition::where('slug', $editionSlug)->value('id')
                 : null;
 
             Event::create([

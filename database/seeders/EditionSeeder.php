@@ -74,12 +74,12 @@ class EditionSeeder extends Seeder
         foreach ($rows as $row) {
             Edition::updateOrCreate(
                 ['slug' => $row['slug']],
-                array_merge(['project_slug' => 'mariage', 'project_id' => $mariageId], $row),
+                array_merge(['project_id' => $mariageId], $row),
             );
         }
 
         // Prune editions removed from the list above (keeps re-seeds idempotent).
-        Edition::where('project_slug', 'mariage')
+        Edition::where('project_id', $mariageId)
             ->whereNotIn('slug', array_column($rows, 'slug'))
             ->delete();
     }

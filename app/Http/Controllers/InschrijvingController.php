@@ -21,7 +21,7 @@ class InschrijvingController extends Controller
                 'naam'    => $data['naam'],
                 'email'   => $data['email'],
                 'bericht' => $data['bericht'] ?? null,
-                'project' => ucfirst($editie->project_slug),
+                'project' => $editie->project->name,
                 'editie'  => trim($editie->stad.' '.$editie->jaar),
             ]));
         }

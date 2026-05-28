@@ -59,16 +59,6 @@ class EventForm
 
                 Section::make('Koppeling & zichtbaarheid')
                     ->schema([
-                        TextInput::make('practice_slug')
-                            ->label('Recurring practice slug')
-                            ->placeholder('atelier-leon · leon-op-school')
-                            ->helperText('Voor agenda-filter — laat leeg als dit een project-editie is.')
-                            ->maxLength(255),
-                        TextInput::make('project_slug')
-                            ->label('Project slug')
-                            ->placeholder('mariage')
-                            ->helperText('Voor agenda-filter — laat leeg als dit een recurring practice is.')
-                            ->maxLength(255),
                         Toggle::make('is_public')
                             ->label('Publiek zichtbaar in agenda')
                             ->default(true)
