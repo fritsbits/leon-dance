@@ -184,6 +184,7 @@ Mirrors [Strategy User Journey](../strategy/50-user-journey.md) — J1/J2/J3 map
   decided (F13 first). Each *editie* has a content lifecycle → Skeleton state inventory.
 - **Form backend?** **Custom server handler** + a *light* per-project/editie *inschrijving*
   store (list + export) + ESP push. Not Forms/Typeform. GDPR [Dn-03](01-concerns.md).
+  **Contact/booking form: BUILT 2026-05-28** on a legitimate-interest basis, email-only (no store) — see [spec](../../superpowers/specs/2026-05-28-contact-form-design.md). Dn-03's *inschrijving (minors)* + ESP slices stay blocked.
 - **Sponsors / partners?** **Yes** — tiered **funder/partner logo wall** (F2/F3) →
   **logo-band requirement → Structure**; per-funder figure sensitivity ([Dn-04](01-concerns.md)).
 - **Mixed-flow diagnostic?** **Agenda split** (participant agenda F1 vs. legitimacy/proof

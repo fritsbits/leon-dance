@@ -2,6 +2,621 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
+## [2026-05-28] build+design | Autonomous 15-page wave (briefs + content + code, parallel)
+
+Per user *"Can you dispatch agents to already draft the skeleton and content (and
+implement the code) for the other pages? Taking your best guess. No need to ask me
+questions."* — dispatched **15 parallel agents** (general-purpose subagent), one per
+remaining page (P-11 Doen skipped, blocked by Dn-19 Strategy work). Each agent ran the
+full per-page playbook: read project context → write Skeleton brief at
+`42-briefs/NN-{slug}.md` → write NL content strawman at `NN-{slug}-content.md` → rewrite
+`resources/views/{path}.blade.php` → smoke-test HTTP 200. All 15 returned successful.
+**End-state: 17 of 18 pages at 🟠 first draft across all 5 stages (Brief · Wireframe ·
+Content · Code; Approved still awaits client).** Only P-11 stays 🔴 across the board.
+
+- **Pages delivered (15):** P-02 Dansateliers index · P-03 Atelier Leon · P-04 Leon op
+  school · P-06 Mariage editie (template) · P-07 Mobiele dansstudio · P-08 Samenwerken
+  index · P-09 Opzetten · P-10 Uitnodigen · P-12 Agenda · P-13 Over Leon index · P-14
+  Missie & visie · P-15 Impact · P-16 Team · P-17 Historiek · P-18 Contact.
+- **Conf distribution:** P-18 = **4** (snapshot data verified verbatim from current-site
+  mirror). 15 pages at **3**. P-06 = **2** (template — per-editie facts gap across 5
+  non-Brussels instances). Roll-up: **avg 2.9 / 5** (was 2.6).
+- **Patterns library v0.4 — 11 / 13 at 🟠:**
+  - **SP-11 Contact pattern** promoted 🔴 → 🟠 first draft (inline first uses on P-09
+    §8 + P-10 §6; lift to `partials/contact.blade.php` on 3rd caller).
+  - **SP-12 Quote/testimony** now has a Blade partial — `resources/views/partials/quote.blade.php`
+    created by the P-15 Impact agent (canonical implementation: `$quote, $attribution,
+    $context?, $variant?`). Reused by P-09 / P-14; inline-rendered on P-04 / P-05 / P-06
+    / P-17 (lift to partial on next pass).
+  - **SP-08 Agenda preview strip DEPRECATED** — superseded by direct SP-07 ×N usage in
+    P-01 §4 and P-15 "In cijfers". Slot kept for ID stability; no spec planned.
+  - **Only 🔴 remaining: SP-10 Inschrijving form** (blocked by Dn-03 GDPR; on-page
+    stubs render `mailto:` + visible "form in voorbereiding" annotation).
+- **Candidate patterns surfaced (not yet promoted):**
+  - **SP-14 text-link rows** — 3 uses (P-01 §5 · P-08 §2 · P-18 §3); ready to promote
+    on next pattern-pass.
+  - **Person card** (P-16 local SP-NEW-1) — defer until 2nd use.
+  - **SP-15 map placeholder** (P-18 only) — defer until Leaflet bootstraps in `app.js`
+    (per CLAUDE.md: OpenStreetMap + Leaflet.js only).
+- **Brief gaps closed by implementation:** P-12 Agenda agent simplified the
+  `routes/web.php` agenda route to `Route::view` (self-contained `@php` block in the
+  view handles filter logic + URL state). P-06 Mariage editie agent kept the live Event
+  query and added a status-aware editie metadata map (hard-coded slug→title/period/
+  status until Editie Eloquent model lands — pending [research] gap).
+- **Cross-page content gaps surfaced:**
+  - **Hadja quote** re-used by design across P-05 Mariage + P-14 Missie & visie + P-15
+    Impact — single consent ask covers all three.
+  - **"Sinds 2010" jaartal-frame** used by P-01 Home + P-15 Impact + P-17 Historiek +
+    P-13 Over Leon — single confirmation covers all four.
+  - **Schoemaker quote** re-used by P-04 Leon op school + P-09 Opzetten — single
+    consent ask.
+  - **"in voorbereiding" wording** shared by P-08 (Doen card) + P-18 (Contact form
+    note) — single editorial decision.
+- **Validation gates:** all 15 reported 8/8 PASS (sections answer user question, single
+  primary CTA per page, state inventory explicit, section budget respected, no
+  either/or notes, patterns referenced by SP-id, canonical home for facts, mobile-first
+  sketch).
+- **`design/40-skeleton.md`:** 15 page registry rows updated (Brief/Wireframe/Content/
+  Code 🔴 → 🟠 each, Conf updated, gap pointers refined with brief links). Roll-up
+  refreshed: 17/18 pages at 🟠, avg conf 2.9. Patterns library section bumped to v0.4
+  with the deprecation + candidate notes.
+- **`design/41-patterns.md`:** status snapshot v0.3 → v0.4. SP-11 promoted with first-use
+  convention. SP-12 implementation pointer updated to the Blade partial. SP-08
+  re-classified as deprecated. New "Candidate patterns" subsection added below status
+  snapshot.
+- **`design/01-concerns.md`:** Dn-22 updated (11/13 drafted; SP-08 deprecated; only SP-10
+  🔴 blocker). Dn-23 updated (avg conf 2.6 → 2.9; 6 pages-at-≤2 → 2 pages-at-≤2).
+  Phase-conclusion counts unchanged (no new concerns): **6 Closed · 6 Partly · 12 Open
+  · 24 total**.
+- **`index.md`:** 15 rows added (one per new brief, with sibling content + conf + key
+  decisions).
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+- **Next sensible moves:** (a) walk through the briefs for client/team review and
+  consent calls — many gaps are blocked on Kristin/Sam input; (b) close the SP-12
+  inline-render → partial migration pass (P-04/P-05/P-06/P-17 switch to
+  `@include('partials.quote')`); (c) promote SP-14 text-link rows to its own partial
+  (3-use threshold met).
+
+## [2026-05-27] design | P-05 Mariage — Skeleton brief v0.1 (autonomous, best-guess)
+
+Per user *"open the P-05 Mariage brief. And ask a little questions as possible. Follow
+your best guesses."* — wrote the Mariage project page brief autonomously without
+brainstorming Q&A. All structural decisions documented inline as **BG-1 … BG-7
+best-guess calls** (reversible on user review):
+
+1. **BG-1 hero treatment:** SP-04 variant B (text header + SP-13 photo as next sibling)
+   — same pattern as home, consistent.
+2. **BG-2 hero CTAs:** **none.** Project-info-first; CTAs land in §6. Belonging dial per
+   [TOV §Dansateliers](identity/10-tone-of-voice.md#dansateliers--performances--overzicht--per-project--editie):
+   *"Inschrijven als laatste sectie, niet als sales-blok."*
+3. **BG-3 §4 Edities:** all 6 chronological newest-first with status chips (*aankomend
+   · lopend · afgelopen*). N=6 fits without pagination.
+4. **BG-4 quote source:** Hadja (67) verbatim from
+   [missie-visie current-site mirror](raw/current-site/pages/missie-visie-nl.md) — P1
+   belonging-dial voice (re-used per [strategy/20-personas](strategy/20-personas.md)).
+5. **BG-5 §5 sub-headings:** 4 named beats *Proces · Nazorg · Continuïteit · Evolutie*
+   matching the [Project entity fields](design/30-structure.md).
+6. **BG-6 inline partner mention:** SP-09 variant C prose line naming per-Mariage
+   partners (KANAL · KVS · CAMPO · BRONKS · MUS-E + funder tier).
+7. **BG-7 §6 CTA:** *"Plan een gesprek"* → `/samenwerken/opzetten` (verb-first per TOV).
+
+- **New page `design/42-briefs/05-mariage.md`** — full brief. 5-Kern · BG-1…BG-7 table
+  · full-page ASCII (desktop + mobile) · 6 section specs · state inventory · patterns
+  invoked table · canonical-home-for-facts · validation **8/8 PASS** · 8 open gaps
+  tagged + owner-assigned. Conf 2 → 3.
+- **3 new patterns first-drafted** as side-effect:
+  - **SP-06 Editie card** (date-forward cousin of SP-05): title `{city} {year}` +
+    status chip + period; whole-card link; variant A text-only / B with cover photo;
+    states default · aankomend · lopend · afgelopen · overflow · hover.
+  - **SP-12 Quote / testimony**: single voice — no carousels, no walls. Quote text +
+    attribution + optional context; variants A inline frame / B standalone section /
+    C pull-quote. No portrait photo by default (rights overhead).
+  - **SP-09 variant C inline**: prose line for per-project partners — verb-led
+    framing (*"komt tot stand met"*, *"met steun van"*), no logo grid. Documented
+    full anatomy inside the existing SP-09 spec.
+- **`design/41-patterns.md`** — 3 new pattern specs appended; status snapshot bumped
+  to v0.3 (**10 / 13** at 🟠).
+- **`design/40-skeleton.md`** — P-05 row updated (Brief 🔴 → 🟠, Wireframe 🔴 → 🟠,
+  Conf 2 → 3, Top gaps refined). Pattern library status updated.
+- **`design/01-concerns.md`** — **Dn-22 Partly** (8 → 10 patterns drafted; remaining
+  3 are SP-08 redundant / SP-10 GDPR-blocked / SP-11 contact-on-demand). Counts
+  unchanged: **6 Closed · 6 Partly · 12 Open · 24 total**.
+- **`index.md`** — `42-briefs/05-mariage.md` row added above 01-home-content row.
+- **No code changes yet.** Brief approved → next pass renders code (per-page Content
+  + Code columns). The 6-page render is on the autonomous-dispatch wave below.
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] build | P-01 Home Code 🔴 → 🟠 (strawman rendered, §4 live from Event model)
+
+Third pass on P-01: moved Code column from 🔴 *routable shell* to 🟠 *first draft —
+strawman rendered*. While the work was in progress, the user (separate thread) shipped
+the Event entity backend (model + enum + migration + seeder + Builder scopes), which
+let §4 wire to live data instead of seeded strawman. **Brief gap #6 (`[research]`
+Agenda backend feed) → CLOSED**; brief gap #7 (public-only filter) → CLOSED in
+implementation.
+
+- **4 new Blade partials** under `resources/views/partials/` (canonical implementations
+  of their respective SP-patterns):
+  - **`project-card.blade.php`** (SP-05) — accepts `$title · $desc · $href · $image?`;
+    whole-card link, hover-tint, image slot collapses if absent.
+  - **`date-row.blade.php`** (SP-07) — accepts `$date · $time · $type · $location · $href`;
+    mobile reflow via `flex-col md:flex-row`; `$type` slot accepts any display label.
+  - **`funder-wall.blade.php`** (SP-09, NEW) — accepts `$variant` (`'full'` default /
+    `'featured'`). Renders 4 tiers (Met steun van · Co-producenten · Speelplekken · In
+    samenwerking met) with strawman partner data (real data pending SharePoint).
+    Featured variant: larger tiles, more breathing, eyebrow h2 above.
+  - **`photo-block.blade.php`** (SP-13) — accepts `$src · $alt · $credit? · $caption? ·
+    $variant?`. **Missing-asset = section collapses** (Dn-20 guard). Ready for first
+    asset; unused on home v0.1.
+- **`resources/views/partials/footer.blade.php`** — extracted inline wall into the new
+  `funder-wall` partial; **suppressed on home** (`@unless (Route::is('home'))`) to
+  avoid double-show when P-01 §6 renders the Featured variant.
+- **`resources/views/home.blade.php`** — full rewrite per brief. 6 sections + NL
+  strawman copy (per [42-briefs/01-home-content](design/42-briefs/01-home-content.md)):
+  §1 hero (eyebrow + h1 + lede + 2 CTAs + jury 1-line band) · §2 placeholder comment
+  for photo block (collapsed) · §3 SP-05 × 4 with NL card copy · §4 **live from Event
+  model** (top-3 upcoming public events, internal types excluded, NL `dd D.MM` date
+  format via `isoFormat('dd D.MM')` + `setLocale('nl')`, empty state copy) · §5 3
+  text-link rows · §6 SP-09 Featured variant. Page-level `<title>` + meta description
+  set on `@extends('layouts.app', [...])`.
+- **Live data wire-up authored by the user in @php block at top of home.blade.php:**
+  `\App\Models\Event::query()->where('is_public', true)->whereNotIn('type', [LWP, LRDT])
+  ->upcoming()->limit(3)->get()` + a `$hrefFor` closure that maps
+  `practice_slug`/`project_slug` to the right route. Closes gap #6 ([`research`] Agenda
+  backend feed was open since brief v0.1 this morning).
+- **Smoke-tested** all 5 home-adjacent routes return 200; home/over-leon screenshots
+  captured at 1440×900 desktop + 390×844 mobile (Playwright). Verified:
+  - All 6 home sections render (with §2 correctly collapsed for missing photo).
+  - Funder wall shows exactly once on home (§6 Featured) and once on /over-leon
+    (footer default) — suppression works as designed.
+  - §4 renders 3 live events from DB: `DI 2.06 · 13:30 Mariage in de klas — BRONKS`,
+    `DI 2.06 · 15:30 Atelier Mariage x MUS-E — GBS Kameleon`, `WO 3.06 · 14:00
+    Atelier Mariage x Ketmet — Cultureghem`.
+  - Mobile: §3 cards stack 1-up, CTAs full-width, SP-09 2-col grid, SP-07 wraps
+    date/time above title.
+- **One bug fixed mid-flight:** Blade comment `{{-- ... --}}` inside an `@php` block in
+  the funder-wall partial caused a PHP parse error ("unexpected identifier 'partner'").
+  Replaced with `//` PHP comments. Lesson: Blade syntax doesn't apply inside `@php`.
+- **`design/40-skeleton.md`** — P-01 Code 🔴 → 🟠; gap pointers refined (gap #6
+  removed). Pipeline lifecycle paragraph updated to document the partials-as-pattern-
+  implementation convention.
+- **`design/41-patterns.md`** — SP-05 / SP-07 / SP-09 / SP-13 implementation pointers
+  updated from "no partial yet" to live file references.
+- **Tasks #17–#21 completed.** Brainstorming-skill arc for P-01 Home v0.1 fully closed:
+  Brief 🟠 + Wireframe 🟠 (desktop + mobile) + Content 🟠 + Code 🟠 + (Approved still
+  awaits client).
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] lint | Event model reconciled with raw agenda (30-structure.md)
+
+Cross-checked the **Event entity** in [`30-structure.md`](design/30-structure.md) against
+the verbatim 65-entry transcription in [`25-agenda.md`](discovery/25-agenda.md). Two gaps
+surfaced; both folded into the content-model table.
+
+- **`klas` added to the `type` enum.** Real-world data: **21 / 65 entries (≈ 32 %)** are
+  school sessions (`Leon in de klas`, `Mariage in de klas`) — the second-most-common type
+  after `Atelier Leon` (13). The spec's enum had no slot for it; school events would have
+  defaulted to a wrong type. Now: *open atelier · klas · repetitie · try-out · voorstelling
+  · Leons White Page · Leon rond de tafel*. Sitemap filter list updated to match.
+- **`lead` + `partners` added as Event fields.** Every transcribed entry carries a named
+  facilitator (Lena, Stef, Seppe, Kristin/Adnane, Team Leon) and many carry one or more
+  collaborators via the `x` grammar (`Atelier Mariage x MUS-E`, `Leon on tour x Opening
+  De Loods`). The Excel columns Kristin actually maintains are *Date · Time · Activity ·
+  Lead · Venue* — so the model now mirrors that. `lead` = free-text string; `partners` =
+  free-text string of `x`-collaborators (v1; promote to a Collaborator table later if
+  needed — not the funder/partner wall, which stays its own entity).
+- **Time + venue + visibility fields named explicitly.** *starts_at · ends_at · venue ·
+  is_public · notes*. Venue stays a string for v1 (7 venues cover all 65 entries; cheap
+  to normalise later if it earns its keep).
+
+⚠️ **No new `Dn-` concern raised** — this is a Structure-spec consistency lint, not a new
+open question. The IA principles (one shared vocabulary; agenda 2-axis filter; internal
+events shown by default with a 1-line explainer) all still hold; the type list inside
+those rules just got one entry longer.
+
+Files touched: `docs/wiki/design/30-structure.md` (content-model table row · sitemap
+filter list · frontmatter `updated:` 2026-05-20 → 2026-05-27 + sources line). No
+`index.md` change needed (the row's summary still describes the same entities). No
+Concerns register change.
+
+## [2026-05-27] design | P-01 Home — Content strawman v0.1 + brief mobile sketch
+
+Second pass on P-01: closed brief gap #8 (mobile wireframe) — validation gate now 8 / 8
+PASS, awaiting user review. Then advanced P-01 down the pipeline: Content column 🔴 → 🟠
+with NL strawman copy aligned to [identity/10-tone-of-voice §Home](identity/10-tone-of-voice.md#home).
+
+- **`design/42-briefs/01-home.md`** updated — desktop wireframe sibling: full mobile
+  ASCII (< 768 px), responsive notes (CTA full-width mobile, §3 grid 1↔2-col, SP-09
+  2↔3↔6-col, SP-07 wrap behaviour, no mobile-only content). Validation gate item 8
+  ticked. Status banner updated: brief 🟠 first draft (gate 8/8 PASS — awaiting review
+  for 🟡 reviewed).
+- **`design/42-briefs/01-home-content.md`** — NEW. Sibling to the brief; **structure
+  and content evolve independently.** Per-section NL strawman copy with explicit TOV
+  discipline applied:
+  - **Hero h1:** TOV-approved *"Een open uitnodiging om mee te dansen — met de mensen
+    die het al doen."*
+  - **Lede:** *"Een wekelijks open atelier, en grotere voorstellingen waarin
+    Brusselaars samen op de scène staan. Geen ervaring nodig om mee te doen."*
+  - **Jury 1-line band:** *"In Brussel sinds 2010. Wekelijks samen, gratis en zonder
+    inschrijving."* — uses the "16 jaar bezig"-frame (2026 − 16 = 2010 lineage point);
+    jaartal te bevestigen door Sam/Kristin.
+  - **§3 work cards (4):** title + 1-line desc per card (Atelier Leon · Leon op school
+    · Mariage · Mobiele dansstudio).
+  - **§4 Agenda:** template rows + empty-state copy *("Geen aankomende publieke
+    events. Kijk gerust op de [volledige agenda](/agenda).")*.
+  - **§5 Samenwerken:** h2 + 1-zin intro + 3 verb-first link rows.
+  - **§6 partners:** tier captions per SP-09 spec.
+  - **`<head>`:** `<title>` + meta description strawman.
+  - **TOV-checklist 6/6 inline pass** (uitnodigend · concreet · warm zonder zoetsappig ·
+    toonbaar i.p.v. prijzend · plain niet schools · één lezer per pagina).
+- **Per-gap movement on P-01:**
+  - Gap #1 NL h1 + lede: open → **🟠 strawman**
+  - Gap #3 jury band wording: open → **🟠 strawman**
+  - Gap #7 public-only filter: open → **🟠 strawman** (recommended + documented)
+  - Gap #8 mobile sketch: **closed**
+  - Gaps #2 (hero photo), #4 (partner data), #5 (card covers), #6 (Agenda backend) =
+    unchanged; asset/client/research-blocked.
+- **`design/40-skeleton.md`** — P-01 row Content column 🔴 → 🟠; gap pointers refined.
+  Roll-up note updated.
+- **`design/01-concerns.md`** Dn-23 updated with the P-01 advance.
+- **`index.md`** — `42-briefs/01-home-content.md` row added (above the brief row).
+- **No code changes.** Strawman is doc-only; Blade rendering = Code-column 🔴 → 🟠
+  transition in a downstream pass.
+- **Next step options:** (a) Kristin review on the strawman to confirm jaartal + tone;
+  (b) move P-01 Code column 🔴 → 🟠 by rendering the 6 sections with this strawman
+  copy; (c) open P-05 Mariage brief.
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] design | P-01 Home — Skeleton brief v0.1 (first per-page brief)
+
+Per user *"open the first page brief"*, ran the **brainstorming skill** for P-01 Home —
+the highest-leverage page + the load-bearing case for unblocking SP-03 hero. Visual
+companion server enabled (`http://localhost:54294`, files under
+`.superpowers/brainstorm/`). 4 user decisions taken Socratically (Claude proposes →
+user reacts → next question):
+
+1. **Dominant note → invitation-forward** (per D-iv). P1 newcomer leads; jury rigor
+   sits *immediately below* the line, not in it.
+2. **Jury second-line signal → 1-line factual copy band** (`.meta` style under CTAs).
+   Reads as plain fact to a newcomer, as proof to a jury. Strawman:
+   *"Wekelijks in Brussel. Vier projecten lopend."*
+3. **Hero treatment → text-only hero + photo as next sibling** (SP-04 variant-B logic
+   applied to home). Walker / Boris Charmatz discipline. Avoids the empty-void / fragile
+   hero failure mode.
+4. **Agenda preview → next-3 list** (SP-07 ×3). Best P1 utility; density-as-proof job
+   stays on `/agenda`.
+5. **§3 duplication fix.** User flagged: the 4-card IA grid duplicated §4 Agenda + §5
+   Samenwerken. Resolved by replacing the grid with a **4-card work showcase** (Atelier
+   Leon · Leon op school · Mariage · Mobiele dansstudio) → each section now has a unique
+   destination tier (§3 work · §4 utility · §5 commission · §6 proof).
+
+- **New page `design/42-briefs/01-home.md`** — full brief. 5-Kern · full-page ASCII
+  wireframe · per-section spec (composition · pattern · CTAs · states · canonical-home-
+  for-facts) · state inventory · patterns invoked table · validation gate (7 / 8 pass —
+  mobile sketch owed) · **8 open gaps** tagged + owner-assigned. Tagged gaps:
+  `[content]` × 3 (NL hero copy / jury band wording / partner data), `[asset]` × 2
+  (hero photo / 4 card covers), `[research]` × 1 (Agenda backend feed), `[strategy]` × 1
+  (home-preview filter for internal types), `[design]` × 1 (mobile sketch).
+- **4 new patterns first-drafted** as side-effect (the "drafted on first use" rule):
+  - **SP-03 Hero — home** (thin, page-specific — spec lives in the brief);
+  - **SP-05 Project card** (cover optional + title + 1-line desc + whole-card link;
+    variants A photo / B text-only; used on P-01 §3, P-02, P-05, agenda);
+  - **SP-07 Date-row** (atomic agenda row: date · time · type · location; variants A
+    condensed / B full; type enum from Glossary; used on P-01 §4, P-05, P-06, P-12);
+  - **SP-13 Photo block** (single editorial photo + credit + caption; variants A
+    full-width / B contained / C inline; **missing-asset = section collapses**, Dn-20
+    anti-pattern guard).
+- **SP-08 Agenda preview strip** flagged **possibly redundant** — P-01 §4 uses SP-07
+  ×3 directly without needing a wrapping pattern. Re-evaluate before opening P-13
+  Impact ("In cijfers" surface).
+- **`design/41-patterns.md`** — 4 new pattern specs appended; status snapshot bumped
+  to v0.2 (8 / 13 at 🟠).
+- **`design/40-skeleton.md`** — P-01 row updated (Brief 🔴 → 🟠, Wireframe 🔴 → 🟠,
+  Conf 2 → 3, Top gaps refined). Pattern library table refreshed (4 → 8 at 🟠).
+  Roll-up avg confidence 2.5 → 2.6.
+- **`design/01-concerns.md`** — **Dn-22 Partly** (4 → 8 patterns drafted; remaining
+  5 are SP-06/08/10/11/12). **Dn-23 Open → Partly** (P-01 first page lifted off
+  baseline). Counts: **6 Closed · 6 Partly · 12 Open · 24 total**.
+- **`index.md`** — `42-briefs/01-home.md` row added (above 41-patterns row).
+- **Brainstorm artifacts** preserved in `.superpowers/brainstorm/37841-1779915184/`
+  (5 HTML screens: welcome · hero-treatment · agenda-preview · section-list ·
+  fix-duplicate). `.superpowers/` already in `.gitignore`.
+- **No code changes.** Brief is the artifact; code stage runs later (P-01 Code column
+  still 🔴 "routable shell exists" — moves to 🟠 when Blade renders the 6 sections
+  with strawman copy).
+- **Next steps after user reviews the brief:** mobile sketch (closes brief gap #8 →
+  🟢 Final); then either pick the next page brief (Mariage P-05 surfaces SP-06 +
+  SP-11/SP-12) or move P-01 to the Content stage (write the NL strawman that closes
+  gaps #1, #3, #7 enough to draft).
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] design | Skeleton patterns library v0.1 — structural shell drafted (4 / 13)
+
+Per user instruction *"proceed with shared patterns first"*, drafted the **structural
+shell** of the shared patterns library (site-level prerequisite for any per-page brief
+work, per playbook). 4 of 13 patterns moved from 🔴 stub → 🟠 first draft. Specs follow
+the convention: Purpose · Used on · Anatomy (ASCII) · Composition contract · Variants ·
+States · Tokens · Deviations · Open decisions · Implementation pointer.
+
+- **New page `design/41-patterns.md`** — sibling to 40-skeleton, holds the **full
+  pattern specs**. Index stays in 40-skeleton (linked per row). A pattern enters 41 the
+  moment it leaves 🔴 stub. Self-documenting convention block at the bottom of 41 for
+  promoting any remaining 🔴 pattern.
+- **SP-01 Primary nav** (🟠) — sticky top · `h-16` · wordmark left + 4 nav items + lang
+  switcher right (`NL · FR · EN`, current = bold). **No hamburger** (Dn-20 anti-pattern):
+  4 items wrap visibly into a second row on mobile. Active state = `font-medium`,
+  prefix-match. Border-bottom hairline; no shadow/blur (CLAUDE.md banned). Aligned with
+  existing [`partials/nav.blade.php`](resources/views/partials/nav.blade.php) — no
+  implementation change needed.
+- **SP-02 Footer** (🟠) — 2 zones: SP-09 funder/partner wall (full composition, all 4
+  tiers) + bottom row (copyright/address · Contact + Over Leon + lang placeholder +
+  legal). Stacks vertically on mobile. **No newsletter in footer v1** (blocked by Dn-03
+  GDPR + Dn-11 ESP, both Open). No sitemap link. Existing
+  [`partials/footer.blade.php`](resources/views/partials/footer.blade.php) renders v0
+  with strawman single-tier wall — needs tiered upgrade once real partner data lands.
+- **SP-04 Subpage top** (🟠) — used on P-02 … P-18 (every non-home page). **Default =
+  plain heading**: optional eyebrow (uppercase meta, locates page in IA) + h1 (clamp
+  scale) + optional lede (max prose width). **Variant B = SP-13 photo as next sibling**
+  (NOT nested) — keeps heading crisp + avoids the empty-void-hero failure mode (Dn-20).
+  Variant C = index-only (h1 + 1-line intro). No breadcrumbs in v1 (IA is flat). Aligned
+  with existing [`partials/page-header.blade.php`](resources/views/partials/page-header.blade.php).
+- **SP-09 Funder/partner wall** (🟠) — the **distributed proof spine** per Dn-16 / IA
+  principle 6 (no standalone "for funders" page). **4 tiers, fixed top-down order**:
+  *Met steun van · Co-producenten · Speelplekken · In samenwerking met* — captions
+  visible (not tooltips). Within-tier order = **alphabetical** (no implied ranking).
+  Tile = uniform `h-16`, aspect-flexible, 1px border, `--radius`. Grid responsive (2 →
+  3 → 6 cols). Wireframe = text placeholders; real logos render greyscale at Surface.
+  **3 variants:** Full (footer) · Featured (P-01 home below-fold, larger tiles) · Inline
+  (P-05/P-06 per-project, prose line not grid).
+- **Deliberately deferred:**
+  - **SP-03 Hero — home** stays 🔴 stub — needs the 5-tension home synthesis session,
+    not a derivative draft.
+  - **SP-05 / SP-06 / SP-07 / SP-08 / SP-10 / SP-11 / SP-12 / SP-13** (project card ·
+    editie card · date-row · agenda strip · inschrijving form · contact pattern ·
+    quote block · photo block) stay 🔴 — drafted on first page-brief use to keep specs
+    grounded in concrete usage, not speculative coverage.
+- **`design/40-skeleton.md` §Shared patterns library** — table updated: 4 rows to 🟠
+  first draft + spec links; preamble updated ("4 / 13 patterns at 🟠 first draft").
+- **`design/01-concerns.md`** — **Dn-22 Open → Partly** (structural shell drafted;
+  remainder = SP-03 + content/component patterns on demand). Phase-conclusion-readiness
+  recount: **6 Closed · 5 Partly · 13 Open · 24 total**.
+- **`index.md`** — `41-patterns.md` row added above the 40-skeleton row.
+- **No code changes.** All four patterns are aligned with existing Blade partials —
+  upgrades are deferred until real content (partner data) or new pages require them.
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] design | Skeleton phase opened — plane plan + page registry (NL v1)
+
+Opened the **Skeleton phase** (Garrett Plane 4) on the user's instruction, ahead of the
+pipeline step that will generate per-page briefs, wireframes, NL content, and Blade code.
+Read the full **UX Planning playbook** (Notion, 3 paginated block fetches, 277 blocks
+total — first complete re-read since Strategy/Scope opened) and distilled the Skeleton
+plane's rules into the new plane file. v1 scope = **NL only** (per user steer; aligns
+with the existing Build v0.1 NL-only routing). FR/EN routing model formally deferred to
+a Skeleton sub-decision ([Dn-24](design/01-concerns.md) NEW).
+
+- **New page `design/40-skeleton.md`** — plane plan + **page registry** (the single
+  source of pipeline status). Sections: Kern (5 decisions) · Pipeline lifecycle (5
+  statuses) · Confidence scoring (1–5 + tagged gap pointers) · Section budgets (anti-bloat
+  ceiling) · State inventory checklist · **Shared patterns library** (SP-01 … SP-13,
+  all 🔴 stub — site-level prerequisite per playbook: "page-level skeleton has a hard
+  prerequisite — the site-level shared patterns library must exist first") · **Page
+  registry** (18 NL v1 pages P-01 … P-18 — slug + type + 5-stage status columns + Conf
+  1–5 + Top gaps) · Validation gate · Open going into Surface · Cross-links.
+- **Pipeline lifecycle (per page, per stage):** 🔴 stub → 🟠 first draft → 🟡 reviewed
+  → 🟢 final → ✅ approved. Five stages tracked independently: **Brief** (sections, states,
+  CTAs) · **Wireframe** (ASCII mockup) · **Content** (NL copy) · **Code** (Blade) ·
+  **Approved** (client sign-off). Code stubs already exist (Build v0.1) — start as 🔴
+  "routable empty shell".
+- **Content-confidence scoring (per page, 1–5):** scored against *"could I write
+  high-quality NL copy for this page today?"*. 1 = vague brief, fundamental decisions
+  pending · 2 = brief drafted, key facts missing · 3 = could write strawman, needs team
+  review · 4 = could write near-final, minor verification · 5 = client-confirmed material,
+  could write final now. **Top gaps** = ≤3 short pointers per page, each tagged
+  `[content]` (text from team) · `[strategy]` (Dn-/S- concern open) · `[asset]` (photo/
+  logo/data) · `[client]` (decision owed) · `[research]` (Frederik to investigate).
+- **Baseline state (honest):** every page row 🔴 across every stage; Code at 🔴 "routable
+  empty shell". Avg content-confidence = **2.5/5**, median 3. Seven pages at score ≤ 2
+  (P-01 home, P-04 Leon op school, P-05/P-06 Mariage + editie, P-09 opzetten, P-10
+  uitnodigen, P-15 Impact). **Hard blocker:** P-11 (Vrijwilligers/stage doen — Dn-19
+  Strategy work pending). **Single biggest cross-page gap:** SharePoint content
+  extraction (photos, partner lists, quotes, team material).
+- **Shared patterns library scaffolded (13 entries, all 🔴 stub):** SP-01 Primary nav ·
+  SP-02 Footer · SP-03 Hero home · SP-04 Subpage top · SP-05 Project card · SP-06 Editie
+  card · SP-07 Date-row · SP-08 Agenda preview strip · SP-09 Funder/partner wall · SP-10
+  Inschrijving form · SP-11 Contact pattern · SP-12 Quote/testimony block · SP-13 Photo
+  block. Discipline: **no page brief may reference an undeclared pattern** (per playbook).
+- **Section budgets baked in (anti-bloat):** Utility/index/contact 3–5 + CTA · Marketing/
+  info/story 5–7 + CTA · Conversion/intake/home 6–8 + CTA. Declared at the top of every
+  brief. Forces a cut decision while authoring.
+- **Validation gate (per playbook):** sections answer a user question (not a content
+  type) · one visually-dominant primary CTA + 1–2 secondary · state inventory explicit ·
+  section budget respected · no either/or notes survive · patterns referenced by SP-id ·
+  canonical home named for each load-bearing fact · mobile-first.
+- **`design/00-design-plan.md`** — Skeleton row "not started" → **DRAFT v0.1 (2026-05-27)**.
+- **`design/01-concerns.md`** — **3 new concerns**: **Dn-22** patterns library still stub
+  (resolves as patterns land) · **Dn-23** baseline content-confidence 2.5/5 + page-by-page
+  resolution path · **Dn-24** NL/FR/EN routing model deferred (decide after NL v1 reaches
+  Final). Phase-conclusion-readiness recount: **6 Closed · 4 Partly · 14 Open · 24 total**.
+- **`index.md`** — Skeleton row added between Structure and Image Map.
+- **No per-page briefs generated yet** — registry is the v0.1 deliverable; per-page work
+  (one file per page in a future `42-briefs/` subfolder) starts once the user signs off on
+  the schema and we agree on order of attack (likely: home + Mariage project page first
+  per [00-design-plan §Plane order](design/00-design-plan.md), then shared patterns, then
+  the rest by content-confidence tier).
+- **No git commit / no `git add`** (shared multi-thread tree — user commits).
+
+## [2026-05-27] scaffold | Identity folder opened — Tone of Voice v1
+
+Opened the **identity** folder (previously empty) and filed its first page:
+`docs/wiki/identity/10-tone-of-voice.md` — the working reference for every
+webcopy string on the new site. Brainstormed shape via three structural
+questions; user picked *single voice + register-dial* (one Leon-stem, not
+twin profiles), **Dutch prose**, **website-only scope**.
+
+- **Source:** Frederik's Notion playbook *Playbook: Tone of voice guide*
+  (2026-03-28) for the template (TOV statement → voice attributes → style →
+  terminology → channel adaptations); Frederik's own Impact Studio TOV guide
+  for the quality bar (rhythm + openers + checklist sections added on top of
+  the bare playbook).
+- **Built on:** [`strategy/40-value-proposition`](strategy/40-value-proposition.md)
+  (the *one substance, two registers* idea + invitation-forward posture
+  [D-iv](strategy/40-value-proposition.md#positioning-posture-decision-d-iv))
+  · [`glossary`](glossary.md) (gedeelde vocabulaire; the TOV page **points at**
+  the glossary, does not duplicate it, and adds voice-specific toon-aanvullingen
+  + a *verboden in publieke copy* list)
+  · [`discovery/12-client-kickoff`](discovery/12-client-kickoff-2026-05-19.md)
+  (*"Zeker in tone of voice en in beeld."*)
+  · [`discovery/90-first-impression-review`](discovery/90-first-impression-review.md)
+  (subsidiedossiertaal-diagnose).
+- **Page shape:** TOV-statement (24 woorden, NL) → *Eén stem, twee registers*
+  (the register-dial table P1/P4 vs P2/P3 vs P5) → **6 kenmerken** with NL
+  ✓/✗ pairs → stijl & ritme → openers/CTA's/afsluiters/empty-states/404 →
+  woordenlijst (toon-aanvullingen + *verboden*: *duurzaam · laagdrempelig ·
+  inclusief · diversiteit · creatie* in publieke copy *· werking · traject*
+  buiten funder-pagina *· uniek · bekroond · vernieuwend · passie · empoweren*
+  + clichés) → per-pagina dial-richting (home, project/editie, agenda, Over
+  Leon, Samenwerken, Pers, 404/forms) → **7-puntenchecklist voor nieuwe
+  webcopy** → consolidated *wat we vermijden*.
+- **CLAUDE.md:** added a "Tone of voice" pointer in the **Build phase — Laravel**
+  top-of-section paragraph (next to Sitemap and Glossary) so anyone writing
+  copy lands on it; also added a one-line reference in the *Content rules*
+  block under Wireframing mode. The TOV is now the v1 reference for **every
+  webcopy string** on the new site.
+- **Scope kept narrow:** website only (flyers / press / dossiers / internal
+  comms explicitly out of scope for v1 per user). The TOV will absorb those
+  channels later if asked.
+- **Status:** ⚠️ V1, working but not signed off. Sam & Kristin validate on the
+  content-complete NL draft ([S-02](strategy/01-concerns.md)); changes after
+  that land in this page.
+- **No new concern raised** — the TOV operationalises existing Strategy
+  decisions (D-iv invitation-forward; *one substance, two registers*). S-02
+  already tracks the client-validation gate.
+- **Wiring:** `index.md` +1 row (Identity / Cross-cutting) right after the
+  Glossary row. No git commit / no `git add` (shared multi-thread tree —
+  user commits).
+
+## [2026-05-27] build | Laravel scaffold + page stubs
+
+Scaffolded the Laravel project at repo root and stubbed every page in the
+Structure sitemap. Wiki tooling (`package.json`, `node_modules`) moved into
+`scripts/` so Laravel could own root-level npm.
+
+- **Stack:** Laravel 13 · Blade · Tailwind 4 (Vite) · SQLite (dev). No Flux/Flux Pro
+  per request — Filament/Livewire will arrive when admin is needed.
+- **Routes (18):** all named, NL slugs, source = `design/30-structure.md`. Four
+  top-level groups: `dansateliers-performances` · `samenwerken` · `agenda` · `over-leon`.
+  Mariage editie pages via `{editie}` param (strawman list of 6).
+- **Layout:** `layouts/app.blade.php` + `partials/{nav,footer,page-header}.blade.php`.
+  Skip-link, `<main>`, NL/FR/EN placeholder, tiered funder/partner wall stub.
+- **Design tokens:** `DESIGN.md` + `:root` in `resources/css/app.css` (grayscale,
+  one radius, approved spacing, system-ui only, `.section` / `.btn-*` / containers).
+- **Banned-fonts cleanup:** removed `bunny('Instrument Sans')` from `vite.config.js`
+  (Instrument Sans is banned per Frontend-wireframe playbook). Built CSS now has
+  zero Google/Bunny font imports; only the standard `system-ui` fallback stack.
+- **`CLAUDE.md`:** added "Build phase — Laravel" section (wireframing rules, tokens
+  & conventions, banned patterns, directory shape).
+- **Smoke test:** all 18 routes return 200. Vite build clean (46 kB CSS).
+- **Carry-forward to Skeleton:** FR/EN URL & language-switcher routing model
+  (deferred per Structure); home interaction-design (5-tension piece); editie page
+  shape; mariage editie list (currently hardcoded strawman → CMS-backed).
+
+
+
+Client pushback on the 18-reference static-design library ("not a fan of these sites,
+let's see if we can find sites that *feel like they're dancing*"). Reframed: "dancing"
+isn't one thing — it splits into 4–5 motion registers. Pre-aligned which fit Leon:
+
+- 🌬 **Breathing · slow · cinematic** — IN (phrasing, anticipation, follow-through;
+  contemporary dance at slow tempo)
+- 👆 **Cursor-as-choreographer · scroll-as-phrasing** — IN (user's motion through the
+  page IS the dance; contact-improv energy; fits participatory ethos)
+- Playful · bouncy · springy — OUT (Brand-of-Cuberto risk; lands commercial rather than
+  dancing-bodies)
+- Physics · WebGL · sculptural — OUT (art-tech-spectacle register, too far from Leon's
+  warmth)
+
+Curated **17 URLs** under the two in-scope registers — 8 breathing, 9 cursor —
+appended as new section *§ Kinetic references — sites that move* in
+`docs/wiki/design/50-visual-inspiration.md`. **No screenshots, no full write-ups** per
+client steer: "just links are fine, I'll do the discovery myself." Each entry is
+URL + one-line *what to watch for* pointer. Plus a 3-bullet kinetic-specific
+anti-pattern guard (scroll-jacking, semantic-less cursor effects, motion-everywhere
+syndrome).
+
+⚠️ **Scope implication flagged in the section header and a new concern Dn-21:** motion
+as a load-bearing surface element means it must be **systematic** (component-level,
+design-system-resident — Kristin can't author timing curves); the
+[image map](wiki/design/90-image-map.md) may need to expand to moving-image assets;
+performance/battery cost rises. A future Scope amendment is implied if a kinetic
+direction is chosen — flagged for the next Scope reconciliation.
+
+**Phase-conclusion-readiness** updated: 6 Closed · 4 Partly · 11 Open · **21 total**.
+Dn-21 awaits client live-browsing feedback on the 17 URLs → register pick → Scope
+amendment. Files touched: `50-visual-inspiration.md` (+ kinetic section),
+`01-concerns.md` (+ Dn-21 + counts), this log.
+
+## [2026-05-26] design | Surface-plane research-collecting — 18-reference visual inspiration library
+
+Pre-staged Surface (Garrett plane 5) ahead of Skeleton landing — user asked for visual
+design inspiration without formally opening Surface. Two sourcing methods chosen
+deliberately to avoid the local echo: (i) **international dance peers, ethos-aligned with
+Leon** (participatory · intergenerational · community-rooted · choreographer-led
+collective · nomadic) — explicit steer *away* from BE/NL same-subsector references
+(Rosas, P.A.R.T.S., Damaged Goods, Eastman, Peeping Tom, les ballets C de la B,
+Voetvolk, Needcompany, Kaaitheater, Beursschouwburg, KVS, deSingel, BOZAR, Viernulvier,
+KFDA, HF — all dropped); (ii) **design-gallery "dance" sweep**. Plus a small set of
+non-dance wildcards (multilingual / motion / editorial / solo-artist) and 3 cultural
+institutions (Serpentine · KW Berlin · Walker) — all international, none BE/NL.
+
+**Captured 18 references** to `docs/raw/assets/inspiration/` via Playwright (1440×900
+desktop window, single PNG each, 4s settle, best-effort cookie dismiss): 8 dance peers
+(Dance Exchange · Boris Charmatz · Akram Khan · Sasha Waltz · Käfig/Merzouki · Hofesh
+Shechter · BTJ-AZ at NYLA · Studios Kabako); 3 institutions (Serpentine · KW · Walker);
+4 wildcards (Pro Helvetia · Bureau Borsche · Are.na · Olafur Eliasson); 3 gallery picks
+(William Forsythe · Festival d'Avignon · ImPulsTanz). Capture pipeline:
+`scripts/capture-inspiration.py` — reusable, takes `<slug> <url>` pairs, handles common
+cookie-banner patterns across EN/FR/NL/DE.
+
+**Format per entry** (locked early after proof-of-format on Liz Lerman): thumbnail · URL
++ capture date + tags · *Why it's here* (anchored to Strategy) · *Observations*
+(verbatim, no interpretation) · *Transferable to Leon* (⚠️ marks interpretations per
+CLAUDE.md rule, cross-linked to Strategy/Scope/Structure pages) · *What NOT to copy*.
+
+**8 north-stars elevated** with rationale + theme synthesis: *Boris Charmatz* (photo
+discipline — THE primary reference for Leon's image-selection) · *Liz Lerman / Dance
+Exchange* (mission-on-photo register-pair in one frame) · *Pro Helvetia* (multilingual
++ institutional-playful palette, CH 4-lang benchmark with multilingualism IN the
+wordmark) · *KW Berlin* (Plain Language as first-class option) · *Walker* (single
+hero image + name + date range template) · *Festival d'Avignon* (countdown +
+edition-number + bold single color) · *ImPulsTanz* (hand-drawn mark + intergenerational
+subject + magazine-cover composition) · *Are.na* (text-first discipline +
+maintainability ethic).
+
+**Cross-cutting themes** (the take-home set): (1) **photo selection IS positioning** —
+Charmatz / ImPulsTanz / Lerman / Walker all spend their hero on a single photograph
+whose *subject* does the work; (2) **multilingual surface as identity, not chrome** —
+Pro Helvetia bakes Italian into wordmark, KW puts Plain-Language in language switcher;
+(3) **calm wordmark vs. hot content** — let the type stay quiet; (4) **time-anchored
+content keeps site alive** — visible timestamps signal living site not catalogue;
+(5) **maintainability is a Surface concern, not just a Scope concern**. **Anti-patterns
+list** as guardrail for Skeleton: autoplay-video hero (Hofesh demonstrated the
+fragility), empty void hero, hidden hamburger as primary nav, transactional Tickets
+register, maximalist single-color hero at daily-use scale.
+
+**New concern Dn-20** added (Surface section E — first concern in that bucket): visual
+direction not yet chosen; plane opens after Skeleton lands. Cross-check pending: screen
+[image map](wiki/design/90-image-map.md) against the Boris Charmatz / ImPulsTanz
+photo-discipline benchmark. Plain-NL question (KW's Einfache Sprache) to take to client
++ Kristin. **Phase-conclusion-readiness** updated: 6 Closed · 4 Partly · 10 Open ·
+20 total. **00-design-plan.md** Surface row updated: not-started → research-collecting.
+**index.md** entry added.
+
+Files touched: `docs/wiki/design/50-visual-inspiration.md` (new), `docs/wiki/design/
+00-design-plan.md` (Surface row), `docs/wiki/design/01-concerns.md` (+ Dn-20 +
+phase-readiness counts), `docs/wiki/index.md` (+ entry), `scripts/capture-inspiration.py`
+(new — reusable capture script), `docs/raw/assets/inspiration/*.png` (18 captures).
+
 ## [2026-05-18] scaffold | LLM wiki initialised + Discovery phase set up
 
 Created the standalone LLM-wiki repo for the Leon engagement (frontend + possible backend
@@ -952,3 +1567,11 @@ per-section UX planning).
   — user commits).
 - **Next:** Skeleton (Plane 4). The doc is now in shape for parallel-dispatch per-section
   Skeleton work (the home + each top-level branch can be picked up independently).
+
+## [2026-05-28] build | Contact/booking form — Dn-03 contact slice unblocked
+Decoupled Dn-03: built a server-handled contact form (POST /contact → ContactController →
+ContactRequestMail, honeypot, no-JS PRG, email-only/no store) on a legitimate-interest basis.
+Promoted SP-11 to `partials/contact-form.blade.php`; added `/privacybeleid` stub + footer link;
+added form-control styles + danger/success tokens. Live on uitnodigen + contact page.
+Dn-03 Open [BLOCKER] → Partly (inschrijving/minors + newsletter/ESP remain blocked).
+Spec: docs/superpowers/specs/2026-05-28-contact-form-design.md.

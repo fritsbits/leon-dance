@@ -28,11 +28,30 @@ resolution changes the **design**.
 | Status | Count |
 |--------|------:|
 | Closed | 6 |
-| Partly | 4 |
-| Open | 9 |
-| **Total** | **19** |
+| Partly | 7 |
+| Open | 11 |
+| **Total** | **24** |
 
-Updated after the **2026-05-20 Structure-plane crystallisation** ([30-structure](30-structure.md))
+Updated after **2026-05-28 contact form build** ([spec](../../superpowers/specs/2026-05-28-contact-form-design.md)):
+**Dn-03** Open [BLOCKER] → **Partly** — contact-request slice resolved (legitimate-interest,
+no stored data); inschrijving (minors) + newsletter/ESP slices remain Open [BLOCKER].
+**Dn-22**: SP-11 promoted to a real partial (`partials/contact-form.blade.php`); SP-10 still 🔴 (Dn-03 minors slice).
+
+Updated after **2026-05-27 P-01 Home brief v0.1** ([42-briefs/01-home.md](42-briefs/01-home.md)):
+**Dn-22** patterns library Partly → still Partly but **8 / 13 drafted** (was 4) — P-01
+brief surfaced SP-03 · SP-05 · SP-07 · SP-13. **Dn-23** content-confidence baseline
+Open → **Partly** (P-01 lifted 2 → 3; first page to advance beyond Brief stub).
+
+Earlier today: **Skeleton patterns library v0.1** ([41-patterns.md](41-patterns.md))
+— **Dn-22** Open → **Partly** (4/13 patterns at 🟠 first draft: SP-01 nav · SP-02 footer
+· SP-04 subpage top · SP-09 funder wall — the structural shell). 9 patterns remained 🔴 stub.
+
+Earlier same day: the **Skeleton-plane opening** ([40-skeleton](40-skeleton.md))
+surfaced **Dn-22** patterns library still stub; **Dn-23** content-confidence baseline =
+avg 2.5/5; **Dn-24** NL/FR/EN routing model deferred. All three are tracked-not-blocking;
+Skeleton runs NL-only v1.
+
+Earlier baseline: the **2026-05-20 Structure-plane crystallisation** ([30-structure](30-structure.md))
 on top of the prior 2026-05-19 series (interview + Strategy-v1 reconciliation → Scope v0.2;
 image-map ingest = Dn-15; glossary v3 = Dn-14 Partly; Strategy-v1.x review + 2nd interview →
 Scope v0.3 = Dn-16/17/18). **Structure-2026-05-20 moves:** **Dn-16** Open → **Closed**
@@ -71,7 +90,7 @@ performances*; Birds → Historiek; terse rewrite for downstream LLM use).
 | ID | Concern | Status | Detail | Resolution / pointer |
 |----|---------|--------|--------|----------------------|
 | Dn-02 | **Notion ↔ website coupling** feasibility. | Open | [20](20-scope.md) §8 | Owner: **Frederik research**; *later/light*, **not** a Scope requirement. |
-| Dn-03 | **GDPR / consent** — minors; lawful *inschrijving* capture; Squarespace→ESP migration. | Open **[BLOCKER]** | [20](20-scope.md) F5/F6 | Research + client. Resolve **before the inschrijving/newsletter build**. |
+| Dn-03 | **GDPR / consent.** Contact-request slice **resolved** (legitimate-interest / pre-contractual basis, no personal data stored — emailed only; [spec 2026-05-28](../../superpowers/specs/2026-05-28-contact-form-design.md)). **Still blocked:** lawful *inschrijving* capture incl. **minors**, and Squarespace→ESP migration. | **Partly** | [20](20-scope.md) F5/F6 | Contact form built 2026-05-28. **Inschrijving (minors) + newsletter remain Open [BLOCKER]** — research + client; resolve before the inschrijving/newsletter build. |
 | Dn-04 | **Which evidence/figures** are safe, and how. | Open | [20](20-scope.md) F2 | Client material (SharePoint), jointly [S-08](../strategy/01-concerns.md). **Now rubric-anchored** (method-meerwaarde · process/*nazorg*/continuity · quality-evolution) — but selected **loosely** ([S-12]: 28–32 aandachtspunten not public; only the *structure* is durable) and surfaced **invisibly** (never visible jury-checklist language — Scope v0.3 guardrail). |
 | Dn-10 | **Accessibility target & brand assets** (vector logo/type/colour, WCAG). | Open | [20](20-scope.md) §4, [90](90-image-map.md) | Client material. Needed by Skeleton/Surface; not blocking Scope. Evidenced: only low-res raster logos exist. |
 | Dn-15 | **Photo-archive reuse rights / credit obligations uncatalogued** (~10 photographers, filenames only). | Open *(deferred, non-blocking)* | [90](90-image-map.md), [20](20-scope.md) §8 | **Client decision: "figure that out later, where needed"** — handled **per-asset at Skeleton/Surface** as specific assets are placed; **not a Scope blocker** (revises the earlier "gates the photographic surface" framing). Coverage skew (≈63/70 = Atelier Leon + *Mariage*) = a non-blocking SharePoint content-ask. interview 2026-05-19. |
@@ -86,6 +105,16 @@ performances*; Birds → Historiek; terse rewrite for downstream LLM use).
 | Dn-16 | **Is press/recognition substantial enough for a standalone "Pers" page?** *Mariage* has **zero published critic reviews**; recognition = lineage-proxy + juried *selection* (no won prizes). | **Closed** | [20](20-scope.md) F10, §4 · [30](30-structure.md) | **Won't-Have v1** (Structure workshop 2026-05-20 → user: "Pers gone for now"). No standalone page; recognition folds into **Over Leon → Historiek** (lineage-proxy + juried selection — never "award-winning"). Re-opens only if substantial *Mariage* press surfaces later. **Scope F10 demotes DECISION → Won't-Have** on next reconciliation. |
 | Dn-14 | **Terminology — one shared vocabulary** used in code, admin and site (project / editie / groep / deelnemer / publiek / voorstelling / inschrijving / atelier / typed dates / mobiele dansstudio). | **Partly** | [Glossary](../glossary.md) · [30](30-structure.md) | **Vocabulary settled** (Glossary v3, user-steer 2026-05-19: no two-layer split — Frederik & team work in both surfaces, so one set of words): `creatie`→`project`; `werking` dropped (recurring practices named individually); `traject` is funder-page copy only; `voortraject/cohort/antenne/"Nope"` = in-house jargon, never user-facing. The persona-debate substance (P1–P6) survives as **page-level copy notes** in the Glossary — not a parallel naming system. **Resolves** the Scope F4 modelling (*Mariage* = project, dated staging = editie) + Dn-12 date-types. **IA root label resolved at Structure 2026-05-20**: no overview root; top-level = *Voorstellingen & projecten* + recurring practices distribute by audience. **Remainder:** ordinary **content-complete-draft work** — write each page in its register using the copy notes. |
 | Dn-19 | **Vrijwilligers / stagiairs as a site audience.** New surface (*Samenwerken → Vrijwilligerswerk of stage doen*). Surfaced at the team Structure workshop 2026-05-20: team gets recurring email enquiries for both; they confirmed it deserves a section. | Open | [30](30-structure.md) | Needs **persona + JTBD + user-journey** from the **Strategy thread** (new S- concern to open on next Strategy sync). **Input pending:** team to share the email corpus → file under `docs/raw/research/` when received. Page placeholder stands in the IA; content waits on the persona work. Not a Structure blocker. New 2026-05-20. |
+
+## E. Surface (visual direction)
+
+| ID | Concern | Status | Detail | Resolution / pointer |
+|----|---------|--------|--------|----------------------|
+| Dn-20 | **Visual direction not yet chosen.** Surface plane (Garrett 5) is **research-collecting**, not opened. Inspiration library of 18 references assembled ([50-visual-inspiration.md](50-visual-inspiration.md)) with 8 elevated as **north-stars** — primary takeaways: *photo selection IS positioning* (Boris Charmatz · Liz Lerman · ImPulsTanz · Walker); *multilingual surface as identity not chrome* (Pro Helvetia · KW · Avignon); *calm wordmark + hot content*; *time-anchored content keeps site alive*; *maintainability is a Surface concern, not just a Scope concern*. Plus a Plain-NL question (KW's *Einfache Sprache*) to take to client + editor (Kristin). Surface decisions await Skeleton landing — but the **anti-patterns list** (autoplay-video hero · empty void hero · hidden hamburger · transactional CTA register) is already a guardrail for Skeleton work. | Open | [50](50-visual-inspiration.md), [00](00-design-plan.md), [90](90-image-map.md) | Plane formally opens after [Skeleton 40](40-skeleton.md) lands. **Cross-check pending:** screen Leon's [image map](90-image-map.md) against the Boris Charmatz / ImPulsTanz photo-discipline benchmark; flag any home-candidate photo that fails the *visitekaartje-AND-participant* test. New 2026-05-26. |
+| Dn-22 | **Shared patterns library — 11 / 13 drafted; SP-08 deprecated.** Site-level Skeleton prerequisite. **v0.1:** SP-01/02/04/09. **v0.2 (P-01 brief):** + SP-03/05/07/13. **v0.3 (P-05 Mariage brief):** + SP-06/SP-12 + SP-09 variant C. **v0.4 (2026-05-28 autonomous 15-page wave):** + **SP-11** Contact pattern **promoted to a real server-handled partial** (`partials/contact-form.blade.php`, 2026-05-28; live on P-10 uitnodigen + P-18 contact). **SP-08 DEPRECATED** (superseded by direct SP-07 ×N in P-01 §4 + P-15). **SP-12** now has a Blade partial (`partials/quote.blade.php`, created by P-15). | **Partly** | [40-skeleton](40-skeleton.md) · [41-patterns.md](41-patterns.md) | **Only 🔴 remaining: SP-10 Inschrijving form** (blocked by Dn-03 minors slice). **Candidate patterns** flagged for promotion (not yet): SP-14 text-link rows (3 uses — ready), Person card (P-16 local, await 2nd use), SP-15 map placeholder (await Leaflet bootstrap). |
+| Dn-23 | **Avg page content-confidence = 2.9 / 5** (median 3, was 2.6). **2026-05-28 autonomous 15-page wave:** 14 pages lifted from 🔴 stub across all 5 stages → 🟠 first draft, with strawman content + rendered code (live at https://leon.test). Confidence distribution: **P-18 Contact 4** (snapshot data verified verbatim); 15 pages at 3; **P-06 Mariage editie 2** (per-editie facts gap × 5 instances); **P-11 Doen 1** (hard blocker). Largest cross-page gap is still SharePoint content extraction (photos, partner lists, quotes, team material). Per-page review by Kristin/Sam will lift most to 4. | **Partly** | [40-skeleton §Page registry](40-skeleton.md) · [42-briefs/](42-briefs/) | Resolves page-by-page as client review + assets arrive. Tracked in the page registry's `Conf` column + `Top gaps`. Tagged: `[content]` / `[strategy]` / `[asset]` / `[client]` / `[research]`. |
+| Dn-24 | **NL/FR/EN URL & switcher routing model deferred.** Carried over from Structure ([30-structure §Site-wide components](30-structure.md)); v1 ships NL-only (per [`CLAUDE.md`](../../../CLAUDE.md) Build phase: "NL is the v1 language. FR/EN URL & routing model is deferred to Skeleton"). Options: path-prefix (`/fr/…`) vs. domain (`fr.leon.dance`) vs. parameter; hreflang strategy; context preservation on language switch. | Open | [40-skeleton](40-skeleton.md), [30-structure](30-structure.md) | Decide after NL v1 pages reach 🟢 Final — by then the content shape is stable enough to evaluate routing trade-offs. Not a NL v1 blocker. New 2026-05-27. |
+| Dn-21 | **Motion / kinetic register not yet chosen.** Client pushback on the static-only library prompted a kinetic-references pivot: 17 URLs curated under two registers — 🌬 *Breathing · slow · cinematic* (Mubi · A24 · Ableton Learning Music · Pentagram · Apple AirPods Max · ICA · Studio Dumbar · Wayne McGregor) and 👆 *Cursor-as-choreographer · scroll-as-phrasing* (Locomotive · Hello Monday · Anti · Active Theory · Rauno · Linear · Klim · Studio Feixen · Bruno Simon). Two other registers (playful-bouncy, physics-WebGL) explicitly excluded as off-brand. Client will do live discovery; selection feedback pending. ⚠️ **Scope implication:** motion-as-substance means it must be **systematic** (component-level, design-system-resident — Kristin can't author timing curves); the [photo brief](90-image-map.md) may need to expand to *moving-image* assets; performance/battery cost rises. **Surfaces a future Scope-amendment** if a kinetic direction is chosen. | Open | [50 §Kinetic](50-visual-inspiration.md#kinetic-references--sites-that-move), [20](20-scope.md), [90](90-image-map.md) | Awaits client live-browsing feedback on the 17 URLs → register pick → then formalise the Scope-amendment (motion-as-systematic + photo-brief expansion + perf budget). New 2026-05-26. |
 
 ## Carry-forward note
 
