@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-02 Dansateliers & performances — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content
-> 🟠 first draft (sibling [02-dansateliers-performances-content.md](02-dansateliers-performances-content.md)) ·
+> 🟠 first draft ·
 > Code 🟠 first draft (strawman rendered with SP-04 + SP-05 × 4) · Approved —
 > **Confidence:** **3 / 5** (was 3; held — index-style page; structural calls clean,
 > remaining gaps are cover-asset + 1-line copy verification with Sam/Kristin).
@@ -254,5 +254,5 @@ No new patterns needed; no SP graduates from this brief.
 - Tone: [identity/10-tone-of-voice §Dansateliers](../../identity/10-tone-of-voice.md#dansateliers--performances--overzicht--per-project--editie)
 - Vocabulary: [glossary](../../glossary.md)
 - Sibling briefs: [01-home](01-home.md) (cards pattern parent) · [05-mariage](05-mariage.md) (child P-05) · pending: P-03 Atelier Leon, P-04 Leon op school, P-07 Mobiele dansstudio
-- Content strawman: [02-dansateliers-performances-content](02-dansateliers-performances-content.md)
+
 - Code stub: [`resources/views/dansateliers/index.blade.php`](../../../../resources/views/dansateliers/index.blade.php)

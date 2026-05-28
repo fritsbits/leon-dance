@@ -3,7 +3,7 @@ title: Skeleton — leon.dance redesign (Garrett Plane 4)
 tags: [design, skeleton, wireframe, ia, garrett, pipeline]
 sources: [ux-planning-playbook (Notion, retrieved 2026-05-27); 20-scope; 30-structure; 90-image-map; glossary; strategy/00-strategy-brief; strategy/20-personas; strategy/50-user-journey]
 phase: design
-updated: 2026-05-27
+updated: 2026-05-28
 ---
 
 # Skeleton — leon.dance redesign
@@ -133,7 +133,7 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 > that file the moment it leaves 🔴 stub. **No page brief may reference an undeclared
 > pattern.** Patterns get a stable ID (`SP-nn`).
 >
-> **v0.5 (2026-05-28, bumped by open-call / inschrijving flow build):** **12 / 14
+> **v0.6 (2026-05-28, SP-08 agenda-list revived):** **14 / 14
 > patterns** at 🟠 first draft. New since v0.4: **SP-16 Open-call band** — conditional
 > band that renders only when an editie has `inschrijving_open = true`; variants `home`
 > (between §1 hero and §2 photo on P-01, does **not** consume a section-budget slot) and
@@ -143,8 +143,10 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 > (not yet promoted — wait for 3rd use):
 > SP-14 text-link rows (P-01 §5 + P-08 §2 + P-18 §3 = 3 uses, ready to promote) · SP-15
 > map placeholder (P-18 only — defer until Leaflet bootstraps) · Person card (P-16
-> local SP-NEW-1 — defer until 2nd use). **Only 🔴:** SP-10 inschrijving form (blocked
-> by Dn-03 GDPR).
+> local SP-NEW-1 — defer until 2nd use). **SP-10 built 2026-05-28** (interest-only
+> inschrijving form, email-only, no store). **SP-08 Agenda list revived 2026-05-28**
+> (list-only partial; un-deprecated once the SP-07 ×N skeleton hit four pages). **No
+> patterns remain 🔴.**
 
 | ID | Pattern | Used on | Status | Notes / spec |
 |---|---|---|---|---|
@@ -155,9 +157,9 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 | SP-05 | **Project card** | P-01 §3, P-02, P-05, agenda | 🟠 first draft | cover (optional) + title + 1-line desc + whole-card link · variants A photo / B text-only · [spec](41-patterns.md#sp-05--project-card) |
 | SP-06 | **Editie card** | P-05, P-06, agenda | 🟠 first draft | dated cousin of SP-05; typed dates per [Glossary](../glossary.md); spec in [41-patterns](41-patterns.md#sp-06--editie-card) |
 | SP-07 | **Date-row** | P-01 §4, P-03, P-05, P-06, P-12 | 🟠 first draft | atomic agenda row · variants A condensed / B full · type enum from Glossary · [spec](41-patterns.md#sp-07--date-row) |
-| SP-08 | **Agenda preview strip** | (none — deprecated) | 🔴 **DEPRECATED** | superseded by SP-07 ×N direct usage in P-01 §4 + P-15 "In cijfers"; slot kept for ID stability |
+| SP-08 | **Agenda list** | P-01 §4, P-03 §4, P-18 §3, mariage-editie §6 | 🟠 first draft | [`partials/agenda-list.blade.php`](../../../resources/views/partials/agenda-list.blade.php) — list-only wrapper around SP-07 (empty-state + bordered rows + optional trailing link). Props: events, href closure, emptyText, linkLabel?, linkHref?. **Revived 2026-05-28** (was deprecated). [spec](41-patterns.md#sp-08--agenda-list) |
 | SP-09 | **Funder / partner wall** | footer + home strip + P-05 §6 inline | 🟠 first draft | 4 tiers · 3 variants A Full / B Featured / C Inline (drafted with P-05) · [spec](41-patterns.md#sp-09--funder--partner-wall) |
-| SP-10 | **Inschrijving form** | editie pages | 🔴 stub | Blocked by [Dn-03 GDPR](01-concerns.md) |
+| SP-10 | **Inschrijving form** | editie pages | 🟠 first draft | [`partials/inschrijving-form.blade.php`](../../../resources/views/partials/inschrijving-form.blade.php) — server-handled (POST /inschrijving). **Interest-only** slice of [Dn-03](01-concerns.md): emails team, stores nothing. Live on Mariage editie §5. Participant DB + minors + ESP deferred. |
 | SP-11 | **Contact pattern** | P-09 §8, P-10 §6 (inline first uses) | 🟠 first draft | h2 + intro + mailto primary + ghost secondary + GDPR-blocked annotation; lift to `partials/contact.blade.php` on 3rd caller |
 | SP-16 | **Open-call band** | P-01 (between §1+§2, no section slot) + P-05 (above §4) + work-grid chip P-01/P-02 | 🟠 first draft | conditional · self-removing · variants `home`/`project` · eyebrow `NIEUWE EDITIE` + CTA `Ontdek deze editie` + optional closing-date line · [spec](41-patterns.md#sp-16--open-call-band) |
 | SP-12 | **Quote / testimony block** | P-04 §5, P-05 §5, P-06 (Hadja), P-09 §6, P-14 §5, P-15 §3 | 🟠 first draft | [`partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) — variant A inline / B standalone / C pull-quote · no portrait by default |
@@ -170,24 +172,24 @@ Type = section-budget tier (Utility / Marketing / Conversion).
 
 | ID | Page | Slug | Type | UX | Conf | Wire | Assets | UI | Back | OK | Top gaps |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| P-01 | **Home** | `/` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Kristin review NL strawman + confirm "sinds 2010" jaartal; `[asset]` hero photo + 4 card covers (Surface); `[content]` real partner data (SharePoint). §4 live from Event model. Brief: [42-briefs/01-home](42-briefs/01-home.md) · Content: [01-home-content](42-briefs/01-home-content.md) |
-| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` 4 card descriptions tone-check (Kristin); `[asset]` cover photo per sub-item (Surface). Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) · [content](42-briefs/02-dansateliers-performances-content.md) |
-| P-03 | **Atelier Leon** | `/dansateliers-performances/atelier-leon` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §4 exact times + venue addresses (Sam/Kristin); `[content]` leeftijd-claim (consent); `[asset]` hero photo (Pianofabriek set). Brief: [03-atelier-leon](42-briefs/03-atelier-leon.md) · [content](42-briefs/03-atelier-leon-content.md) |
-| P-04 | **Leon op school** | `/dansateliers-performances/leon-op-school` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Schoemaker quote consent (§5); `[content]` welzijn + zorg sector partner-org names (SharePoint); `[content]` cadence verify across sectors. Brief: [04-leon-op-school](42-briefs/04-leon-op-school.md) · [content](42-briefs/04-leon-op-school-content.md) |
-| P-05 | **Mariage** (project) | `/dansateliers-performances/mariage` | Mkt 5–7 | 🟢 | **3** | 🔴 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §3 + §5 paragraphs (Sam/Kristin); `[client]` Hadja quote consent; `[asset]` hero + editie covers; `[content]` per-project partner list; `[research]` Editie model + status logic. Wire 🔴 — view nog niet gerenderd. Brief: [05-mariage](42-briefs/05-mariage.md) (8 gaps, 7 BG decisions) |
-| P-06 | **Mariage editie** (template, 6 edities) | `/dansateliers-performances/mariage/{editie}` | Mkt 5–7 | 🟢 | **2** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[research]` Editie Eloquent model (hard-coded slug→metadata map until model lands); `[content]` per-editie content × 5 non-Brussels instances; `[strategy]` Dn-03 GDPR blocks inschrijving form (mailto strawman). Brief: [06-mariage-editie](42-briefs/06-mariage-editie.md) · [content](42-briefs/06-mariage-editie-content.md) |
-| P-07 | **Mobiele dansstudio** | `/dansateliers-performances/mobiele-dansstudio` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` Technische fiche cijfers (6 rijen strawman); `[content]` track record echte plaatsen + jaartallen; `[asset]` foto van de studio op locatie. Brief: [07-mobiele-dansstudio](42-briefs/07-mobiele-dansstudio.md) · [content](42-briefs/07-mobiele-dansstudio-content.md) |
-| P-08 | **Samenwerken** (index) | `/samenwerken` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` Kristin tone pass on lede + Doen sub-line; `[client]` Sam confirm row order; `[strategy]` Dn-19 unblocks Doen substance. Brief: [08-samenwerken](42-briefs/08-samenwerken.md) · [content](42-briefs/08-samenwerken-content.md) |
-| P-09 | **Participatief dansproject opzetten** | `/samenwerken/opzetten` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[client]` §8 contact owner (Sam Schoetters vs. hallo@leon.dance); `[content]` §3 cadence verify; `[client]` §6 Schoemaker quote re-use consent. Brief: [09-opzetten](42-briefs/09-opzetten.md) · [content](42-briefs/09-opzetten-content.md) · **SP-11 first use** |
-| P-10 | **Mobiele dansstudio uitnodigen** | `/samenwerken/uitnodigen` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[research]` **Dn-03 GDPR blocks form** (mailto + visible stub); `[content]` technische-fiche cijfers (shared with P-07); `[client]` cost-frame + SLA + contact owner. Brief: [10-uitnodigen](42-briefs/10-uitnodigen.md) · [content](42-briefs/10-uitnodigen-content.md) |
+| P-01 | **Home** | `/` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Kristin review NL strawman + confirm "sinds 2010" jaartal; `[asset]` hero photo + 4 card covers (Surface); `[content]` real partner data (SharePoint). §4 live from Event model; renders desktop+mobile, em-dash-free copy + full-width mobile CTAs — **awaiting Frederik's critique+refine before 🟢**. Brief: [42-briefs/01-home](42-briefs/01-home.md) |
+| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` 4 card descriptions tone-check (Kristin); `[asset]` cover photo per sub-item (Surface). Renders desktop+mobile; shared work-grid copy + lede em-dash/banned-word-free — **awaiting critique+refine before 🟢**. Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) |
+| P-03 | **Atelier Leon** | `/dansateliers-performances/atelier-leon` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §4 exact times + venue addresses (Sam/Kristin); `[content]` leeftijd-claim (consent); `[asset]` hero photo (Pianofabriek set). Brief: [03-atelier-leon](42-briefs/03-atelier-leon.md) |
+| P-04 | **Leon op school** | `/dansateliers-performances/leon-op-school` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Schoemaker quote consent (§5); `[content]` welzijn + zorg sector partner-org names (SharePoint); `[content]` cadence verify across sectors. Brief: [04-leon-op-school](42-briefs/04-leon-op-school.md) |
+| P-05 | **Mariage** (project) | `/dansateliers-performances/mariage` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🟠 | 🔴 | 🟠 | 🔴 | `[content]` §5 + §6 strawman te bevestigen (Sam/Kristin); `[client]` Hadja quote consent; `[asset]` hero + editie cover photos. Editie-grid + open-call band (SP-16) live from Editie model; 6 real editions from current-site mirror + 1 invented future editie for sign-up testing. **§5 traject + embedded SP-12 quote + §6 commission CTA (Plan een gesprek → opzetten, SP-09 C inline partners) + Vimeo trailer in §2 + new upcoming-performance band now built** (render-verified; awaits Frederik's Wire-🟢 pass). Brief: [05-mariage](42-briefs/05-mariage.md) |
+| P-06 | **Mariage editie** (template, 7 edities) | `/dansateliers-performances/mariage/{editie}` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` per-editie prose + quotes (team-supplied, all editions). Editie page + §5 inschrijving state live from Editie model; 7 editions sourced from current-site mirror (6 real festival editions + 1 invented future for sign-up testing; fictional cities replaced), Filament admin; §5 inschrijving form live (SP-10, interest-only, email-only — Dn-03 contact-style slice). Brief: [06-mariage-editie](42-briefs/06-mariage-editie.md) |
+| P-07 | **Mobiele dansstudio** | `/dansateliers-performances/mobiele-dansstudio` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` Technische fiche cijfers (6 rijen strawman); `[content]` track record echte plaatsen + jaartallen; `[asset]` foto van de studio op locatie. Brief: [07-mobiele-dansstudio](42-briefs/07-mobiele-dansstudio.md) |
+| P-08 | **Samenwerken** (index) | `/samenwerken` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` Kristin tone pass on lede + Doen sub-line; `[client]` Sam confirm row order; `[strategy]` Dn-19 unblocks Doen substance. Renders desktop+mobile; link-list subs em-dash/banned-word-free (traject/werking removed) — **awaiting critique+refine before 🟢**. Brief: [08-samenwerken](42-briefs/08-samenwerken.md) |
+| P-09 | **Participatief dansproject opzetten** | `/samenwerken/opzetten` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[client]` §8 contact owner (Sam Schoetters vs. hallo@leon.dance); `[content]` §3 cadence verify; `[client]` §6 Schoemaker quote re-use consent. Brief: [09-opzetten](42-briefs/09-opzetten.md) · **SP-11 first use** |
+| P-10 | **Mobiele dansstudio uitnodigen** | `/samenwerken/uitnodigen` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[research]` **Dn-03 GDPR blocks form** (mailto + visible stub); `[content]` technische-fiche cijfers (shared with P-07); `[client]` cost-frame + SLA + contact owner. Brief: [10-uitnodigen](42-briefs/10-uitnodigen.md) |
 | P-11 | **Vrijwilligerswerk of stage doen** | `/samenwerken/doen` | Util 3–5 | 🔴 | **1** | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | `[strategy]` **Dn-19 OPEN** — Strategy persona + JTBD pending; `[content]` team-email-corpus pending; *page stays placeholder until both arrive* |
-| P-12 | **Agenda** | `/agenda` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` internal-event explainer copy (Kristin); `[content]` "Klas" filter label clarity for P1; `[research]` editie-routing precision (voorstelling with editie_slug → P-06). Brief: [12-agenda](42-briefs/12-agenda.md) · [content](42-briefs/12-agenda-content.md) · URL-state filters live |
-| P-13 | **Over Leon** (index) | `/over-leon` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[strategy]` card order (nav-default vs. jury-arrival J2); `[content]` Sam jaartal-confirm "16/5 jaar"; `[content]` Kristin tone-pass on 5 card descriptions. Brief: [13-over-leon](42-briefs/13-over-leon.md) · [content](42-briefs/13-over-leon-content.md) |
-| P-14 | **Missie & visie** | `/over-leon/missie-visie` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Sam/Kristin sign-off on editorial cuts (drop 6-value list + drop 4-method block); `[client]` AFZ framing approval; `[client]` Hadja quote consent (shared with P-05). Brief: [14-missie-visie](42-briefs/14-missie-visie.md) · [content](42-briefs/14-missie-visie-content.md) |
-| P-15 | **Impact** | `/over-leon/impact` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Sam/Kristin write final §2 four-beat + §3 nazorg prose; `[client]` Hadja consent (shared with P-05); `[content]` "Sinds 2010" jaartal confirm. Brief: [15-impact](42-briefs/15-impact.md) · [content](42-briefs/15-impact-content.md) · `partials/quote.blade.php` NEW |
-| P-16 | **Team** | `/over-leon/team` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` per-persoon context lines for kerngroep; `[content]` per-artiest role-tags for ~12 geassocieerd pool; `[asset]` team-portretten rights-cleared. Brief: [16-team](42-briefs/16-team.md) · [content](42-briefs/16-team-content.md) · **SP-NEW-1 Person card** (P-16-local) |
-| P-17 | **Historiek** | `/over-leon/historiek` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §5 juried-selection rijen (Sam/Kristin); `[content]` jaartallen verify (2010 UV start · Atelier Quartier datum · Birds tour-direction); `[asset]` §6 editorial photo. Brief: [17-historiek](42-briefs/17-historiek.md) · [content](42-briefs/17-historiek-content.md) |
-| P-18 | **Contact** | `/over-leon/contact` | Util 3–5 | 🟢 | **4** | 🟢 | ⚪ | 🔴 | 🟢 | 🔴 | `[client]` Sam confirms snapshot data (email · phone · 2 addresses · BTW); `[content]` "in voorbereiding" tag wording (shared with P-08). OSM coords fixed (Osseghemstraat 53, zoom 15, permanent label) + open-atelier list live from Event model. Brief: [18-contact](42-briefs/18-contact.md) · [content](42-briefs/18-contact-content.md) |
+| P-12 | **Agenda** | `/agenda` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` internal-event explainer copy (Kristin); `[content]` "Klas" filter label clarity for P1; `[research]` editie-routing precision (voorstelling with editie_slug → P-06). Brief: [12-agenda](42-briefs/12-agenda.md) · URL-state filters live |
+| P-13 | **Over Leon** (index) | `/over-leon` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[strategy]` card order (nav-default vs. jury-arrival J2); `[content]` Sam jaartal-confirm "16/5 jaar"; `[content]` Kristin tone-pass on 5 card descriptions. Renders desktop+mobile; Historiek card em-dash-free — **awaiting critique+refine before 🟢**. Brief: [13-over-leon](42-briefs/13-over-leon.md) |
+| P-14 | **Missie & visie** | `/over-leon/missie-visie` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Sam/Kristin sign-off on editorial cuts (drop 6-value list + drop 4-method block); `[client]` AFZ framing approval; `[client]` Hadja quote consent (shared with P-05). Brief: [14-missie-visie](42-briefs/14-missie-visie.md) |
+| P-15 | **Impact** | `/over-leon/impact` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Sam/Kristin write final §2 four-beat + §3 nazorg prose; `[client]` Hadja consent (shared with P-05); `[content]` "Sinds 2010" jaartal confirm. Brief: [15-impact](42-briefs/15-impact.md) · `partials/quote.blade.php` NEW |
+| P-16 | **Team** | `/over-leon/team` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` per-persoon context lines for kerngroep; `[content]` per-artiest role-tags for ~12 geassocieerd pool; `[asset]` team-portretten rights-cleared. Brief: [16-team](42-briefs/16-team.md) · **SP-NEW-1 Person card** (P-16-local) |
+| P-17 | **Historiek** | `/over-leon/historiek` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §5 juried-selection rijen (Sam/Kristin); `[content]` jaartallen verify (2010 UV start · Atelier Quartier datum · Birds tour-direction); `[asset]` §6 editorial photo. Brief: [17-historiek](42-briefs/17-historiek.md) |
+| P-18 | **Contact** | `/over-leon/contact` | Util 3–5 | 🟢 | **4** | 🟢 | ⚪ | 🔴 | 🟢 | 🔴 | `[client]` Sam confirms snapshot data (email · phone · 2 addresses · BTW); `[content]` "in voorbereiding" tag wording (shared with P-08). OSM coords fixed (Osseghemstraat 53, zoom 15, permanent label) + open-atelier list live from Event model. Brief: [18-contact](42-briefs/18-contact.md) |
 
 ### Roll-up
 
@@ -196,16 +198,21 @@ Type = section-budget tier (Utility / Marketing / Conversion).
   Assets · UI · Back · OK** (was Brief · Wire · Content · Code · Approved). Content folds
   into Conf (readiness) + Wire (in-place); Assets + UI (Surface) split out; Code → Back
   (data/CMS, with ⚪ n.v.t. / ❓ te-beslissen states).
-- **Pipeline state:** **UX 🟢** for 17/18 (briefings done; P-11 🔴 — Dn-19). **Wire 🟠**
-  for 15 + **P-18 🟢** (first wireframe-complete page; P-05 🔴 — view not rendered; P-11 🔴).
-  **UI 🔴** everywhere (Surface not opened); **Assets 🔴** except **P-18 ⚪** (no assets needed).
-  **Back 🟠** where a backend runs (P-01/06/09/10/12/15), **🟢 P-18** (open-atelier list live),
+- **Pipeline state:** **UX 🟢** for 17/18 (briefings done; P-11 🔴 — Dn-19). **Wire-🟢 gate:**
+  a page reaches **🟢 only after Frederik's own critique + refine pass** — Claude's render/tone
+  check takes a page to 🟠, not 🟢. Currently **🟢 P-18** only · **🟠** for 16 (of which
+  **P-01, P-02, P-05, P-08, P-13** have had a render + tone-sweep pass — em-dash / banned-word fixes,
+  mobile-CTA — and are queued for that critique) · **🔴 P-11** (Dn-19).
+  **UI 🔴** everywhere (Surface not opened); **Assets 🔴** except **P-18 ⚪** (no assets needed)
+  and **P-05 🟠** (Vimeo trailer embedded in §2; hero + editie photos still pending).
+  **Back 🟠** where a backend runs (P-01/05/06/09/10/12/15), **🟢 P-18** (open-atelier list live),
   ❓ elsewhere. **OK 🔴** everywhere.
-- **Avg content-confidence:** **2.9 / 5** (median 3, was 2.6). Only **2 pages** at score
-  ≤ 2: **P-06 Mariage editie** (2 — template confidence drops by per-editie unverified
-  facts across 5 non-Brussels instances) and **P-11 Doen** (1 — hard blocker).
-  **P-18 Contact** highest at **4** (snapshot data verified verbatim from current-site
-  mirror).
+- **Avg content-confidence:** **2.9 / 5** (median 3, was 2.6). Only **1 page** at score
+  ≤ 2: **P-11 Doen** (1 — hard blocker). **P-06 Mariage editie** raised **2 → 3** once the
+  Editie model + seeded edities landed; editions are now the 6 real festival editions sourced
+  from the current-site mirror (+ 1 invented future for sign-up testing), with per-editie
+  prose/quotes still team-supplied (kept at 3). **P-18 Contact** highest at **4** (snapshot
+  data verified verbatim from current-site mirror).
 - **Hard blocker:** P-11 (Dn-19 Strategy work pending — only page still 🔴 across the board).
 - **Soft blockers across many pages:** SharePoint content extraction (photos, partner
   lists, quotes, team material) is still the single biggest cross-page gap. Per-page

@@ -12,7 +12,7 @@ updated: 2026-05-27
 # P-01 Home — Skeleton brief
 
 > **Status:** Brief 🟠 first draft (validation 8/8 PASS) · Wireframe 🟠 first draft
-> (desktop + mobile) · Content 🟠 first draft ([01-home-content](01-home-content.md)) ·
+> (desktop + mobile) · Content 🟠 first draft ·
 > **Code 🟠 first draft (strawman rendered; §4 live from Event model)** · Approved —
 > **Confidence:** **3 / 5** (was 2 — raised by section lock-in + pattern decisions;
 > brief gaps #6 & #7 closed by code, gaps #1 & #3 lifted to strawman by content)

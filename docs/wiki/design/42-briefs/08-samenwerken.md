@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-08 Samenwerken (index) — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft (sibling [08-samenwerken-content](08-samenwerken-content.md)) · Code 🟠
+> first draft · Code 🟠
 > first draft (rewrite shipped 2026-05-28) · Approved —
 > **Confidence:** **3 / 5** (was 3; structural simple, content gaps are P-09/P-10/P-11
 > downstream not this index).
@@ -232,7 +232,7 @@ If any of BG-1 … BG-7 should flip, the brief re-rolls; otherwise these stand.
 - Structure: [30-structure §Samenwerken — children](../30-structure.md)
 - Tone: [identity/10-tone-of-voice §Samenwerken](../../identity/10-tone-of-voice.md#samenwerken-opzetten--uitnodigen--doen)
 - Glossary: [glossary](../../glossary.md)
-- Sibling content: [08-samenwerken-content.md](08-samenwerken-content.md)
+
 - Sibling briefs touching same vocab: [01-home §5 band](01-home.md) · [05-mariage §6 hook](05-mariage.md)
 - Children (downstream): P-09 Opzetten · P-10 Uitnodigen · P-11 Doen (blocked by Dn-19)
 - Code stub: [`resources/views/samenwerken/index.blade.php`](../../../../resources/views/samenwerken/index.blade.php)

@@ -12,8 +12,7 @@ updated: 2026-05-28
 # P-17 Historiek — Skeleton brief
 
 > **Status:** Brief 🟠 first draft (validation 8/8 PASS) · Wireframe 🟠 first draft
-> (desktop + mobile) · Content 🟠 first draft (sibling
-> [17-historiek-content.md](17-historiek-content.md)) · Code 🟠 first draft (strawman
+> (desktop + mobile) · Content 🟠 first draft · Code 🟠 first draft (strawman
 > rendered) · Approved —
 > **Confidence:** **3 / 5** (was 3; held — narrative page, strawman writable from
 > Discovery 21-organisation + Strategy P5 RTB; team verification of jaartallen +
@@ -227,7 +226,7 @@ If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise th
 - **Eyebrow:** `OVER LEON` → links to `/over-leon` (parent index, per SP-04 spec).
 - **h1:** `Historiek` (short, the page name; no marketing-headline).
 - **Lede:** 2 zinnen — names the "16 jaar / 5 jaar vzw" honestly. Sets P2 + P5 expectation.
-  Strawman in [17-historiek-content.md](17-historiek-content.md).
+  Strawman now in the rendered view.
 - **BG-2:** **No hero CTA.** Page is institutional-read, not a conversion surface.
 
 ### §2 — Waar Leon vandaan komt (lineage)
@@ -379,5 +378,5 @@ wants a near-identical year-prefixed list, lift to SP-14 at that point.
 - Discovery: [21-organisation](../../discovery/21-organisation.md) (KBO timeline · lineage Ultima Vez → Leon · Atelier Quartier 2017 · Birds tour-directie 2023)
 - Structure: [30-structure §Over Leon → Historiek](../30-structure.md) (lineage · Birds · recognition framing)
 - Tone: [identity/10-tone-of-voice §Over Leon](../../identity/10-tone-of-voice.md#over-leon-missie--visie--impact--team--historiek--contact) (institutional dial)
-- Content sibling: [17-historiek-content.md](17-historiek-content.md) (NL strawman)
+
 - Code stub: [`resources/views/over-leon/historiek.blade.php`](../../../../resources/views/over-leon/historiek.blade.php)

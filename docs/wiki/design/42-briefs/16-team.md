@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-16 Team — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft ([16-team-content](16-team-content.md)) · Code 🟠 first draft (rendered) ·
+> first draft · Code 🟠 first draft (rendered) ·
 > Approved —
 > **Confidence:** **3 / 5** (was 3; structural lock-in + content extraction from
 > [21-organisation](../../discovery/21-organisation.md) raised certainty on names + roles

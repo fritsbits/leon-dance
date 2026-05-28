@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-07 Mobiele dansstudio — Skeleton brief
 
 > **Status:** Brief 🟠 first draft (validation 8/8 PASS) · Wireframe 🟠 first draft
-> (desktop + mobile) · Content 🟠 first draft (sibling [07-mobiele-dansstudio-content](07-mobiele-dansstudio-content.md)) ·
+> (desktop + mobile) · Content 🟠 first draft ·
 > Code 🟠 first draft (strawman rendered) · Approved —
 > **Confidence:** **3 / 5** (held at 3; section lock-in + pattern reuse · gaps remain
 > content/asset/client per registry).
@@ -371,6 +371,6 @@ not justified by a single occurrence.
 - Glossary: [`mobiele dansstudio`](../../glossary.md#de-shared-vocabulary-use-these--code-admin-site) — public name; *"de fiets"* informal in-house, not a label
 - Strategy: [P3 profile](../../strategy/40-value-proposition.md) (programmator · institutional register · low-risk to programme)
 - Raw evidence: [client-meeting-2026-05-19](../../../raw/research/client-meeting-2026-05-19.md):619-639 · [desk-research-strategy-enrichment](../../../raw/research/desk-research-strategy-enrichment-2026-05-19.md) (bike + zomerformule)
-- Content: [07-mobiele-dansstudio-content](07-mobiele-dansstudio-content.md)
+
 - Code stub: [`dansateliers/mobiele-dansstudio.blade.php`](../../../../resources/views/dansateliers/mobiele-dansstudio.blade.php)
 - Sibling intake page (in parallel): P-10 Mobiele dansstudio uitnodigen — should link here for fiche, not duplicate (gap #8)

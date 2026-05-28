@@ -14,8 +14,7 @@ updated: 2026-05-28
 # P-06 Mariage editie — Skeleton brief
 
 > **Status:** Brief 🟠 first draft (this file) · Wireframe 🟠 first draft (below) ·
-> Content 🟠 first draft strawman ([06-mariage-editie-content](06-mariage-editie-content.md))
-> · Code 🟠 first draft (template renders all 6 edities; §6 Voor publiek already live
+> Content 🟠 first draft · Code 🟠 first draft (template renders all 6 edities; §6 Voor publiek already live
 > from Event model — preserved + integrated) · Approved —
 > **Confidence:** **2 / 5** (template is structurally sound; per-editie data — groep,
 > typed dates, location, partner, photo — is the biggest content/asset gap, blocking
@@ -220,7 +219,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
   `luik-2026` → `Luik 2026`). Capitalisation handled in the slug→label map.
 - **Lede (1–2 sentences):** names partner + groep-size + period + key venues. Concrete,
   per [TOV §kenmerk 2](../../identity/10-tone-of-voice.md#2-concreet-niet-abstract).
-  Strawman copy per instance lives in [06-mariage-editie-content](06-mariage-editie-content.md).
+  Strawman copy per instance lives in the rendered view `resources/views/dansateliers/mariage-editie.blade.php`.
 - **No hero CTA** (same posture as parent P-05); CTA action lives in §5.
 
 ### §2 — Photo (SP-13)
@@ -391,7 +390,7 @@ P-05 to link *into* this page) — not used *on* this page.
 
 - Plane: [40-skeleton](../40-skeleton.md) · Patterns: [41-patterns](../41-patterns.md) · Status: [01-concerns](../01-concerns.md)
 - Sister brief (parent): [42-briefs/05-mariage](05-mariage.md)
-- Content strawman: [06-mariage-editie-content](06-mariage-editie-content.md)
+
 - Structure: [30-structure](../30-structure.md) — editie carries inschrijving + deelnemer practical-info; publiek via Agenda
 - Tone: [identity/10-tone-of-voice §Dansateliers](../../identity/10-tone-of-voice.md#dansateliers--performances--overzicht--per-project--editie)
 - Glossary: [glossary](../../glossary.md) — *editie · groep · deelnemer · publiek · voorstelling · inschrijving*

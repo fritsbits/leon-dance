@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-10 Mobiele dansstudio uitnodigen — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft ([10-uitnodigen-content](10-uitnodigen-content.md)) · Code 🟠 first draft
+> first draft · Code 🟠 first draft
 > (this commit — see [`samenwerken/uitnodigen.blade.php`](../../../../resources/views/samenwerken/uitnodigen.blade.php)) ·
 > Approved —
 > **Confidence:** **2 → 3 / 5** (was 2 — raised by section lock-in + intake-pattern
@@ -375,7 +375,7 @@ Dn-03 blocked).
 - Vocabulary: [glossary §mobiele dansstudio](../../glossary.md)
 - Sibling briefs: [01-home](01-home.md) · [05-mariage](05-mariage.md)
 - Canonical sister page: P-07 [`/dansateliers-performances/mobiele-dansstudio`](../../../../resources/views/dansateliers/mobiele-dansstudio.blade.php)
-- Content sister file: [10-uitnodigen-content](10-uitnodigen-content.md) (NL strawman)
+
 - Code stub (rewritten this commit): [`resources/views/samenwerken/uitnodigen.blade.php`](../../../../resources/views/samenwerken/uitnodigen.blade.php)
 - Closed concerns governing this page: [Dn-05](../01-concerns.md) (no ticketing) · [Dn-18](../01-concerns.md) (contact request only)
 - Open concern blocking the live form: [Dn-03](../01-concerns.md) GDPR (BLOCKER for SP-10/SP-11)

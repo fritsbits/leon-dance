@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-15 Impact — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft (sibling [15-impact-content](15-impact-content.md)) · Code 🟠 first draft
+> first draft · Code 🟠 first draft
 > (rewritten; §"In cijfers" auto-pulls from Event model) · Approved —
 > **Confidence:** **2 / 5 → 3 / 5** (raised by section lock-in + 4-beat method spine
 > + qualitative-quote primary; gaps remain on real participant-quote consent + nazorg
@@ -253,7 +253,7 @@ If any of BG-1 … BG-9 should flip, say so and the brief re-rolls; otherwise th
 - **Pattern:** plain `.section` + `.container-text` with a 2-col grid (number · label).
 - **Data source (BG-6):** Event model. Three derived counts via `@php` block:
   1. **Years active:** `now()->year − 2010` (hard-anchored — sinds 2010 is the
-     "16 jaar bezig" frame per [home-content gap #3 strawman](01-home-content.md)).
+     "16 jaar bezig" frame (see the Home view).
   2. **Partner-organisaties:** distinct values from `Event.partners` CSV column —
      `flatMap(explode(','))->unique()->count()`. Currently seeds yield ≈2 (MUS-E,
      Ketmet); real data will grow this.
@@ -344,7 +344,7 @@ If any of BG-1 … BG-9 should flip, say so and the brief re-rolls; otherwise th
 | 2 | §3 *proces · nazorg · continuïteit* 3-paragraph prose | `[content]` | Sam / Kristin | Content stage → final |
 | 3 | §6 editorial photo choice | `[asset]` | Frederik + Surface | Section visual final (SP-13 collapses cleanly if absent) |
 | 4 | Quote attribution clearance — confirm Hadja consent (shared with [P-05 gap #4](05-mariage.md)) | `[client]` | Sam / Kristin | §4 → final (block if denied; section collapses) |
-| 5 | "Sinds 2010" jaartal — same anchor as [home-content gap #3](01-home-content.md). Confirm team voices "16 jaar bezig" publicly. | `[content]` | Sam / Kristin | §5 cijfer-1 framing |
+| 5 | "Sinds 2010" jaartal — same anchor as the Home view. Confirm team voices "16 jaar bezig" publicly. | `[content]` | Sam / Kristin | §5 cijfer-1 framing |
 | 6 | Partner-count derivation method — currently `distinct(Event.partners CSV)`. Reads honest at v1 (≈2 from seeds, will grow). At real-data scale, possibly under-counts (only event-time partners, not org-level funders). Acceptable for v1? | `[research]` | Frederik | §5 cijfer-2 accuracy |
 | 7 | Closing copy / inline samenwerken link decision (BG-2 reversibility) | `[client]` | Sam | §6 or end-of-§3 |
 
@@ -370,5 +370,5 @@ If any of BG-1 … BG-9 should flip, say so and the brief re-rolls; otherwise th
 - Tone: [identity/10-tone-of-voice §Over Leon](../../identity/10-tone-of-voice.md#over-leon-missie--visie--impact--team--historiek--contact)
 - Glossary: [glossary](../../glossary.md)
 - Sister pages: [P-01 Home brief](01-home.md) (jury 1-line band; same "sinds 2010" anchor) · [P-05 Mariage brief](05-mariage.md) (same Hadja quote, inline variant)
-- Sibling content: [15-impact-content](15-impact-content.md)
+
 - Code: [`resources/views/over-leon/impact.blade.php`](../../../../resources/views/over-leon/impact.blade.php) · NEW partial [`resources/views/partials/quote.blade.php`](../../../../resources/views/partials/quote.blade.php)

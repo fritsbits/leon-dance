@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-09 Participatief dansproject opzetten — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft · Content 🟠 first draft
-> (sibling [09-opzetten-content](09-opzetten-content.md)) · Code 🟠 first draft
+> · Code 🟠 first draft
 > (strawman rendered, mailto CTA) · Approved —
 > **Confidence:** **3 / 5** (was 2 — raised by 7 BG decisions + 3-pattern lock-in).
 > **Section budget:** **6 sections** (Conversion tier 6–8 ceiling — staying balanced;
@@ -375,6 +375,6 @@ If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise th
 - Strategy: [VP P3 + P4](../../strategy/40-value-proposition.md) · [Personas P3 + P4](../../strategy/20-personas.md) · [User journey](../../strategy/50-user-journey.md)
 - Tone: [identity/10-tone-of-voice §Samenwerken](../../identity/10-tone-of-voice.md#samenwerken-opzetten--uitnodigen--doen)
 - Vocabulary: [Glossary §Samenwerken copy notes](../../glossary.md)
-- Sibling content file: [09-opzetten-content](09-opzetten-content.md)
+
 - Code stub: [`resources/views/samenwerken/opzetten.blade.php`](../../../../resources/views/samenwerken/opzetten.blade.php)
 - Sibling Samenwerken-children: P-10 uitnodigen (Conv 6–8) · P-11 doen (Util — Dn-19 blocked)

@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-12 Agenda — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft ([12-agenda-content](12-agenda-content.md)) · Code 🟠 first draft
+> first draft · Code 🟠 first draft
 > (filters + grouping + URL-param honoring shipped) · Approved — **Confidence:** **3 / 5**
 > (was 3; structural decisions now locked; remaining gaps are content/data).
 > **Section budget:** **4 sections** (Utility tier 3–5 ceiling — functionality-heavy
@@ -192,7 +192,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
   locale) — yields *juni 2026*, *juli 2026*, etc. Group heading is an `h2` with
   a `border-t` for visual separation.
 - **Internal-event explainer:** below the meta line, in `.meta text-faint`.
-  Copy per type (per [12-agenda-content](12-agenda-content.md) §Internal explainers).
+  Copy per type (in `resources/views/agenda.blade.php`).
 - **No row CTA / no per-row inschrijving button** — drop-in events have no
   inschrijving; bookable events route to the project page where context lives.
   Per-row link target = project page if `project_slug` set, practice page if
@@ -245,9 +245,9 @@ spec can be reopened when inschrijving lands.
 |---|---|---|
 | All event dates + times + venues | **/agenda (this page)** — single source | Home (P-01 §4) shows top-3 upcoming public-only preview · per-project pages (P-05 §4) list project-scoped dates inline · editie pages (P-06) list editie-scoped dates inline |
 | Event-type vocabulary | [Glossary](../../glossary.md) + `App\Enums\EventType` | Filter labels mirror enum labels |
-| Internal-event explainers | **[12-agenda-content §Internal explainers](12-agenda-content.md)** | Surfaced only on this page beneath internal rows |
-| Filter labels (NL) | **[12-agenda-content §Filter labels](12-agenda-content.md)** | — |
-| Empty-state copy | **[12-agenda-content §Empty states](12-agenda-content.md)** | — |
+| Internal-event explainers | in `resources/views/agenda.blade.php` | Surfaced only on this page beneath internal rows |
+| Filter labels (NL) | in `resources/views/agenda.blade.php` | — |
+| Empty-state copy | in `resources/views/agenda.blade.php` | — |
 
 ## Validation gate ([40-skeleton](../40-skeleton.md#validation-gate-playbook-checklist))
 
@@ -292,6 +292,6 @@ spec can be reopened when inschrijving lands.
 - Tone: [identity/10-tone-of-voice §Agenda](../../identity/10-tone-of-voice.md#agenda)
 - Vocabulary: [glossary](../../glossary.md) (event-type enum names)
 - Evidence: [discovery/26-agenda-analysis](../../_archive/discovery/26-agenda-analysis.md) (cadence + activity mix)
-- Content: [12-agenda-content](12-agenda-content.md) (NL copy: empty states · filter labels · internal explainers)
+
 - Code: [`resources/views/agenda.blade.php`](../../../../resources/views/agenda.blade.php) · [`app/Models/Event.php`](../../../../app/Models/Event.php) · [`app/Enums/EventType.php`](../../../../app/Enums/EventType.php) · [`routes/web.php`](../../../../routes/web.php) (agenda route)
 - Sister: [01-home brief §4 Eerstvolgende](01-home.md) (the 3-row preview surface)

@@ -11,7 +11,7 @@ updated: 2026-05-28
 # P-04 Leon op school — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft ([04-leon-op-school-content](04-leon-op-school-content.md)) · Code 🟠 first
+> first draft · Code 🟠 first
 > draft (strawman rendered) · Approved —
 > **Confidence:** **3 / 5** (was 2; raised by cadence-lock from VP P4 + partner-stem from
 > personas + section pattern-mapping). Remaining gaps are content/asset/team-verify, not
@@ -387,5 +387,5 @@ single-CTA hook, not yet a contact-form pattern; SP-11 still waits for P-09 Same
 - Tone: [identity/10-tone-of-voice §Samenwerken](../../identity/10-tone-of-voice.md#samenwerken-opzetten--uitnodigen--doen)
 - Glossary: [glossary §P4 copy notes](../../glossary.md#copy-notes-page-level-when-writing-the-content-complete-draft)
 - Sibling briefs: [01-home](01-home.md) · [05-mariage](05-mariage.md) (same BG-N + SP-04+B + SP-13 + §6-hook pattern)
-- Content strawman: [04-leon-op-school-content](04-leon-op-school-content.md)
+
 - Code stub: [`dansateliers/leon-op-school.blade.php`](../../../../resources/views/dansateliers/leon-op-school.blade.php)

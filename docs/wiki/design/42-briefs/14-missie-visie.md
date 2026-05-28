@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-14 Missie & visie — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft (sibling [14-missie-visie-content](14-missie-visie-content.md)) · Code 🟠
+> first draft · Code 🟠
 > first draft (strawman rendered) · Approved —
 > **Confidence:** **3 / 5** (was 2; raised by structural lock-in + TOV-discipline applied
 > to a page the current site ships in *subsidiedossier-stijl*).
@@ -292,6 +292,6 @@ abstraction). Flagged for tracking.
 - Structure: [30-structure Over Leon table](../30-structure.md)
 - Tone: [identity/10-tone-of-voice §Over Leon](../../identity/10-tone-of-voice.md#over-leon-missie--visie--impact--team--historiek--contact) · [§4 Toonbaar in plaats van prijzend](../../identity/10-tone-of-voice.md#4-toonbaar-in-plaats-van-prijzend)
 - Source material: [raw/current-site/pages/missie-visie-nl](../../../raw/current-site/pages/missie-visie-nl.md) · [raw/current-site/pages/apartheid-free-zone](../../../raw/current-site/pages/apartheid-free-zone.md)
-- Sibling content file: [14-missie-visie-content](14-missie-visie-content.md)
+
 - Code: [`resources/views/over-leon/missie-visie.blade.php`](../../../../resources/views/over-leon/missie-visie.blade.php)
 - Sister page (cross-ref): [P-15 Impact](../40-skeleton.md) — canonical home of method + proof

@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-18 Contact — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠
-> first draft (sibling [18-contact-content](18-contact-content.md)) · Code 🟠 first
+> first draft · Code 🟠 first
 > draft (rewrite shipped 2026-05-28) · Approved —
 > **Confidence:** **4 / 5** (was 3; raised by verified contact details from the
 > current-site mirror — only gaps remaining are team-confirm + Leaflet integration).
@@ -339,7 +339,7 @@ P-03 Atelier Leon — drop-in locations) or when Leaflet integration ships.
 - Structure: [30-structure §Over Leon](../30-structure.md) — *"Plain. Per-Samenwerken-child contact paths handled inline on those pages."*
 - Tone: [identity/10-tone-of-voice §Over Leon](../../identity/10-tone-of-voice.md#over-leon-missie--visie--impact--team--historiek--contact) · [§empty states & 404](../../identity/10-tone-of-voice.md#empty-states--404)
 - Glossary: [glossary](../../glossary.md)
-- Sibling content: [18-contact-content.md](18-contact-content.md)
+
 - Sibling briefs sharing routing-list shape: [08-samenwerken](08-samenwerken.md) · [01-home §5 band](01-home.md)
 - Verified source: [`docs/raw/current-site/pages/contact.md`](../../../raw/current-site/pages/contact.md) (2026-05-19 capture)
 - Code stub: [`resources/views/over-leon/contact.blade.php`](../../../../resources/views/over-leon/contact.blade.php)

@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-03 Atelier Leon — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content
-> 🟠 first draft ([03-atelier-leon-content](03-atelier-leon-content.md)) · Code 🟠 first
+> 🟠 first draft · Code 🟠 first
 > draft (strawman rendered; §4 live from Event model) · Approved —
 > **Confidence:** **3 / 5** (was 2 — raised by section lock-in + pattern decisions;
 > strawman written; team-verify on jaartal, exact times-per-week, what-to-bring details).
@@ -325,4 +325,4 @@ project-specific partners to surface inline (it's a recurring practice, not a pr
 - Cadence source: [discovery/26-agenda-analysis §2](../../_archive/discovery/26-agenda-analysis.md)
 - Sister pages: [P-01 Home brief](01-home.md) · [P-05 Mariage brief](05-mariage.md)
 - Code stub: [`resources/views/dansateliers/atelier-leon.blade.php`](../../../../resources/views/dansateliers/atelier-leon.blade.php)
-- Content: [03-atelier-leon-content](03-atelier-leon-content.md)
+

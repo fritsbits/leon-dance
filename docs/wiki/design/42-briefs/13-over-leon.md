@@ -12,7 +12,7 @@ updated: 2026-05-28
 # P-13 Over Leon (index) — Skeleton brief
 
 > **Status:** Brief 🟠 first draft · Wireframe 🟠 first draft (this file) · Content 🟠 first
-> draft (sibling [13-over-leon-content](13-over-leon-content.md)) · Code 🟠 first draft
+> draft · Code 🟠 first draft
 > (rewritten 2026-05-28) · Approved —
 > **Confidence:** **3 / 5** (was 3; remains 3 — sectioning + opener strawman lifted but
 > child sub-page content is still placeholder text).
@@ -266,7 +266,7 @@ If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise th
 - **Was 3 / 5** (per [40-skeleton page registry](../40-skeleton.md): *"overzicht-paragraaf;
   sectie-introducties naar 5 children"* — both now drafted).
 - **Stays 3 / 5** — structural decisions made (BG-1 … BG-7), strawman copy in hand
-  ([13-over-leon-content](13-over-leon-content.md)); remaining gaps are tone-pass +
+  (now in the rendered view); remaining gaps are tone-pass +
   jaartal-confirm + 2 design verifications.
 - **→ 4 / 5** when gaps #2 + #3 close (Kristin tone-pass + Sam jaartal-verify).
 - **→ 5 / 5** when all 5 gaps close.
@@ -277,7 +277,7 @@ If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise th
 - Strategy: [VP P2 jury profile](../../strategy/40-value-proposition.md) · [User journey J2](../../strategy/50-user-journey.md)
 - Structure: [30-structure §Over Leon](../30-structure.md) (card order source) · IA principle 6 (rubric-invisibility guardrail)
 - Tone: [identity/10-tone-of-voice §Over Leon](../../identity/10-tone-of-voice.md#over-leon-missie--visie--impact--team--historiek--contact)
-- Content sister: [13-over-leon-content](13-over-leon-content.md)
+
 - Code stub: [`resources/views/over-leon/index.blade.php`](../../../../resources/views/over-leon/index.blade.php)
 - Routes: [`routes/web.php`](../../../../routes/web.php) (`/over-leon` + 5 children)
 - Exemplar briefs: [01-home](01-home.md) (P-01) · [05-mariage](05-mariage.md) (P-05)
