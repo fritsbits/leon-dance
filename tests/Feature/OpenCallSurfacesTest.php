@@ -16,25 +16,13 @@ class OpenCallSurfacesTest extends TestCase
             'project_slug' => 'mariage',
             'slug'         => 'teststad-2026',
             'stad'         => 'Teststad',
+            'jaar'         => 2026,
             'periode'      => 'jan – mrt 2026',
             'starts_at'    => now()->addMonth(),
             'ends_at'      => now()->addMonths(3),
         ];
 
-        $merged = array_merge($defaults, $overrides);
-
-        // Derive jaar from the slug's trailing year segment when not explicitly supplied
-        // (e.g. 'brussel-2024' → 2024). Falls back to starts_at year.
-        if (! array_key_exists('jaar', $overrides)) {
-            $slug = $merged['slug'] ?? '';
-            if (preg_match('/(\d{4})$/', $slug, $m)) {
-                $merged['jaar'] = (int) $m[1];
-            } else {
-                $merged['jaar'] = \Carbon\Carbon::parse($merged['starts_at'])->year;
-            }
-        }
-
-        return Editie::create($merged);
+        return Editie::create(array_merge($defaults, $overrides));
     }
 
     public function test_unknown_editie_slug_404s(): void
@@ -65,7 +53,7 @@ class OpenCallSurfacesTest extends TestCase
     public function test_editie_section5_shows_closed_copy_when_toggled_off(): void
     {
         // aankomend (future dates) but inschrijving toggled off → "gesloten", not the invite
-        $this->makeEditie(['slug' => 'gent-2025', 'stad' => 'Gent', 'inschrijving_open' => false]);
+        $this->makeEditie(['slug' => 'gent-2025', 'stad' => 'Gent', 'jaar' => 2025, 'inschrijving_open' => false]);
 
         $this->get('/dansateliers-performances/mariage/gent-2025')
             ->assertOk()
@@ -76,7 +64,7 @@ class OpenCallSurfacesTest extends TestCase
     public function test_editie_section5_shows_afgerond_copy_when_past(): void
     {
         $this->makeEditie([
-            'slug' => 'brussel-2024', 'stad' => 'Brussel',
+            'slug' => 'brussel-2024', 'stad' => 'Brussel', 'jaar' => 2024,
             'starts_at' => now()->subMonths(6), 'ends_at' => now()->subMonths(3),
             'inschrijving_open' => false,
         ]);
@@ -138,7 +126,7 @@ class OpenCallSurfacesTest extends TestCase
     {
         $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => true]);
         $this->makeEditie([
-            'slug' => 'brussel-2024', 'stad' => 'Brussel',
+            'slug' => 'brussel-2024', 'stad' => 'Brussel', 'jaar' => 2024,
             'starts_at' => now()->subYear(), 'ends_at' => now()->subMonths(10),
         ]);
 
@@ -152,7 +140,7 @@ class OpenCallSurfacesTest extends TestCase
     public function test_mariage_page_lists_editie_cards_without_band_when_no_open_call(): void
     {
         $this->makeEditie([
-            'slug' => 'brussel-2024', 'stad' => 'Brussel',
+            'slug' => 'brussel-2024', 'stad' => 'Brussel', 'jaar' => 2024,
             'starts_at' => now()->subYear(), 'ends_at' => now()->subMonths(10),
         ]);
 
