@@ -2,6 +2,138 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
+## [2026-05-28] lint | Wiki prune — archive Discovery, drop -content.md, slim index
+
+Reduced the default reading path from ~159k to ~119k words (67 → 39 indexed files).
+
+- **Archived** the 12 concluded Discovery files into `docs/wiki/_archive/discovery/` —
+  local-only (untracked + `.git/info/exclude`), out of the index, browse-on-demand. Kept
+  `discovery/21-organisation` + `discovery/12-client-kickoff-2026-05-19` as live reference.
+  Repointed inbound links from kept pages; fixed the 2 kept files' archived-sibling links.
+- **Deleted** the 16 `42-briefs/XX-content.md` strawman files — page copy now lives in the
+  built Blade views. Stripped the sibling links from the 16 briefs + `40-skeleton.md`.
+- **Slimmed** `index.md` to one line per page (3028 → 924 words). Light **de-journal** of
+  kept briefs + HOT pages (current-state over changelog).
+- **CLAUDE.md** gained: wiki reading-tier rule, "history → log/git not page annotations",
+  and "built pages keep copy in the Blade, no `-content.md`".
+- **Verified:** `/build` dashboard parses clean (warnings empty, 18 pages, 14 patterns, 24
+  concerns); link scan shows zero prune-caused dangling links (4 pre-existing typos + 8
+  historical `log.md` links remain, left untouched).
+- Note: the `_archive` files were briefly git-tracked then untracked, so the add still sits
+  in local history — scrub commits `08d7d11..34fa1d0` before any `git push` to keep the
+  private Discovery evidence off the remote.
+
+## [2026-05-28] build | P-05 Mariage — critique fixes + trailer + closing-performance band
+
+Acted on a `/critique` of `/dansateliers-performances/mariage` (wireframe lens). Built the
+sections the page was missing and added two things Frederik asked for: the Vimeo trailer and
+a band that guides the public to a Mariage editie's **closing voorstelling** when it is near.
+
+- **§5 "Hoe een editie groeit"** — proces · nazorg · continuïteit · evolutie (strawman, NL,
+  tone-checked: no `traject`/`creatie`, no em-dash in running copy) with an embedded SP-12
+  quote (Hadja) between nazorg and continuïteit.
+- **§6 "Mariage in jouw stad?"** — the durable commission CTA `Plan een gesprek` →
+  `/samenwerken/opzetten` (P3/P4) + SP-09 variant C inline partner line (strawman, BG-6).
+- **Vimeo trailer** embedded in §2 (`player.vimeo.com/video/1074336504?dnt=1`, 16:9, lazy).
+  ⚠️ shows a Vimeo "couldn't verify connection" notice in the headless/sandbox browser —
+  verify in a real browser + check the video's Vimeo embed-domain setting (may be restricted
+  to leon.dance).
+- **New `partials/upcoming-performance-band.blade.php`** — conditional, self-removing; promotes
+  the next public Mariage voorstelling only when ≤ 8 weeks out (recruitment band carries the
+  editie while the group forms; this takes over as the show nears). **Needs an SP-id** (sibling
+  to SP-16) — left for the pattern-owning pass to avoid racing concurrent edits to 41-patterns.
+- **page-header** gained optional `$eyebrowHref`; Mariage eyebrow now links up to the
+  dansateliers-performances index (orientation fix). Body copy capped to `container-text`.
+- **TDD:** `tests/Feature/MariagePageTest.php` (5 tests) — watch band shows ≤8wk / hidden far /
+  hidden none / hidden non-public; page always offers the commission CTA + trailer. Green.
+- **Pipeline:** P-05 **Assets 🔴→🟠** (trailer embedded; photos pending). Wire stays 🟠 per the
+  Wire-🟢 gate (awaits Frederik's own critique pass). Roll-up Assets line + render-passed list updated.
+- ⚠️ Unrelated red: `EditieModelTest::test_seeder_creates_six_mariage_edities_with_luik_open`
+  fails (now 7 edities, molenbeek open) — stale vs. the concurrent editie-reseed; owned by that thread.
+
+## [2026-05-28] build | Wire-🟢 gate correction — only Frederik's critique promotes a page to 🟢
+
+Frederik: the wireframes are **not done** — he still needs to critique + refine them himself, so
+a page must not be marked Wire 🟢 on Claude's render/tone check alone. **Reverted P-01, P-02, P-08,
+P-13 from 🟢 back to 🟠** (the two prior entries below bumped them this session). The render + tone
+work those entries describe still stands and is real — em-dash sweep, banned-word removal
+(traject/werking), full-width mobile CTAs — the pages just sit at 🟠 "render+tone done, awaiting
+critique." Roll-up now states the gate explicitly. **P-18** left at 🟢 (set by an earlier session,
+not this one) — flag to Frederik whether it should also drop pending his critique. Next step: a
+**critique + refine pass** (Frederik-led) is the path from 🟠 → 🟢.
+
+## [2026-05-28] build | Index pages (P-02, P-08, P-13) Wire 🟠→🟢 — Wire pass continues
+
+Drove the three index pages to wireframe-complete (visually verified desktop 1440 + mobile 390).
+All three are thin Util pages (page-header + list/card grid + footer wall) that rendered correctly;
+the work was a tone pass on the shared `App\Support\SiteSections` copy that feeds them:
+
+- **P-08 Samenwerken:** removed TOV-banned words from the link-list subs — `traject op maat` →
+  `danstraject op maat`, `dagelijkse werking` → `het dagelijkse werk bij Leon`; also dropped the
+  `→` arrows inside the first sub (read as dev shorthand in body copy).
+- **P-13 Over Leon:** em-dash in the Historiek card desc → comma.
+- **P-02 Dansateliers:** lede `begeleide trajecten` → `begeleide danstrajecten`; its work-grid
+  cards were already em-dash-fixed in the P-01 pass (shared array).
+- **Verified:** all three pages now 0 em-dashes + 0 banned words in rendered HTML; clean reflow
+  on mobile (cards/rows stack 1-col).
+- **40-skeleton:** P-02 / P-08 / P-13 Wire 🟠→🟢; roll-up now **5 Wire-🟢** (P-01, P-02, P-08, P-13, P-18).
+  Conf unchanged (Kristin content review still owed on all three).
+
+## [2026-05-28] build | Home (P-01) Wire 🟠→🟢 — first Wire-pass page after Contact
+
+Drove Home to wireframe-complete (visually verified desktop 1440 + mobile 390):
+
+- **Tone fix:** removed em-dashes from the shared work-grid card copy (`App\Support\SiteSections::work()`) —
+  3 descriptions reworked to comma/colon per [TOV](../../identity/10-tone-of-voice.md) no-em-dash rule.
+  Fixes Home §3 *and* the Dansateliers index (P-02), which share the array.
+- **Mobile CTA:** hero buttons now full-width stacked < 640 px, inline auto-width ≥ 640 px
+  (`flex-col sm:flex-row` + `w-full sm:w-auto`) — the brief's "full-width on mobile" playbook rule
+  (flex-wrap alone didn't trigger it at 390 px). Rebuilt assets (`npm run build`) so the new `sm:` utilities compile.
+- **Verified:** renders clean both viewports · running copy em-dash-free (only brand name "KANAL — Centre Pompidou" remains, in an alt attr) · no TOV-banned words · skip-link + `<main id="main-content">` present.
+- **40-skeleton:** P-01 Wire 🟠→🟢; roll-up now 2 Wire-🟢 (P-01 + P-18). Conf stays 3 (content review still owed by Kristin).
+- **Open a11y note (cross-cutting, not P-01-only):** `.btn-*` height is 2.25rem (36 px) < 44 px tap-target — a global SP-01 fix, deferred.
+
+## [2026-05-28] build | SP-10 inschrijving form — interest-only slice of Dn-03 (email-only, no store)
+
+Unblocked the editie §5 signup: replaced the `mailto:` + "GDPR-flow geklaard" annotation
+bridge with a working server-handled form. Same decouple-then-build move that resolved the
+contact slice (`2026-05-28-contact-form-design.md`): the **internal, stored** participant
+DB (deelnemers, incl. minors → consent capture) stays genuinely blocked under Dn-03, but a
+low-friction **interest** form does not. The **external newsletter / ESP** is a separate
+concern (Dn-11) — not part of Dn-03.
+
+- **POST `/inschrijving`** (`throttle:5,1`) → `InschrijvingController@store` · `StoreInschrijvingRequest`
+  (naam req · email req · bericht nullable · `editie` `exists:edities,slug`) · honeypot `website`
+  checked in the controller (silent drop, no leaked error) · `InschrijvingRequestMail`
+  (subject `Inschrijving — {project}: {editie}`, replyTo submitter) → `emails/inschrijving-request`.
+- **Editie context** carried as the slug (hidden field), resolved server-side to the human
+  label — no arbitrary text reaches the subject line.
+- **`partials/inschrijving-form.blade.php`** (SP-10) — no own h2 (lives under §5 "Inschrijving");
+  PRG success panel on `session('inschrijving_success')`, error summary + old input on failure.
+  Wired into `dansateliers/mariage-editie.blade.php` open-branch (replaces mailto + annotation).
+- **Data-minimisation:** emails the team only, **stores nothing** — no applications table/model.
+  No special-category data; actual enrollment + parental consent for minors stays offline.
+- **TDD:** `tests/Feature/InschrijvingFormTest.php` (6 tests, written-failing-first) — valid send +
+  PRG, missing naam/email, optional bericht, unknown editie rejected, honeypot drop, rate-limit.
+  Full suite 51 pass / 1 skip. Browser-verified on Luik 2026: form renders + success state +
+  mail logged (To hello@leon.dance, Reply-To submitter, subject "Inschrijving — Mariage: Luik 2026").
+- **Wiki:** Dn-03 → inschrijving-*interesse* slice resolved; remaining Dn-03 blocker = the
+  **internal stored** participant DB (minors consent). External newsletter ESP stays at Dn-11
+  (separated out — was wrongly bundled into Dn-03). · SP-10 🔴→🟠 built in 40-skeleton +
+  41-patterns (only 🔴 left = SP-08 deprecated) · P-06 Top-gaps dropped the GDPR-blocker note.
+
+## [2026-05-28] build | Pipeline reconcile — P-05/P-06 registry rows caught up to the Editie/open-call flow
+
+The 2026-05-28 open-call wave updated 40-skeleton's patterns table + briefs but left the
+**page-registry rows** stale. Caught them up to shipped reality:
+
+- **P-05 Mariage:** Wire 🔴→🟠 (view renders editie-grid + SP-16 band from the model — "nog niet
+  gerenderd" note was false) · Back ❓→🟠 (queries `Editie`) · dropped `[research]` Editie-model gap.
+- **P-06 Mariage editie:** Conf **2→3** (template now data-backed by 6 seeded edities + Filament
+  admin) · dropped `[research]` Editie-Eloquent-model gap.
+- **Roll-up:** Wire 🟠 15→16 (P-05 no longer 🔴) · Back-🟠 list +P-05 · ≤2-confidence set now P-11 only.
+- Verified via `BuildStatus::report()` — `warnings` + `drift` empty.
+
 ## [2026-05-28] build | Open-call / inschrijving flow (Editie model + SP-16 band + EditieResource)
 
 8-task build wave on `feat/open-call-inschrijving`. First Build-phase data model.
@@ -16,6 +148,26 @@ Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 - **Filament `EditieResource`** (`app/Filament/Admin/Resources/Edities/`) — UI for the `inschrijving_open` toggle + `inschrijving_closes_at` date.
 - **GDPR boundary:** flow only. Inschrijving *form* (SP-10, minors consent) still blocked by Dn-03 — editie §5 CTA remains `mailto:` until Dn-03 clears.
 - **Wiki updates:** Dn-12 note advanced · Dn-22 bumped to v0.5 (12/14 patterns) · SP-16 spec added to 41-patterns · 40-skeleton patterns table + prose updated · BG-5 + BG-8 annotations in P-06 brief · gaps #1 + #8 resolved in P-06 brief · gap #8 resolved in P-05 brief · SP-16 conditional noted in P-01 + P-02 briefs · Editie + Inschrijving rows extended in 30-structure content model. Build-phase `B-` register not yet created — pointer added in Design register.
+
+## [2026-05-28] design | Home hero reframed (reader-addressed) + em-dash sweep done
+
+**Em-dash sweep completed.** Removed every spaced em-dash from rendered public copy across
+~25 Blade views (4 parallel agents, split by directory), per the rule logged below. Replaced
+with comma / colon / period; page titles now use " · " instead of " — ". Left untouched by
+design: the proper name "KANAL — Centre Pompidou", quote attributions (`— naam`),
+empty-value `'—'` placeholders, bracketed wireframe placeholders, and code comments.
+`php artisan view:cache` compiles clean.
+
+**Home hero reframed (P-01 §1).** User's call: the old h1 *"Een open uitnodiging om mee te
+dansen — met de mensen die het al doen."* read as an offer-statement (mission-statement feel)
+and was long. New direction borrows Debateville's *structure* (title speaks to the reader, the
+paragraph explains and lands the emotional benefit) in Leon's quiet register:
+- **h1:** *"Dans een keer mee."* (reader-addressed; "Dans" avoids the "Kom…/Kom langs" echo with the primary CTA)
+- **lede:** *"Bij Leon dans je wekelijks samen met andere Brusselaars: in een open atelier of
+  op de scène van een grote voorstelling. Geen ervaring nodig. Je hoort er meteen bij."*
+- **gewichtsregel:** *"In Brussel sinds 2010. Gratis, zonder inschrijving."* (de-duped "wekelijks", now in the lede)
+- Encoded the reader-addressed-title principle in [TOV §Home](identity/10-tone-of-voice.md#home)
+  (✓/✗ examples updated) and synced [42-briefs/01-home-content.md](design/42-briefs/01-home-content.md).
 
 ## [2026-05-28] design | Tone of voice — ban the em-dash in public copy
 
@@ -1626,3 +1778,34 @@ a permanent grayscale tooltip (was click-only popup). Made the "open atelier" bl
 now reads upcoming public `open_atelier` Events (limit 3, SP-07 date-row, agenda fallback) instead
 of hardcoded weekly lines; no new model (reuses Event, same source as Agenda). 40-skeleton P-18
 row: Wire 🟠→🟢, Back 🟠→🟢, Assets 🔴→⚪ (no assets needed); OSM-coords gap closed. Roll-up updated.
+
+## [2026-05-28] build | SP-08 Agenda list revived — extracted the duplicated agenda strip into one partial
+The "Agenda preview strip" was deprecated in favour of using SP-07 date-row ×N directly — but the
+inline skeleton (empty-state → bordered list → the Event→date-row mapping → trailing link) had
+duplicated across four views (home §4, atelier-leon §4, contact §3, mariage-editie §6), so the
+date format + `venue ?? '—'` fallback lived in four places. Built `partials/agenda-list.blade.php`
+as a list-only `@include` partial (props: events, href closure, emptyText, linkLabel?, linkHref?);
+each caller keeps its own query + heading. Refactored all four call sites; verified all render 200
+with rows + empty states + correct trailing links (mariage keeps its bespoke "→ Naar Mariage" empty
+link via the optional-link escape hatch). Minor intentional change: the "see all" link now renders
+in both states (was inline in the empty sentence on atelier/contact); contact margin mt-4→mt-6. No
+page-row stage changes (pure extraction). Docs: 41-patterns SP-08 row + new spec section + counts
+(14/14, none 🔴); 40-skeleton SP-08 row + roll-up (v0.6); Dn-22 updated. Spec:
+docs/superpowers/specs/2026-05-28-agenda-list-partial-design.md.
+
+## [2026-05-28] build | Mariage editions corrected to real data — fictional cities replaced, no stage change
+The seeded edities (P-05/P-06) were fictional strawman (Brussel, Antwerpen, Rotterdam, Gent,
+Marseille, Luik). Replaced with the 6 real Mariage editions from the current-site mirror
+(docs/raw/current-site/pages/mariage.md "Previous editions"): MolenFest Molenbeek 2024 (21.09,
+première) + Week van de Verbeelding Gaasbeek (02.11.2024) · MolenFest Molenbeek 2025 (06.09) +
+Winterfeest GC De Platoo Koekelberg (19.12.2025) · Cultureghem Anderlecht (10.04.2026) + Volt
+FESTIVAL BRONKS Brussel (26.04.2026). Source typo noted: the page lists "26.04.2025" for the
+BRONKS show but the doe-mee page confirms 2026. Added one invented future editie (molenbeek-2026,
+MolenFest 06.09.2026, open call live) so the SP-10 sign-up flow is testable. EditieSeeder rewritten
+(idempotent prune) + EventSeeder voorstellingen retied to the real slugs/dates; mariage.blade lede +
+intro, open-call-band, historiek timeline, mariage-editie residency wording, and EditieForm example
+slug updated to match. Conceptual note: Mariage is a recurring participatory festival performance,
+not a city residency — residency fields (stadgenoot, groep_*, quote) left null. Verified: 7 edities,
+molenbeek-2026 = aankomend + open call, others afgelopen, each with 1 voorstelling; project + open
+editie pages render (signup form live). No stage change (Conf held at 3 per Frederik; editions
+sourced but per-editie prose still team-supplied); Top gaps + roll-up refreshed for P-05/P-06.
