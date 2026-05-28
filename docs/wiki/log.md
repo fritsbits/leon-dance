@@ -1824,3 +1824,17 @@ from `Event::forAtelierType(open)`. 6 commits on `main`; full suite green bar on
 unrelated failure. **40-skeleton P-03 Back ❓→🟢** (Wire held 🟠 per the self-promote gate). The
 `Event::venue()` relation was deliberately NOT added (collides with the `venue` string column) —
 deferred to Phase 2 along with the Project model + Editie→Edition rename + slug→FK cutover.
+
+## [2026-05-29] build | Event data model — Phase 2 complete: Project model + Editie→Edition + slug→FK cutover
+Concludes the full-normalization spec ([phase-2 plan](../superpowers/plans/2026-05-28-event-model-phase2-project-edition-fk.md)).
+New `Project` model; **`Editie`→`Edition`** (class/table `editions`/Filament `EditionResource`; the NL
+label, route name, `{editie}` param + view file stay Dutch). FKs `editions.project_id` + `events.edition_id`;
+repetities now attach to an editie; `events.venue`→`venue_name` + `Event::venue()` (+ `venueLabel()` fallback);
+a school `Atelier` (nullable weekly-slot fields) parents klas events. agenda/home/mariage read events via
+relationships (`forProject` → `edition.project`); the `practice_slug`/`project_slug`/`editie_slug` columns
+(+ `editions.project_slug`) were **dropped**. An Event saving-guard enforces type↔parent (atelier | edition |
+none). Verified: `migrate:fresh --seed` clean (14 events, no guard rejection), agenda + mariage + editie pages
+render 200, dashboard no drift; suite green bar one pre-existing unrelated failure (`EditionModelTest` 7-vs-6).
+Executed subagent-driven on `main` (commits 26f3a15…625b0b3), per the agreed "commit full coherent set"
+strategy — bundling in-flight parallel inschrijving/copy work in the touched files. Concerns register left
+untouched (parallel-hot); the model-normalization item can be marked concluded on the next lint.
