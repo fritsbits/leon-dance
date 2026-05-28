@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Edition extends Model
@@ -14,6 +15,7 @@ class Edition extends Model
     protected $table = 'editions';
 
     protected $fillable = [
+        'project_id',
         'project_slug',
         'slug',
         'stad',
@@ -44,6 +46,11 @@ class Edition extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
     }
 
     // Joined on the slug string (no Project model yet); renaming a slug orphans events — no DB cascade.

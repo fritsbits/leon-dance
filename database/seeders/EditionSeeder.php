@@ -9,6 +9,8 @@ class EditionSeeder extends Seeder
 {
     public function run(): void
     {
+        $mariageId = \App\Models\Project::where('slug', 'mariage')->value('id');
+
         // Real Mariage editions, from the "Previous editions" list on leon.dance/mariage
         // (docs/raw/current-site/pages/mariage.md, captured 2026-05-19). Mariage is a
         // recurring participatory street performance shown at festivals and neighbourhood
@@ -72,7 +74,7 @@ class EditionSeeder extends Seeder
         foreach ($rows as $row) {
             Edition::updateOrCreate(
                 ['slug' => $row['slug']],
-                array_merge(['project_slug' => 'mariage'], $row),
+                array_merge(['project_slug' => 'mariage', 'project_id' => $mariageId], $row),
             );
         }
 

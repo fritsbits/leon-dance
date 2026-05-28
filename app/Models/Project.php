@@ -17,9 +17,8 @@ class Project extends Model
         return 'slug';
     }
 
-    // Joined on the slug string until editions.project_id lands (Task B1).
     public function editions(): HasMany
     {
-        return $this->hasMany(Edition::class, 'project_slug', 'slug');
+        return $this->hasMany(Edition::class);
     }
 }
