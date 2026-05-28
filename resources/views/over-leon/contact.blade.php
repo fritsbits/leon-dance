@@ -15,7 +15,7 @@
     {{-- §2 Contact — direct details (left) + message form (right, primary action) --}}
     <section class="section border-t border-[var(--color-border)]">
         <div class="container-wide">
-            <div class="grid md:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-start">
+            <div class="grid md:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start max-w-[var(--max-content)]">
                 {{-- left: direct contact details + booking pointer --}}
                 <div>
                     <h2 class="mb-6">Liever direct?</h2>
@@ -44,9 +44,10 @@
                 {{-- right: message form (primary) --}}
                 <div>
                     @include('partials.contact-form', [
-                        'heading'   => 'Stuur ons een bericht',
-                        'intro'     => 'Een vraag, een idee, of even kennismaken? Laat het hier weten — we komen er snel op terug.',
-                        'onderwerp' => 'algemeen',
+                        'heading'     => 'Stuur ons een bericht',
+                        'intro'       => 'Een vraag, een idee, of even kennismaken?',
+                        'onderwerp'   => 'algemeen',
+                        'submitLabel' => 'Verstuur bericht',
                     ])
                 </div>
             </div>
