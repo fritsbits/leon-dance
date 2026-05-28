@@ -1,7 +1,7 @@
 ---
 title: P-12 Agenda — Skeleton brief
 tags: [design, skeleton, brief, agenda, page-level, utility]
-sources: [40-skeleton; 41-patterns; 30-structure; glossary; identity/10-tone-of-voice §Agenda; discovery/26-agenda-analysis; app/Models/Event.php; app/Enums/EventType.php; existing routes/web.php agenda closure; best-guess autonomous pass 2026-05-28]
+sources: [40-skeleton; 41-patterns; 30-structure; glossary; identity/10-tone-of-voice §Agenda; _archive/discovery/26-agenda-analysis; app/Models/Event.php; app/Enums/EventType.php; existing routes/web.php agenda closure; best-guess autonomous pass 2026-05-28]
 phase: design
 page-id: P-12
 slug: /agenda
@@ -28,7 +28,7 @@ updated: 2026-05-28
 | BG-2 | **Internal events (LWP, Leon rond de tafel) appear by default**, with a 1-line `meta` explainer beneath the row (no separate filter exclusion). | Per [30-structure IA principle 5](../30-structure.md): "Internal events appear by default with a 1-line explainer; no landing page." Home preview filters them out (per [P-01 §4 brief](01-home.md) gap #7); agenda shows them. | Yes — could push behind a checkbox if list reads cluttered |
 | BG-3 | **3 filter axes, not 2** — type · practice · project. | [30-structure](../30-structure.md) names 2 axes (type × project/practice), but Project (*Mariage*) and RecurringPractice (*Atelier Leon · Leon op school*) are distinct entities in the content model with separate DB columns. Splitting the second axis into 2 selects keeps each filter's semantics clean and matches existing `Event` scopes (`forProject` / `forPractice`). The two appear adjacent in the UI and read as one "where it belongs" choice. | Yes — could merge into one select with prefixes ("Project: Mariage", "Practice: Atelier Leon") if the 3-axis grid feels heavy |
 | BG-4 | **GET-param-based, no-JS filtering** via `<select onchange="this.form.submit()">`. | v1 stubs are static Blade — no Alpine/Livewire ([CLAUDE.md Build phase](../../../../CLAUDE.md)). URL is the state; bookmarks + back-button work. `route('agenda', ['project' => 'mariage'])` from home preview lands here clean. | Yes — could promote to Livewire when admin lands |
-| BG-5 | **Grouping = by month** (NL: *juni 2026 · juli 2026 · …*), not by week or by date-bucket (*vandaag / deze week*). | Discovery [26-agenda-analysis](../../discovery/26-agenda-analysis.md): ~5 sessions/week sustained → week-buckets clutter; date-buckets (*vandaag*) need refresh logic. Month is the right granularity for an org with weekly cadence + multi-week project arcs. | Yes — could swap to week-buckets if cadence drops |
+| BG-5 | **Grouping = by month** (NL: *juni 2026 · juli 2026 · …*), not by week or by date-bucket (*vandaag / deze week*). | Discovery [26-agenda-analysis](../../_archive/discovery/26-agenda-analysis.md): ~5 sessions/week sustained → week-buckets clutter; date-buckets (*vandaag*) need refresh logic. Month is the right granularity for an org with weekly cadence + multi-week project arcs. | Yes — could swap to week-buckets if cadence drops |
 | BG-6 | **Page-header lede stays utility-neutral, no editorial warmth.** | [TOV §Agenda](../../identity/10-tone-of-voice.md#agenda): "Wordt gescand — geen redactionele toon … de warmte zit in de pagina's waarheen de agenda linkt." | Yes — copy refinement on review |
 | BG-7 | **Default sort = ascending (eerstvolgende first)**; past view = descending (recentste eerst). | Conventional + matches the `upcoming` scope behavior in the `Event` model (`orderBy('starts_at')`). | Yes |
 | BG-8 | **Empty state per filter combo** — "Geen activiteiten gevonden voor deze filters. [Wis filters]". Empty when no filters: "Nog niets gepland. Stuur ons een mailtje als je iets zoekt." (per [TOV §Empty states](../../identity/10-tone-of-voice.md#empty-states--404)). | Two distinct empty states — *filtered-zero* vs. *agenda-zero* — so the user knows whether to broaden the filter or contact the team. | Yes |
@@ -291,7 +291,7 @@ spec can be reopened when inschrijving lands.
 - Structure: [30-structure §Agenda + IA principle 5](../30-structure.md)
 - Tone: [identity/10-tone-of-voice §Agenda](../../identity/10-tone-of-voice.md#agenda)
 - Vocabulary: [glossary](../../glossary.md) (event-type enum names)
-- Evidence: [discovery/26-agenda-analysis](../../discovery/26-agenda-analysis.md) (cadence + activity mix)
+- Evidence: [discovery/26-agenda-analysis](../../_archive/discovery/26-agenda-analysis.md) (cadence + activity mix)
 - Content: [12-agenda-content](12-agenda-content.md) (NL copy: empty states · filter labels · internal explainers)
 - Code: [`resources/views/agenda.blade.php`](../../../../resources/views/agenda.blade.php) · [`app/Models/Event.php`](../../../../app/Models/Event.php) · [`app/Enums/EventType.php`](../../../../app/Enums/EventType.php) · [`routes/web.php`](../../../../routes/web.php) (agenda route)
 - Sister: [01-home brief §4 Eerstvolgende](01-home.md) (the 3-row preview surface)

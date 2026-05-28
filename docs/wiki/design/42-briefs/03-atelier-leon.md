@@ -1,7 +1,7 @@
 ---
 title: P-03 Atelier Leon — Skeleton brief
 tags: [design, skeleton, brief, atelier-leon, page-level, recurring-practice]
-sources: [40-skeleton; 41-patterns; 30-structure; identity/10-tone-of-voice; glossary; discovery/26-agenda-analysis (weekly cadence Wed Pianofabriek / Sat Maison des Cultures); strategy/20-personas (P1); strategy/40-value-proposition; 42-briefs/01-home + 05-mariage; existing dansateliers/atelier-leon.blade.php; best-guess autonomous pass 2026-05-28]
+sources: [40-skeleton; 41-patterns; 30-structure; identity/10-tone-of-voice; glossary; _archive/discovery/26-agenda-analysis (weekly cadence Wed Pianofabriek / Sat Maison des Cultures); strategy/20-personas (P1); strategy/40-value-proposition; 42-briefs/01-home + 05-mariage; existing dansateliers/atelier-leon.blade.php; best-guess autonomous pass 2026-05-28]
 phase: design
 page-id: P-03
 slug: /dansateliers-performances/atelier-leon
@@ -31,7 +31,7 @@ updated: 2026-05-28
 | BG-4 | **§4 agenda preview = filter to OpenAtelier × practice=atelier-leon, limit 8** | Per task hint: `Event::forPractice('atelier-leon')->ofType(EventType::OpenAtelier)->upcoming()->limit(8)`. 8 covers ~4 weeks (Wed + Sat ≈ 2/week). | Yes — could trim to 6 or expand to 12; 8 chosen because Atelier Leon page is the canonical home for *when* — generous list, not preview. |
 | BG-5 | **Practical info (§4) framing** | Inline beats per locatie: *adres · dag + uur · wat brengt je mee*. No "Inschrijving" header — explicitly absent reinforces drop-in posture. | Yes — could lift to its own §; staying inline keeps the section budget at 5 |
 | BG-6 | **§5 "Voor wie?" reassurance** | Lightweight Q-shaped beats: *Heb ik ervaring nodig? · Hoe oud moet ik zijn? · Kost het iets? · Moet ik me inschrijven?* — 4 short answers, no FAQ-accordion (over-engineered for P1). | Yes — could fold into §3 prose if reads too FAQ-shaped |
-| BG-7 | **Cadence facts** | "Wekelijks · woensdag in de Pianofabriek (Sint-Gillis) · zaterdag in de Maison des Cultures (Molenbeek)" — from [discovery/26-agenda-analysis](../../discovery/26-agenda-analysis.md) §2 (independently corroborated from the Excel). Times: *Wo 16:00–18:00 · Za 10:00–12:00* (same source). | Yes — exact times subject to seasonal shifts; team-verify |
+| BG-7 | **Cadence facts** | "Wekelijks · woensdag in de Pianofabriek (Sint-Gillis) · zaterdag in de Maison des Cultures (Molenbeek)" — from [discovery/26-agenda-analysis](../../_archive/discovery/26-agenda-analysis.md) §2 (independently corroborated from the Excel). Times: *Wo 16:00–18:00 · Za 10:00–12:00* (same source). | Yes — exact times subject to seasonal shifts; team-verify |
 
 If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise these stand.
 
@@ -226,7 +226,7 @@ If any of BG-1 … BG-7 should flip, say so and the brief re-rolls; otherwise th
 - **User question:** *"Wanneer en waar kan ik komen — en wat moet ik meebrengen?"*
 - **Pattern:** plain `.section` with two locatie-blocks (dag · uur · venue · adres) + inline *Wat breng je mee* line + a horizontal rule + live SP-07 list of next ≤ 8 open ateliers + `→ Volledige agenda` link.
 - **Data source:** `Event::query()->where('is_public', true)->forPractice('atelier-leon')->ofType(EventType::OpenAtelier)->upcoming()->limit(8)->get()`.
-- **Locaties** (per [discovery/26-agenda-analysis §2](../../discovery/26-agenda-analysis.md)):
+- **Locaties** (per [discovery/26-agenda-analysis §2](../../_archive/discovery/26-agenda-analysis.md)):
   - Woensdag · 16:00–18:00 · **Pianofabriek** · Fortstraat 35, 1060 Sint-Gillis
   - Zaterdag · 10:00–12:00 · **Maison des Cultures** · Mommaertsstraat 4, 1080 Molenbeek
 - **Wat breng je mee:** kledij + water + schoenen-mogen-uit (1 zin).
@@ -308,7 +308,7 @@ project-specific partners to surface inline (it's a recurring practice, not a pr
 - **Was 2 / 5** (vague, no section list, cadence-facts unverified).
 - **Now 3 / 5** — playbook level-3: *"could write strawman; would need team review for
   accuracy."* All structural decisions made (BG-1 … BG-7); section list locked at 5;
-  cadence corroborated by [26-agenda-analysis](../../discovery/26-agenda-analysis.md);
+  cadence corroborated by [26-agenda-analysis](../../_archive/discovery/26-agenda-analysis.md);
   remaining gaps are team-verify on facts (exact times, addresses, leeftijd, zomerstop),
   not structural.
 - **→ 4 / 5** when gaps #1 + #3 + #4 close (team confirms format-doc copy + exact
@@ -322,7 +322,7 @@ project-specific partners to surface inline (it's a recurring practice, not a pr
 - Structure: [30-structure](../30-structure.md) — *Open dansateliers: Atelier Leon* (RecurringPractice, no edities)
 - Tone: [identity/10-tone-of-voice §Dansateliers](../../identity/10-tone-of-voice.md#dansateliers--performances--overzicht--per-project--editie)
 - Vocabulary: [glossary](../../glossary.md) — *atelier · drop-in · inschrijving (paired with "of kom gewoon langs")*
-- Cadence source: [discovery/26-agenda-analysis §2](../../discovery/26-agenda-analysis.md)
+- Cadence source: [discovery/26-agenda-analysis §2](../../_archive/discovery/26-agenda-analysis.md)
 - Sister pages: [P-01 Home brief](01-home.md) · [P-05 Mariage brief](05-mariage.md)
 - Code stub: [`resources/views/dansateliers/atelier-leon.blade.php`](../../../../resources/views/dansateliers/atelier-leon.blade.php)
 - Content: [03-atelier-leon-content](03-atelier-leon-content.md)

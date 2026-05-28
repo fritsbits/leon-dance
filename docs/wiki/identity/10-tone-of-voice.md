@@ -1,7 +1,7 @@
 ---
 title: Identity — Tone of Voice
 tags: [identity, tone-of-voice, copy, cross-cutting]
-sources: [strategy/40-value-proposition; discovery/12-client-kickoff-2026-05-19; discovery/90-first-impression-review; glossary; notion-playbook-tone-of-voice]
+sources: [strategy/40-value-proposition; discovery/12-client-kickoff-2026-05-19; _archive/discovery/90-first-impression-review; glossary; notion-playbook-tone-of-voice]
 phase: cross-cutting
 updated: 2026-05-28
 ---
@@ -11,54 +11,60 @@ updated: 2026-05-28
 > **Wat dit is.** De referentie voor *hoe* leon.dance schrijft: één Leon-stem,
 > bruikbaar voor elke pagina, elk formulier, elke microcopy-string op de site.
 > Wie iets nieuws schrijft (of door een AI laat schrijven) checkt hier hoe het
-> moet klinken — en gebruikt onderaan de **checklist** voor een snelle laatste pas.
+> moet klinken, en gebruikt onderaan de **checklist** voor een snelle laatste pas.
 >
 > **Scope.** Alleen de website. Andere kanalen (flyers, dossier-taal, persmappen,
-> interne comms) volgen later, of erven losjes — eerst de site op orde.
+> interne comms) volgen later, of erven losjes. Eerst de site op orde.
 >
 > ⚠️ **Status.** V1, opgesteld op basis van Strategy
 > ([40](../strategy/40-value-proposition.md)) en de discovery-audit. Sam & Kristin
 > klokken dit af op de **content-complete draft** (Strategy
-> [S-02](../strategy/01-concerns.md)) — tot dan: werkzaam, niet definitief.
+> [S-02](../strategy/01-concerns.md)). Tot dan: werkzaam, niet definitief.
 
 ---
 
 ## TOV-statement
 
-> *Leon nodigt eerst uit en toont daarna rustig. Eén stem — warm voor wie twijfelt,
-> gegrond voor wie weegt — zonder twee gezichten.*
+> *Leon nodigt eerst uit en toont daarna rustig. Eén stem, warm voor wie twijfelt
+> en gegrond voor wie weegt, zonder twee gezichten.*
 
-Twee dingen tegelijk: de uitnodiging staat vooraan (de *invitation-forward*
-houding, [D-iv](../strategy/40-value-proposition.md#positioning-posture-decision-d-iv)),
-het gewicht volgt rustig daaronder. Het is **één** stem die zich aanpast aan wie
-meeleest, niet twee aparte merken. Dat is het hele punt van de *evenwaardig*-balans
-die de klant zelf benoemde: *"zeker in tone of voice en in beeld."*
+De uitnodiging staat vooraan, het gewicht (de jaren, de methode, het bewijs) volgt er
+rustig onder. *Wie twijfelt* is de bezoeker die zich afvraagt of dit iets voor hem is;
+*wie weegt* beoordeelt het werk, zoals een jurylid of een programmator. Het blijft
+**één** stem die zich aanpast aan wie meeleest, niet twee aparte merken: dezelfde Leon
+klinkt alleen warmer of zakelijker, nooit als een ander.
 
 ---
 
 ## Eén stem, twee registers
 
-Alles hieronder is **één Leon-stem**. Wat verschuift is het *register* — net
-zoals een mens warmer of zakelijker praat zonder een ander mens te worden.
+Alles hieronder is **één Leon-stem**. Wat verschuift is het *register*, net zoals
+een mens warmer of zakelijker praat zonder een ander mens te worden.
 
 | Wie leest mee | Register-dial | Voorbeeld |
 |---|---|---|
-| **P1 nieuwsgierige** & **P4 groepsverantwoordelijke** — *belonging dial* | Warmer, je-vorm, korter, concreter, eerst uitnodigen. | *"Op zondagochtend dansen we in de Beursschouwburg. Kom een keer langs."* |
-| **P2 jury/subsidiënt** & **P3 programmator** — *institutional dial* | Rustiger, feitelijker, Leon als onderwerp, methode-en-bewijs. | *"Sinds 2010 bouwt Leon participatieve voorstellingen met telkens een lokale groep — zes edities van Mariage tussen 2024 en 2026."* |
-| **P5 pers & breed publiek** | Neutraal-institutional, derde-partij-bewijs voor zichzelf laten spreken. | *"Birds (2023) toerde naar De Munt, STUK en tanzhaus nrw."* |
+| De **nieuwsgierige bezoeker** die overweegt mee te doen, en de **groepsverantwoordelijke** (leerkracht, zorg- of buurtbegeleider) die een groep wil meebrengen. | *Belonging-dial:* warmer, je-vorm, korter, concreter, eerst uitnodigen. | *"Op zondagochtend dansen we in de Beursschouwburg. Kom een keer langs."* |
+| Het **jurylid of de subsidiënt** die het dossier beoordeelt, en de **programmator** die overweegt te boeken. | *Institutional-dial:* rustiger, feitelijker, Leon als onderwerp, methode en bewijs. | *"Sinds 2010 bouwt Leon participatieve voorstellingen, telkens met een lokale groep. Zes edities van Mariage tussen 2024 en 2026."* |
+| **Pers en breed publiek** rond de zeldzame publieke voorstellingen. | Neutraal-institutional: laat derde-partij-bewijs (recensies, selecties, partners) voor zichzelf spreken. | *"Birds (2023) toerde naar De Munt, STUK en tanzhaus nrw."* |
+
+De twee registers heten in deze gids *belonging* (warm, uitnodigend) en *institutional*
+(rustig, bewijs-gedreven). De personacodes die elders opduiken, in het kort: **P1** de
+nieuwsgierige bezoeker, **P2** jury/subsidiënt, **P3** programmator, **P4**
+groepsverantwoordelijke, **P5** pers & breed publiek. Volledige profielen staan in
+[Personas](../strategy/20-personas.md); je hebt ze niet nodig om deze gids te gebruiken.
 
 Drie regels die hieronder altijd gelden:
 
 1. **De dial verschuift per pagina, niet per zin.** Een pagina kiest één lezer
-   (zie [§4 — Eén lezer per pagina](#stem--toon--zeven-kenmerken)). Binnen de
-   pagina blijft de toon coherent.
+   (zie het kenmerk *Eén lezer per pagina* hieronder). Binnen de pagina blijft de
+   toon coherent.
 2. **De stem is dezelfde.** Geen aparte "marketing-Leon" voor de jury en
    "gezellige Leon" voor de buurt. Dezelfde woordenschat, dezelfde rust,
-   dezelfde concreetheid — alleen de warmte schuift.
+   dezelfde concreetheid; alleen de warmte schuift.
 3. **Het bewijs is gedeeld.** Een quote van een deelnemer, een getal, een
    partner-stem, een datum: werkt voor allebei de registers, alleen het kader
-   eromheen schuift. Eén substantie, twee registers — zie
-   [strategy/40](../strategy/40-value-proposition.md#the-rebalance-made-concrete).
+   eromheen schuift. Eén substantie, twee registers (zie
+   [strategy/40](../strategy/40-value-proposition.md#the-rebalance-made-concrete)).
 
 ---
 
@@ -75,8 +81,7 @@ of *vindt*. De missie blijkt uit het werk, niet uit een mission statement.
 ### 2. Concreet, niet abstract
 
 Datum, plaats, naam, getal, jaar, duur. Vermijd vaagheden als "diverse trajecten"
-of "duurzaam engagement" — die woorden zeggen niets meer en lezen als
-subsidiedossier.
+of "duurzaam engagement". Die woorden zeggen niets meer en lezen als subsidiedossier.
 
 - ✓ *"Zes edities van Mariage sinds 2024, telkens met een lokale groep van twintig dansers."*
 - ✗ *"Een groeiend aantal participatieve trajecten met diverse Brusselse gemeenschappen."*
@@ -92,7 +97,7 @@ zoetheid, geen feel-good-clichés. Warmte = nabijheid, niet enthousiasme.
 ### 4. Toonbaar in plaats van prijzend
 
 Toon het werk en de mensen. Laat een deelnemer of partner het zeggen. Leon prijst
-zichzelf niet — Leon laat zien. De participanten-quotes, de partner-stem, de
+zichzelf niet. Leon laat zien. De participanten-quotes, de partner-stem, de
 selecties van het TheaterFestival: dat is het bewijs, niet wat Leon erover
 roept.
 
@@ -110,7 +115,7 @@ academie kent. Een buurtbewoner moet de pagina begrijpen zonder hulp.
 ### 6. Eén lezer per pagina
 
 Een pagina richt zich tot één persoon: de nieuwsgierige *of* de partner *of*
-de jury — niet alle drie tegelijk. Wie iedereen tegelijk aanspreekt, raakt
+de jury, niet alle drie tegelijk. Wie iedereen tegelijk aanspreekt, raakt
 niemand. De register-dial wijst zich aan zodra de lezer vaststaat.
 
 - ✓ Op de project-pagina, voor P1: *"Ben je tussen 16 en 99? Kom een keer langs op de open repetitie."*
@@ -118,7 +123,7 @@ niemand. De register-dial wijst zich aan zodra de lezer vaststaat.
 
 ### 7. Vanuit de lezer, niet vanuit onze structuur
 
-Schrijf vanuit wat de lezer wil dóén — niet vanuit hoe Leon of de site is
+Schrijf vanuit wat de lezer wil dóén, niet vanuit hoe Leon of de site is
 ingedeeld. Verwijs niet naar je eigen organisatie (*"daar hoort een eigen pagina
 bij"*, *"in de sectie hieronder"*, *"op onze website vind je"*) als je gewoon de
 actie van de lezer kunt benoemen. De link ís de actie.
@@ -171,7 +176,7 @@ Werkwoord aan het begin. Lage drempel. Geen klikbevehl.
 ### Afsluiters
 
 Een pagina eindigt met een uitnodiging die er nog is, of een rustige laatste
-regel — geen samenvatting van wat je net gelezen hebt. Op partner- en
+regel, geen samenvatting van wat je net gelezen hebt. Op partner- en
 jurypagina's: een contactlijn, geen verkoopzin.
 
 ### Empty states & 404
@@ -187,7 +192,7 @@ Blijf in stem. Een mens reageert, geen systeem.
 
 De **gedeelde vocabulaire** (project · editie · groep · deelnemer · publiek ·
 voorstelling · inschrijving · atelier · …) staat in de
-[Glossary](../glossary.md) — daar staat ook wat in code, admin en site
+[Glossary](../glossary.md). Daar staat ook wat in code, admin en site
 hetzelfde woord moet zijn. Hieronder alleen **toon-aanvullingen**: woorden waar
 de stem op valt of staat.
 
@@ -196,7 +201,7 @@ de stem op valt of staat.
 | Liever | Niet | Waarom |
 |---|---|---|
 | **je / jullie** | u (behalve op subsidie- en jurypaden, spaarzaam) | Nabijheid, belonging-register. Je-vorm sluit niet uit, *u* schept afstand. |
-| **wij** = het Leon-team | "Leon" (zonder lidwoord) als zaakvorm | *Wij* mag, *Leon* mag — beide werken. *"Leon"* zonder lidwoord is steviger op de institutional dial. |
+| **wij** = het Leon-team | "Leon" (zonder lidwoord) als zaakvorm | *Wij* mag, *Leon* mag, beide werken. *"Leon"* zonder lidwoord is steviger op de institutional dial. |
 | **kom langs · doe mee · dans mee** | registreer · sluit u aan · neem deel | Werkelijke werkwoorden, geen ambtenarentaal. |
 | **voorstelling** | show · performance | Eén woord voor alle paden. Zie [glossary](../glossary.md#de-shared-vocabulary-use-these--code-admin-site). |
 | **deelnemer** | participant · cursist | Decree-woord, maar plain. |
@@ -206,23 +211,23 @@ de stem op valt of staat.
 
 ### Verboden in publieke copy
 
-Woorden die de hele tekst weer naar subsidiedossiertaal trekken — vermijd ze
+Woorden die de hele tekst weer naar subsidiedossiertaal trekken. Vermijd ze
 zonder uitzondering op publieke pagina's.
 
-- **duurzaam** · **laagdrempelig** · **inclusief** · **diversiteit** — afgesleten;
+- **duurzaam** · **laagdrempelig** · **inclusief** · **diversiteit**: afgesleten;
   bewijs ze in plaats van ze te claimen (*"geen ervaring nodig, geen
   inschrijving, gratis"* is laagdrempelig; je hoeft het niet te zeggen).
-- **creatie** — gebruik **project** ([glossary](../glossary.md)). *Creatie* is in-house art-register.
-- **werking** — subsidie-register, nergens publiek-facing.
-- **traject** — alleen op funder-pagina. Voor publiek: *"zes maanden samen
+- **creatie**: gebruik **project** ([glossary](../glossary.md)). *Creatie* is in-house art-register.
+- **werking**: subsidie-register, nergens publiek-facing.
+- **traject**: alleen op funder-pagina. Voor publiek: *"zes maanden samen
   dansen, naar één voorstelling toe."*
-- **uniek · bekroond · vernieuwend · innovatief** — laat anderen het zeggen.
-- **bruggen bouwen · verbinden · samenbrengen · ontmoeting creëren** — clichés.
+- **uniek · bekroond · vernieuwend · innovatief**: laat anderen het zeggen.
+- **bruggen bouwen · verbinden · samenbrengen · ontmoeting creëren**: clichés.
   Toon het in plaats van het te claimen.
-- **passie · passioneel · gedreven** — kosmetiek. Vermijd.
-- **empoweren · empowerment** — anglicisme. Concrete werkwoorden: *meedoen,
+- **passie · passioneel · gedreven**: kosmetiek. Vermijd.
+- **empoweren · empowerment**: anglicisme. Concrete werkwoorden: *meedoen,
   meebeslissen, eigen ruimte maken*.
-- **cohort · backstage · antenne · "Nope"** — interne planningwoorden, **nooit**
+- **cohort · backstage · antenne · "Nope"**: interne planningwoorden, **nooit**
   publiek ([glossary](../glossary.md#never-user-facing-in-house-jargon--codeadmintalk-only)).
 - **Gedachtestreep / em-dash (—)** in lopende zinnen. Leest als AI of
   subsidiedossier; splits de zin, of zet er een komma, dubbele punt of haakjes.
@@ -240,14 +245,21 @@ De register-dial verschuift per pagina, in lijn met
 
 ### Home
 
-**Belonging dial hoog · institutional dial direct daaronder.** Eén regel die
-uitnodigt; één rustige regel die gewicht ophaalt zonder te claimen
-([D-iv](../strategy/40-value-proposition.md#positioning-posture-decision-d-iv)).
-Geen mission-statement-blok bovenaan.
+**Belonging dial hoog · institutional dial direct daaronder.** Spreek de lezer
+aan in de titel: een uitnodiging richt zich tot iemand, dus een aansprekende
+titel (*"Dans een keer mee."*) werkt beter dan een omschrijving van het aanbod
+(*"Een uitnodiging om mee te dansen"*), die als een statement of mission
+statement leest. De paragraaf eronder legt uit wát Leon is én laat het
+gevoelsvoordeel landen (*je hoort erbij, je kan dit*). Daarna haalt één rustige
+regel gewicht op zonder te claimen. Geen mission-statement-blok bovenaan.
 
-- ✓ Eerste regel: *"Een open uitnodiging om mee te dansen, met de mensen die
-  het al doen."* · Tweede regel: *"In Brussel, sinds 2010."*
-- ✗ Eerste regel: *"Leon is een participatieve dansorganisatie die gelooft in…"*
+- ✓ Titel: *"Dans een keer mee."* · Paragraaf: *"Bij Leon dans je wekelijks
+  samen met andere Brusselaars: in een open atelier of op de scène van een grote
+  voorstelling. Geen ervaring nodig. Je hoort er meteen bij."* · Gewichtsregel:
+  *"In Brussel sinds 2010. Gratis, zonder inschrijving."*
+- ✗ Titel: *"Een open uitnodiging om mee te dansen, met de mensen die het al
+  doen."* (omschrijft het aanbod i.p.v. de lezer aan te spreken; bovendien lang)
+- ✗ Titel: *"Leon is een participatieve dansorganisatie die gelooft in…"*
 
 ### Dansateliers & performances — overzicht & per project / editie
 
@@ -257,7 +269,7 @@ pers-citaten.** Inschrijven als laatste sectie, niet als sales-blok.
 
 ### Agenda
 
-**Neutraal, datum-eerst.** Wordt gescand — geen redactionele toon. Eén regel
+**Neutraal, datum-eerst.** Wordt gescand, geen redactionele toon. Eén regel
 per item: datum · tijd · plaats · type (open atelier · repetitie · try-out ·
 voorstelling). Geen redactionele warmte; de warmte zit in de pagina's waarheen
 de agenda linkt.
@@ -265,13 +277,13 @@ de agenda linkt.
 ### Over Leon (missie · visie · impact · team · historiek · contact)
 
 **Institutional dial mag hier hoger.** *"16 jaar bezig, 5 jaar vzw."* Rustig,
-niet apologetisch, niet schreeuwerig. **Géén** subsidiedossier-stijl — ook hier
+niet apologetisch, niet schreeuwerig. **Géén** subsidiedossier-stijl; ook hier
 geldt: toonbaar in plaats van prijzend. Mission/visie blijft kort en concreet;
 historiek vertelt het verhaal in jaartallen.
 
 ### Samenwerken (opzetten · uitnodigen · doen)
 
-**Hybride dial**, leunend institutional. Partner-stem inzetbaar — de
+**Hybride dial**, leunend institutional. Partner-stem inzetbaar: de
 coördinator die het al deed (Schoemaker, Dewin, Meynaerts) zegt het beter dan
 Leon. Beheerd, rustig, **geen verkoop-toon**. Voor het programmator-pad:
 feiten, dossier, contact. Geen marketing.
@@ -279,20 +291,20 @@ feiten, dossier, contact. Geen marketing.
 ### Pers & in de prijzen
 
 **Institutional-light dial.** Derde-partij-validatie spreekt voor zichzelf:
-lijst van artikels, jaartal, publicatie. Leon-stem minimaal — een korte
+lijst van artikels, jaartal, publicatie. Leon-stem minimaal: een korte
 introzin, daarna laten zien.
 
 ### 404 · empty states · formulieren · inschrijvingsbevestiging
 
 **Belonging dial, kort.** Een mens reageert, geen systeem. Kort, vriendelijk,
 instructief. Een form-validatiefout zegt *wat* er mis is én *hoe* het opgelost
-wordt — niet *"Ongeldig formulier."*
+wordt, niet *"Ongeldig formulier."*
 
 ---
 
 ## Checklist voor nieuwe webcopy
 
-Snel toepasbaar — voor de pagina live gaat (of na een AI-vertaling van NL → FR/EN):
+Snel toepasbaar, voor de pagina live gaat (of na een AI-vertaling van NL naar FR/EN):
 
 1. **Eén lezer.** Eén persona of stage in beeld, niet alle drie tegelijk?
 2. **Werkwoord vroeg, actief.** Geen ambtelijke woordvolgorde, geen passief?
@@ -318,17 +330,17 @@ Als één antwoord *nee* is: herschrijven. Als alle antwoorden *ja*: publish.
 Niet alleen op zinniveau (zie §kenmerken en §woordenlijst), maar als
 houdingen op pagina-niveau:
 
-- **Subsidiedossiertaal** in publieke copy — *de* hoofddiagnose van de
-  discovery-audit ([90-first-impression-review](../discovery/90-first-impression-review.md);
+- **Subsidiedossiertaal** in publieke copy: *de* hoofddiagnose van de
+  discovery-audit ([90-first-impression-review](../_archive/discovery/90-first-impression-review.md);
   *"bijna subsidiedossiertaal"* — Sam, 2026-05-19).
-- **"Leon gelooft dat…" / "Leon is van mening dat…"** — missionerend openen.
+- **"Leon gelooft dat…" / "Leon is van mening dat…"**: missionerend openen.
 - **Vage superlatieven** (*uniek · bekroond · vernieuwend*) zonder
   bewijs ernaast.
-- **Eigen stem die de plaats inneemt van een deelnemer of partner** — laat hen
+- **Eigen stem die de plaats inneemt van een deelnemer of partner**: laat hen
   zelf spreken; Leon-stem omkadert, prijst niet.
 - **Drie talen door elkaar in dezelfde zin of paragraaf.** NL primair; FR/EN per
   pagina, niet inline (zie [client kickoff §7](../discovery/12-client-kickoff-2026-05-19.md#7-multilingual--practical-shortcut-rationalised-as-values)).
-- **In-house jargon** (*cohort, backstage, antenne, "Nope"*) in publieke copy —
+- **In-house jargon** (*cohort, backstage, antenne, "Nope"*) in publieke copy,
   zie [glossary](../glossary.md).
 - **Uitroeptekens-mode, decoratieve emoji's, opsommingen van bijvoeglijke
   naamwoorden.**
@@ -338,16 +350,16 @@ houdingen op pagina-niveau:
 ## Bronnen & feeds
 
 - Voortbouwt op:
-  - [Strategy — Value Proposition](../strategy/40-value-proposition.md) — twee
+  - [Strategy — Value Proposition](../strategy/40-value-proposition.md): twee
     registers, invitation-forward ([D-iv](../strategy/40-value-proposition.md#positioning-posture-decision-d-iv)),
     een-substantie-twee-registers.
-  - [Glossary](../glossary.md) — gedeelde vocabulaire (deze gids dupliceert niet,
+  - [Glossary](../glossary.md): gedeelde vocabulaire (deze gids dupliceert niet,
     voegt alleen toon-notities toe).
-  - [Discovery — Client kickoff](../discovery/12-client-kickoff-2026-05-19.md)
-    — *"Zeker in tone of voice en in beeld."*
-  - [Discovery — First-impression review](../discovery/90-first-impression-review.md)
-    — subsidiedossiertaal-diagnose; org-centric framing.
-  - [Strategy — Personas](../strategy/20-personas.md) — wie er meeleest per
+  - [Discovery — Client kickoff](../discovery/12-client-kickoff-2026-05-19.md):
+    *"Zeker in tone of voice en in beeld."*
+  - [Discovery — First-impression review](../_archive/discovery/90-first-impression-review.md):
+    subsidiedossiertaal-diagnose; org-centric framing.
+  - [Strategy — Personas](../strategy/20-personas.md): wie er meeleest per
     pagina.
 - Volgt: *Playbook: Tone of voice guide* (Frederik Vincx, Notion, 2026-03-28).
 - **Wordt afgeklopt door:** Sam & Kristin op de content-complete draft

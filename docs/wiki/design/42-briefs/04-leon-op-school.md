@@ -28,7 +28,7 @@ updated: 2026-05-28
 | BG-1 | **Hero treatment** | SP-04 variant B (text header + SP-13 photo as next sibling), consistent with P-01 + P-05. Eyebrow `DANSATELIERS & PERFORMANCES · ATELIERS OP SCHOOL` locates the page in IA (per [30-structure](../30-structure.md) Dansateliers child). | Yes — could drop to variant A (no photo) if asset never lands |
 | BG-2 | **CTAs in hero** | **None.** Page is partner-info-first, not a self-serve funnel (per [strategy/40 P4 RTB](../../strategy/40-value-proposition.md#p4--groepsverantwoordelijke--serves-g2g3) "*not an application funnel — Leon-initiated, relationship-led*"). CTA lands in §6 as *"Plan een gesprek"* → `/samenwerken/opzetten`. | Yes — could add a single secondary CTA to hero if it tests too informational |
 | BG-3 | **Cadence stated up front** | h1-lede pair carries cadence immediately: *"wekelijks · ~2 uur per sessie · ~6 maanden"*. Per [strategy/40 P4 RTB](../../strategy/40-value-proposition.md#p4--groepsverantwoordelijke--serves-g2g3): "*cadence stated up front (weekly/2h/~6mo)*". This is the single line that qualifies/disqualifies a partner. | Yes — could move into §3 if hero feels overloaded |
-| BG-4 | **§4 "Voor wie" — three sector buckets** | Three named sectors per [30-structure](../30-structure.md) sub-item description: *Scholen · Welzijn · Zorg*. Each with one strawman illustrative line + 1 partner-org placeholder. Education broadest because that's where the existing partner-org density sits (Cardijnschool, Kameleon — per [discovery/25-agenda](../../discovery/25-agenda.md)). | Yes — could go 2 buckets (school / welzijn-zorg gegroepeerd) if the team prefers |
+| BG-4 | **§4 "Voor wie" — three sector buckets** | Three named sectors per [30-structure](../30-structure.md) sub-item description: *Scholen · Welzijn · Zorg*. Each with one strawman illustrative line + 1 partner-org placeholder. Education broadest because that's where the existing partner-org density sits (Cardijnschool, Kameleon — per [discovery/25-agenda](../../_archive/discovery/25-agenda.md)). | Yes — could go 2 buckets (school / welzijn-zorg gegroepeerd) if the team prefers |
 | BG-5 | **Partner-stem quote** | Els Schoemaker (BUSO Cardijnschool) verbatim from [strategy/20-personas P4](../../strategy/20-personas.md#p4--de-groepsverantwoordelijke--secondary-serves-g2g3): *"Het atelier is een plek waar je anders kan communiceren: met je handen, voeten en hoofd."* — gatekeeper's *own* words per [strategy/40 P4 RTB](../../strategy/40-value-proposition.md#p4--groepsverantwoordelijke--serves-g2g3). | Yes — could swap for Dewin (Zonnelied) or Meynaerts; or pair two voices in two sections |
 | BG-6 | **§5 placement of partner-stem** | Embedded as standalone section between *Voor wie* (§4) and *Contact* (§6) — gives the partner-voice maximal weight as proof rung, doesn't dilute by nesting inside a traject-explainer. SP-12 variant A (inline frame). | Yes — could embed within §4 sector buckets if the page reads cluttered |
 | BG-7 | **§6 CTA target** | `Plan een gesprek` → `/samenwerken/opzetten` (same canonical opzetten-route as P-05 Mariage §6; opzetten is the single canonical intake page per [30-structure](../30-structure.md) Samenwerken table, both P3 + P4 land there). | Yes — could split to a dedicated `/over-leon/contact` if team prefers per-page contact |
@@ -217,7 +217,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
 - **User question:** *"Hoe ziet dat eruit in een klas of zorgcentrum?"*
 - **Pattern:** [SP-13](../41-patterns.md#sp-13--photo-block) variant A (full-width).
 - **Asset gap:** strawman caption suggests a *klas-in-beweging* shot (GBS Kameleon set
-  per [discovery/25-agenda](../../discovery/25-agenda.md) — Mariage × MUS-E weekly classes
+  per [discovery/25-agenda](../../_archive/discovery/25-agenda.md) — Mariage × MUS-E weekly classes
   ran there spring 2025). Real selection per Surface plane against Boris Charmatz
   photo-discipline benchmark ([Dn-20](../01-concerns.md)).
 - **Missing-asset state:** section collapses entirely (SP-13 contract; partial guards `@if (!empty($src))`).
@@ -261,7 +261,7 @@ If any of BG-1 … BG-8 should flip, say so and the brief re-rolls; otherwise th
   hier zichzelf in herkennen". Footer SP-09 carries the org-level partner-wall;
   sector-routing here is for self-locating.
 - **Per-sector partner placeholder:** strawman names BUSO Cardijnschool + GBS Kameleon
-  (verifiable from [25-agenda](../../discovery/25-agenda.md)). Welzijn + zorg sector
+  (verifiable from [25-agenda](../../_archive/discovery/25-agenda.md)). Welzijn + zorg sector
   placeholders flagged for team verification (gap #2).
 
 ### §5 — Partner-stem (SP-12)
