@@ -28,4 +28,47 @@ class OpenCallSurfacesTest extends TestCase
         $this->get('/dansateliers-performances/mariage/onbestaande-editie')
             ->assertNotFound();
     }
+
+    public function test_known_editie_slug_renders(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik']);
+
+        $this->get('/dansateliers-performances/mariage/luik-2026')
+            ->assertOk()
+            ->assertSee('Luik 2026');
+    }
+
+    public function test_editie_section5_shows_invite_when_inschrijving_open(): void
+    {
+        $this->makeEditie(['slug' => 'luik-2026', 'stad' => 'Luik', 'inschrijving_open' => true]);
+
+        $this->get('/dansateliers-performances/mariage/luik-2026')
+            ->assertOk()
+            ->assertSee('vormt zich nu')
+            ->assertSee('Schrijf je in');
+    }
+
+    public function test_editie_section5_shows_closed_copy_when_toggled_off(): void
+    {
+        // aankomend (future dates) but inschrijving toggled off → "gesloten", not the invite
+        $this->makeEditie(['slug' => 'gent-2025', 'stad' => 'Gent', 'inschrijving_open' => false]);
+
+        $this->get('/dansateliers-performances/mariage/gent-2025')
+            ->assertOk()
+            ->assertSee('inschrijvingen voor deze editie zijn gesloten')
+            ->assertDontSee('Schrijf je in');
+    }
+
+    public function test_editie_section5_shows_afgerond_copy_when_past(): void
+    {
+        $this->makeEditie([
+            'slug' => 'brussel-2024', 'stad' => 'Brussel',
+            'starts_at' => now()->subMonths(6), 'ends_at' => now()->subMonths(3),
+            'inschrijving_open' => false,
+        ]);
+
+        $this->get('/dansateliers-performances/mariage/brussel-2024')
+            ->assertOk()
+            ->assertSee('is afgerond');
+    }
 }
