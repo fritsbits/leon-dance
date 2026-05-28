@@ -24,7 +24,8 @@ class EventForm
                                 fn (EventType $type) => [$type->value => $type->label()]
                             ))
                             ->required()
-                            ->native(false),
+                            ->native(false)
+                            ->live(),
                         TextInput::make('title')
                             ->label('Activiteit')
                             ->placeholder('bv. Atelier Mariage x MUS-E')
@@ -59,6 +60,24 @@ class EventForm
 
                 Section::make('Koppeling & zichtbaarheid')
                     ->schema([
+                        Select::make('atelier_id')
+                            ->label('Atelier')
+                            ->options(fn () => \App\Models\Atelier::with('venue')->get()->mapWithKeys(
+                                fn (\App\Models\Atelier $a) => [$a->id => $a->displayName()]
+                            ))
+                            ->native(false)
+                            ->visible(fn (\Filament\Schemas\Components\Utilities\Get $get) => in_array(
+                                $get('type'), [\App\Enums\EventType::OpenAtelier->value, \App\Enums\EventType::Klas->value], true
+                            ))
+                            ->helperText('Verplicht voor open atelier / klas.'),
+                        Select::make('edition_id')
+                            ->label('Editie')
+                            ->options(fn () => \App\Models\Edition::orderBy('slug')->pluck('slug', 'id'))
+                            ->native(false)
+                            ->visible(fn (\Filament\Schemas\Components\Utilities\Get $get) => in_array(
+                                $get('type'), [\App\Enums\EventType::Repetitie->value, \App\Enums\EventType::TryOut->value, \App\Enums\EventType::Voorstelling->value], true
+                            ))
+                            ->helperText('Verplicht voor repetitie / try-out / voorstelling.'),
                         Toggle::make('is_public')
                             ->label('Publiek zichtbaar in agenda')
                             ->default(true)

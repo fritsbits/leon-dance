@@ -101,7 +101,7 @@ class EditionModelTest extends TestCase
             'starts_at' => now()->addMonth(), 'is_public' => true,
         ]);
         Event::create([
-            'type' => EventType::Voorstelling, 'title' => 'Andere',
+            'type' => EventType::LeonRondDeTafel, 'title' => 'Andere',
             'starts_at' => now()->addMonth(), 'is_public' => true,
         ]);
 

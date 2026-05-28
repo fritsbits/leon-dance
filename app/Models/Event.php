@@ -32,6 +32,33 @@ class Event extends Model
         'is_public' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        static::saving(function (Event $event): void {
+            $type = $event->type instanceof EventType ? $event->type : EventType::from($event->type);
+            $hasAtelier = $event->atelier_id !== null;
+            $hasEdition = $event->edition_id !== null;
+
+            if ($type->isInternal()) {
+                if ($hasAtelier || $hasEdition) {
+                    throw new \InvalidArgumentException("Event type '{$type->value}' is internal and must have no atelier or edition parent.");
+                }
+
+                return;
+            }
+
+            $needsAtelier = in_array($type, [EventType::OpenAtelier, EventType::Klas], true);
+
+            if ($needsAtelier && (! $hasAtelier || $hasEdition)) {
+                throw new \InvalidArgumentException("Event type '{$type->value}' must have an atelier_id and no edition_id.");
+            }
+
+            if (! $needsAtelier && (! $hasEdition || $hasAtelier)) {
+                throw new \InvalidArgumentException("Event type '{$type->value}' must have an edition_id and no atelier_id.");
+            }
+        });
+    }
+
     public function scopeUpcoming(Builder $query): Builder
     {
         return $query->where('starts_at', '>=', now()->startOfDay())->orderBy('starts_at');

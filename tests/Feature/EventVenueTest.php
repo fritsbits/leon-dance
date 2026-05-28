@@ -17,7 +17,7 @@ class EventVenueTest extends TestCase
         $venue = Venue::factory()->create(['name' => 'Pianofabriek']);
 
         $linked = Event::create([
-            'type' => EventType::Voorstelling, 'title' => 'Mariage',
+            'type' => EventType::LeonRondDeTafel, 'title' => 'Mariage',
             'venue_id' => $venue->id, 'venue_name' => 'ignored-freetext', 'is_public' => true,
             'starts_at' => now()->addDay(), 'ends_at' => now()->addDay()->addHour(),
         ]);
@@ -25,7 +25,7 @@ class EventVenueTest extends TestCase
         $this->assertSame($venue->id, $linked->venue->id);
 
         $freetext = Event::create([
-            'type' => EventType::Voorstelling, 'title' => 'Mariage',
+            'type' => EventType::LeonRondDeTafel, 'title' => 'Mariage',
             'venue_name' => 'MolenFest, Molenbeek', 'is_public' => true,
             'starts_at' => now()->addDays(2), 'ends_at' => now()->addDays(2)->addHour(),
         ]);
