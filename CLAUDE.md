@@ -25,6 +25,7 @@ docs/
     index.md       # catalogue: Page | Summary | Category | Phase
     log.md         # append-only timeline
     discovery/  strategy/  design/  …   # per-phase pages
+    _archive/      # concluded-phase evidence — local-only, NOT auto-loaded; browse on demand
   superpowers/     # internal design specs for the work itself (gitignored)
 scripts/           # capture pipeline + helpers (gitignored)
 # Laravel project lives at root once added (app/, routes/, resources/, …)
@@ -160,7 +161,21 @@ there, not from ad-hoc decisions. Glossary: [`docs/wiki/glossary.md`](docs/wiki/
 — one shared vocabulary across code, admin, and site. **Tone of voice (every webcopy
 string):** [`docs/wiki/identity/10-tone-of-voice.md`](docs/wiki/identity/10-tone-of-voice.md)
 — one Leon-stem with a register-dial (belonging P1/P4 ↔ institutional P2/P3); use the
-8-point checklist before any page goes live or after any AI translation.
+9-point checklist before any page goes live or after any AI translation.
+
+**Wiki reading path.** Default to the HOT pages (`design/30-structure`, `design/40-skeleton`,
+`design/41-patterns`, `design/01-concerns`, `identity/10-tone-of-voice`, `glossary`, `DESIGN.md`)
+plus the REFERENCE pages you need (`strategy/*`, the relevant `42-briefs/XX.md`, `design/20-scope`).
+`docs/wiki/_archive/` (concluded Discovery) is browse-on-demand — don't load it unless a question
+requires the underlying evidence.
+
+**History → `log.md` + git, never page annotations.** Don't changelog-annotate wiki pages
+(`was 2 → now 3`, `BG-x updated`, dated `**YYYY-MM-DD:**` change-notes). State the current fact;
+the timeline lives in `log.md` and `git log`.
+
+**Built pages: copy lives in the Blade.** Once a page's view is built and verified, its NL copy
+lives in the Blade view — there is no parallel `-content.md`. The brief (`42-briefs/XX.md`) stays
+as the UX spec, reviewed/updated as client input arrives.
 
 ### Wireframing mode (v1)
 
@@ -192,7 +207,9 @@ Content rules:
   (NL): invitation-forward, concrete, toonbaar i.p.v. prijzend, one reader per page.
   Verboden in publieke copy: *duurzaam, laagdrempelig, diversiteit* (cliché), *creatie*
   (use `project`), *werking, traject* (outside funder-page), *uniek/bekroond/vernieuwend*
-  (laat anderen het zeggen). Run the **8-point checklist** before any page ships.
+  (laat anderen het zeggen). **No em-dash (—) in running public copy** — it reads as
+  AI/dossier; use a comma, period, colon or parentheses (attribution after a quote is the
+  one exception). Run the **9-point checklist** before any page ships.
 - Use the [Glossary](docs/wiki/glossary.md) vocabulary in UI copy
   (*project · editie · groep · deelnemer · publiek · voorstelling · inschrijving · …*).
   Never `creatie` (use `project`); `werking` is internal-only, not a label.
@@ -240,3 +257,33 @@ DESIGN.md        # human-readable token table
 Use prefix **B-** in `docs/wiki/build/01-concerns.md` (file to be created when Build
 phase needs its own register). Until then, Build-related decisions surface as `Dn-`
 concerns in the Design register and graduate when the phase formally opens.
+
+### Updating the build pipeline (page / pattern status)
+
+The pipeline tracker is the **page-registry (`P-nn`) and patterns-library (`SP-nn`)
+tables in [`docs/wiki/design/40-skeleton.md`](docs/wiki/design/40-skeleton.md)** —
+rendered read-only at the `/build` dashboard (`build.dashboard`, non-prod, unlinked).
+The dashboard *parses* these tables; the markdown is the source of truth. Run `/pipeline`
+to do this guided; the steps below are what it follows.
+
+- **Page stage columns:** `UX · Conf · Wire · Assets · UI · Back · OK`. Patterns have a
+  single **Status** column. Stage emoji (parsed by `app/Support/Build/Stage.php`):
+  🔴 niet begonnen · 🟠 bezig · 🟢 goed · ⚪ n.v.t. · ❓ te beslissen. `Conf` = content-
+  confidence `1–5`.
+- **Stage meaning** (so a bump is honest): **Wire 🟢** only when the view actually renders
+  and is visually verified; **Assets** = media sourced (⚪ when the page needs none);
+  **UI** = brand/surface pass (stays 🔴 in wireframe mode); **Back 🟢** only when the
+  data/CMS is wired *and verified live*, not merely coded; **OK** = final sign-off (needs
+  UI + client approval — don't set it early).
+- **One update touches four things, in order:**
+  1. The **row** — change the stage emoji(s). Keep all 12 columns intact or the dashboard
+     drops the row.
+  2. The **Top gaps** cell — delete gaps that are now resolved; add a terse "X live" note
+     (match existing style, e.g. "open-atelier list live from Event model").
+  3. The **Roll-up** prose below the table — keep the aggregate counts/lists consistent
+     with the row you just changed.
+  4. Append a **`## [YYYY-MM-DD] build | …`** entry to
+     [`docs/wiki/log.md`](docs/wiki/log.md).
+- **Verify before claiming done:** load `/build`, or run
+  `app(App\Support\Build\BuildStatus::class)->report()` via tinker, and confirm the row's
+  stages parse as intended, `warnings` is empty, and no unexpected `drift`.
