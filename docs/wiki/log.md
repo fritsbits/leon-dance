@@ -1586,3 +1586,10 @@ retention, rights, and the GBA complaint route. Mail provider confirmed = Resend
 mandatory disclosures. Dn-03 stays Partly (inschrijving/minors + newsletter/ESP remain blocked).
 Spec: docs/superpowers/specs/2026-05-28-privacy-page-design.md ·
 Plan: docs/superpowers/plans/2026-05-28-privacy-page.md.
+
+## [2026-05-28] build | Tone of voice — add kenmerk "vanuit de lezer, niet vanuit onze structuur"
+Added a 7th kenmerk + 8th checklist item to identity/10-tone-of-voice.md: write from the
+reader's intent, don't reference the site's own organisation ("daar hoort een eigen pagina
+bij", "in de sectie hieronder", "op onze website vind je") when you can just name the reader's
+action. Surfaced by a contact-page copy fix. CLAUDE.md "7-point" → "8-point" checklist in both
+citations.

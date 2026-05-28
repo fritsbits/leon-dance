@@ -43,7 +43,9 @@ decided — later phases are deliberately undecided (YAGNI).
 - **Discovery — concluded.** `docs/wiki/discovery/`.
 - **Strategy — concluded 2026-05-19** (separate thread). `docs/wiki/strategy/`.
 - **Design — ACTIVE** (separate thread). `docs/wiki/design/`; consumes Strategy.
-- **Build — pending.** Laravel project, added to this repo when Design is ready.
+- **Build — scaffolded 2026-05-27.** Laravel 13 at root; v1 = wireframe-fidelity stubs.
+  Sitemap source-of-truth: `docs/wiki/design/30-structure.md`. Design tokens: `DESIGN.md`
+  + `:root` in `resources/css/app.css`. See **Build phase — Laravel** below.
 
 Every wiki page carries a `phase:` frontmatter key.
 
@@ -143,3 +145,98 @@ on every ingest and lint.
 ### `log.md` format
 Append-only. Header: `## [YYYY-MM-DD] <op> | <title>` where `<op>` ∈ {scaffold, ingest,
 `<phase>`, query, lint}. Greppable: `grep "^## \[" docs/wiki/log.md`.
+
+---
+
+## Build phase — Laravel
+
+Stack: Laravel 13 · Blade · Tailwind 4 (Vite) · SQLite (dev). Filament (admin) +
+Livewire arrive when needed. **No Flux / Flux Pro** in this project. Maps when
+needed: **OpenStreetMap + Leaflet.js** only — never Google Maps/Mapbox.
+
+Sitemap source of truth: [`docs/wiki/design/30-structure.md`](docs/wiki/design/30-structure.md).
+Content model (entities) lives in that file's content-model table — drive scaffolding from
+there, not from ad-hoc decisions. Glossary: [`docs/wiki/glossary.md`](docs/wiki/glossary.md)
+— one shared vocabulary across code, admin, and site. **Tone of voice (every webcopy
+string):** [`docs/wiki/identity/10-tone-of-voice.md`](docs/wiki/identity/10-tone-of-voice.md)
+— one Leon-stem with a register-dial (belonging P1/P4 ↔ institutional P2/P3); use the
+8-point checklist before any page goes live or after any AI translation.
+
+### Wireframing mode (v1)
+
+Visual rules:
+- **Grayscale only.** No brand colours yet. Primary CTA: `.btn-primary` (dark on white).
+  Never indigo / blue / purple. Destructive: `#dc2626`, success: `#16a34a` — nothing else.
+- **Font: `system-ui` only.** No Google Fonts. Banned in wireframes: Inter, Roboto,
+  Poppins, Montserrat, Space Grotesk, Geist Sans, Instrument Sans.
+- **One radius project-wide** (`--radius`, `0.375rem`). Never mix `rounded-md` with `rounded-xl`.
+- **Borders over shadows.** `shadow-sm` only for dropdowns; `shadow-lg` only for modals.
+- **Icons:** Lucide outline, stroke-1.5, `size-4 / size-5 / size-6`.
+- **Spacing:** only from `1, 2, 3, 4, 6, 8, 12, 16, 24`. Never `5, 7, 9, 11, …`.
+
+Tokens & conventions:
+- All colour values live in `:root` (in `resources/css/app.css`). **Never hardcode hex,
+  never Tailwind arbitrary colour utilities.**
+- All section padding via `.section`. Never inline `py-N` on a section.
+- All buttons via `.btn-primary` / `.btn-ghost` / `.btn-text`. Never hand-rolled.
+- Containers via `.container-wide` / `.container-text` / `.container-prose`.
+- Focus ring via `:focus-visible` only. Never `box-shadow`, never `focus:ring-*`.
+
+Content rules:
+- **Never lorem ipsum.** Use realistic strawman copy (NL primary) or annotated placeholders
+  like `[Product headline — benefit-focused, ~60 chars]`. The annotation is the value.
+- Stubs render real or strawman copy; Skeleton-phase content briefs replace strawman
+  as they arrive from the team.
+- NL is the v1 language. FR/EN URL & routing model is **deferred to Skeleton** (Dn-).
+- **All webcopy follows the [Tone of Voice guide](docs/wiki/identity/10-tone-of-voice.md)**
+  (NL): invitation-forward, concrete, toonbaar i.p.v. prijzend, one reader per page.
+  Verboden in publieke copy: *duurzaam, laagdrempelig, diversiteit* (cliché), *creatie*
+  (use `project`), *werking, traject* (outside funder-page), *uniek/bekroond/vernieuwend*
+  (laat anderen het zeggen). Run the **8-point checklist** before any page ships.
+- Use the [Glossary](docs/wiki/glossary.md) vocabulary in UI copy
+  (*project · editie · groep · deelnemer · publiek · voorstelling · inschrijving · …*).
+  Never `creatie` (use `project`); `werking` is internal-only, not a label.
+
+Accessibility (always-required):
+- Skip link as first child of `<body>`. `<main id="main-content">` wraps page content.
+- Reduced-motion media query (already in `app.css`).
+- Headings: strict nesting, never skip levels.
+- Form labels: visible, programmatically associated. No placeholder-as-label.
+- Min tap target: 44 × 44 CSS px for interactive elements.
+
+Banned patterns (never generate):
+- Purple/indigo/blue gradients. Gradient text. Glassmorphism. `backdrop-blur`.
+- `border-left` accent stripes. Cards nested in cards.
+- Hero-metric + sparkline + "trusted by"-logo-bar templates.
+- Emoji in UI labels. Multiple border radii. Coloured drop shadows.
+
+Alpine / Livewire / Filament:
+- v1 stubs are static Blade — no Alpine, no Livewire yet.
+- When admin arrives: Filament. It pulls in Livewire. Alpine ships with Livewire.
+- Decision rule: Alpine for local UI state (toggles, show/hide), Livewire for server
+  state. Don't duplicate state across the two.
+
+### Directory shape (Laravel)
+
+```
+app/             # models, http, providers — populated as content-model lands
+resources/
+  css/app.css    # @theme + :root tokens + @layer base/components
+  js/app.js
+  views/
+    layouts/app.blade.php
+    partials/{nav,footer,page-header}.blade.php
+    home.blade.php
+    dansateliers/{index,atelier-leon,leon-op-school,mariage,mariage-editie,mobiele-dansstudio}.blade.php
+    samenwerken/{index,opzetten,uitnodigen,doen}.blade.php
+    over-leon/{index,missie-visie,impact,team,historiek,contact}.blade.php
+    agenda.blade.php
+routes/web.php   # one source for all v1 routes (named, NL slugs)
+DESIGN.md        # human-readable token table
+```
+
+### Build phase Concerns
+
+Use prefix **B-** in `docs/wiki/build/01-concerns.md` (file to be created when Build
+phase needs its own register). Until then, Build-related decisions surface as `Dn-`
+concerns in the Design register and graduate when the phase formally opens.
