@@ -14,10 +14,23 @@ class Editie extends Model
     protected $table = 'edities';
 
     protected $fillable = [
-        'project_slug', 'slug', 'stad', 'jaar', 'stadgenoot', 'periode',
-        'starts_at', 'ends_at', 'partner', 'locaties',
-        'groep_size', 'groep_age', 'groep_prose_intro', 'quote', 'quote_attr',
-        'inschrijving_open', 'inschrijving_closes_at',
+        'project_slug',
+        'slug',
+        'stad',
+        'jaar',
+        'stadgenoot',
+        'periode',
+        'starts_at',
+        'ends_at',
+        'partner',
+        'locaties',
+        'groep_size',
+        'groep_age',
+        'groep_prose_intro',
+        'quote',
+        'quote_attr',
+        'inschrijving_open',
+        'inschrijving_closes_at',
     ];
 
     protected $casts = [
@@ -33,6 +46,7 @@ class Editie extends Model
         return 'slug';
     }
 
+    // Joined on the slug string (no Project model yet); renaming a slug orphans events — no DB cascade.
     public function events(): HasMany
     {
         return $this->hasMany(Event::class, 'editie_slug', 'slug');

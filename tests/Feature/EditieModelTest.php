@@ -81,10 +81,14 @@ class EditieModelTest extends TestCase
         $near = $this->makeEditie(['slug' => 'near', 'inschrijving_open' => true, 'inschrijving_closes_at' => now()->addDays(5)]);
         $far  = $this->makeEditie(['slug' => 'far', 'inschrijving_open' => true, 'inschrijving_closes_at' => now()->addDays(90)]);
         $none = $this->makeEditie(['slug' => 'none', 'inschrijving_open' => true]);
+        $boundary = $this->makeEditie(['slug' => 'boundary', 'inschrijving_open' => true, 'inschrijving_closes_at' => now()->addDays(21)]);
+        $justOver = $this->makeEditie(['slug' => 'just-over', 'inschrijving_open' => true, 'inschrijving_closes_at' => now()->addDays(22)]);
 
         $this->assertTrue($near->inschrijvingClosesSoon());
         $this->assertFalse($far->inschrijvingClosesSoon());
         $this->assertFalse($none->inschrijvingClosesSoon());
+        $this->assertTrue($boundary->inschrijvingClosesSoon());
+        $this->assertFalse($justOver->inschrijvingClosesSoon());
     }
 
     public function test_events_relation_matches_editie_slug(): void

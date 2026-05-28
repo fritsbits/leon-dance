@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('project_slug')->index();          // 'mariage' (no Project model yet)
             $table->string('slug')->unique();                 // 'brussel-2024'
             $table->string('stad');
-            $table->smallInteger('jaar');
+            $table->unsignedSmallInteger('jaar');
             $table->string('stadgenoot')->nullable();         // 'Brusselaars'
             $table->string('periode')->nullable();            // 'maart – mei 2024'
             $table->date('starts_at');
