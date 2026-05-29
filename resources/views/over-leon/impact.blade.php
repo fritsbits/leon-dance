@@ -1,8 +1,12 @@
 @php
     // §5 "In cijfers" — auto-pulled from Event model (per 30-structure)
     // No manual %-dashboard; three derived counts only.
-    $sinceYear = 2010; // "sinds 2010 in Brussel" — see 15-impact-content gap #5
-    $yearsActive = now()->year - $sinceYear;
+    // Practice lineage (sinds 2010, binnen Ultima Vez) vs. de vzw (opgericht 2021).
+    // Dn-26: claim altijd als split tonen, nooit kaal "16 jaar" voor de organisatie.
+    $sinceYear = 2010;
+    $yearsActive = now()->year - $sinceYear;      // de praktijk
+    $vzwSince = 2021;
+    $vzwYears = now()->year - $vzwSince;           // de vzw
 
     $partnerCount = \App\Models\Event::query()
         ->whereNotNull('partners')
@@ -21,7 +25,7 @@
 
 @extends('layouts.app', [
     'title' => 'Impact',
-    'description' => 'Hoe Leon werkt, en wie wat erover zegt: vier gebaren, een stem, een handvol cijfers. Zestien jaar participatieve dans in Brussel.',
+    'description' => 'Hoe Leon werkt, en wie wat erover zegt: vier gebaren, een stem, een handvol cijfers. 16 jaar bezig, 5 jaar als vzw.',
 ])
 
 @section('content')
@@ -137,16 +141,19 @@
 
             <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-4">
                 <dt class="text-3xl md:text-4xl font-medium text-[var(--color-text)] tabular-nums text-right">{{ $yearsActive }}</dt>
-                <dd class="self-center text-[var(--color-text-muted)]">jaar bezig &mdash; sinds {{ $sinceYear }} in Brussel</dd>
+                <dd class="self-center text-[var(--color-text-muted)]">jaar samen dansen in Brussel, sinds {{ $sinceYear }} (eerst binnen Ultima Vez)</dd>
+
+                <dt class="text-3xl md:text-4xl font-medium text-[var(--color-text)] tabular-nums text-right">{{ $vzwYears }}</dt>
+                <dd class="self-center text-[var(--color-text-muted)]">jaar als eigen vzw, sinds {{ $vzwSince }}</dd>
 
                 <dt class="text-3xl md:text-4xl font-medium text-[var(--color-text)] tabular-nums text-right">{{ $partnerCount }}</dt>
                 <dd class="self-center text-[var(--color-text-muted)]">
-                    partner-{{ $partnerCount === 1 ? 'organisatie' : 'organisaties' }} &mdash; uit de huidige agenda
+                    partner-{{ $partnerCount === 1 ? 'organisatie' : 'organisaties' }}, uit de huidige agenda
                 </dd>
 
                 <dt class="text-3xl md:text-4xl font-medium text-[var(--color-text)] tabular-nums text-right">{{ $thisYearCount }}</dt>
                 <dd class="self-center text-[var(--color-text-muted)]">
-                    {{ $thisYearCount === 1 ? 'activiteit' : 'activiteiten' }} in {{ now()->year }} &mdash; publiek in de agenda
+                    {{ $thisYearCount === 1 ? 'activiteit' : 'activiteiten' }} in {{ now()->year }}, publiek in de agenda
                 </dd>
             </dl>
 

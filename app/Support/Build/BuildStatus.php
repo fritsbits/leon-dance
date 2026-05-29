@@ -187,15 +187,19 @@ class BuildStatus
         }
         $patterns = [];
         foreach ($rows as $c) {
-            if (count($c) < 5) {
+            if (count($c) < 6) {
                 continue;
             }
-            $notes = $c[4];
+            $notes = $c[5];
             $patterns[] = [
                 'id' => $c[0],
                 'name' => trim(str_replace('**', '', $c[1])),
                 'usedOn' => $c[2],
-                'status' => $c[3],
+                'stages' => [
+                    'wire' => Stage::fromEmoji($c[3]),
+                    'ui' => Stage::fromEmoji($c[4]),
+                ],
+                'status' => $c[3], // WF cell — kept for the overview's "voorbij stub" count
                 'notes' => $notes,
                 'partialPath' => $this->partialPath($notes),
                 'drift' => [],

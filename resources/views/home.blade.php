@@ -32,7 +32,7 @@
 
 @extends('layouts.app', [
     'title' => 'Leon: participatieve dans in Brussel',
-    'description' => 'Dans mee in Brussel, in een wekelijks open atelier of in grotere participatieve voorstellingen. Geen ervaring nodig. In Brussel sinds 2010.',
+    'description' => 'Dans mee in Brussel, in een wekelijks open atelier of in grotere participatieve voorstellingen. Geen ervaring nodig. 16 jaar bezig, 5 jaar als vzw.',
 ])
 
 @section('content')
@@ -51,7 +51,7 @@
                 <a href="{{ route('dansateliers.atelier-leon') }}" class="btn-primary w-full sm:w-auto">Kom langs in Atelier Leon</a>
                 <a href="{{ route('agenda') }}" class="btn-ghost w-full sm:w-auto">Bekijk de agenda</a>
             </div>
-            <p class="meta mt-8">In Brussel sinds 2010. Gratis, zonder inschrijving.</p>
+            <p class="meta mt-8">16 jaar bezig in Brussel, 5 jaar als vzw. Gratis, zonder inschrijving.</p>
         </div>
     </section>
 

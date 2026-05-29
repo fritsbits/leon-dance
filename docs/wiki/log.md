@@ -2,6 +2,44 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
+## [2026-05-29] design | 30-structure sitemap gereconcilieerd (staleness-notice weg)
+
+Dashboard meldde 30-structure.md ouder dan recent-bewerkte pagina's (mtime-check). Sitemap
+gecontroleerd + bijgewerkt naar de huidige realiteit: **per-locatie atelierpagina's** (P-19)
+toegevoegd onder *Open dansateliers: Atelier Leon* in de boom (zoals `edities/` onder Mariage),
+**Atelier**-rij in het content-model uitgebreid (eigen detailpagina per open atelier via `slug`,
+kind van het overzicht) en **Venue**-rij (`photo`/`photo_credit` + Filament `VenueResource`).
+Impact-omschrijving ongewijzigd geverifieerd (16/5-edit was copy, geen structuur). Re-save →
+`structureStale` nu null; dashboard 200, 0 warnings/drift.
+
+## [2026-05-29] build | 6 patterns → WF 🟢 + Dn-26 closed (16/5-jaar framing)
+
+**Frederik promoted** 6 mature, multiply-used, render-verified patterns to **WF 🟢**: SP-01 nav ·
+SP-02 footer · SP-04 subpage-top · SP-07 date-row · SP-08 agenda-list · SP-09 funder-wall (6/15;
+rest WF 🟠, UI 🔴). Registry + Dn-22 + index-blockquote bijgewerkt.
+**Dn-26 closed (Frederik ruling):** canonieke longevity-frasering = *"16 jaar bezig, 5 jaar (als)
+vzw"*, nooit kaal "16 jaar" voor de organisatie. Toegepast op **Home** (hero + meta) en **Impact**
+(description + cijfers gesplitst in twee stats: 16 jaar samen dansen sinds 2010 binnen Ultima Vez ·
+5 jaar als vzw sinds 2021); Historiek + Over-index waren al eerlijk; P-02-getal blijft getrokken.
+Em-dashes in Impact §5-cijfers meteen opgeruimd. P-01/P-02 Top-gaps ge-pruned (ruling gemaakt;
+enkel feitelijke 2010-startjaar-confirm blijft). Telling: **Closed 11 · Partly 4 · Open 11**.
+
+## [2026-05-29] design | Concerns-lint: 4 Partly→Closed + patterns-pipeline (Dn-22)
+
+Concern-review met Frederik. **Closed:** Dn-09 (faseringsmodel beslist; kalenderdatum =
+client-planning, geen design-vraag) · Dn-12 (editie-flows beslist + gebouwd, interest-only;
+rest = QA + minors-form via Dn-03) · Dn-14 (vocabulaire vast + in gebruik; pagina's schrijven
+hoort bij Dn-23) · **Dn-03** (alle v1-formflows slaan niets op → geen design-GDPR-vraag meer;
+de *stored* deelnemers-DB incl. minderjarigen valt buiten v1 en **gradueert naar het Build-
+register `B-`**; newsletter blijft Dn-11). **Dn-26** Open→**Partly**: P-02-getal getrokken,
+Historiek + Over-index framen al eerlijk ("X jaar bezig, 5 jaar vzw" / vzw-2021-vs-werk-2010),
+maar **Home + Impact** dragen de claim nog kaal — wacht op client-ruling. Telling nu
+**Closed 10 · Partly 5 · Open 11**.
+**Dn-22:** patronen-tabel kreeg een **2-traps pipeline** (WF + UI) + legende, zoals de pagina's;
+parser (`BuildStatus::parsePatterns`) + `/build` patronen-sectie + tests aangepast. 15/15 op
+WF 🟠, UI 🔴 overal (Surface dicht); WF-🟢-kandidaten voorgesteld (SP-01/02/04/07/08/09) —
+wacht op Frederiks pass (Wire-gate). Dashboard: 0 warnings, 0 drift.
+
 ## [2026-05-29] build | P-19 Back 🟢→🟠 + "Schoenen mogen uit" van P-03 geschrapt
 
 Back teruggezet naar 🟠 (bezig): het lees-pad is live + test-covered, maar de admin

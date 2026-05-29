@@ -133,8 +133,13 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 > that file the moment it leaves 🔴 stub. **No page brief may reference an undeclared
 > pattern.** Patterns get a stable ID (`SP-nn`).
 >
-> **v0.6 (2026-05-28, SP-08 agenda-list revived):** **14 / 14
-> patterns** at 🟠 first draft. New since v0.4: **SP-16 Open-call band** — conditional
+> **v0.7 (2026-05-29):** the library now carries a **two-stage pipeline** like the pages —
+> **WF** (wireframe-partial built) + **UI** (Surface) — with the shared status legend (see the
+> stage-kolommen note above the table). **6 / 15 patterns at WF 🟢** (SP-01 nav · SP-02 footer ·
+> SP-04 subpage-top · SP-07 date-row · SP-08 agenda-list · SP-09 funder-wall — Frederik-promoted
+> 2026-05-29), the other **9 at WF 🟠**; **UI 🔴 across the board** (Surface not opened —
+> [Dn-20]/[Dn-21]). Added **SP-17 Map block** (`partials/map.blade.php`, live OSM/Leaflet, P-19 + P-18).
+> Earlier — **v0.6 (2026-05-28, SP-08 agenda-list revived):** New since v0.4: **SP-16 Open-call band** — conditional
 > band that renders only when an editie has `inschrijving_open = true`; variants `home`
 > (between §1 hero and §2 photo on P-01, does **not** consume a section-budget slot) and
 > `project` (above §4 editie-grid on P-05 Mariage); chip sibling on work-grid Mariage
@@ -148,23 +153,30 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 > (list-only partial; un-deprecated once the SP-07 ×N skeleton hit four pages). **No
 > patterns remain 🔴.**
 
-| ID | Pattern | Used on | Status | Notes / spec |
-|---|---|---|---|---|
-| SP-01 | **Primary nav** | all | 🟠 first draft | sticky top · no hamburger · [spec](41-patterns.md#sp-01--primary-nav) |
-| SP-02 | **Footer** | all | 🟠 first draft | 2 zones: SP-09 wall + bottom row · [spec](41-patterns.md#sp-02--footer) |
-| SP-03 | **Hero — home** | P-01 only | 🟠 first draft | thin entry (page-specific); spec lives in [42-briefs/01-home §1](42-briefs/01-home.md) · [spec](41-patterns.md#sp-03--hero--home) |
-| SP-04 | **Subpage top** | P-02 … P-18 | 🟠 first draft | eyebrow + h1 + lede default; variant B = SP-13 sibling · [spec](41-patterns.md#sp-04--subpage-top) |
-| SP-05 | **Project card** | P-01 §3, P-02, P-05, agenda | 🟠 first draft | cover (optional) + title + 1-line desc + whole-card link · variants A photo / B text-only · [spec](41-patterns.md#sp-05--project-card) |
-| SP-06 | **Editie card** | P-05, P-06, agenda | 🟠 first draft | dated cousin of SP-05; typed dates per [Glossary](../glossary.md); spec in [41-patterns](41-patterns.md#sp-06--editie-card) |
-| SP-07 | **Date-row** | P-01 §4, P-03, P-05, P-06, P-12 | 🟠 first draft | atomic agenda row · variants A condensed / B full · type enum from Glossary · [spec](41-patterns.md#sp-07--date-row) |
-| SP-08 | **Agenda list** | P-01 §4, P-03 §4, P-18 §3, mariage-editie §6 | 🟠 first draft | [`partials/agenda-list.blade.php`](../../../resources/views/partials/agenda-list.blade.php) — list-only wrapper around SP-07 (empty-state + bordered rows + optional trailing link). Props: events, href closure, emptyText, linkLabel?, linkHref?. **Revived 2026-05-28** (was deprecated). [spec](41-patterns.md#sp-08--agenda-list) |
-| SP-09 | **Funder / partner wall** | footer + home strip + P-05 §6 inline | 🟠 first draft | 4 tiers · 3 variants A Full / B Featured / C Inline (drafted with P-05) · [spec](41-patterns.md#sp-09--funder--partner-wall) |
-| SP-10 | **Inschrijving form** | editie pages | 🟠 first draft | [`partials/inschrijving-form.blade.php`](../../../resources/views/partials/inschrijving-form.blade.php) — server-handled (POST /inschrijving). **Interest-only** slice of [Dn-03](01-concerns.md): emails team, stores nothing. Live on Mariage editie §5. Participant DB + minors + ESP deferred. |
-| SP-11 | **Contact pattern** | P-09 §8, P-10 §6 (inline first uses) | 🟠 first draft | h2 + intro + mailto primary + ghost secondary + GDPR-blocked annotation; lift to `partials/contact.blade.php` on 3rd caller |
-| SP-16 | **Open-call band** | P-01 (between §1+§2, no section slot) + P-05 (above §4) + work-grid chip P-01/P-02 | 🟠 first draft | conditional · self-removing · variants `home`/`project` · eyebrow `NIEUWE EDITIE` + CTA `Ontdek deze editie` + optional closing-date line · [spec](41-patterns.md#sp-16--open-call-band) |
-| SP-12 | **Quote / testimony block** | P-04 §5, P-05 §5, P-06 (Hadja), P-09 §6, P-14 §5, P-15 §3 | 🟠 first draft | [`partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) — variant A inline / B standalone / C pull-quote · no portrait by default |
-| SP-13 | **Photo block** | P-01 §2, many | 🟠 first draft | single editorial photo + credit · variants A full-width / B contained / C inline · missing-asset = collapse (Dn-20 guard) · [spec](41-patterns.md#sp-13--photo-block) |
-| SP-17 | **Map block** | P-19 §3 (P-18 §3 inline, niet-gemigreerd) | 🟠 first draft | [`partials/map.blade.php`](../../../resources/views/partials/map.blade.php) (NEW 2026-05-29) — live OSM via Leaflet (`resources/js/app.js`) · props lat/lng/label/zoom · grayscale `.map` · no-JS = OSM deep-link · OSM+Leaflet only (CLAUDE.md). P-18's inline map kan hierheen migreren bij 3e caller. |
+**Stage-kolommen** (zelfde statusbolletjes als de pagina-pipeline — 🔴 niet begonnen · 🟠 bezig ·
+🟢 goed · ⚪ n.v.t.):
+- **WF** — grayscale wireframe: het pattern is als partial gebouwd en rendert. 🟠 = first draft;
+  **🟢 pas na Frederiks eigen kritiek-pass** (zelfde gate als pagina's *Wire*).
+- **UI** — visuele/Surface-stap per pattern (kleur, type, detail). **🔴 overal** tot de Surface-plane
+  opent ([Dn-20](01-concerns.md)/[Dn-21](01-concerns.md)) — net als de pagina's `UI`-kolom.
+
+| ID | Pattern | Used on | WF | UI | Notes / spec |
+|---|---|---|---|---|---|
+| SP-01 | **Primary nav** | all | 🟢 | 🔴 | sticky top · no hamburger · [spec](41-patterns.md#sp-01--primary-nav) |
+| SP-02 | **Footer** | all | 🟢 | 🔴 | 2 zones: SP-09 wall + bottom row · [spec](41-patterns.md#sp-02--footer) |
+| SP-03 | **Hero — home** | P-01 only | 🟠 | 🔴 | thin entry (page-specific); spec lives in [42-briefs/01-home §1](42-briefs/01-home.md) · [spec](41-patterns.md#sp-03--hero--home) |
+| SP-04 | **Subpage top** | P-02 … P-18 | 🟢 | 🔴 | eyebrow + h1 + lede default; variant B = SP-13 sibling · [spec](41-patterns.md#sp-04--subpage-top) |
+| SP-05 | **Project card** | P-01 §3, P-02, P-05, agenda | 🟠 | 🔴 | cover (optional) + title + 1-line desc + whole-card link · variants A photo / B text-only · [spec](41-patterns.md#sp-05--project-card) |
+| SP-06 | **Editie card** | P-05, P-06, agenda | 🟠 | 🔴 | dated cousin of SP-05; typed dates per [Glossary](../glossary.md); spec in [41-patterns](41-patterns.md#sp-06--editie-card) |
+| SP-07 | **Date-row** | P-01 §4, P-03, P-05, P-06, P-12 | 🟢 | 🔴 | atomic agenda row · variants A condensed / B full · type enum from Glossary · [spec](41-patterns.md#sp-07--date-row) |
+| SP-08 | **Agenda list** | P-01 §4, P-03 §4, P-18 §3, mariage-editie §6 | 🟢 | 🔴 | [`partials/agenda-list.blade.php`](../../../resources/views/partials/agenda-list.blade.php) — list-only wrapper around SP-07 (empty-state + bordered rows + optional trailing link). Props: events, href closure, emptyText, linkLabel?, linkHref?. **Revived 2026-05-28** (was deprecated). [spec](41-patterns.md#sp-08--agenda-list) |
+| SP-09 | **Funder / partner wall** | footer + home strip + P-05 §6 inline | 🟢 | 🔴 | 4 tiers · 3 variants A Full / B Featured / C Inline (drafted with P-05) · [spec](41-patterns.md#sp-09--funder--partner-wall) |
+| SP-10 | **Inschrijving form** | editie pages | 🟠 | 🔴 | [`partials/inschrijving-form.blade.php`](../../../resources/views/partials/inschrijving-form.blade.php) — server-handled (POST /inschrijving). **Interest-only** slice of [Dn-03](01-concerns.md): emails team, stores nothing. Live on Mariage editie §5. Participant DB + minors + ESP deferred. |
+| SP-11 | **Contact pattern** | P-09 §8, P-10 §6 (inline first uses) | 🟠 | 🔴 | h2 + intro + mailto primary + ghost secondary + GDPR-blocked annotation; lift to `partials/contact.blade.php` on 3rd caller |
+| SP-16 | **Open-call band** | P-01 (between §1+§2, no section slot) + P-05 (above §4) + work-grid chip P-01/P-02 | 🟠 | 🔴 | conditional · self-removing · variants `home`/`project` · eyebrow `NIEUWE EDITIE` + CTA `Ontdek deze editie` + optional closing-date line · [spec](41-patterns.md#sp-16--open-call-band) |
+| SP-12 | **Quote / testimony block** | P-04 §5, P-05 §5, P-06 (Hadja), P-09 §6, P-14 §5, P-15 §3 | 🟠 | 🔴 | [`partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) — variant A inline / B standalone / C pull-quote · no portrait by default |
+| SP-13 | **Photo block** | P-01 §2, many | 🟠 | 🔴 | single editorial photo + credit · variants A full-width / B contained / C inline · missing-asset = collapse (Dn-20 guard) · [spec](41-patterns.md#sp-13--photo-block) |
+| SP-17 | **Map block** | P-19 §3, P-18 §3 | 🟠 | 🔴 | [`partials/map.blade.php`](../../../resources/views/partials/map.blade.php) (NEW 2026-05-29) — live OSM via Leaflet (`resources/js/app.js`) · props lat/lng/label/zoom · grayscale `.map` · no-JS = OSM deep-link · OSM+Leaflet only (CLAUDE.md). P-18's inline map kan hierheen migreren bij 3e caller. |
 
 ## Page registry — single source of status truth
 
@@ -173,8 +185,8 @@ Type = section-budget tier (Utility / Marketing / Conversion).
 
 | ID | Page | Slug | Type | UX | Conf | Wire | Assets | UI | Back | OK | Top gaps |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| P-01 | **Home** | `/` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Kristin review NL strawman + confirm "sinds 2010" jaartal; `[asset]` hero photo + 4 card covers (Surface); `[content]` real partner data (SharePoint). §4 live from Event model; renders desktop+mobile, em-dash-free copy + full-width mobile CTAs — **awaiting Frederik's critique+refine before 🟢**. Brief: [42-briefs/01-home](42-briefs/01-home.md) |
-| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Mkt 3 (hub) | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[asset]` 7 foto's (hero + 2 spoor-banden + 4 card-placeholders, Surface); `[client]` Schoemaker rol/consent + deelnemer-quote (Hadja, consent); `[content]` Kristin tone-pass + h1/lede final; `[content]` Dn-26 "16 jaar"-ruling. Redesign live: beeldgedragen hero + 2 sporen (doe-zelf-mee / breng-Leon-naar-jouw-plek) + 4 on-ramp cards; Mariage open-call chip live from Edition model; 16-jaar-claim pulled (Dn-26); em-dash/banned-word-free — **awaiting Frederik's critique+refine before 🟢**. Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) |
+| P-01 | **Home** | `/` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Kristin review NL strawman; `[content]` 2010-startjaar feitelijk bevestigen (Sam) — 16/5-jaar framing toegepast (Dn-26 closed); `[asset]` hero photo + 4 card covers (Surface); `[content]` real partner data (SharePoint). §4 live from Event model; renders desktop+mobile, em-dash-free copy + full-width mobile CTAs — **awaiting Frederik's critique+refine before 🟢**. Brief: [42-briefs/01-home](42-briefs/01-home.md) |
+| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Mkt 3 (hub) | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[asset]` 7 foto's (hero + 2 spoor-banden + 4 card-placeholders, Surface); `[client]` Schoemaker rol/consent + deelnemer-quote (Hadja, consent); `[content]` Kristin tone-pass + h1/lede final. Redesign live: beeldgedragen hero + 2 sporen (doe-zelf-mee / breng-Leon-naar-jouw-plek) + 4 on-ramp cards; Mariage open-call chip live from Edition model; 16-jaar-claim pulled (Dn-26); em-dash/banned-word-free — **awaiting Frederik's critique+refine before 🟢**. Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) |
 | P-03 | **Atelier Leon** | `/dansateliers-performances/atelier-leon` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | `[content]` §4 times + venue addresses confirm (Sam/Kristin); `[content]` leeftijd-claim (consent); `[asset]` hero photo (Pianofabriek set). §4 "Waar en wanneer" + eerstvolgende live from Atelier/Venue models (Phase-1 normalization). Brief: [03-atelier-leon](42-briefs/03-atelier-leon.md) |
 | P-04 | **Leon op school** | `/dansateliers-performances/leon-op-school` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Schoemaker quote consent (§5); `[content]` welzijn + zorg sector partner-org names (SharePoint); `[content]` cadence verify across sectors. Brief: [04-leon-op-school](42-briefs/04-leon-op-school.md) |
 | P-05 | **Mariage** (project) | `/dansateliers-performances/mariage` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🟠 | 🔴 | 🟠 | 🔴 | `[content]` §5 + §6 strawman te bevestigen (Sam/Kristin); `[client]` Hadja quote consent; `[asset]` hero + editie cover photos. Editie-grid + open-call band (SP-16) live from Editie model; 6 real editions from current-site mirror + 1 invented future editie for sign-up testing. **§5 traject + embedded SP-12 quote + §6 commission CTA (Plan een gesprek → opzetten, SP-09 C inline partners) + Vimeo trailer in §2 + new upcoming-performance band now built** (render-verified; awaits Frederik's Wire-🟢 pass). Brief: [05-mariage](42-briefs/05-mariage.md) |

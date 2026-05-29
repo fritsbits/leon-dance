@@ -5,7 +5,9 @@
     <div class="row" id="{{ $p['id'] }}">
       <div class="rid">{{ $p['id'] }}</div>
       <div>
-        <b>{{ $p['name'] }}</b> <span class="badge">{{ $p['status'] }}</span>
+        <b>{{ $p['name'] }}</b>
+        <span class="badge">WF {{ $p['stages']['wire']->emoji() }}</span>
+        <span class="badge">UI {{ $p['stages']['ui']->emoji() }}</span>
         @if (! empty($p['drift']))<span class="warn" title="{{ implode(' · ', $p['drift']) }}">⚠</span>@endif
         <br><span class="gaps">used on: {!! BuildStatus::linkify($p['usedOn'], $idMap) !!}</span>
       </div>
