@@ -213,6 +213,20 @@
   .map .leaflet-control-attribution a { color: var(--color-text-muted); }
   .map .leaflet-attribution-flag { display: none !important; }
 
+  /* Permanent location label — grayscale, border-not-shadow */
+  .map .leaflet-tooltip {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .map .leaflet-tooltip-top::before { border-top-color: var(--color-border); }
+
   .meta { color: var(--color-text-faint); font-size: 0.875rem; }
 
   /* Filter chip — single-select pill (segmented control feel). 44px tap target. */

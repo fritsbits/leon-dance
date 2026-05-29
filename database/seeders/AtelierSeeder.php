@@ -14,14 +14,14 @@ class AtelierSeeder extends Seeder
         $piano = Venue::where('name', 'Pianofabriek')->first();
         $maison = Venue::where('name', 'Maison des Cultures')->first();
 
-        // The open ateliers ARE "Atelier Leon".
+        // The open ateliers ARE "Atelier Leon". Slug = venue, used by the detail page route.
         Atelier::updateOrCreate(
             ['type' => AtelierType::Open->value, 'venue_id' => $piano?->id, 'day_of_week' => 3],
-            ['start_time' => '16:00', 'end_time' => '18:00', 'name' => 'Atelier Leon', 'is_active' => true, 'sort' => 1],
+            ['slug' => 'pianofabriek', 'start_time' => '16:00', 'end_time' => '18:00', 'name' => 'Atelier Leon', 'is_active' => true, 'sort' => 1],
         );
         Atelier::updateOrCreate(
             ['type' => AtelierType::Open->value, 'venue_id' => $maison?->id, 'day_of_week' => 6],
-            ['start_time' => '10:00', 'end_time' => '12:00', 'name' => 'Atelier Leon', 'is_active' => true, 'sort' => 2],
+            ['slug' => 'maison-des-cultures', 'start_time' => '10:00', 'end_time' => '12:00', 'name' => 'Atelier Leon', 'is_active' => true, 'sort' => 2],
         );
 
         // Leon op school — a school traject (no fixed weekly slot).

@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'title' => 'De mobiele dansstudio uitnodigen — Leon',
+    'title' => 'De mobiele dansstudio uitnodigen · Leon',
     'description' => 'Voor programmatoren en organisatoren die Leon\'s mobiele dansstudio een week of een seizoen op hun plek willen. Technische fiche, kostenkader, en hoe een boeking verloopt.',
 ])
 
@@ -18,7 +18,7 @@
             <h2>Wat is de mobiele dansstudio?</h2>
             <p class="mt-4">
                 Een verplaatsbare dansvloer op een fietsaanhangwagen. We brengen hem
-                naar pleinen, scholen en festivals — een dansplek die naar de mensen
+                naar pleinen, scholen en festivals, een dansplek die naar de mensen
                 toe komt, niet andersom. De volledige beschrijving, de zomerformule
                 en het beeldarchief vind je op de pagina van de mobiele dansstudio zelf.
             </p>
@@ -36,14 +36,14 @@
             <h2>Wanneer past het?</h2>
             <p class="mt-4">
                 De mobiele dansstudio werkt het best op plekken waar mensen al langs
-                komen — pleinen, festivals, schoolpoorten, parken. Niet in een
+                komen: pleinen, festivals, schoolpoorten, parken. Niet in een
                 afgesloten zaal: het ding is gebouwd voor de open ruimte.
             </p>
             <ul class="mt-6 space-y-3">
-                <li><strong class="font-medium">Festivals</strong> — als zichtbare dansplek tussen het programma door.</li>
-                <li><strong class="font-medium">Publieke ruimte</strong> — pleinen, parken, woonwijken, marktdagen.</li>
-                <li><strong class="font-medium">Zomerprogrammatie</strong> — een week of meer op één locatie, met dagelijkse momenten.</li>
-                <li><strong class="font-medium">Projectweken</strong> — scholen, jeugdwerk, buurthuizen, vakantiekampen.</li>
+                <li><strong class="font-medium">Festivals:</strong> als zichtbare dansplek tussen het programma door.</li>
+                <li><strong class="font-medium">Publieke ruimte:</strong> pleinen, parken, woonwijken, marktdagen.</li>
+                <li><strong class="font-medium">Zomerprogrammatie:</strong> een week of meer op één locatie, met dagelijkse momenten.</li>
+                <li><strong class="font-medium">Projectweken:</strong> scholen, jeugdwerk, buurthuizen, vakantiekampen.</li>
             </ul>
         </div>
     </section>
@@ -69,7 +69,7 @@
             <h3 class="mt-12">Wat het kost</h3>
             <p class="mt-4">
                 Een vergoeding in overleg, afhankelijk van duur, locatie en context.
-                We hanteren geen vaste prijslijst — een week op een festival is iets
+                We hanteren geen vaste prijslijst. Een week op een festival is iets
                 anders dan een namiddag op een schoolplein. We bekijken het per
                 aanvraag en sturen je een voorstel.
             </p>
@@ -105,7 +105,7 @@
         <div class="container-text">
             @include('partials.contact-form', [
                 'heading'     => 'Plan een boeking',
-                'intro'       => 'Laat ons weten wat je in gedachten hebt — we nemen binnen een week contact op met een eerste reactie.',
+                'intro'       => 'Laat ons weten wat je in gedachten hebt. We nemen binnen een week contact op met een eerste reactie.',
                 'onderwerp'   => 'mobiele-dansstudio',
                 'berichtHelp' => 'Vermeld gerust locatie, datum en doelpubliek.',
                 'submitLabel' => 'Verstuur aanvraag',

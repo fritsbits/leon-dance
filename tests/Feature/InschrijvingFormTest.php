@@ -16,12 +16,17 @@ class InschrijvingFormTest extends TestCase
     {
         parent::setUp();
 
+        $project = \App\Models\Project::firstOrCreate(
+            ['slug' => 'mariage'],
+            ['name' => 'Mariage'],
+        );
+
         Edition::create([
-            'project_slug' => 'mariage',
-            'slug'         => 'brussel-2026',
-            'stad'         => 'Brussel',
-            'jaar'         => 2026,
-            'starts_at'    => '2026-09-01',
+            'project_id'        => $project->id,
+            'slug'              => 'brussel-2026',
+            'stad'              => 'Brussel',
+            'jaar'              => 2026,
+            'starts_at'         => '2026-09-01',
             'inschrijving_open' => true,
         ]);
     }

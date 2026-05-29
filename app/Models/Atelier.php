@@ -15,9 +15,14 @@ class Atelier extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'venue_id', 'day_of_week', 'start_time', 'end_time',
+        'type', 'venue_id', 'slug', 'day_of_week', 'start_time', 'end_time',
         'name', 'lead', 'is_active', 'sort',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     protected $casts = [
         'type' => AtelierType::class,
@@ -78,5 +83,23 @@ class Atelier extends Model
     {
         return $this->name
             ?: $this->type->label().' · '.($this->venue?->name ?? '—').' · '.$this->dayLabel();
+    }
+
+    /** Title as it reads on the detail page + agenda rows: "Atelier Leon · Pianofabriek". */
+    public function titleWithVenue(): string
+    {
+        $base = $this->name ?: $this->type->label();
+
+        return $this->venue?->name ? $base.' · '.$this->venue->name : $base;
+    }
+
+    /** Next public events at this atelier (the agenda, scoped to this slot). */
+    public function upcomingEvents(int $limit = 6)
+    {
+        return $this->events()
+            ->where('is_public', true)
+            ->upcoming()
+            ->get()
+            ->take($limit);
     }
 }

@@ -12,7 +12,7 @@
     @if (session('contact_success'))
         <div class="form-success" role="status">
             <p class="text-[var(--color-text)]">
-                Bedankt — je aanvraag is onderweg. We laten binnen een week iets van ons horen.
+                Bedankt. Je aanvraag is onderweg. We laten binnen een week iets van ons horen.
             </p>
         </div>
     @else
@@ -20,7 +20,7 @@
 
         @if ($errors->any())
             <div class="form-error-summary" role="alert">
-                Niet helemaal gelukt — kijk de gemarkeerde velden even na.
+                Niet helemaal gelukt. Kijk de gemarkeerde velden even na.
             </div>
         @endif
 

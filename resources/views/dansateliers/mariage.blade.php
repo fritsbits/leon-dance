@@ -4,7 +4,7 @@
     \Carbon\Carbon::setLocale('nl');
 
     $edities = \App\Models\Edition::query()
-        ->where('project_slug', 'mariage')
+        ->whereHas('project', fn ($q) => $q->where('slug', 'mariage'))
         ->orderByDesc('starts_at')
         ->get();
 

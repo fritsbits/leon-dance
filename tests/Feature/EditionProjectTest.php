@@ -15,7 +15,7 @@ class EditionProjectTest extends TestCase
     {
         $project = Project::create(['slug' => 'mariage', 'name' => 'Mariage']);
         $edition = Edition::create([
-            'project_id' => $project->id, 'project_slug' => 'mariage',
+            'project_id' => $project->id,
             'slug' => 'brussel-2099', 'stad' => 'Brussel', 'jaar' => 2099,
             'starts_at' => now(), 'ends_at' => now()->addMonth(),
         ]);

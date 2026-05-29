@@ -8,8 +8,8 @@
     $groepHeading = $status === 'afgelopen' ? 'Wie deed mee' : 'Wie doet mee';
 
     $heroLede = $editie->groep_prose_intro
-        ? 'Tien weken samen dansen in ' . $editie->stad . ', met ' . ($editie->groep_size ?? 'een groep') . ' ' . ($editie->stadgenoot ?? 'mensen') . ' en de kerngroep van Leon.'
-        : 'Eén editie van Mariage in ' . $editie->stad . '. Lokale groep, eigen periode, eigen voorstellingen — alle praktische info op deze pagina.';
+        ? 'Samen dansen in ' . $editie->stad . ', met ' . ($editie->groep_size ?? 'een groep') . ' ' . ($editie->stadgenoot ?? 'mensen') . ' en de kerngroep van Leon.'
+        : 'Eén editie van Mariage in ' . $editie->stad . '. Open ateliers, repetities en een voorstelling. Alle praktische info op deze pagina.';
 
     // §6 — voorstellingen for this editie (live from the Event model, via the relation)
     $voorstellingen = $editie->events()
@@ -20,8 +20,8 @@
 @endphp
 
 @extends('layouts.app', [
-    'title'       => 'Mariage — ' . $titleLabel . ' · Leon',
-    'description' => $titleLabel . ' — één editie van Mariage. ' . ($editie->periode ?? '') . ' Lokale groep in ' . $editie->stad . '.',
+    'title'       => 'Mariage: ' . $titleLabel . ' · Leon',
+    'description' => $titleLabel . ': één editie van Mariage. ' . ($editie->periode ?? '') . ' Lokale groep in ' . $editie->stad . '.',
 ])
 
 @section('content')
@@ -76,9 +76,8 @@
                     <p>{{ $editie->groep_prose_intro }}</p>
                 @else
                     <p class="meta">
-                        Een groep van {{ $editie->groep_size ?? '[~aantal]' }} {{ $editie->stadgenoot ?? 'mensen' }} tussen
-                        {{ $editie->groep_age ?? '[leeftijd]' }} {{ $status === 'afgelopen' ? 'vormde' : 'vormt' }}
-                        de lokale cast van deze editie. Tien weken samen repeteren naar de voorstellingen toe.
+                        Deelnemers, vrijwilligers en passanten {{ $status === 'afgelopen' ? 'vormden' : 'vormen' }}
+                        samen met de kern van Leon de groep van deze editie.
                         <span class="block mt-2">[Per-editie prose — te leveren door team · gap #3]</span>
                     </p>
                 @endif
@@ -101,17 +100,13 @@
             <h2 class="mb-6">Inschrijving</h2>
             <div class="max-w-[var(--max-content)]">
                 @if ($editie->isInschrijvingOpen())
-                    <p>De groep voor {{ $titleLabel }} vormt zich nu. Doe je mee? Wij horen graag van je.</p>
-                    @if ($editie->inschrijvingClosesSoon())
-                        <p class="meta mt-2">Inschrijven kan tot {{ $editie->inschrijving_closes_at->translatedFormat('j F') }}.</p>
-                    @endif
-                    <p class="mt-6">
-                        <a href="mailto:hello@leon.dance?subject=Mariage%20{{ rawurlencode($titleLabel) }}" class="btn-primary">Schrijf je in</a>
-                    </p>
-                    <p class="meta mt-4">
-                        {{-- SP-10 form blocked by Dn-03 (minderjarigen). Mailto bridge until it clears. --}}
-                        Inschrijvingsformulier volgt zodra de GDPR-flow geklaard is.
-                    </p>
+                    @include('partials.inschrijving-form', [
+                        'editieSlug' => $editie->slug,
+                        'intro'      => 'De groep voor ' . $titleLabel . ' vormt zich nu. Doe je mee? Wij horen graag van je.',
+                        'note'       => $editie->inschrijvingClosesSoon()
+                            ? 'Inschrijven kan tot ' . $editie->inschrijving_closes_at->translatedFormat('j F') . '.'
+                            : null,
+                    ])
                 @elseif ($status !== 'afgelopen')
                     <p>De inschrijvingen voor deze editie zijn gesloten. Wil je een volgende editie meedoen? Hou de projectpagina in het oog.</p>
                     <p class="mt-6"><a href="{{ route('dansateliers.mariage') }}" class="btn-ghost">→ Naar Mariage</a></p>
@@ -126,26 +121,17 @@
     {{-- §6 Voor publiek — voorstellingen (SP-07 × n · live from Event model) --}}
     <section class="section border-t border-[var(--color-border)]">
         <div class="container-wide">
-            <h2 class="mb-8">Voor publiek — voorstellingen</h2>
+            <h2 class="mb-8">Voor publiek: voorstellingen</h2>
 
+            @include('partials.agenda-list', [
+                'events'    => $voorstellingen,
+                'href'      => fn ($e) => route('agenda', ['project' => 'mariage', 'type' => EventType::Voorstelling->value]),
+                'emptyText' => 'Nog geen voorstellingen aangekondigd voor deze editie.',
+            ])
             @if ($voorstellingen->isEmpty())
-                <p class="meta">Nog geen voorstellingen aangekondigd voor deze editie.</p>
                 <p class="mt-6"><a href="{{ route('dansateliers.mariage') }}" class="btn-text">→ Naar Mariage</a></p>
             @else
-                <div class="border-t border-[var(--color-border-subtle)]">
-                    @foreach ($voorstellingen as $event)
-                        @include('partials.date-row', [
-                            'date'     => strtoupper($event->starts_at->isoFormat('dd D.MM')),
-                            'time'     => $event->starts_at->format('H:i'),
-                            'type'     => $event->title,
-                            'location' => $event->venue ?? '—',
-                            'href'     => route('agenda', ['project' => 'mariage', 'type' => EventType::Voorstelling->value]),
-                        ])
-                    @endforeach
-                </div>
-                <p class="mt-6">
-                    <a href="{{ route('agenda', ['project' => 'mariage', 'type' => EventType::Voorstelling->value]) }}" class="btn-text">→ Volledige agenda</a>
-                </p>
+                <p class="mt-6"><a href="{{ route('agenda', ['project' => 'mariage', 'type' => EventType::Voorstelling->value]) }}" class="btn-text">→ Volledige agenda</a></p>
             @endif
         </div>
     </section>

@@ -28,7 +28,13 @@ function initLeafletMaps() {
             iconAnchor: [8, 8],
         });
         const marker = L.marker([lat, lng], { icon }).addTo(map);
-        if (el.dataset.label) marker.bindPopup(el.dataset.label);
+        if (el.dataset.label) {
+            marker.bindTooltip(el.dataset.label, {
+                permanent: true,
+                direction: 'top',
+                offset: [0, -10],
+            });
+        }
     });
 }
 

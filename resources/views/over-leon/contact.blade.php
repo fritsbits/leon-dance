@@ -1,3 +1,16 @@
+@php
+    use App\Enums\EventType;
+
+    $upcomingAteliers = \App\Models\Event::query()
+        ->where('is_public', true)
+        ->ofType(EventType::OpenAtelier)
+        ->upcoming()
+        ->limit(3)
+        ->get();
+
+    \Carbon\Carbon::setLocale('nl');
+@endphp
+
 @extends('layouts.app', [
     'title' => 'Contact',
     'description' => 'Mail ons op hello@leon.dance, bel +32 456 91 26 41, kom langs in Sint-Jans-Molenbeek, of laat meteen een bericht achter.',
@@ -9,7 +22,7 @@
     @include('partials.page-header', [
         'eyebrow' => 'Over Leon',
         'title'   => 'Contact',
-        'lede'    => 'Mail, bel of kom langs. Of laat hieronder meteen een bericht achter — we komen er snel op terug.',
+        'lede'    => 'Mail, bel of kom langs. Of laat hieronder meteen een bericht achter. We komen er snel op terug.',
     ])
 
     {{-- §2 Contact — direct details (left) + message form (right, primary action) --}}
@@ -61,27 +74,32 @@
             <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-[var(--max-content)]">
                 <div>
                     <address class="not-italic text-[var(--color-text-muted)]">
-                        <span class="font-medium text-[var(--color-text)]">Lion City</span> <span class="meta">— bezoekadres</span><br>
+                        <span class="font-medium text-[var(--color-text)]">Lion City</span> <span class="meta">(bezoekadres)</span><br>
                         Ossegemstraat 53<br>
                         1080 Sint-Jans-Molenbeek
                     </address>
 
                     <h3 class="mt-12">Of vind ons in een open atelier</h3>
-                    <ul class="mt-3 space-y-2">
-                        <li><span class="font-medium">Woensdag</span> · Pianofabriek, rue du Fortstraat 35, 1060 Sint-Gillis</li>
-                        <li><span class="font-medium">Zaterdag</span> · Maison des Cultures, 1080 Sint-Jans-Molenbeek</li>
-                    </ul>
+                    <div class="mt-3">
+                        @include('partials.agenda-list', [
+                            'events'    => $upcomingAteliers,
+                            'href'      => fn ($e) => route('agenda', ['type' => 'open_atelier']),
+                            'emptyText' => 'Geen aankomende open ateliers in de agenda.',
+                            'linkLabel' => '→ Alle open ateliers',
+                            'linkHref'  => route('agenda', ['type' => 'open_atelier']),
+                        ])
+                    </div>
                 </div>
 
                 {{-- Live OpenStreetMap via Leaflet (resources/js/app.js). No-JS falls back to the
                      deep-link below. Per CLAUDE.md: OpenStreetMap + Leaflet only; grayscale via .map. --}}
                 <div data-leaflet-map
-                     data-lat="50.8616" data-lng="4.3300" data-zoom="16"
-                     data-label="Leon vzw · Lion City, Ossegemstraat 53"
+                     data-lat="50.8552" data-lng="4.3201" data-zoom="15"
+                     data-label="Lion City · Ossegemstraat 53"
                      class="map">
                     <noscript>
                         <div class="flex h-full items-center justify-center p-6 text-center">
-                            <a href="https://www.openstreetmap.org/?mlat=50.8616&amp;mlon=4.3300#map=16/50.8616/4.3300"
+                            <a href="https://www.openstreetmap.org/?mlat=50.8552&amp;mlon=4.3201#map=15/50.8552/4.3201"
                                rel="noopener" target="_blank" class="btn-text">Bekijk op OpenStreetMap →</a>
                         </div>
                     </noscript>

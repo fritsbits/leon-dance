@@ -21,9 +21,8 @@ class MariagePageTest extends TestCase
         );
 
         return Edition::create(array_merge([
-            'project_id'   => $project->id,
-            'project_slug' => 'mariage',
-            'slug'         => 'teststad-2026',
+            'project_id' => $project->id,
+            'slug'       => 'teststad-2026',
             'stad'         => 'Teststad',
             'jaar'         => 2026,
             'starts_at'    => now()->subWeek(),
@@ -33,13 +32,11 @@ class MariagePageTest extends TestCase
     private function makeVoorstelling(Edition $editie, $startsAt, array $overrides = []): Event
     {
         return Event::create(array_merge([
-            'type'         => EventType::Voorstelling,
-            'title'        => 'Mariage',
-            'edition_id'   => $editie->id,
-            'project_slug' => 'mariage',
-            'editie_slug'  => $editie->slug,
-            'starts_at'    => $startsAt,
-            'is_public'    => true,
+            'type'       => EventType::Voorstelling,
+            'title'      => 'Mariage',
+            'edition_id' => $editie->id,
+            'starts_at'  => $startsAt,
+            'is_public'  => true,
         ], $overrides));
     }
 

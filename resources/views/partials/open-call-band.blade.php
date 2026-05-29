@@ -16,11 +16,11 @@
                 </p>
                 <h2 class="mb-3">
                     {{ $variant === 'home'
-                        ? 'Mariage ' . $label . ' — de groep vormt zich nu.'
+                        ? 'Mariage ' . $label . '. De groep vormt zich nu.'
                         : 'De groep vormt zich nu. Doe je mee?' }}
                 </h2>
                 <p class="max-w-[var(--max-content)]">
-                    Tien weken samen dansen, richting de voorstelling. Doe je mee?
+                    Meedoen kan: open ateliers, repetities en de voorstelling zelf.
                 </p>
                 @if ($editie->inschrijvingClosesSoon())
                     <p class="meta mt-2">Inschrijven kan tot {{ $editie->inschrijving_closes_at->translatedFormat('j F') }}.</p>

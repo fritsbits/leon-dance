@@ -3,7 +3,7 @@
      Adds an "open call" chip (SP-16 sibling) on the Mariage card when a call is open. --}}
 @php
     $openCallEditie = \App\Models\Edition::query()
-        ->where('project_slug', 'mariage')
+        ->whereHas('project', fn ($q) => $q->where('slug', 'mariage'))
         ->openInschrijving()
         ->orderBy('starts_at')
         ->first();

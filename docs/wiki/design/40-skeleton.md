@@ -173,7 +173,7 @@ Type = section-budget tier (Utility / Marketing / Conversion).
 | ID | Page | Slug | Type | UX | Conf | Wire | Assets | UI | Back | OK | Top gaps |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | P-01 | **Home** | `/` | Conv 6–8 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[content]` Kristin review NL strawman + confirm "sinds 2010" jaartal; `[asset]` hero photo + 4 card covers (Surface); `[content]` real partner data (SharePoint). §4 live from Event model; renders desktop+mobile, em-dash-free copy + full-width mobile CTAs — **awaiting Frederik's critique+refine before 🟢**. Brief: [42-briefs/01-home](42-briefs/01-home.md) |
-| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` 4 card descriptions tone-check (Kristin); `[asset]` cover photo per sub-item (Surface). Renders desktop+mobile; shared work-grid copy + lede em-dash/banned-word-free — **awaiting critique+refine before 🟢**. Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) |
+| P-02 | **Dansateliers & performances** (index) | `/dansateliers-performances` | Mkt 3 (hub) | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟠 | 🔴 | `[asset]` 7 foto's (hero + 2 spoor-banden + 4 card-placeholders, Surface); `[client]` Schoemaker rol/consent + deelnemer-quote (Hadja, consent); `[content]` Kristin tone-pass + h1/lede final; `[content]` Dn-26 "16 jaar"-ruling. Redesign live: beeldgedragen hero + 2 sporen (doe-zelf-mee / breng-Leon-naar-jouw-plek) + 4 on-ramp cards; Mariage open-call chip live from Edition model; 16-jaar-claim pulled (Dn-26); em-dash/banned-word-free — **awaiting Frederik's critique+refine before 🟢**. Brief: [02-dansateliers-performances](42-briefs/02-dansateliers-performances.md) |
 | P-03 | **Atelier Leon** | `/dansateliers-performances/atelier-leon` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | 🟢 | 🔴 | `[content]` §4 times + venue addresses confirm (Sam/Kristin); `[content]` leeftijd-claim (consent); `[asset]` hero photo (Pianofabriek set). §4 "Waar en wanneer" + eerstvolgende live from Atelier/Venue models (Phase-1 normalization). Brief: [03-atelier-leon](42-briefs/03-atelier-leon.md) |
 | P-04 | **Leon op school** | `/dansateliers-performances/leon-op-school` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[client]` Schoemaker quote consent (§5); `[content]` welzijn + zorg sector partner-org names (SharePoint); `[content]` cadence verify across sectors. Brief: [04-leon-op-school](42-briefs/04-leon-op-school.md) |
 | P-05 | **Mariage** (project) | `/dansateliers-performances/mariage` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🟠 | 🔴 | 🟠 | 🔴 | `[content]` §5 + §6 strawman te bevestigen (Sam/Kristin); `[client]` Hadja quote consent; `[asset]` hero + editie cover photos. Editie-grid + open-call band (SP-16) live from Editie model; 6 real editions from current-site mirror + 1 invented future editie for sign-up testing. **§5 traject + embedded SP-12 quote + §6 commission CTA (Plan een gesprek → opzetten, SP-09 C inline partners) + Vimeo trailer in §2 + new upcoming-performance band now built** (render-verified; awaits Frederik's Wire-🟢 pass). Brief: [05-mariage](42-briefs/05-mariage.md) |
@@ -190,25 +190,26 @@ Type = section-budget tier (Utility / Marketing / Conversion).
 | P-16 | **Team** | `/over-leon/team` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` per-persoon context lines for kerngroep; `[content]` per-artiest role-tags for ~12 geassocieerd pool; `[asset]` team-portretten rights-cleared. Brief: [16-team](42-briefs/16-team.md) · **SP-NEW-1 Person card** (P-16-local) |
 | P-17 | **Historiek** | `/over-leon/historiek` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §5 juried-selection rijen (Sam/Kristin); `[content]` jaartallen verify (2010 UV start · Atelier Quartier datum · Birds tour-direction); `[asset]` §6 editorial photo. Brief: [17-historiek](42-briefs/17-historiek.md) |
 | P-18 | **Contact** | `/over-leon/contact` | Util 3–5 | 🟢 | **4** | 🟢 | ⚪ | 🔴 | 🟢 | 🔴 | `[client]` Sam confirms snapshot data (email · phone · 2 addresses · BTW); `[content]` "in voorbereiding" tag wording (shared with P-08). OSM coords fixed (Osseghemstraat 53, zoom 15, permanent label) + open-atelier list live from Event model. Brief: [18-contact](42-briefs/18-contact.md) |
+| P-19 | **Atelier Leon — losse atelierpagina** (detail, child of P-03) | `/dansateliers-performances/atelier-leon/{venue}` | Mkt 4–5 | 🟢 | **2** | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | `[code]` slug op `Atelier` + route/view nog te bouwen; `[content]` verschilt sfeer Pianofabriek-wo vs Maison-za genoeg voor aparte copy?; per-locatie "hoe geraak je er" + eerste-keer (team); `[data]` begeleider per atelier; `[asset]` één foto per zaal. Nieuw pattern: Leaflet-kaartblok (eerste kaart). Brief: [19-atelier-detail](42-briefs/19-atelier-detail.md) |
 
 ### Roll-up
 
-- **Page count:** 18 (NL v1).
+- **Page count:** 19 (NL v1) — P-19 added 2026-05-29 (child-detail of P-03).
 - **Pipeline model reworked 2026-05-28** to the build workflow: **UX · Conf · Wire ·
   Assets · UI · Back · OK** (was Brief · Wire · Content · Code · Approved). Content folds
   into Conf (readiness) + Wire (in-place); Assets + UI (Surface) split out; Code → Back
   (data/CMS, with ⚪ n.v.t. / ❓ te-beslissen states).
-- **Pipeline state:** **UX 🟢** for 17/18 (briefings done; P-11 🔴 — Dn-19). **Wire-🟢 gate:**
+- **Pipeline state:** **UX 🟢** for 18/19 (briefings done; P-11 🔴 — Dn-19). **Wire-🟢 gate:**
   a page reaches **🟢 only after Frederik's own critique + refine pass** — Claude's render/tone
   check takes a page to 🟠, not 🟢. Currently **🟢 P-18** only · **🟠** for 16 (of which
   **P-01, P-02, P-05, P-08, P-13** have had a render + tone-sweep pass — em-dash / banned-word fixes,
-  mobile-CTA — and are queued for that critique) · **🔴 P-11** (Dn-19).
+  mobile-CTA — and are queued for that critique) · **🔴 P-11** (Dn-19) **+ P-19** (new, not built).
   **UI 🔴** everywhere (Surface not opened); **Assets 🔴** except **P-18 ⚪** (no assets needed)
   and **P-05 🟠** (Vimeo trailer embedded in §2; hero + editie photos still pending).
-  **Back 🟠** where a backend runs (P-01/05/06/09/10/12/15), **🟢 P-18 + P-03** (open-atelier
+  **Back 🟠** where a backend runs (P-01/02/05/06/09/10/12/15), **🟢 P-18 + P-03** (open-atelier
   lists live; P-03 §4 cadence + eerstvolgende from Atelier/Venue models), ❓ elsewhere. **OK 🔴** everywhere.
-- **Avg content-confidence:** **2.9 / 5** (median 3, was 2.6). Only **1 page** at score
-  ≤ 2: **P-11 Doen** (1 — hard blocker). **P-06 Mariage editie** raised **2 → 3** once the
+- **Avg content-confidence:** **2.8 / 5** (median 3). **2 pages** at score
+  ≤ 2: **P-11 Doen** (1 — hard blocker) · **P-19 Atelier-detail** (2 — new, beeld-dependent + needs slug/route). **P-06 Mariage editie** raised **2 → 3** once the
   Editie model + seeded edities landed; editions are now the 6 real festival editions sourced
   from the current-site mirror (+ 1 invented future for sign-up testing), with per-editie
   prose/quotes still team-supplied (kept at 3). **P-18 Contact** highest at **4** (snapshot

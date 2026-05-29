@@ -8,7 +8,7 @@
     @include('partials.page-header', [
         'eyebrow' => 'Leon vzw',
         'title'   => 'Privacybeleid',
-        'lede'    => 'Wat we met je gegevens doen wanneer je ons contacteert — kort en concreet.',
+        'lede'    => 'Wat we met je gegevens doen wanneer je ons contacteert, kort en concreet.',
     ])
 
     <section class="section border-t border-[var(--color-border)]">
@@ -31,7 +31,7 @@
                     samenwerking uit groeit, om de eerste afspraken te maken. De grondslag is ons
                     gerechtvaardigd belang om op berichten te antwoorden (art. 6.1.f AVG); gaat het
                     om een concrete aanvraag of boeking, dan is het de stap vóór een overeenkomst
-                    (art. 6.1.b AVG). Je gegevens invullen is vrijwillig — zonder kunnen we je vraag
+                    (art. 6.1.b AVG). Je gegevens invullen is vrijwillig. Zonder kunnen we je vraag
                     niet beantwoorden. Via dit formulier schrijf je je niet in op een nieuwsbrief.</p>
             </div>
             <div>
@@ -65,7 +65,7 @@
                 <p>Heb je een vraag over je privacy? Mail
                     <a href="mailto:hello@leon.dance">hello@leon.dance</a>. Ben je niet tevreden met
                     hoe we met je gegevens omgaan, dan kan je terecht bij de
-                    Gegevensbeschermingsautoriteit, Drukpersstraat 35, 1000 Brussel —
+                    Gegevensbeschermingsautoriteit, Drukpersstraat 35, 1000 Brussel:
                     <a href="https://www.gegevensbeschermingsautoriteit.be">gegevensbeschermingsautoriteit.be</a>.</p>
             </div>
             <p class="meta">Laatst bijgewerkt: 28 mei 2026</p>

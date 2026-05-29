@@ -184,7 +184,7 @@ Mirrors [Strategy User Journey](../strategy/50-user-journey.md) — J1/J2/J3 map
   decided (F13 first). Each *editie* has a content lifecycle → Skeleton state inventory.
 - **Form backend?** **Custom server handler** + a *light* per-project/editie *inschrijving*
   store (list + export) + ESP push. Not Forms/Typeform. GDPR [Dn-03](01-concerns.md).
-  **Contact/booking form: BUILT 2026-05-28** on a legitimate-interest basis, email-only (no store) — see [spec](../../superpowers/specs/2026-05-28-contact-form-design.md). Dn-03's *inschrijving (minors)* + ESP slices stay blocked.
+  **Contact/booking form: BUILT 2026-05-28** on a legitimate-interest basis, email-only (no store) — see [spec](../../superpowers/specs/2026-05-28-contact-form-design.md). **Inschrijving-*interesse* form: BUILT 2026-05-28** (same basis, email-only). Dn-03's remaining slice = the **internal *stored*** participant store (minors consent). The **external newsletter / ESP migration** is separate — [Dn-11](01-concerns.md).
 - **Sponsors / partners?** **Yes** — tiered **funder/partner logo wall** (F2/F3) →
   **logo-band requirement → Structure**; per-funder figure sensitivity ([Dn-04](01-concerns.md)).
 - **Mixed-flow diagnostic?** **Agenda split** (participant agenda F1 vs. legitimacy/proof
@@ -205,7 +205,8 @@ Mirrors [Strategy User Journey](../strategy/50-user-journey.md) — J1/J2/J3 map
 - Custom build replacing Squarespace, Frederik-hosted; single launch.
 - ⚠️ **Notion-as-source coupling** — OPEN, *later/light*, research before recommending
   ([Dn-02](01-concerns.md)); not a Scope requirement.
-- GDPR/minors + *inschrijving* data + the Squarespace→ESP migration ([Dn-03](01-concerns.md)).
+- GDPR/minors for the **internal *stored* inschrijving** data ([Dn-03](01-concerns.md)). The
+  **external** Squarespace→ESP newsletter migration is a separate concern ([Dn-11](01-concerns.md)).
 - **Photo credits/rights — deferred, handled per-asset where needed; not a Scope blocker**
   ([Dn-15](01-concerns.md)). Coverage skew (≈63/70 archive photos = Atelier Leon +
   *Mariage*) is a SharePoint content-ask, non-blocking.
@@ -217,8 +218,8 @@ downstream design/build.
 
 - **Closed:** Strategy traceability ([Dn-01]) · ticketing ([Dn-05]) · media/feed ([Dn-06]) ·
   booking depth = contact-request ([Dn-18]) · donor/membership = Won't-Have ([Dn-17]).
-- **Open — research/material:** Notion coupling ([Dn-02]) · **[BLOCKER]** GDPR/minors +
-  migration ([Dn-03]) · safe **rubric-shaped** figures, never visible ([Dn-04]) ·
+- **Open — research/material:** Notion coupling ([Dn-02]) · **[BLOCKER]** GDPR/minors for the
+  internal stored participant data ([Dn-03]) · safe **rubric-shaped** figures, never visible ([Dn-04]) ·
   accessibility + brand kit ([Dn-10]) · **[BLOCKER]** ESP choice + migration + cost
   sign-off ([Dn-11]) · photo rights *(deferred, non-blocking)* ([Dn-15]).
 - **Open — verify with the team (next session):** the *publiek-vs-deelnemer editie flow*

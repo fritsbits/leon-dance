@@ -63,11 +63,16 @@
             @if ($ateliers->isNotEmpty())
                 <div class="grid md:grid-cols-2 gap-8">
                     @foreach ($ateliers as $atelier)
-                        <div>
-                            <p class="font-medium">{{ $atelier->dayLabel() }} · {{ $atelier->timeRange() }}</p>
+                        @php($detailHref = $atelier->slug ? route('dansateliers.atelier-leon.detail', $atelier) : null)
+                        <a @if ($detailHref) href="{{ $detailHref }}" @endif
+                           class="block no-underline group rounded-[var(--radius)] -mx-3 px-3 py-2 @if ($detailHref) hover:bg-[var(--color-hover)] @endif">
+                            <p class="font-medium @if ($detailHref) group-hover:underline @endif">{{ $atelier->dayLabel() }} · {{ $atelier->timeRange() }}</p>
                             <p class="font-medium mt-1">{{ $atelier->venue?->name }} <span class="meta">({{ $atelier->venue?->area }})</span></p>
                             <p class="meta mt-1">{{ $atelier->venue?->address }}</p>
-                        </div>
+                            @if ($detailHref)
+                                <p class="meta mt-2 text-[var(--color-text)]">Bekijk deze plek →</p>
+                            @endif
+                        </a>
                     @endforeach
                 </div>
             @else

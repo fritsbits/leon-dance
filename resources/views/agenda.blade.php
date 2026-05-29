@@ -68,7 +68,9 @@
             return route('dansateliers.mariage');
         }
         if ($event->atelier?->type === AtelierType::Open) {
-            return route('dansateliers.atelier-leon');
+            return $event->atelier->slug
+                ? route('dansateliers.atelier-leon.detail', $event->atelier)
+                : route('dansateliers.atelier-leon');
         }
         if ($event->atelier?->type === AtelierType::School) {
             return route('dansateliers.leon-op-school');

@@ -31,6 +31,13 @@ Route::post('/inschrijving', [InschrijvingController::class, 'store'])
 Route::prefix('dansateliers-performances')->name('dansateliers.')->group(function () {
     Route::view('/',                   'dansateliers.index')->name('index');
     Route::view('/atelier-leon',       'dansateliers.atelier-leon')->name('atelier-leon');
+    // One page per open-atelier instance (slot+venue). Open + active only; school
+    // ateliers and inactive slots 404. Bound by slug (Atelier::getRouteKeyName).
+    Route::get('/atelier-leon/{atelier}', function (\App\Models\Atelier $atelier) {
+        abort_unless($atelier->type === \App\Enums\AtelierType::Open && $atelier->is_active, 404);
+
+        return view('dansateliers.atelier-detail', ['atelier' => $atelier->load('venue')]);
+    })->name('atelier-leon.detail');
     Route::view('/leon-op-school',     'dansateliers.leon-op-school')->name('leon-op-school');
     Route::view('/mariage',            'dansateliers.mariage')->name('mariage');
     Route::get('/mariage/{editie}', function (\App\Models\Edition $editie) {

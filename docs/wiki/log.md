@@ -2,6 +2,57 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
+## [2026-05-29] design | P-19 Atelier Leon — losse atelierpagina (new page-type, UX speedrun)
+
+Live UX-planning speedrun w/ Frederik. New child-detail page-type under P-03: **one page
+per open `Atelier` instance** (Pianofabriek-wo, Maison-za), nested URL
+`/dansateliers-performances/atelier-leon/{venue}`, scope = open ateliers only, **with a
+Leaflet/OSM map** (project's first). Serves the post-decision visitor: locatie-specifieke
+logistiek + sfeer + eerstvolgende-hier + eerste-keer-geruststelling. Linked from P-03 §4
+"Waar en wanneer" block + agenda `date-row` titles. Brief
+[42-briefs/19-atelier-detail](design/42-briefs/19-atelier-detail.md) (Conf 2/5, all build
+stages 🔴 — needs slug on `Atelier` + route/view); registered P-19 in
+[40-skeleton](design/40-skeleton.md) registry + roll-up; [index](index.md) row added. Not
+built.
+
+## [2026-05-29] build | P-02 pipeline — reclassified to orientation hub + Back ❓→🟠
+
+Registry row ([40-skeleton](design/40-skeleton.md)) updated after the redesign + critique
+rounds: **Type** `Util 3–5` → `Mkt 3 (hub)` (brief reclassification, orientation hub /
+Mkt-register, 3 bands); **Back** `❓ → 🟠` (Mariage open-call chip reads `Edition::
+openInschrijving()` live, render-verified — consistent with P-01). Held: **Wire 🟠** (Claude
+caps at 🟠; awaits Frederik's own 🟢 pass), **Conf 3** (more asset-dependent now: 7 photo
+gaps + consent-pending quotes + open Dn-26), Assets/UI/OK 🔴. Top gaps rewritten (7 foto's,
+Schoemaker/Hadja consent, Dn-26 ruling, redesign-live note); roll-up Back-🟠 list += P-02.
+Verified via `BuildStatus::report()`: row parses, no warnings, no unexpected drift.
+
+## [2026-05-29] build | P-02 Dansateliers & performances — redesign built + critique-refined
+
+Built the P-02 redesign from the [02-brief](design/42-briefs/02-dansateliers-performances.md):
+beeldgedragen hero + two sporen (doe-zelf-mee / breng-Leon-naar-jouw-plek) with on-ramp
+cards, replacing the old 4-card utility index. Then three Frederik-led critique rounds
+refined it:
+
+- **Layout:** asymmetric side-by-side hero (headline high, not banner-then-text); sporen
+  **re-weighted** — spoor 1 (P1) leads with the prominent image, spoor 2 (P3/P4) is a
+  lighter text-led band. ⚠️ Overrides the brief's D-3 "two equal sporen" — brief to follow.
+- **On-ramps:** bridged with lead-in lines + feeling-first card copy; **Atelier Leon** card
+  carries live weekly cadence from the `Atelier` model (Wo Pianofabriek / Za Maison des
+  Cultures), richer than the lighter Mariage pointer.
+- **Quotes:** voice-matched (deelnemer in spoor 1, coördinator Schoemaker in spoor 2),
+  demoted to caption-weight; Schoemaker attribution now carries her **role**.
+- **Copy/facts:** removed banned word *traject*; replaced vague "echte weg" with a concrete
+  what-actually-happens line; pulled the **"al 16 jaar" longevity claim** from the hero
+  (→ **Dn-26**, see below) for a verifiable present-tense line.
+
+Renders desktop+mobile at https://leon.test/dansateliers-performances, em-dash-free public
+copy. Still **Wire 🟠** — awaiting Frederik's own critique+refine pass before 🟢.
+
+**Dn-26 added** (Open): the site-wide *"sinds 2010 / 16 jaar"* longevity frame conflates the
+practice lineage with **Leon vzw (opgericht 2021)** — needs a team/client ruling on what's
+honest; canonical home = Historiek. Number pulled from P-02; Home/Impact/Historiek still
+carry it pending the ruling. Readiness now Open 12 / Total 26.
+
 ## [2026-05-28] lint | Wiki prune — archive Discovery, drop -content.md, slim index
 
 Reduced the default reading path from ~159k to ~119k words (67 → 39 indexed files).
@@ -19,9 +70,11 @@ Reduced the default reading path from ~159k to ~119k words (67 → 39 indexed fi
 - **Verified:** `/build` dashboard parses clean (warnings empty, 18 pages, 14 patterns, 24
   concerns); link scan shows zero prune-caused dangling links (4 pre-existing typos + 8
   historical `log.md` links remain, left untouched).
-- Note: the `_archive` files were briefly git-tracked then untracked, so the add still sits
-  in local history — scrub commits `08d7d11..34fa1d0` before any `git push` to keep the
-  private Discovery evidence off the remote.
+- Follow-up (2026-05-29): the `_archive` files had already been pushed to the **public**
+  remote (in history, commit since rewritten away locally) before the archive decision.
+  Rather than rewrite shared public history, the team accepted it as not sensitive enough.
+  The files stay **untracked on disk** going forward (`.git/info/exclude`); the historical
+  commits remain in the repo. Treat the content as already public from 2026-05-28.
 
 ## [2026-05-28] build | P-05 Mariage — critique fixes + trailer + closing-performance band
 

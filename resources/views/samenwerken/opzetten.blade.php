@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'title' => 'Participatief dansproject opzetten — Leon',
+    'title' => 'Participatief dansproject opzetten · Leon',
     'description' => 'Wil je samen met Leon een participatief dansproject opzetten in jouw stad, school of organisatie? Plan een vrijblijvend gesprek.',
 ])
 
@@ -9,7 +9,7 @@
     @include('partials.page-header', [
         'eyebrow' => 'Samenwerken',
         'title'   => 'Een participatief dansproject opzetten',
-        'lede'    => 'Wil je samen met Leon iets opzetten in jouw stad, school of organisatie? Dat begint met een gesprek — vrijblijvend, en met ruimte om uit te zoeken of het past.',
+        'lede'    => 'Wil je samen met Leon iets opzetten in jouw stad, school of organisatie? Dat begint met een gesprek, vrijblijvend, en met ruimte om uit te zoeken of het past.',
     ])
 
     {{-- §3 Hoe het werkt (3 named steps) --}}
@@ -22,7 +22,7 @@
                     <h3>Kennismaking</h3>
                     <p class="mt-3">
                         We zoeken eerst uit wie jullie zijn en wat jullie willen. Een
-                        telefoon, een mail of een koffie — wat voor jullie past. Geen
+                        telefoon, een mail of een koffie, wat voor jullie past. Geen
                         vragenlijst, geen aanvraagformulier.
                     </p>
                 </div>
@@ -42,7 +42,7 @@
                     <p class="mt-3">
                         Als het klikt, bouwen we samen iets op maat. Cadens, partners,
                         financiering, de vorm van een eventuele voorstelling: alles wordt
-                        samen vastgelegd. Typisch zes maanden met wekelijkse sessies —
+                        samen vastgelegd. Typisch zes maanden met wekelijkse sessies,
                         maar de echte vorm volgt uit het gesprek, niet uit een template.
                     </p>
                 </div>
@@ -60,7 +60,7 @@
                     [
                         'href'  => route('dansateliers.mariage'),
                         'title' => 'Mariage',
-                        'desc'  => 'Een participatieve voorstelling in zes edities — telkens met een lokale groep.',
+                        'desc'  => 'Een participatieve voorstelling in zes edities, telkens met een lokale groep.',
                     ],
                     [
                         'href'  => route('dansateliers.leon-op-school'),
@@ -113,7 +113,7 @@
             <ul class="mt-4 list-disc pl-5 space-y-2">
                 <li>één vast contactpersoon vanuit jullie kant</li>
                 <li>een groep die wekelijks samen kan zijn (cadens in overleg)</li>
-                <li>openheid om samen na te denken over financiering — meestal mengen
+                <li>openheid om samen na te denken over financiering, meestal mengen
                     we projectsubsidies, een schoolbudget of een GC-toelage</li>
             </ul>
             <p class="mt-6">

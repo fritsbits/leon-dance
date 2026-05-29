@@ -17,7 +17,7 @@ class EventEditionTest extends TestCase
     {
         $project = Project::create(['slug' => 'mariage', 'name' => 'Mariage']);
         $edition = Edition::create([
-            'project_id' => $project->id, 'project_slug' => 'mariage', 'slug' => 'brussel-2099',
+            'project_id' => $project->id, 'slug' => 'brussel-2099',
             'stad' => 'Brussel', 'jaar' => 2099, 'starts_at' => now(), 'ends_at' => now()->addMonth(),
         ]);
         $event = Event::create([

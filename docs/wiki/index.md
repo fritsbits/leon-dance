@@ -38,6 +38,7 @@ Updated on every ingest and lint.
 | [P-16 Team](design/42-briefs/16-team.md) | Wie-is-wie: kerngroep × 4, geassocieerd pool, bestuur; text-only, no portraits in v1. | Skeleton brief | Design |
 | [P-17 Historiek](design/42-briefs/17-historiek.md) | Lineage + tijdlijn + erkenning; closes Dn-16 (Pers Won't-Have); no CTA, read-only narrative. | Skeleton brief | Design |
 | [P-18 Contact](design/42-briefs/18-contact.md) | Plain contact page: 4 routing rows + OSM map placeholder; no form (Dn-03 GDPR). | Skeleton brief | Design |
+| [P-19 Atelier Leon — losse atelierpagina](design/42-briefs/19-atelier-detail.md) | Child-detail of P-03 per open-atelier instance (venue-slug URL): logistiek + Leaflet kaart + eerstvolgende-hier + plek-specifieke eerste-keer; linked from P-03 §4 + agenda rows. | Skeleton brief | Design |
 | [Glossary — Leon terminology](glossary.md) | One shared vocabulary (v3) for code, admin and site; forbidden terms listed per persona. | Reference | Cross-cutting |
 | [Identity — Tone of Voice](identity/10-tone-of-voice.md) | Voice reference for every NL webcopy string; register-dial + 9-point checklist. | Identity | Cross-cutting |
 | [Discovery — Client Kickoff (2026-05-19)](discovery/12-client-kickoff-2026-05-19.md) | Verbatim notes from the Strategy kickoff session; primary source for client intent. | Client input | Discovery (ref) |
