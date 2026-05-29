@@ -20,7 +20,8 @@ Updated on every ingest and lint.
 | [Skeleton — leon.dance redesign](design/40-skeleton.md) | Garrett Plane 4: page registry (pipeline status for 18 NL v1 pages) + patterns library scaffold. | Skeleton | Design |
 | [Shared patterns library](design/41-patterns.md) | Full specs for 13 shared patterns (SP-01–SP-16); sibling to 40-skeleton; index lives there. | Patterns | Design |
 | [Visual Inspiration — UI references](design/50-visual-inspiration.md) | 18-reference static library + kinetic references; north-stars, cross-cutting themes, anti-patterns. | References | Design |
-| [Image Map — Asset Catalogue (Phase 1)](design/90-image-map.md) | 74 catalogued current-site images; gaps + ask-the-client list; Phase-2 slot-map deferred to Skeleton. | Assets | Design |
+| [Image Map — Asset Catalogue (Phase 1)](design/90-image-map.md) | 74 catalogued current-site images; gaps + ask-the-client list; Phase-2 slot-map done (see 91). | Assets | Design |
+| [Image Map — Slot Map onto the New Site (Phase 2)](design/91-image-map-new-site.md) | Per-page slot map: assets wired into views + public/img; ✅/⚠️/❌ per slot + prioritised gap list. | Assets | Design |
 | [P-01 Home](design/42-briefs/01-home.md) | Home page brief: 6 sections, 7 patterns invoked, full-page wireframe + per-section specs. | Skeleton brief | Design |
 | [P-02 Dansateliers & performances](design/42-briefs/02-dansateliers-performances.md) | Lean utility index: SP-04 variant C + 4 SP-05 cards + agenda hook; no new patterns spawned. | Skeleton brief | Design |
 | [P-03 Atelier Leon](design/42-briefs/03-atelier-leon.md) | Drop-in page: P1 can read in 30s; live SP-07 next-8 ateliers from Event model; no CTA buttons. | Skeleton brief | Design |

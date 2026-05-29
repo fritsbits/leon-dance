@@ -2,6 +2,100 @@
 
 Append-only. `grep "^## \[" docs/wiki/log.md` for the timeline.
 
+## [2026-05-29] build | P-19 Back 🟢→🟠 + "Schoenen mogen uit" van P-03 geschrapt
+
+Back teruggezet naar 🟠 (bezig): het lees-pad is live + test-covered, maar de admin
+(`AtelierResource`/`VenueResource`) is gebouwd, niet uitgebouwd/getest tot sign-off — dus
+het data-pad is niet "verified live" per de honesty-gate. Registry-rij + roll-up Back-regel
+bijgewerkt. Los hiervan: "Schoenen mogen uit" ook van P-03 (atelier-leon §4) verwijderd
+(niet geverifieerd; foto's tonen dansers mét schoenen).
+
+## [2026-05-29] build | P-19 "De eerste keer hier"-beeld vervangen (scrutiny → collectief)
+
+Het `seppe-circle`-beeld (iemand in het midden, groep kijkt toe) ondermijnde de geruststelling
+van de sectie. Vervangen door `atelier-leon-pink-trousers-joy` (iedereen danst vrij door elkaar,
+gemengde leeftijden, niemand in het midden). `studio-intergen-walk` (binnen, alle leeftijden)
+paste qua boodschap ook, maar is al P-03's hero — vermeden om herhaling.
+
+## [2026-05-29] build | P-19 /critique — witgaten + breedte-inconsistentie weg
+
+Gemeten (Playwright): §"Waar en wanneer" linkerkolom 226px vs rechter 651px (witgat ~425px);
+§"De eerste keer" op 80rem terwijl de andere 2-koloms sectie op 56rem zat (springende
+rechterrand). Opgelost: (1) **álle secties cappen op `--max-content` 56rem** → beide 2-koloms
+secties even breed op elke breakpoint; (2) buitenkant-foto van rechterkolom naar **linkerkolom
+bij het adres**, kaart vult de rechterkolom (`items-stretch`) → kolommen even hoog (1440:
+570/570 en 500/500); (3) §4-beeld `md:h-full` zodat het de tekstkolom volgt. Sub-zin "De dates
+van deze {dag}groep…" geschrapt (vertaalkost, redundant met kop). Detail-suite 7/7; desktop +
+mobiel geverifieerd.
+
+## [2026-05-29] build | P-19 /arrange — venue-foto van hero → klein bij de kaart
+
+De buitenkant-foto is functioneel (herkenning), geen sfeerbeeld. Verplaatst van full-width
+banner bovenaan naar een **kleine 4/3-foto bóven de kaart** in de rechter "wayfinding"-kolom
+van "Waar en wanneer" (foto + kaart samen = wat het is + waar het is); sectie-grid op
+`items-start`. Enig sfeerbeeld blijft het dansbeeld in "De eerste keer hier". Ook "Schoenen
+mogen uit" geschrapt (niet geverifieerd; foto toont dansers mét schoenen — staat nog op P-03).
+Detail-suite 7/7 groen; desktop+mobiel geverifieerd.
+
+## [2026-05-29] build | P-19 /critique — dates-duplicatie weg + venue-banner + Pianofabriek-foto
+
+/critique-sessie: de "eerstvolgende keer"-datum stond dubbel (§3 promo-regel + §4-lijst). §3
+toont nu enkel de wekelijkse cadans; §4 "Eerstvolgende keren hier" is de enige thuis voor
+concrete dates. §2 buitenkant-foto omgezet van SP-13 (natuurlijke hoogte) naar een
+vaste-verhouding **banner** (16/9→21/9, `object-cover`) zodat staande uploads niet
+ontsporen. Pianofabriek-foto geplaatst (Wikimedia CC BY-SA, staand → banner-crop). Detail-
+suite 7/7 groen; render desktop+mobiel geverifieerd.
+
+## [2026-05-29] build | P-19 content-model gestroomlijnd + Filament-beheer (lead, venue-foto)
+
+Pragmatische review van de dynamische content op de atelierpagina, met het oog op **× 3
+talen**: beslist dat de pagina **geen per-instance prose** draagt. Doorgevoerd: vrije-tekst
+"hoe geraak je er" geschrapt → **OSM-route-deeplink** (taalneutraal); begeleider-blok
+conditioneel (verdwijnt als `lead` leeg, geen placeholder meer); §2 wordt een
+**buitenkant-foto per venue** (`venue.photo`, niet per atelier-slug). Nieuwe velden:
+`venues.photo` + `photo_credit` (migratie, publieke disk + `storage:link`). **Filament**:
+`AtelierResource` (begeleider/slug/dag-uur/actief) + `VenueResource` (adres/coördinaten/
+**foto-upload**) toegevoegd (v4 schema-split). `Atelier::getRouteKeyName` teruggedraaid →
+publieke route bindt expliciet `{atelier:slug}` zodat Filament's record-binding (id) blijft
+werken, ook voor de school-atelier zonder slug. Foto-zoektocht: Pianofabriek-kandidaat op
+Wikimedia Commons (CC BY-SA 4.0, © Adacoco 2021); Maison des Cultures geen vrije foto
+(heritage = © Gewest) → team-eigen foto aanbevolen; geen binaries gecommit (admin-upload).
+Tests: `AdminResourcesSmokeTest` (2, Livewire form-build asserts lead+photo) + detail-suite
+groen; volledige suite 82/83 (1 pre-existing EditionModelTest). Registry P-19 Conf 2→3,
+Assets 🔴→🟠; brief content-model-sectie toegevoegd.
+
+## [2026-05-29] design | Image-map Phase 2 — assets mapped to slots and wired into content pages
+
+- Ran Phase 2 of the image-mapping playbook: mapped catalogued assets to per-page image
+  slots and wired them into the views + `public/img/`. New slot map at
+  [91-image-map-new-site.md](design/91-image-map-new-site.md); [90-image-map.md](design/90-image-map.md)
+  Phase-2 status flipped deferred → done.
+- ✅ wired: home §2 hero, dansateliers hub (hero + 2 section beelden + 3 cards), atelier-leon,
+  leon-op-school, opzetten (2 cards), impact §6, plus the 3 shared `SiteSections::work()`
+  cards (Atelier Leon, Leon op school, Mariage). Credits recorded; project-card/placeholder-div
+  slots expose no credit field, so credits only render on photo-blocks.
+- ⚠️ candidates needing a Surface decision: Mariage §2 (live Vimeo trailer vs. an SP-13 still)
+  and historiek §6 (Mariage frame as lineage anchor; no Atelier Quartier 2017 / Birds frame exists).
+- ❌ honest gaps (top priority): per-editie Mariage hero photography (one frame per city/year),
+  the mobiele dansstudio as a movable space (hub card + page + shared card), per-venue place-photos
+  for atelier-detail, and team portraits (BG-3 keeps v1 text-only). Library is action, not place.
+
+## [2026-05-29] build | P-19 Atelier Leon — losse atelierpagina gebouwd (Wire 🔴→🟠, Back 🔴→🟢)
+
+Page built end-to-end: `slug` op `Atelier` (migration + factory + seeder), nested route
+`dansateliers.atelier-leon.detail` (open+actief only; school/inactief/onbekend → 404, bound
+by slug), view `dansateliers/atelier-detail.blade.php` met echte NL-copy (header + praktisch
++ OSM-kaart + eerstvolgende-hier + eerste-keer), nieuwe **SP-17 Map block**
+(`partials/map.blade.php`, Leaflet/OSM, grayscale, no-JS deep-link). Venue lat/lng geseed
+(approximatief, team bevestigt). **Inbound links** live: P-03 §4 "Waar en wanneer"-blokken
+linken nu door ("Bekijk deze plek →") en agenda open-atelier-rijen wijzen op de detailpagina.
+Een agent draaide een /critique-sessie → §4 ontdaan van redundante venue/titel per rij,
+eerstvolgende-datum naar boven, §5 aankomst-specifiek gemaakt (vult P-03 aan i.p.v. herhaalt).
+Tests: nieuwe `AtelierDetailPageTest` (6, groen) + `BuildStatusTest` 18→19 bijgesteld; suite
+79/80 groen (1 pre-existing EditionModelTest-failure, los hiervan). Render desktop+mobiel
+visueel geverifieerd; Wire blijft 🟠 (Frederik-critique earns 🟢). Registry + roll-up + SP-17
+bijgewerkt.
+
 ## [2026-05-29] design | P-19 Atelier Leon — losse atelierpagina (new page-type, UX speedrun)
 
 Live UX-planning speedrun w/ Frederik. New child-detail page-type under P-03: **one page

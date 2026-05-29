@@ -19,11 +19,6 @@ class Atelier extends Model
         'name', 'lead', 'is_active', 'sort',
     ];
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     protected $casts = [
         'type' => AtelierType::class,
         'day_of_week' => 'integer',

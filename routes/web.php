@@ -32,8 +32,8 @@ Route::prefix('dansateliers-performances')->name('dansateliers.')->group(functio
     Route::view('/',                   'dansateliers.index')->name('index');
     Route::view('/atelier-leon',       'dansateliers.atelier-leon')->name('atelier-leon');
     // One page per open-atelier instance (slot+venue). Open + active only; school
-    // ateliers and inactive slots 404. Bound by slug (Atelier::getRouteKeyName).
-    Route::get('/atelier-leon/{atelier}', function (\App\Models\Atelier $atelier) {
+    // ateliers and inactive slots 404. Slug-bound here only (Filament keeps using the id).
+    Route::get('/atelier-leon/{atelier:slug}', function (\App\Models\Atelier $atelier) {
         abort_unless($atelier->type === \App\Enums\AtelierType::Open && $atelier->is_active, 404);
 
         return view('dansateliers.atelier-detail', ['atelier' => $atelier->load('venue')]);

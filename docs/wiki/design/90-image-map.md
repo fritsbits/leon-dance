@@ -11,7 +11,8 @@ updated: 2026-05-19
 Phase 1 of the [Image-mapping playbook](https://www.notion.so/frederik-vincx/Playbook-Image-mapping-341d3ecc475c81b49ea6e63cfba488fe)
 ("**catalogue what exists**"): every usable image in Leon's current visual footprint,
 quality-rated, deduplicated, renamed, and organised into `docs/raw/assets/`. Phase 2 (the
-per-slot map onto the new site) is **deferred** — see [Phase 2 status](#phase-2-status-deferred).
+per-slot map onto the new site) is done: see [Phase 2 status](#phase-2-status-done) and
+[91-image-map-new-site.md](91-image-map-new-site.md).
 
 **Source of the dump.** Leon has no separate photo folder; the source set is the
 **current-site mirror** (`docs/raw/current-site/images.json`),
@@ -167,14 +168,12 @@ team should be asked for:
   media-as-social-proof decision ([Dn-06](01-concerns.md)) assumes reuse rights that are
   not yet evidenced; ~10 external photographers are named in filenames only.
 
-## Phase 2 status (deferred)
+## Phase 2 status (done)
 
 Phase 2 of the playbook — assign each catalogued asset to a **per-page image slot** and
-produce the prioritised gap list — needs the slots to exist first. Those are defined by the
-**Skeleton plane (`40-skeleton.md`)**, which has **not started** (see the
-[Design Plan plane table](00-design-plan.md#plane-order--status)). Phase 2 lands as
-`design/91-image-map-new-site.md` once Skeleton briefs the slots; running it now would
-invent slots Garrett's order forbids assuming.
+produce the prioritised gap list — is **done**: the slot map lives at
+[91-image-map-new-site.md](91-image-map-new-site.md), and the assigned assets are wired into
+the page views and copied into `public/img/`.
 
 ## Cross-links
 

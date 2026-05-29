@@ -7,9 +7,16 @@
     $upcomingAteliers = \App\Models\Event::query()
         ->where('is_public', true)
         ->forAtelierType(AtelierType::Open)
+        ->with('atelier')
         ->upcoming()
         ->limit(8)
         ->get();
+
+    // Each row links to the specific atelier-instance page (falls back to the agenda
+    // if a slot has no slug yet).
+    $atelierHref = fn ($e) => $e->atelier?->slug
+        ? route('dansateliers.atelier-leon.detail', $e->atelier)
+        : route('agenda', ['practice' => 'atelier-leon']);
 
     \Carbon\Carbon::setLocale('nl');
 @endphp
@@ -28,14 +35,12 @@
         'lede'    => 'Wekelijks samen dansen in Brussel. Gratis, zonder inschrijving. Geen ervaring nodig. Kom gewoon langs.',
     ])
 
-    {{-- §2 Photo (SP-13) · No hero photo selected yet (brief gap #2); section collapses per spec.
-         When asset arrives:
-         @include('partials.photo-block', [
-             'src'    => asset('img/atelier-leon-pianofabriek.jpg'),
-             'alt'    => 'Atelier Leon in de Pianofabriek',
-             'credit' => '© Photographer · Atelier Leon, Pianofabriek, 2024',
-         ])
-    --}}
+    {{-- §2 Photo (SP-13) · Atelier Leon open atelier, studio. --}}
+    @include('partials.photo-block', [
+        'src'    => asset('img/leon-studio-intergen-walk-cruzz9220.webp'),
+        'alt'    => 'Deelnemers van verschillende leeftijden lopen samen door de studio tijdens een open atelier, een oudere man en kinderen bewegen mee.',
+        'credit' => '© Cruzz Taylor',
+    ])
 
     {{-- §3 Wat is een open atelier? (format-doc) --}}
     <section class="section border-t border-[var(--color-border)]">
@@ -81,13 +86,13 @@
 
             <p class="mt-8 max-w-[var(--max-content)]">
                 <span class="font-medium">Wat breng je mee?</span>
-                Kledij waarin je makkelijk beweegt en een fles water. Schoenen mogen uit.
+                Kledij waarin je makkelijk beweegt en een fles water.
             </p>
 
             <h3 class="mt-12 mb-4">Eerstvolgende</h3>
             @include('partials.agenda-list', [
                 'events'    => $upcomingAteliers,
-                'href'      => fn ($e) => route('agenda', ['practice' => 'atelier-leon']),
+                'href'      => $atelierHref,
                 'emptyText' => 'Geen aankomende open ateliers in de agenda.',
                 'linkLabel' => '→ Volledige agenda',
                 'linkHref'  => route('agenda', ['practice' => 'atelier-leon']),

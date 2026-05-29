@@ -164,6 +164,7 @@ success-native*, *error-network*, *error-spam* (no leak of detection reason).
 | SP-16 | **Open-call band** | P-01 (between §1+§2, no section slot) + P-05 (above §4) + work-grid chip P-01/P-02 | 🟠 first draft | conditional · self-removing · variants `home`/`project` · eyebrow `NIEUWE EDITIE` + CTA `Ontdek deze editie` + optional closing-date line · [spec](41-patterns.md#sp-16--open-call-band) |
 | SP-12 | **Quote / testimony block** | P-04 §5, P-05 §5, P-06 (Hadja), P-09 §6, P-14 §5, P-15 §3 | 🟠 first draft | [`partials/quote.blade.php`](../../../resources/views/partials/quote.blade.php) (NEW 2026-05-28) — variant A inline / B standalone / C pull-quote · no portrait by default |
 | SP-13 | **Photo block** | P-01 §2, many | 🟠 first draft | single editorial photo + credit · variants A full-width / B contained / C inline · missing-asset = collapse (Dn-20 guard) · [spec](41-patterns.md#sp-13--photo-block) |
+| SP-17 | **Map block** | P-19 §3 (P-18 §3 inline, niet-gemigreerd) | 🟠 first draft | [`partials/map.blade.php`](../../../resources/views/partials/map.blade.php) (NEW 2026-05-29) — live OSM via Leaflet (`resources/js/app.js`) · props lat/lng/label/zoom · grayscale `.map` · no-JS = OSM deep-link · OSM+Leaflet only (CLAUDE.md). P-18's inline map kan hierheen migreren bij 3e caller. |
 
 ## Page registry — single source of status truth
 
@@ -190,7 +191,7 @@ Type = section-budget tier (Utility / Marketing / Conversion).
 | P-16 | **Team** | `/over-leon/team` | Util 3–5 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` per-persoon context lines for kerngroep; `[content]` per-artiest role-tags for ~12 geassocieerd pool; `[asset]` team-portretten rights-cleared. Brief: [16-team](42-briefs/16-team.md) · **SP-NEW-1 Person card** (P-16-local) |
 | P-17 | **Historiek** | `/over-leon/historiek` | Mkt 5–7 | 🟢 | **3** | 🟠 | 🔴 | 🔴 | ❓ | 🔴 | `[content]` §5 juried-selection rijen (Sam/Kristin); `[content]` jaartallen verify (2010 UV start · Atelier Quartier datum · Birds tour-direction); `[asset]` §6 editorial photo. Brief: [17-historiek](42-briefs/17-historiek.md) |
 | P-18 | **Contact** | `/over-leon/contact` | Util 3–5 | 🟢 | **4** | 🟢 | ⚪ | 🔴 | 🟢 | 🔴 | `[client]` Sam confirms snapshot data (email · phone · 2 addresses · BTW); `[content]` "in voorbereiding" tag wording (shared with P-08). OSM coords fixed (Osseghemstraat 53, zoom 15, permanent label) + open-atelier list live from Event model. Brief: [18-contact](42-briefs/18-contact.md) |
-| P-19 | **Atelier Leon — losse atelierpagina** (detail, child of P-03) | `/dansateliers-performances/atelier-leon/{venue}` | Mkt 4–5 | 🟢 | **2** | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | `[code]` slug op `Atelier` + route/view nog te bouwen; `[content]` verschilt sfeer Pianofabriek-wo vs Maison-za genoeg voor aparte copy?; per-locatie "hoe geraak je er" + eerste-keer (team); `[data]` begeleider per atelier; `[asset]` één foto per zaal. Nieuw pattern: Leaflet-kaartblok (eerste kaart). Brief: [19-atelier-detail](42-briefs/19-atelier-detail.md) |
+| P-19 | **Atelier Leon — losse atelierpagina** (detail, child of P-03) | `/dansateliers-performances/atelier-leon/{atelier}` | Mkt 4–5 | 🟢 | **3** | 🟠 | 🟠 | 🔴 | 🟠 | 🔴 | `[back]` admin (`AtelierResource` lead/slug + `VenueResource` foto/coördinaten) gebouwd maar nog **niet uitgebouwd/getest tot sign-off** → Back 🟠; lees-pad ✓ (pagina leest Atelier/Venue/Event live, test-covered). `[asset]` buitenkant-foto per venue (admin-upload; Pianofabriek Wikimedia CC BY-SA, Maison team-eigen). `[data]` begeleider-naam (admin, optioneel) + venue lat/lng bevestigen. **Content-overhead beslist:** geen per-instance prose (gedeelde copy + taalneutrale data); route = OSM-deeplink; sfeer via foto. /critique+/arrange: foto klein bij adres, kaart stretcht, alle secties op 56rem, dates-sub geschrapt. Wire 🟠 awaits Frederik-critique. Brief: [19-atelier-detail](42-briefs/19-atelier-detail.md) |
 
 ### Roll-up
 
@@ -201,15 +202,19 @@ Type = section-budget tier (Utility / Marketing / Conversion).
   (data/CMS, with ⚪ n.v.t. / ❓ te-beslissen states).
 - **Pipeline state:** **UX 🟢** for 18/19 (briefings done; P-11 🔴 — Dn-19). **Wire-🟢 gate:**
   a page reaches **🟢 only after Frederik's own critique + refine pass** — Claude's render/tone
-  check takes a page to 🟠, not 🟢. Currently **🟢 P-18** only · **🟠** for 16 (of which
-  **P-01, P-02, P-05, P-08, P-13** have had a render + tone-sweep pass — em-dash / banned-word fixes,
-  mobile-CTA — and are queued for that critique) · **🔴 P-11** (Dn-19) **+ P-19** (new, not built).
-  **UI 🔴** everywhere (Surface not opened); **Assets 🔴** except **P-18 ⚪** (no assets needed)
-  and **P-05 🟠** (Vimeo trailer embedded in §2; hero + editie photos still pending).
-  **Back 🟠** where a backend runs (P-01/02/05/06/09/10/12/15), **🟢 P-18 + P-03** (open-atelier
-  lists live; P-03 §4 cadence + eerstvolgende from Atelier/Venue models), ❓ elsewhere. **OK 🔴** everywhere.
-- **Avg content-confidence:** **2.8 / 5** (median 3). **2 pages** at score
-  ≤ 2: **P-11 Doen** (1 — hard blocker) · **P-19 Atelier-detail** (2 — new, beeld-dependent + needs slug/route). **P-06 Mariage editie** raised **2 → 3** once the
+  check takes a page to 🟠, not 🟢. Currently **🟢 P-18** only · **🟠** for 17 (of which
+  **P-01, P-02, P-05, P-08, P-13, P-19** have had a render + tone-sweep pass — em-dash / banned-word fixes,
+  mobile-CTA — and are queued for that critique; P-19 also had an agent /critique pass) · **🔴 P-11** (Dn-19).
+  **UI 🔴** everywhere (Surface not opened); **Assets 🔴** except **P-18 ⚪** (no assets needed),
+  **P-05 🟠** (Vimeo trailer embedded in §2; hero + editie photos still pending) and **P-19 🟠**
+  (venue-foto upload-mechanisme live + één gedeeld beeld + kandidaat-foto; per-venue buitenkant nog te uploaden).
+  **Back 🟠** where a backend runs (P-01/02/05/06/09/10/12/15 **+ P-19** — P-19's read-path is
+  live & test-covered, maar de admin `AtelierResource`/`VenueResource` is gebouwd, niet
+  uitgebouwd/getest tot sign-off), **🟢 P-18 + P-03** (open-atelier lists live; P-03 §4 cadence
+  + eerstvolgende from Atelier/Venue models), ❓ elsewhere. **OK 🔴** everywhere.
+- **Avg content-confidence:** **2.9 / 5** (median 3). **1 page** at score
+  ≤ 2: **P-11 Doen** (1 — hard blocker). **P-19 Atelier-detail** raised **2 → 3** once the
+  content-model was resolved (no per-instance prose; data + shared copy + admin). **P-06 Mariage editie** raised **2 → 3** once the
   Editie model + seeded edities landed; editions are now the 6 real festival editions sourced
   from the current-site mirror (+ 1 invented future for sign-up testing), with per-editie
   prose/quotes still team-supplied (kept at 3). **P-18 Contact** highest at **4** (snapshot

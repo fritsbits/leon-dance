@@ -10,7 +10,7 @@ class Venue extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'area', 'address', 'lat', 'lng'];
+    protected $fillable = ['name', 'area', 'address', 'lat', 'lng', 'photo', 'photo_credit'];
 
     protected $casts = ['lat' => 'float', 'lng' => 'float'];
 

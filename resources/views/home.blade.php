@@ -58,14 +58,12 @@
     {{-- Open-call band (SP-16) · conditional — renders only when a call is open --}}
     @include('partials.open-call-band', ['editie' => $openCallEditie, 'variant' => 'home'])
 
-    {{-- §2 Photo (SP-13) · No hero photo selected yet (brief gap #2); section collapses per spec.
-         When asset arrives:
-         @include('partials.photo-block', [
-             'src' => asset('img/...'),
-             'alt' => '...',
-             'credit' => '© Photographer · Atelier Leon, Pianofabriek, 2024',
-         ])
-    --}}
+    {{-- §2 Photo (SP-13) · full-width hero frame --}}
+    @include('partials.photo-block', [
+        'src' => asset('img/car-free-street-intergen-play-ivanput.webp'),
+        'alt' => 'Brusselaars dansen samen in een autovrije straat, een man in een grijze hoodie gaat voorop, een kind in het rood danst mee.',
+        'credit' => '© Ivan Put',
+    ])
 
     {{-- §3 Het werk van Leon (SP-05 × 4 · shared with dansateliers/index via work-grid) --}}
     <section class="section border-t border-[var(--color-border)]">

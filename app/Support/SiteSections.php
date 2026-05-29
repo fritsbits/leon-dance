@@ -17,17 +17,23 @@ class SiteSections
                 'href'  => route('dansateliers.atelier-leon'),
                 'title' => 'Atelier Leon',
                 'desc'  => 'Open dansatelier op woensdagavond in de Pianofabriek en zaterdagmiddag in de Maison des Cultures. Gratis, geen inschrijving.',
+                'image' => asset('img/atelier-leon-pink-trousers-joy-dkeyzer1.webp'),
+                'imageAlt' => 'Man in roze broek danst tussen een groep buiten in het atelier.',
             ],
             [
                 'href'  => route('dansateliers.leon-op-school'),
                 'title' => 'Leon op school',
                 'desc'  => 'Een begeleid danstraject van zes maanden, samen met scholen, welzijnsorganisaties en zorgcentra.',
+                'image' => asset('img/leon-in-de-klas-hakimi-shirt-2023.webp'),
+                'imageAlt' => 'Kinderen en volwassenen dansen samen in een studio tijdens een schooltraject.',
             ],
             [
                 'key'   => 'mariage',
                 'href'  => route('dansateliers.mariage'),
                 'title' => 'Mariage',
                 'desc'  => 'Een participatieve voorstelling in zes edities, telkens met een vaste kerngroep en een lokale groep uit de stad.',
+                'image' => asset('img/mariage-procession-white-dancer-mvg3.webp'),
+                'imageAlt' => 'Stoet van Mariage op een plein, met een danser in het wit en vrouwen arm in arm.',
             ],
             [
                 'href'  => route('dansateliers.mobiele-dansstudio'),

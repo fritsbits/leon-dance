@@ -35,3 +35,12 @@ Homestead.yaml
 Thumbs.db
 
 *.swp
+
+# ---- Local runtime / data / AI tooling (never in the public repo) ----
+/database/*.sqlite
+/database/*.sqlite-journal
+/storage/
+/bootstrap/cache/
+.claude/
+.superpowers/
+.impeccable.md

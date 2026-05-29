@@ -58,14 +58,18 @@
             <ul class="grid md:grid-cols-2 gap-6">
                 @foreach ([
                     [
-                        'href'  => route('dansateliers.mariage'),
-                        'title' => 'Mariage',
-                        'desc'  => 'Een participatieve voorstelling in zes edities, telkens met een lokale groep.',
+                        'href'     => route('dansateliers.mariage'),
+                        'title'    => 'Mariage',
+                        'desc'     => 'Een participatieve voorstelling in zes edities, telkens met een lokale groep.',
+                        'image'    => asset('img/mariage-procession-white-dancer-mvg3.webp'),
+                        'imageAlt' => 'Mariage-processie op een plein: een danser in het wit, vrouwen arm in arm.',
                     ],
                     [
-                        'href'  => route('dansateliers.leon-op-school'),
-                        'title' => 'Leon op school',
-                        'desc'  => 'Een begeleid danstraject van zes maanden, in scholen, welzijnsorganisaties en zorgcentra.',
+                        'href'     => route('dansateliers.leon-op-school'),
+                        'title'    => 'Leon op school',
+                        'desc'     => 'Een begeleid danstraject van zes maanden, in scholen, welzijnsorganisaties en zorgcentra.',
+                        'image'    => asset('img/leon-in-de-klas-chair-balance-mvg1.webp'),
+                        'imageAlt' => 'Jongeren en een vrouw balanceren op stoelen in een studio, een man in oranje danst mee.',
                     ],
                 ] as $card)
                     <li>@include('partials.project-card', $card)</li>
